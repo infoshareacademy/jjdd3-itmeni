@@ -10,8 +10,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="jjdd3-itmeni" target="1.5" />
-      <module name="parawan" target="1.5" />
+      <module name="jjdd3-itmeni" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
