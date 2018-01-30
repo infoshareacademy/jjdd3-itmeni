@@ -4,11 +4,11 @@ public class App {
 
     public static void main (String[] arg){
 
-       Beach<Place> beach = new Beach<Place>();
-       beach.createPlaces();
+       Beach<Place> beachBrzezno = new Beach<Place>(20, 10);
+       beachBrzezno.createPlaces();
        Place temp;
-       for (int i =0; i < beach.size(); i++){
-          temp = (Place) beach.get(i);
+       for (int i =0; i < beachBrzezno.size(); i++){
+          temp = (Place) beachBrzezno.get(i);
           temp.showInfo();
        }
     }

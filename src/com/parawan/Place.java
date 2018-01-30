@@ -5,8 +5,8 @@ public class Place {
     /*
     indywidualne id oraz współrzędne
      */
-    int id, x, y;
-    Object status;
+    private int id, x, y;
+    private Object status;
 
     public Place(int id, int x, int y, Object status) {
         this.id = id;

@@ -4,21 +4,24 @@ import java.util.ArrayList;
 
 public class Beach<T> extends ArrayList {
 
-    public Beach() {
+    int maxWidth;
+    int maxHeight;
 
-
+    public Beach(int maxWidth, int maxHeight) {
+        this.maxWidth = maxWidth;
+        this.maxHeight = maxHeight;
     }
 
     public void createPlaces() {
         int x = 0;
         int y = 0;
-        for (int i = 0; i < 200; i++) {
+        for (int i = 0; i < (maxWidth*maxHeight); i++) {
 
-            Place place = new Place(i, x, y, PlaceStatus.FREE);
+            Place place = new Place((i+1), x, y, PlaceStatus.FREE);
             this.add(place);
             x++;
 
-            if (x >= 20) {
+            if (x >= maxWidth) {
                 x = 0;
                 y++;
             }
