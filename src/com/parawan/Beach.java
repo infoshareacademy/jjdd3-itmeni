@@ -2,7 +2,7 @@ package com.parawan;
 
 import java.util.ArrayList;
 
-public class Beach extends ArrayList {
+public class Beach<T> extends ArrayList {
 
     public Beach() {
 
