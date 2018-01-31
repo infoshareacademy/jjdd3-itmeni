@@ -2,7 +2,7 @@ package com.parawan;
 
 import java.util.ArrayList;
 
-public class Beach<T> extends ArrayList {
+public class Beach <T> extends ArrayList {
 
     int maxWidth;
     int maxHeight;
@@ -13,22 +13,18 @@ public class Beach<T> extends ArrayList {
     }
 
     public void createPlaces() {
-        int x = 0;
-        int y = 0;
+        int a = 0;
+        int b = 0;
         for (int i = 0; i < (maxWidth*maxHeight); i++) {
 
-            Place place = new Place((i+1), x, y, PlaceStatus.FREE);
+            Place place = new Place((i+1), a, b, PlaceStatus.FREE);
             this.add(place);
-            x++;
+            a++;
 
-            if (x >= maxWidth) {
-                x = 0;
-                y++;
+            if (a >= maxWidth) {
+                a = 0;
+                b++;
             }
-
         }
-
     }
-
-
 }

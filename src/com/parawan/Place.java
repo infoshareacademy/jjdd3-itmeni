@@ -14,22 +14,17 @@ public class Place {
         this.y = y;
         this.status = status;
     }
-
     public int getId() {
         return id;
     }
-
     public int getX() {
         return x;
     }
-
     public int getY() {
         return y;
     }
+    public Object getStatus() {return status;}
 
-    public Object getStatus() {
-        return status;
-    }
     public void showInfo(){
         System.out.println("Id miejsca: " + id + " || " + "" +
                 "X: " + x + " || " + "Y: " + y + " || " + "Status: " + status);
