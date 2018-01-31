@@ -13,28 +13,9 @@ public class App {
 //          temp = (Place) beachBrzezno.get(i);
 //          temp.showInfo();
 //       }
+        Visualisation visualisation = new Visualisation();
 
-        for (int i = 0; i < 5; i++) {
-            if (i == 0) {
-                System.out.print("   ");
-            }
-            System.out.print(i + "  ");
-        }
-        System.out.println();
 
-        for (int y = 0; y < 5; y++) {
-            System.out.print(y + "  ");
 
-            for (int x = 0; x < 5; x++) {
-                //
-                if (new Random().nextInt(1000) % 2 == 0) {
-                    System.out.print("#  ");
-                } else {
-                    System.out.print(".  ");
-                }
-                // (x, y) => dany? Data.getPlace(x, y)
-            }
-            System.out.println();
         }
     }
-}
