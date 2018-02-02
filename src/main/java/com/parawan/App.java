@@ -1,15 +1,15 @@
 package com.parawan;
 
+import com.sun.xml.internal.bind.v2.model.core.ID;
+
+import javax.xml.bind.JAXBException;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+
 public class App {
+    public static void main(String[] args) throws FileNotFoundException, JAXBException {
 
-    public static void main (String[] arg){
-
-       Beach<Place> beachBrzezno = new Beach<Place>(20, 10);
-       beachBrzezno.createPlaces();
-       Place temp;
-       for (int i =0; i < beachBrzezno.size(); i++){
-          temp = (Place) beachBrzezno.get(i);
-          temp.showInfo();
-       }
+        JavaToXML myXML = new JavaToXML();
+        myXML.javaToXML();
     }
 }
