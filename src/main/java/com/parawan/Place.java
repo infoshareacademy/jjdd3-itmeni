@@ -4,6 +4,8 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
+import java.util.HashMap;
+import java.util.Map;
 
 @XmlType
 @XmlAccessorType(XmlAccessType.FIELD)
@@ -19,6 +21,8 @@ public class Place {
 
     @XmlElement(required = true)
     private PlaceStatus status;
+
+    private Map<ItemType, Integer> rentedItems = new HashMap<ItemType, Integer>();
 
     public Place() {
     }
@@ -44,7 +48,11 @@ public class Place {
         return y;
     }
 
-    public Object getStatus() {
+    public void putItems(ItemType o , Integer h){
+        rentedItems.put(o, h);
+    }
+
+    public PlaceStatus getStatus() {
         return status;
     }
     public void showInfo(){
@@ -64,6 +72,14 @@ public class Place {
 
     public void setX(int x) {
         this.x = x;
+    }
+
+    public Map<ItemType, Integer> getRentedItems() {
+        return rentedItems;
+    }
+
+    public void setRentedItems(Map<ItemType, Integer> rentedItems) {
+        this.rentedItems = rentedItems;
     }
 
     public void setY(int y) {

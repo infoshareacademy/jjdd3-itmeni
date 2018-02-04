@@ -32,6 +32,17 @@ public class Beach  {
                 y++;
             }
        }
+
+    }
+
+    public Place getPlaceByXY(int x, int y){
+        Place place = new Place();
+        for (int i =0; i < places.size(); i++){
+            if(places.get(i).getX() == x && places.get(i).getY() == y){
+                place = places.get(i);
+            }
+        }
+        return place;
     }
 }
 
