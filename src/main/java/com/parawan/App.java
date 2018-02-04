@@ -5,10 +5,11 @@ import com.sun.xml.internal.bind.v2.model.core.ID;
 import javax.xml.bind.JAXBException;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
-import java.util.InputMismatchException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Scanner;
 
-import static java.lang.Thread.sleep;
 
 
 public class App {
@@ -17,6 +18,9 @@ public class App {
         JavaToXML myXML = new JavaToXML();
         myXML.javaToXML();
 //odtąd ja wstawiam
+
+        DateFormat dateFormat=new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+        Date date = new Date();
 
         Beach sunnyBeach =new Beach(20, 10);
         sunnyBeach.createPlaces();
@@ -28,9 +32,9 @@ public class App {
 
         while (flag) {
 
-            System.out.println("\nPrivate beach management system - PARAWAN.              ver1.0");
-            System.out.println("Please specify Your action.\n");
-            System.out.println("Would You like to: [r]eserve place, [c]ancel reservation, [s]ee current beach preview, \nc[h]eck storehouse status, [q]uit program");
+            System.out.println("\nPrivate beach management system - PARAWAN. ||     date/hour: "+ dateFormat.format(date));
+            System.out.println("Please specify Your action.                ||               ver 1.0 ");
+            System.out.println("\nWould You like to: [r]eserve place, [c]ancel reservation, [s]ee current beach preview, \nc[h]eck storehouse status, [q]uit program");
 
             String answer = scanner.nextLine();
 
