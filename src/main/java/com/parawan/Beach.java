@@ -14,6 +14,14 @@ public class Beach  {
         this.maxHeight = maxHeight;
     }
 
+    public int getMaxWidth() {
+        return maxWidth;
+    }
+
+    public int getMaxHeight() {
+        return maxHeight;
+    }
+
     public List<Place> getPlaces() {
         return places;
     }
@@ -38,7 +46,7 @@ public class Beach  {
     public Place getPlaceByXY(int x, int y){
         Place place = new Place();
         for (int i =0; i < places.size(); i++){
-            if(places.get(i).getX() == x && places.get(i).getY() == y){
+            if((places.get(i).getX() == x) && (places.get(i).getY() == y)){
                 place = places.get(i);
             }
         }

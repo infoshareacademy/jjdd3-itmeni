@@ -24,16 +24,25 @@ public class Place {
 
     private Map<ItemType, Integer> rentedItems = new HashMap<ItemType, Integer>();
 
+    private boolean meetsSearchCriteria = false;
+
     public Place() {
     }
 
     public Place(int id, int x, int y, PlaceStatus status) {
 
-
         this.id = id;
         this.x = x;
         this.y = y;
         this.status = status;
+    }
+
+    public boolean isMeetSearchCriteria() {
+        return meetsSearchCriteria;
+    }
+
+    public void setMeetsSearchCriteria(boolean meetsSearchCriteria) {
+        this.meetsSearchCriteria = meetsSearchCriteria;
     }
 
     public int getId() {
@@ -48,20 +57,21 @@ public class Place {
         return y;
     }
 
-    public void putItems(ItemType o , Integer h){
+    public void putItems(ItemType o, Integer h) {
         rentedItems.put(o, h);
     }
 
     public PlaceStatus getStatus() {
         return status;
     }
-    public void showInfo(){
+
+    public void showInfo() {
         System.out.println("Id miejsca: " + id + " || " + "" +
                 "X: " + x + " || " + "Y: " + y + " || " + "Status: " + status);
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         return "Id miejsca: " + id + " || " + "" +
                 "X: " + x + " || " + "Y: " + y + " || " + "Status: " + status;
     }
