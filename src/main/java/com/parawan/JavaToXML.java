@@ -37,7 +37,5 @@ public class JavaToXML {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-
     }
 }

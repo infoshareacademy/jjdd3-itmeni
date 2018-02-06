@@ -7,7 +7,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlEnum
 public enum PlaceStatus {
     FREE,
-    OCCUPIED,
+    OCCUPIED, // field will be used when the booking system will annotate the hours
     RESERVED,
     DIRTY
 }
