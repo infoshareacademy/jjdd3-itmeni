@@ -11,17 +11,17 @@ public class Visualisation {
     private long kolumna;
 
     public void showVisualisation(Beach beach) {
-        for (int i = 0; i < 20 ; i++) {
+        for (int i = 0; i < beach.maxWidth ; i++) {
             if (i == 0) {
                 System.out.print("   ");
             }
             System.out.print(i+1 + "  ");
         }
         System.out.println();
-        for (int y = 0; y < 10; y++) {
+        for (int y = 0; y < beach.maxHeight; y++) {
             System.out.print(y + 1 + "  ");
-            for (int x = 0; x < 18; x++) {
-                if (new Random().nextInt(1000) % 2 == 0) {
+            for (int x = 0; x < beach.maxWidth; x++) {
+                if (beach.getPlaces().get(y).getStatus() == PlaceStatus.RESERVED) {
                     System.out.print("#   ");
                 } else {
                     System.out.print(".   ");
