@@ -1,32 +1,33 @@
 package com.parawan;
 
+import java.util.Scanner;
+
 public class Place {
 
-    /*
-    indywidualne id oraz współrzędne
-     */
-    private int id, x, y;
-    private Object status;
+    private String positionX;
+    private long positionY;
+    private PlaceStatus status;
 
-    public Place(int id, int x, int y, Object status) {
-        this.id = id;
-        this.x = x;
-        this.y = y;
+    public Place(String positionX, long positionY, PlaceStatus status) {
+        this.positionX = positionX;
+        this.positionY = positionY;
         this.status = status;
     }
-    public int getId() {
-        return id;
+    public String getPositionX() {
+        return positionX;
     }
-    public int getX() {
-        return x;
+    public long getPositionY() {
+        return positionY;
     }
-    public int getY() {
-        return y;
+    public PlaceStatus getStatus() {
+        return status;
     }
-    public Object getStatus() {return status;}
+    public void setStatus(PlaceStatus status) {
+        this.status = status;
+    }
 
-    public void showInfo(){
-        System.out.println("Id miejsca: " + id + " || " + "" +
-                "X: " + x + " || " + "Y: " + y + " || " + "Status: " + status);
+    @Override
+    public String toString() {
+     return status.toString();
     }
 }
