@@ -14,8 +14,11 @@ import java.util.Scanner;
 public class App {
     public static void main(String[] args) throws FileNotFoundException, JAXBException {
 
-        JavaToXML myXML = new JavaToXML();
-        myXML.javaToXML();
+        JavaToXML myXMLWriter = new JavaToXML();
+        myXMLWriter.javaToXML();
+
+        XMLToJava myXMLReader = new XMLToJava();
+        myXMLReader.xmlToJava();
 
 
         DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
@@ -70,8 +73,6 @@ public class App {
             } else if (answer.equals("q")) {
                 flag = false;
             }
-
-
         }
     }
 }

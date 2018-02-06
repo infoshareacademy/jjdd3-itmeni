@@ -10,10 +10,6 @@ import javax.xml.bind.annotation.XmlType;
 
 public class Place {
 
-    /*
-    indywidualne id oraz współrzędne
-     */
-
     @XmlElement(required = true)
     private int id, x, y;
 
@@ -24,7 +20,6 @@ public class Place {
     }
 
     public Place(int id, int x, int y, PlaceStatus status) {
-
 
         this.id = id;
         this.x = x;
