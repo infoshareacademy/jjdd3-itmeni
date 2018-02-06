@@ -1,10 +1,7 @@
 package com.parawan;
 
-import com.sun.xml.internal.bind.v2.model.core.ID;
-
 import javax.xml.bind.JAXBException;
 import java.io.FileNotFoundException;
-import java.io.PrintWriter;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -13,19 +10,21 @@ import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) throws FileNotFoundException, JAXBException {
-
-        JavaToXML myXMLWriter = new JavaToXML();
-        myXMLWriter.javaToXML();
-
-        XMLToJava myXMLReader = new XMLToJava();
-        myXMLReader.xmlToJava();
-
-
         DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
         Date date = new Date();
 
+        JavaToXML myXMLWriter = new JavaToXML();
+
+        XMLToJava myXMLReader = new XMLToJava();
+        Places places = myXMLReader.xmlToJava();
+
+
         Beach sunnyBeach = new Beach(20, 10);
-        sunnyBeach.createPlaces();
+        if (places.isEmpty()) {
+            sunnyBeach.createPlaces();
+        } else {
+            sunnyBeach.setPlaces(places);
+        }
 
 
         Scanner scanner = new Scanner(System.in);
@@ -72,6 +71,7 @@ public class App {
                     System.out.println(sunnyBeach.places.get(i));
             } else if (answer.equals("q")) {
                 flag = false;
+                myXMLWriter.savePlacesToXML(sunnyBeach.places);
             }
         }
     }

@@ -11,23 +11,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class JavaToXML {
-    public void javaToXML() throws JAXBException {
+    public static final String DATA_FILE_NAME = "moj_output.xml";
+
+    public void savePlacesToXML(Places places) throws JAXBException {
         JAXBContext context = JAXBContext.newInstance(PlacesWrapper.class, Places.class, Place.class, PlaceStatus.class);
 
         Marshaller m = context.createMarshaller();
         m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
 
-        Places places = new Places();
 
-        for (int i = 1; i <= 20; i++) {
-            for (int j = 1 ; j <= 10 ; j++) {
-                places.add(new Place((i - 1)*10 + j, i-1, j-1, PlaceStatus.FREE));
-            }
-        }
-
-        FileOutputStream fileOutputStream = null;
         try {
-            fileOutputStream = new FileOutputStream("./moj_output.xml");
+            FileOutputStream fileOutputStream = new FileOutputStream(DATA_FILE_NAME);
             PlacesWrapper placesWrapper = new PlacesWrapper();
             placesWrapper.setPlaces(places);
             m.marshal(placesWrapper, fileOutputStream);
@@ -38,4 +32,17 @@ public class JavaToXML {
             e.printStackTrace();
         }
     }
+
+
+    public Places createEmptyPlaces() {
+        Places places = new Places();
+
+        for (int i = 1; i <= 20; i++) {
+            for (int j = 1; j <= 10; j++) {
+                places.add(new Place((i - 1) * 10 + j, i - 1, j - 1, PlaceStatus.FREE));
+            }
+        }
+        return places;
+    }
+
 }

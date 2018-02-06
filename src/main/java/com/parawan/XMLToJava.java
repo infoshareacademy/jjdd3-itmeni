@@ -2,27 +2,39 @@ package com.parawan;
 
 import java.io.File;
 
-import javax.xml.bind.JAXBContext;
-import javax.xml.bind.JAXBException;
-import javax.xml.bind.Unmarshaller;
+import javax.xml.bind.*;
 
 public class XMLToJava {
 
-    public void xmlToJava() {
+    public Places xmlToJava() {
+        Places placesFromFile = null;
         try {
             JAXBContext jc = JAXBContext.newInstance(PlacesWrapper.class, Places.class, Place.class, PlaceStatus.class);
             Unmarshaller u = jc.createUnmarshaller();
 
-            File f = new File("./booking.xml");
-            Place product = new Place();
-            product = (Place) u.unmarshal(f);
+            u.setEventHandler(
+                    new ValidationEventHandler() {
+                        public boolean handleEvent(ValidationEvent event ) {
+                            throw new RuntimeException(event.getMessage(),
+                                    event.getLinkedException());
+                        }
+                    });
 
-            System.out.println(product.getId());
-            System.out.println(product.getX());
-            System.out.println(product.getY());
-            System.out.println(product.getStatus());
+            File f = new File(JavaToXML.DATA_FILE_NAME);
+            System.out.println(f.getAbsolutePath());
+            placesFromFile = (Places) u.unmarshal(f);
+
+            for(Place onePlace : placesFromFile) {
+                System.out.println(onePlace.getId());
+                System.out.println(onePlace.getX());
+                System.out.println(onePlace.getY());
+                System.out.println(onePlace.getStatus());
+            }
+
         } catch (JAXBException e) {
             e.printStackTrace();
         }
+
+        return placesFromFile;
     }
 }
