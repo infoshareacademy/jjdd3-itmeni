@@ -13,7 +13,6 @@ public class App {
         DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
         Date date = new Date();
 
-
         Beach sunnyBeach = new Beach(20, 10);
         sunnyBeach.createPlaces();
 
@@ -25,7 +24,6 @@ public class App {
 
         Scanner scanner = new Scanner(System.in);
         boolean flag = true;
-
 
         while (flag) {
 

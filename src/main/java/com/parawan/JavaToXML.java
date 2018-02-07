@@ -19,7 +19,6 @@ public class JavaToXML {
         Marshaller m = context.createMarshaller();
         m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
 
-
         try {
             FileOutputStream fileOutputStream = new FileOutputStream(DATA_FILE_NAME);
             PlacesWrapper placesWrapper = new PlacesWrapper();
@@ -32,6 +31,4 @@ public class JavaToXML {
             e.printStackTrace();
         }
     }
-
-
 }

@@ -24,10 +24,8 @@ public class XMLToJava {
 
             File f = new File(JavaToXML.DATA_FILE_NAME);
 
-
             placesWrapper = (PlacesWrapper) u.unmarshal(f);
             placesFromFile = placesWrapper.getPlaces();
-
 
         } catch (JAXBException e) {
             e.printStackTrace();
