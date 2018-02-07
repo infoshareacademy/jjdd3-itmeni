@@ -13,11 +13,10 @@ public class XMLToJava {
             JAXBContext jc = JAXBContext.newInstance(PlacesWrapper.class, Places.class, Place.class, PlaceStatus.class);
             Unmarshaller u = jc.createUnmarshaller();
 
-           u.setEventHandler(
+            u.setEventHandler(
                     new ValidationEventHandler() {
-                        public boolean handleEvent(ValidationEvent event ) {
+                        public boolean handleEvent(ValidationEvent event) {
                             System.out.println(event.getMessage());
-                            //event.getLinkedException().printStackTrace();
                             return true;
                         }
                     });

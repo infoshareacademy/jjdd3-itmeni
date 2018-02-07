@@ -66,6 +66,7 @@ public class App {
             } else if (answer.equals("q")) {
                 flag = false;
                 myXMLWriter.savePlacesToXML(sunnyBeach.places);
+                System.out.println("Thank you for using PARAWAN - your private beach management system");
             }
         }
     }

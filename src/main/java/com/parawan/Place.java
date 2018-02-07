@@ -4,6 +4,8 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
+import java.util.HashMap;
+import java.util.Map;
 
 @XmlType
 @XmlAccessorType(XmlAccessType.FIELD)
@@ -16,6 +18,10 @@ public class Place {
     @XmlElement(required = true)
     private PlaceStatus status;
 
+    private Map<ItemType, Integer> rentedItems = new HashMap<ItemType, Integer>();
+
+    private boolean meetsSearchCriteria = false;
+
     public Place() {
     }
 
@@ -25,6 +31,14 @@ public class Place {
         this.x = x;
         this.y = y;
         this.status = status;
+    }
+
+    public boolean isMeetSearchCriteria() {
+        return meetsSearchCriteria;
+    }
+
+    public void setMeetsSearchCriteria(boolean meetsSearchCriteria) {
+        this.meetsSearchCriteria = meetsSearchCriteria;
     }
 
     public int getId() {
@@ -39,16 +53,16 @@ public class Place {
         return y;
     }
 
-    public Object getStatus() {
-        return status;
+    public void putItems(ItemType o, Integer h) {
+        rentedItems.put(o, h);
     }
-    public void showInfo(){
-        System.out.println("Id miejsca: " + id + " || " + "" +
-                "X: " + x + " || " + "Y: " + y + " || " + "Status: " + status);
+
+    public PlaceStatus getStatus() {
+        return status;
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         return "Id miejsca: " + id + " || " + "" +
                 "X: " + x + " || " + "Y: " + y + " || " + "Status: " + status;
     }
@@ -59,6 +73,14 @@ public class Place {
 
     public void setX(int x) {
         this.x = x;
+    }
+
+    public Map<ItemType, Integer> getRentedItems() {
+        return rentedItems;
+    }
+
+    public void setRentedItems(Map<ItemType, Integer> rentedItems) {
+        this.rentedItems = rentedItems;
     }
 
     public void setY(int y) {

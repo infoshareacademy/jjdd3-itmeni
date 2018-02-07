@@ -5,13 +5,21 @@ import java.util.List;
 
 public class Beach {
 
-    int maxWidth;
-    int maxHeight;
+    private int maxWidth;
+    private int maxHeight;
     Places places = new Places();
 
     public Beach(int maxWidth, int maxHeight) {
         this.maxWidth = maxWidth;
         this.maxHeight = maxHeight;
+    }
+
+    public int getMaxWidth() {
+        return maxWidth;
+    }
+
+    public int getMaxHeight() {
+        return maxHeight;
     }
 
     public List<Place> getPlaces() {
@@ -32,9 +40,22 @@ public class Beach {
                 y++;
             }
         }
+
     }
 
+    public Place getPlaceByXY(int x, int y) {
+        Place place = null;
+        for (int i = 0; i < places.size(); i++) {
+            if ((places.get(i).getX() == x) && (places.get(i).getY() == y)) {
+                place = places.get(i);
+            }
+        }
+        return place;
+    }
     public void setPlaces(Places places) {
         this.places = places;
     }
+
+
 }
+
