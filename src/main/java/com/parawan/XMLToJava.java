@@ -7,22 +7,27 @@ import javax.xml.bind.*;
 public class XMLToJava {
 
     public Places xmlToJava() {
+        PlacesWrapper placesWrapper;
         Places placesFromFile = null;
         try {
             JAXBContext jc = JAXBContext.newInstance(PlacesWrapper.class, Places.class, Place.class, PlaceStatus.class);
             Unmarshaller u = jc.createUnmarshaller();
 
-            u.setEventHandler(
+           u.setEventHandler(
                     new ValidationEventHandler() {
                         public boolean handleEvent(ValidationEvent event ) {
-                            throw new RuntimeException(event.getMessage(),
-                                    event.getLinkedException());
+                            System.out.println(event.getMessage());
+                            //event.getLinkedException().printStackTrace();
+                            return true;
                         }
                     });
 
             File f = new File(JavaToXML.DATA_FILE_NAME);
+
+
             System.out.println(f.getAbsolutePath());
-            placesFromFile = (Places) u.unmarshal(f);
+            placesWrapper = (PlacesWrapper) u.unmarshal(f);
+            placesFromFile = placesWrapper.getPlaces();
 
             for(Place onePlace : placesFromFile) {
                 System.out.println(onePlace.getId());

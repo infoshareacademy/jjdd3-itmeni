@@ -13,19 +13,15 @@ public class App {
         DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
         Date date = new Date();
 
+
+        Beach sunnyBeach = new Beach(20, 10);
+        sunnyBeach.createPlaces();
+
         JavaToXML myXMLWriter = new JavaToXML();
 
         XMLToJava myXMLReader = new XMLToJava();
         Places places = myXMLReader.xmlToJava();
-
-
-        Beach sunnyBeach = new Beach(20, 10);
-        if (places.isEmpty()) {
-            sunnyBeach.createPlaces();
-        } else {
-            sunnyBeach.setPlaces(places);
-        }
-
+        sunnyBeach.setPlaces(places);
 
         Scanner scanner = new Scanner(System.in);
         boolean flag = true;
