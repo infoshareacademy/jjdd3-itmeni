@@ -4,8 +4,8 @@ import java.util.Scanner;
 
 public class SearchMenu {
 
-    Place searchConditions = new Place();
-    String option = "";
+    private Place searchConditions = new Place();
+    private String option = "";
 
 
     Beach beach;

@@ -1,8 +1,8 @@
 package com.parawan;
 
 public enum ItemType {
-UMBRELLA,
-SUNBED,
+    UMBRELLA,
+    SUNBED,
     TOWEL,
-    SCREEN //also known as PARAWAN
+    SCREEN
 }

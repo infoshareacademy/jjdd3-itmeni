@@ -6,17 +6,13 @@ import java.util.Scanner;
 
 public class SearchEngine {
 
-    Place temporaryPlace = new Place();
-    String option = "";
-    List<Place> foundSearched = new ArrayList<>();
-    int x, y, maxX, maxY;
+    private Place temporaryPlace = new Place();
+    private String option = "";
+    private List<Place> foundSearched = new ArrayList<Place>();
+    private int x, y, maxX, maxY;
+    private Beach beach;
 
-    ShowMap showMap = new ShowMap();
-    Beach beach;
-    Scanner sc = new Scanner(System.in);
-
-
-    public void search(Beach beach) {
+    public Beach search(Beach beach) {
         this.beach = beach;
         temporaryPlace = new SearchEnginePlaceBuilder().getRequirements();
 
@@ -36,8 +32,7 @@ public class SearchEngine {
             }
 
         }
-
-        showMap.printMapAfterSearch(beach);
+        return beach;
     }
 
     public boolean checkNearby(Place temporaryPlace) {
@@ -54,30 +49,28 @@ public class SearchEngine {
         if ((!(y == 0)) && temporaryPlace.getStatus() == beach.getPlaceByXY(x, y - 1).getStatus()) {
             return false;
         }
-        if (((!(y == 0)&& (!(x == maxX )))) && temporaryPlace.getStatus() == beach.getPlaceByXY(x + 1, y - 1).getStatus()) {
+        if (((!(y == 0) && (!(x == maxX)))) && temporaryPlace.getStatus() == beach.getPlaceByXY(x + 1, y - 1).getStatus()) {
             return false;
         }
-        if ((!(x==0)) && temporaryPlace.getStatus() == beach.getPlaceByXY(x - 1, y).getStatus()) {
+        if ((!(x == 0)) && temporaryPlace.getStatus() == beach.getPlaceByXY(x - 1, y).getStatus()) {
             return false;
         }
         if (temporaryPlace.getStatus() == beach.getPlaceByXY(x, y).getStatus()) {
             return false;
         }
-        if ((!(x==maxX)) && temporaryPlace.getStatus() == beach.getPlaceByXY(x + 1, y).getStatus()) {
+        if ((!(x == maxX)) && temporaryPlace.getStatus() == beach.getPlaceByXY(x + 1, y).getStatus()) {
             return false;
         }
-
-        if ((!(x==0)) && (!(y == beach.getMaxWidth() )) && temporaryPlace.getStatus() == beach.getPlaceByXY(x - 1, y + 1).getStatus()) {
+        if ((!(x == 0)) && (!(y == beach.getMaxWidth())) && temporaryPlace.getStatus() == beach.getPlaceByXY(x - 1, y + 1).getStatus()) {
             return false;
         }
-        if ((!(y==maxY))&&temporaryPlace.getStatus() == beach.getPlaceByXY(x, y + 1).getStatus()) {
+        if ((!(y == maxY)) && temporaryPlace.getStatus() == beach.getPlaceByXY(x, y + 1).getStatus()) {
             return false;
         }
-        if (((!(y == maxY)&& (!(x == maxX )))) &&  temporaryPlace.getStatus() == beach.getPlaceByXY(x + 1, y + 1).getStatus()) {
+        if (((!(y == maxY) && (!(x == maxX)))) && temporaryPlace.getStatus() == beach.getPlaceByXY(x + 1, y + 1).getStatus()) {
             return false;
         }
         return true;
     }
-
 
 }

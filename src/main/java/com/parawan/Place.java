@@ -65,11 +65,6 @@ public class Place {
         return status;
     }
 
-    public void showInfo() {
-        System.out.println("Id miejsca: " + id + " || " + "" +
-                "X: " + x + " || " + "Y: " + y + " || " + "Status: " + status);
-    }
-
     @Override
     public String toString() {
         return "Id miejsca: " + id + " || " + "" +

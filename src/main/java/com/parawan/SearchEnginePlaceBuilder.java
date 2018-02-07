@@ -4,11 +4,11 @@ import java.util.Scanner;
 
 public class SearchEnginePlaceBuilder {
 
-    String option;
-    Scanner sc = new Scanner(System.in);
-    Place placeToAvoid = new Place();
+    private String option;
+    private Scanner sc = new Scanner(System.in);
+    private Place placeToAvoid = new Place();
 
-    public Place getRequirements(){
+    public Place getRequirements() {
         System.out.println("Do you want no neighbours?\nType Y:");
         option = sc.nextLine().toLowerCase();
         if (option.equals("y")) {
@@ -25,7 +25,7 @@ public class SearchEnginePlaceBuilder {
         System.out.println("Do you want no umbrellas nearby?\n" +
                 "Type Y/N");
         option = sc.nextLine().toLowerCase();
-        if (option.equals("y")){
+        if (option.equals("y")) {
             placeToAvoid.putItems(ItemType.UMBRELLA, 1);
         }
         return placeToAvoid;
