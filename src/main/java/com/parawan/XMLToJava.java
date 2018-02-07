@@ -25,16 +25,9 @@ public class XMLToJava {
             File f = new File(JavaToXML.DATA_FILE_NAME);
 
 
-            System.out.println(f.getAbsolutePath());
             placesWrapper = (PlacesWrapper) u.unmarshal(f);
             placesFromFile = placesWrapper.getPlaces();
 
-            for(Place onePlace : placesFromFile) {
-                System.out.println(onePlace.getId());
-                System.out.println(onePlace.getX());
-                System.out.println(onePlace.getY());
-                System.out.println(onePlace.getStatus());
-            }
 
         } catch (JAXBException e) {
             e.printStackTrace();
