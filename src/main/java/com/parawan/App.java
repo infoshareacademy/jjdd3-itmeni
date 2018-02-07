@@ -73,5 +73,7 @@ public class App {
 
 
         }
+        Reservations reservations =new Reservations();
+        reservations.makeReservations();
     }
 }
