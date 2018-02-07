@@ -1,10 +1,7 @@
 package com.parawan;
 
-import com.sun.xml.internal.bind.v2.model.core.ID;
-
 import javax.xml.bind.JAXBException;
 import java.io.FileNotFoundException;
-import java.io.PrintWriter;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;

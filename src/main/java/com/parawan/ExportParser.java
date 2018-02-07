@@ -2,6 +2,7 @@ package com.parawan;
 
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
+import java.util.Random;
 
 public class ExportParser {             // exports the current database to file
 
@@ -26,10 +27,9 @@ public class ExportParser {             // exports the current database to file
                 sb.append(place.getY() + ";");
                 sb.append(place.getStatus() + ";");
                 pw.println(sb);
-
-
             }
             pw.close();
         }
     }
+
 }
