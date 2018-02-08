@@ -7,7 +7,8 @@ public class Beach {
 
     private int maxWidth;
     private int maxHeight;
-    private List<Place> places = new ArrayList<Place>();
+
+    Places places = new Places();
 
     public Beach(int maxWidth, int maxHeight) {
         this.maxWidth = maxWidth;
@@ -40,7 +41,6 @@ public class Beach {
                 y++;
             }
         }
-
     }
 
     public Place getPlaceByXY(int x, int y) {
@@ -52,5 +52,7 @@ public class Beach {
         }
         return place;
     }
+    public void setPlaces(Places places) {
+        this.places = places;
+    }
 }
-

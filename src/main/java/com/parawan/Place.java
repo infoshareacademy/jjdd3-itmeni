@@ -12,10 +12,6 @@ import java.util.Map;
 
 public class Place {
 
-    /*
-    indywidualne id oraz współrzędne
-     */
-
     @XmlElement(required = true)
     private int id, x, y;
 
