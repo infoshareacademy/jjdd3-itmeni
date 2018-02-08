@@ -34,38 +34,21 @@ public class App {
             String answer = scanner.nextLine();
 
             if (answer.equals("r")) {
-                System.out.println("Please specify ID number from " + sunnyBeach.places.get(0).getId() + " to " + sunnyBeach.places.get(sunnyBeach.places.size() - 1).getId() + " to make reservation");
-                try {
-                    int idNumber = scanner.nextInt();
 
-                    if (sunnyBeach.places.get(idNumber - 1).getStatus() == PlaceStatus.DIRTY) {
-                        System.out.println("Sorry, but right now this place is dirty and cannot be reserved ");
-                    } else if (sunnyBeach.places.get(idNumber - 1).getStatus() == PlaceStatus.RESERVED) {
-                        System.out.println("Sorry, but this place is already reserved at that time");
-
-                    } else {
-                        sunnyBeach.getPlaces().get(idNumber - 1).setStatus(PlaceStatus.RESERVED);
-                    }
-                } catch (Exception e) {
-                    System.out.println("Please be sure to type Integer within the bounds");
-                }
+                Reservation reservation=new Reservation();
+                reservation.makeReservation(sunnyBeach, scanner);
 
             } else if (answer.equals("c")) {
-                System.out.println("Please specify ID number from " + sunnyBeach.places.get(0).getId() + " to " + sunnyBeach.places.get(sunnyBeach.places.size() - 1).getId() + " to cancel reservation");
 
-                try {
-                    int idNumberCancel = scanner.nextInt();
-                    sunnyBeach.getPlaces().get(idNumberCancel - 1).setStatus((PlaceStatus.FREE));
-                } catch (Exception e) {
-                    System.out.println("Please be sure to type Integer within the bounds");
-                }
+                CancelReservation cancelReservation= new CancelReservation();
+                cancelReservation.undoReservation(sunnyBeach, scanner);
 
             } else if (answer.equals("s")) {
-                for (int i = 0; i < sunnyBeach.places.size(); i++)
-                    System.out.println(sunnyBeach.places.get(i));
+                SeePlaces seePlaces=new SeePlaces();
+                seePlaces.seeEverything(sunnyBeach);
             } else if (answer.equals("q")) {
                 flag = false;
-                myXMLWriter.savePlacesToXML(sunnyBeach.places);
+                //myXMLWriter.savePlacesToXML(sunnyBeach.getPlaces());
                 System.out.println("Thank you for using PARAWAN - your private beach management system");
             }
         }

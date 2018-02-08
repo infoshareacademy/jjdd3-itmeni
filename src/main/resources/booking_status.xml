@@ -156,7 +156,7 @@
         <id>20</id>
         <x>19</x>
         <y>0</y>
-        <status>FREE</status>
+        <status>RESERVED</status>
         <rentedItems/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
