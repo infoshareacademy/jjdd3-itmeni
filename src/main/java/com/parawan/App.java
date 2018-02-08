@@ -10,21 +10,20 @@ import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) throws FileNotFoundException, JAXBException {
-
-        JavaToXML myXML = new JavaToXML();
-        myXML.javaToXML();
-
-
         DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
         Date date = new Date();
 
         Beach sunnyBeach = new Beach(20, 10);
         sunnyBeach.createPlaces();
 
+        JavaToXML myXMLWriter = new JavaToXML();
+
+        XMLToJava myXMLReader = new XMLToJava();
+        Places places = myXMLReader.xmlToJava();
+        sunnyBeach.setPlaces(places);
 
         Scanner scanner = new Scanner(System.in);
         boolean flag = true;
-
 
         while (flag) {
 
@@ -66,9 +65,9 @@ public class App {
                     System.out.println(sunnyBeach.places.get(i));
             } else if (answer.equals("q")) {
                 flag = false;
+                myXMLWriter.savePlacesToXML(sunnyBeach.places);
+                System.out.println("Thank you for using PARAWAN - your private beach management system");
             }
-
-
         }
     }
 }
