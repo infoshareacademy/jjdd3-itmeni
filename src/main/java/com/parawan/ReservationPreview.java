@@ -26,5 +26,6 @@ public class ReservationPreview {
             }
             System.out.println();
         }
+        System.out.println("\n                             SEA SIDE");
     }
 }
