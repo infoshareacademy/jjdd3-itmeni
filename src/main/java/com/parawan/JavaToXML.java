@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class JavaToXML {
-    public static final String DATA_FILE_NAME = "C:\\Users\\xxx\\Desktop\\java\\Development\\myProjects\\jjdd3-itmeni\\src\\main\\resources\\booking_status.xml";
+    public static final String DATA_FILE_NAME = "/home/szymont/development/jjdd3-itmeni/src/main/resources/booking_status.xml";
 
     public void savePlacesToXML(Places places) throws JAXBException {
         JAXBContext context = JAXBContext.newInstance(PlacesWrapper.class, Places.class, Place.class, PlaceStatus.class);

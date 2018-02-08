@@ -8,7 +8,7 @@ public class Beach {
     private int maxWidth;
     private int maxHeight;
 
-    Places places = new Places();
+    private Places places = new Places();
 
     public Beach(int maxWidth, int maxHeight) {
         this.maxWidth = maxWidth;
