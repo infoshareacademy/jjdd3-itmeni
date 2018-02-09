@@ -4,6 +4,7 @@ public class PlaceCompare {
 
     Beach beach;
 
+
     public Beach getBeach() {
         return beach;
     }
@@ -12,15 +13,24 @@ public class PlaceCompare {
         this.beach = beach;
     }
 
-    public boolean comparePlaces(Place placeMain, Place placeToCompare){
+    public boolean comparePlaces(Place placeMain, Place placeToCompare) {
 
+       if(placeMain.getStatus() == placeToCompare.getStatus()){
+           return false;
+       }
 
+        for (int i = 0; i < ItemType.values().length; i++) {
+            if (placeMain.getRentedItems().containsKey(ItemType.values()[i])
+                    && placeToCompare.getRentedItems().containsKey(ItemType.values()[i])){
+                return false;
+
+            }
+        }
         return true;
     }
 
-
-    public boolean placeNotExist(int x, int y){
-        if (x < 0 || x > beach.getMaxWidth() || y < 0 || y > beach.getMaxHeight()){
+    public boolean placeNotExist(int x, int y) {
+        if (x < 0 || x > beach.getMaxWidth() || y < 0 || y > beach.getMaxHeight()) {
             return true;
         }
         return false;

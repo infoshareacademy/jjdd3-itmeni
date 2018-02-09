@@ -5,10 +5,9 @@ import java.util.List;
 
 public class Beach {
 
+    Places places = new Places();
     private int maxWidth;
     private int maxHeight;
-
-    Places places = new Places();
 
     public Beach(int maxWidth, int maxHeight) {
         this.maxWidth = maxWidth;
@@ -27,6 +26,10 @@ public class Beach {
         return places;
     }
 
+    public void setPlaces(Places places) {
+        this.places = places;
+    }
+
     public void createPlaces() {
         int x = 0;
         int y = 0;
@@ -41,6 +44,7 @@ public class Beach {
                 y++;
             }
         }
+
     }
 
     public Place getPlaceByXY(int x, int y) {
@@ -51,8 +55,5 @@ public class Beach {
             }
         }
         return place;
-    }
-    public void setPlaces(Places places) {
-        this.places = places;
     }
 }

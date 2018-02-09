@@ -21,7 +21,7 @@ public class SearchEngine {
 
 
         for (Place p : beach.getPlaces()) {
-            if (checkNearby(temporaryPlace)) {
+            if (checkIfNoNearbyMeetsSearchCriteria(temporaryPlace)) {
                 p.setMeetsSearchCriteria(true);
             }
 
@@ -32,10 +32,13 @@ public class SearchEngine {
             }
 
         }
+        ShowMap sm = new ShowMap();
+        sm.printMapAfterSearch(beach);
+
         return beach;
     }
 
-    public boolean checkNearby(Place temporaryPlace) {
+    public boolean checkIfNoNearbyMeetsSearchCriteria(Place temporaryPlace) {
         x = temporaryPlace.getX();
         y = temporaryPlace.getY();
 ;
@@ -44,8 +47,8 @@ public class SearchEngine {
 
         for (int i = -1; i < 2; i++) {
             for (int j = -1; j < 2; j++) {
-                ;
-                if (pc.placeNotExist( x + i, x + y)) {
+
+                if (pc.placeNotExist( x + i, y + j)) {
                     continue;
                 } else {
                      return (pc.comparePlaces(temporaryPlace, beach.getPlaceByXY(x + i, y + j)));
