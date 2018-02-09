@@ -7,6 +7,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Scanner;
 
+import static com.parawan.JavaToXML.DATA_FILE_NAME;
+
 
 public class App {
     public static void main(String[] args) throws FileNotFoundException, JAXBException {
@@ -16,10 +18,12 @@ public class App {
         Beach sunnyBeach = new Beach(20, 10);
         sunnyBeach.createPlaces();
 
+        ReservationPreview myReservationPreview = new ReservationPreview();
+
         JavaToXML myXMLWriter = new JavaToXML();
 
         XMLToJava myXMLReader = new XMLToJava();
-        Places places = myXMLReader.xmlToJava();
+        Places places = myXMLReader.xmlToJava(DATA_FILE_NAME);
         sunnyBeach.setPlaces(places);
 
         Scanner scanner = new Scanner(System.in);
@@ -63,6 +67,8 @@ public class App {
             } else if (answer.equals("s")) {
                 for (int i = 0; i < sunnyBeach.places.size(); i++)
                     System.out.println(sunnyBeach.places.get(i));
+                myReservationPreview.reservationPreview(sunnyBeach);
+
             } else if (answer.equals("q")) {
                 flag = false;
                 myXMLWriter.savePlacesToXML(sunnyBeach.places);
