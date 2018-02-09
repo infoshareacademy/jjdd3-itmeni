@@ -22,6 +22,9 @@ public class App {
         Places places = myXMLReader.xmlToJava();
         sunnyBeach.setPlaces(places);
 
+        ReservationPreview reservationPreview = new ReservationPreview();
+        reservationPreview.reservationPreview(sunnyBeach);
+
         Scanner scanner = new Scanner(System.in);
         boolean flag = true;
 

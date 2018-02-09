@@ -1588,7 +1588,7 @@
         <id>199</id>
         <x>18</x>
         <y>9</y>
-        <status>RESERVED</status>
+        <status>FREE</status>
         <rentedItems/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
@@ -1596,7 +1596,7 @@
         <id>200</id>
         <x>19</x>
         <y>9</y>
-        <status>RESERVED</status>
+        <status>FREE</status>
         <rentedItems/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
