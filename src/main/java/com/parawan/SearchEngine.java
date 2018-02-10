@@ -41,21 +41,23 @@ public class SearchEngine {
     public boolean checkIfNoNearbyMeetsSearchCriteria(Place temporaryPlace) {
         x = temporaryPlace.getX();
         y = temporaryPlace.getY();
-;
+        maxX = beach.getMaxWidth();
+        maxY = beach.getMaxHeight();
         PlaceCompare pc = new PlaceCompare();
         pc.setBeach(this.beach);
-
+        boolean flag = false;
         for (int i = -1; i < 2; i++) {
             for (int j = -1; j < 2; j++) {
 
                 if (pc.placeNotExist( x + i, y + j)) {
                     continue;
                 } else {
-                     return (pc.comparePlaces(temporaryPlace, beach.getPlaceByXY(x + i, y + j)));
+                     flag  = (pc.comparePlaces(temporaryPlace, beach.getPlaceByXY(x + i, y + j)));
                 }
             }
         }
         /*
+
         if ((!(x == 0) && (!(y == 0))) && temporaryPlace.getStatus() == beach.getPlaceByXY(x - 1, y - 1).getStatus()) {
             return false;
         }
