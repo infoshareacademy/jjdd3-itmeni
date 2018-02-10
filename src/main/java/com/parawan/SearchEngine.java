@@ -45,22 +45,17 @@ public class SearchEngine {
         maxY = beach.getMaxHeight();
         PlaceCompare pc = new PlaceCompare();
         pc.setBeach(this.beach);
-        boolean flagDoesHaveNonWantedNeighbours = false;
         for (int i = -1; i < 2; i++) {
             for (int j = -1; j < 2; j++) {
-
                 if (pc.placeNotExist( x + i, y + j)) {
                     continue;
                 } else {
                      if (pc.comparePlaces(temporaryPlace, beach.getPlaceByXY(x + i, y + j))){
-                         flagDoesHaveNonWantedNeighbours = true;
                          return true;
                      };
                 }
             }
         }
-
         return false;
     }
-
 }

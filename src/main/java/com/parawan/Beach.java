@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Beach {
 
-    Places places = new Places();
+    private Places places = new Places();
     private int maxWidth;
     private int maxHeight;
 
@@ -22,7 +22,7 @@ public class Beach {
         return maxHeight;
     }
 
-    public List<Place> getPlaces() {
+    public Places getPlaces() {
         return places;
     }
 
