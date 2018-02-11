@@ -1,5 +1,7 @@
 package com.parawan;
 
+import com.parawan.com.menu.*;
+
 import javax.xml.bind.JAXBException;
 import java.io.FileNotFoundException;
 import java.text.DateFormat;
@@ -10,8 +12,8 @@ import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) throws FileNotFoundException, JAXBException {
-        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
-        Date date = new Date();
+        //DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+       // Date date = new Date();
 
         Beach sunnyBeach = new Beach(20, 10);
         sunnyBeach.createPlaces();
@@ -22,8 +24,16 @@ public class App {
         Places places = myXMLReader.xmlToJava();
         sunnyBeach.setPlaces(places);
 
-        Scanner scanner = new Scanner(System.in);
-        boolean flag = true;
+        MainMenu mainMenu = new MainMenu();
+        mainMenu.seeMenu(sunnyBeach, myXMLWriter);
+
+
+
+
+
+        /*Scanner scanner = new Scanner(System.in);
+        boolean flag=true;
+
 
         while (flag) {
 
@@ -34,40 +44,30 @@ public class App {
             String answer = scanner.nextLine();
 
             if (answer.equals("r")) {
-                System.out.println("Please specify ID number from " + sunnyBeach.places.get(0).getId() + " to " + sunnyBeach.places.get(sunnyBeach.places.size() - 1).getId() + " to make reservation");
-                try {
-                    int idNumber = scanner.nextInt();
 
-                    if (sunnyBeach.places.get(idNumber - 1).getStatus() == PlaceStatus.DIRTY) {
-                        System.out.println("Sorry, but right now this place is dirty and cannot be reserved ");
-                    } else if (sunnyBeach.places.get(idNumber - 1).getStatus() == PlaceStatus.RESERVED) {
-                        System.out.println("Sorry, but this place is already reserved at that time");
-
-                    } else {
-                        sunnyBeach.getPlaces().get(idNumber - 1).setStatus(PlaceStatus.RESERVED);
-                    }
-                } catch (Exception e) {
-                    System.out.println("Please be sure to type Integer within the bounds");
-                }
+                Reservation reservation = new Reservation();
+                reservation.makeReservation(sunnyBeach, scanner);
 
             } else if (answer.equals("c")) {
-                System.out.println("Please specify ID number from " + sunnyBeach.places.get(0).getId() + " to " + sunnyBeach.places.get(sunnyBeach.places.size() - 1).getId() + " to cancel reservation");
 
-                try {
-                    int idNumberCancel = scanner.nextInt();
-                    sunnyBeach.getPlaces().get(idNumberCancel - 1).setStatus((PlaceStatus.FREE));
-                } catch (Exception e) {
-                    System.out.println("Please be sure to type Integer within the bounds");
-                }
+                CancelReservation cancelReservation = new CancelReservation();
+                cancelReservation.undoReservation(sunnyBeach, scanner);
 
             } else if (answer.equals("s")) {
-                for (int i = 0; i < sunnyBeach.places.size(); i++)
-                    System.out.println(sunnyBeach.places.get(i));
+
+                CurrentBeachPreview currentBeachPreview =new CurrentBeachPreview();
+                currentBeachPreview.seeBeach(sunnyBeach);
+
             } else if (answer.equals("q")) {
+
+                //Exit exit = new Exit();
+                //exit.quitMenu(flag);
                 flag = false;
                 myXMLWriter.savePlacesToXML(sunnyBeach.places);
                 System.out.println("Thank you for using PARAWAN - your private beach management system");
             }
-        }
+        }*/
+
+
     }
 }

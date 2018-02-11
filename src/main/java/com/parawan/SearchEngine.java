@@ -1,5 +1,7 @@
 package com.parawan;
 
+import com.parawan.com.menu.ReservationWithRequirements;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -14,7 +16,7 @@ public class SearchEngine {
 
     public Beach search(Beach beach) {
         this.beach = beach;
-        temporaryPlace = new SearchEnginePlaceBuilder().getRequirements();
+        temporaryPlace = new ReservationWithRequirements().getRequirements();
 
         temporaryPlace.setX(0);
         temporaryPlace.setY(0);
