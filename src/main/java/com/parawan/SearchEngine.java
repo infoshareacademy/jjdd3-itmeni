@@ -2,7 +2,6 @@ package com.parawan;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 public class SearchEngine {
 
@@ -32,9 +31,9 @@ public class SearchEngine {
             }
 
         }
-        ShowMap sm = new ShowMap();
+        /*ShowMap sm = new ShowMap();
         sm.printMapAfterSearch(beach);
-
+        this option will be modified according to Daniel's part*/
         return beach;
     }
 
@@ -47,12 +46,12 @@ public class SearchEngine {
         pc.setBeach(this.beach);
         for (int i = -1; i < 2; i++) {
             for (int j = -1; j < 2; j++) {
-                if (pc.placeNotExist( x + i, y + j)) {
+                if (pc.placeNotExist(x + i, y + j)) {
                     continue;
                 } else {
-                     if (pc.comparePlaces(temporaryPlace, beach.getPlaceByXY(x + i, y + j))){
-                         return true;
-                     };
+                    if (pc.comparePlaces(temporaryPlace, beach.getPlaceByXY(x + i, y + j))) {
+                        return true;
+                    }
                 }
             }
         }

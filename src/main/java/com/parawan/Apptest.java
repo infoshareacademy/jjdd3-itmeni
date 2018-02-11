@@ -1,6 +1,6 @@
 package com.parawan;
 
-//testclassnotingit
+// this will be removed when unit tests will be made
 
 import java.io.*;
 import java.util.Scanner;
