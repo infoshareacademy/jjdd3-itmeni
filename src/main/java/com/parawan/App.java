@@ -17,5 +17,6 @@ public class App {
 
         MainMenu mainMenu = new MainMenu();
         mainMenu.showMenu(sunnyBeach, myXMLWriter);
+
     }
 }

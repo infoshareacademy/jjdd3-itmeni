@@ -16,4 +16,11 @@ public class CancelReservation {
             System.out.println("Please be sure to type Integer within the bounds");
         }
     }
+
+    public Enum<PlaceStatus>  cancel (Beach beach, int IdInt){
+
+        beach.getPlaces().get(IdInt - 1).setStatus((PlaceStatus.FREE));
+        return beach.getPlaces().get(IdInt - 1).getStatus();
+
+    }
 }

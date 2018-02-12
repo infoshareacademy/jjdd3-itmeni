@@ -37,4 +37,18 @@ public class Reservation {
             return true;
         }
     }
+
+    public boolean dirty (Beach beach, int idNum) {
+        if (beach.getPlaces().get(idNum - 1).getStatus() == PlaceStatus.DIRTY) {
+            System.out.println("Sorry, but right now this place is dirty and cannot be reserved ");
+            return true;
+        } else if (beach.getPlaces().get(idNum - 1).getStatus() == PlaceStatus.RESERVED) {
+            System.out.println("Sorry, but this place is already reserved at that time");
+            return false;
+        } else {
+            beach.getPlaces().get(idNum - 1).setStatus(PlaceStatus.RESERVED);
+            return false;
+        }
+    }
+
 }
