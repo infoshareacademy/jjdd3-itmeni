@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class ReservationPreview {
 
-    public void reservationPreview(Beach beach) {
+    public void preview(Beach beach) {
         for (int i = 0; i < beach.getMaxWidth(); i++) {
             if (i == 0) {
                 System.out.print("    ");
