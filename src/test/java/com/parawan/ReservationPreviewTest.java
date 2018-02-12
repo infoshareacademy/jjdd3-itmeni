@@ -6,11 +6,14 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class ReservationPreviewTest {
 
-    @Test
-    void reservationPreview() {
-    }
 
     @Test
-    void getPlaceByCoordinates() {
+    void shouldThrowExceptionWhenPrintedParemeters() {
+        Throwable exception =
+                assertThrows(IllegalArgumentException.class, () -> {
+                    ;
+                });
+        assertEquals(, exception.getMessage(),"Wow-out of range!");
+
     }
 }
