@@ -44,7 +44,7 @@ public class SearchEngine {
         y = temporaryPlace.getY();
         maxX = beach.getMaxWidth();
         maxY = beach.getMaxHeight();
-        PlaceCompare pc = new PlaceCompare();
+        PlaceComparator pc = new PlaceComparator();
         pc.setBeach(this.beach);
         for (int i = -1; i < 2; i++) {
             for (int j = -1; j < 2; j++) {
