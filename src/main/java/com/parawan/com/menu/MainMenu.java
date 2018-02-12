@@ -4,12 +4,8 @@ import com.parawan.Beach;
 import com.parawan.JavaToXML;
 import com.parawan.ReservationPreview;
 import com.parawan.SearchEngine;
-
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.Date;
 import java.util.Scanner;
 
 public class MainMenu {
