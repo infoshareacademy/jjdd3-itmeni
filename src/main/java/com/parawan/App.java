@@ -3,10 +3,9 @@ package com.parawan;
 import com.parawan.com.menu.*;
 
 
-
 public class App {
-    public static void main(String[] args)  {
-
+    public static void main(String[] args) {
+        
         Beach sunnyBeach = new Beach(20, 10);
         sunnyBeach.createPlaces();
 
@@ -17,6 +16,6 @@ public class App {
         sunnyBeach.setPlaces(places);
 
         MainMenu mainMenu = new MainMenu();
-        mainMenu.seeMenu(sunnyBeach, myXMLWriter);
+        mainMenu.showMenu(sunnyBeach, myXMLWriter);
     }
 }
