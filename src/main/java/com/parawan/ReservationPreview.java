@@ -28,6 +28,7 @@ public class ReservationPreview {
         }
         System.out.println("\n                             SEA SIDE");
     }
+
     public Place getPlaceByCoordinates(Beach beach, int x, int y) {
         return beach.getPlaces().stream()
                 .filter(place -> place.getX() == x && place.getY() == y)
