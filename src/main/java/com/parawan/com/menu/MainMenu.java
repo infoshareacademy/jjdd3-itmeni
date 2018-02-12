@@ -51,11 +51,8 @@ public class MainMenu {
 
             } else if (answer.equals("q")) {
 
-                //Exit exit = new Exit();
-                //exit.quitMenu(flag);
-                flag = false;
-                //javaToXML.savePlacesToXML(sunnyBeach.places);
-                System.out.println("Thank you for using PARAWAN - your private beach management system");
+                Exit exit = new Exit();
+                flag = exit.quitMenu(flag, beach, javaToXML);
             }
         }
     }

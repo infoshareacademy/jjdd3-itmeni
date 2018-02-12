@@ -1580,7 +1580,7 @@
         <id>198</id>
         <x>17</x>
         <y>9</y>
-        <status>FREE</status>
+        <status>RESERVED</status>
         <rentedItems/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
