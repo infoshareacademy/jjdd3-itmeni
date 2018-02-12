@@ -12,7 +12,7 @@
         <id>2</id>
         <x>1</x>
         <y>0</y>
-        <status>FREE</status>
+        <status>RESERVED</status>
         <rentedItems/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
@@ -20,7 +20,7 @@
         <id>3</id>
         <x>2</x>
         <y>0</y>
-        <status>FREE</status>
+        <status>RESERVED</status>
         <rentedItems/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
@@ -156,7 +156,7 @@
         <id>20</id>
         <x>19</x>
         <y>0</y>
-        <status>FREE</status>
+        <status>RESERVED</status>
         <rentedItems/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
@@ -236,7 +236,7 @@
         <id>30</id>
         <x>9</x>
         <y>1</y>
-        <status>FREE</status>
+        <status>RESERVED</status>
         <rentedItems/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
@@ -1580,7 +1580,7 @@
         <id>198</id>
         <x>17</x>
         <y>9</y>
-        <status>FREE</status>
+        <status>RESERVED</status>
         <rentedItems/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
@@ -1588,7 +1588,7 @@
         <id>199</id>
         <x>18</x>
         <y>9</y>
-        <status>RESERVED</status>
+        <status>FREE</status>
         <rentedItems/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
@@ -1596,7 +1596,7 @@
         <id>200</id>
         <x>19</x>
         <y>9</y>
-        <status>RESERVED</status>
+        <status>FREE</status>
         <rentedItems/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>

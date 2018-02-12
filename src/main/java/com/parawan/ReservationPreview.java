@@ -10,7 +10,7 @@ public class ReservationPreview {
     public void preview(Beach beach) {
         for (int i = 0; i < beach.getMaxWidth(); i++) {
             if (i == 0) {
-                System.out.print("   ");
+                System.out.print("    ");
             }
             System.out.print(i+1 + "  ");
         }
@@ -18,7 +18,7 @@ public class ReservationPreview {
         for (int y = 0; y < beach.getMaxHeight(); y++) {
             System.out.print(y + 1 + "  ");
             for (int x = 0; x < beach.getMaxWidth(); x++) {
-                if (beach.getPlaces().get(y).getStatus() == PlaceStatus.RESERVED) {
+                if (getPlaceByCoordinates(beach, x, y).getStatus() == PlaceStatus.RESERVED) {
                     System.out.print("#   ");
                 } else {
                     System.out.print(".   ");
@@ -27,5 +27,15 @@ public class ReservationPreview {
             System.out.println();
         }
         System.out.println("\n                             SEA SIDE");
+    }
+
+    public Place getPlaceByCoordinates(Beach beach, int x, int y) {
+        if( x >= beach.getMaxWidth() || y >= beach.getMaxHeight() ){
+            throw new IllegalArgumentException("Wow-out of range!");
+        }
+        return beach.getPlaces().stream()
+                .filter(place -> place.getX() == x && place.getY() == y)
+                .findFirst()
+                .orElse(null);
     }
 }

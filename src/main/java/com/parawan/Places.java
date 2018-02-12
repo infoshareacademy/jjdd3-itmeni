@@ -6,5 +6,4 @@ import java.util.ArrayList;
 
 @XmlType
 public class Places extends ArrayList<Place> {
-
 }
