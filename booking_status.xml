@@ -4,7 +4,7 @@
         <id>1</id>
         <x>0</x>
         <y>0</y>
-        <status>FREE</status>
+        <status>RESERVED</status>
         <rentedItems/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
