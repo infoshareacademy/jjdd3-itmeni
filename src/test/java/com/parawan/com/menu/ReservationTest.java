@@ -14,7 +14,6 @@ class ReservationTest {
     @BeforeEach
     public void setUp() {
         reservation = new Reservation();
-
     }
 
     @Test
@@ -33,9 +32,9 @@ class ReservationTest {
     }
 
     @Test
-    void shouldInformThatPlaceIsDIrtyDuringReservationWhenItsDirty(){
+    void shouldInformThatPlaceIsDIrtyDuringReservationWhenItsDirty() {
         //Given
-        Beach beach =new Beach(10, 20);
+        Beach beach = new Beach(10, 20);
 
         //When
         beach.createPlaces();
@@ -44,7 +43,5 @@ class ReservationTest {
         //Then
         boolean result = reservation.dirty(beach, 1);
         assertEquals(true, result);
-
     }
-
 }

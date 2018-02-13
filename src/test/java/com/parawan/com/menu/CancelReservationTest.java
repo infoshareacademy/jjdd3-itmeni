@@ -9,22 +9,24 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class CancelReservationTest {
     private CancelReservation cancelReservation;
+
     @BeforeEach
     public void setUp() {
         cancelReservation = new CancelReservation();
 
     }
+
     @Test
-    void shouldSetPlaceStatusToFreeAfterCancelation(){
+    void shouldSetPlaceStatusToFreeAfterCancelation() {
         //Given
-        Beach beach =new Beach(5, 5);
+        Beach beach = new Beach(5, 5);
 
         //When
         beach.createPlaces();
         beach.getPlaces().get(0).setStatus((PlaceStatus.RESERVED));
 
         //Then
-        assertTrue(cancelReservation.cancel(beach, 1)==PlaceStatus.FREE);
+        assertTrue(cancelReservation.cancel(beach, 1) == PlaceStatus.FREE);
 
     }
 

@@ -18,7 +18,6 @@ public class MainMenu {
         Scanner scanner = new Scanner(System.in);
 
 
-
         while (true) {
 
             System.out.println("\nPrivate beach management system - PARAWAN. ||     date/hour: " + formattedDateTime);
@@ -57,17 +56,7 @@ public class MainMenu {
                 }
                 System.out.println("Thank you for using PARAWAN - your private beach management system");
                 break;
-
-
             }
         }
-    }
-
-    public void saveData(Beach beach, JavaToXML javaToXML, int idNum, XMLToJava xmlToJava){
-
-
-        beach.getPlaces().get(idNum - 1).setStatus(PlaceStatus.RESERVED);
-
-
     }
 }
