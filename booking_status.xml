@@ -172,7 +172,7 @@
         <id>22</id>
         <x>1</x>
         <y>1</y>
-        <status>FREE</status>
+        <status>RESERVED</status>
         <rentedItems/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
