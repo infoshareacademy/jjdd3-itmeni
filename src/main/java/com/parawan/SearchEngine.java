@@ -4,7 +4,6 @@ import com.parawan.com.menu.ReservationWithRequirements;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 public class SearchEngine {
 
@@ -23,7 +22,7 @@ public class SearchEngine {
 
 
         for (Place p : beach.getPlaces()) {
-            if (checkNearby(temporaryPlace)) {
+            if (!checkIfNoNearbyMeetsSpecifiedCriteria(temporaryPlace)) {
                 p.setMeetsSearchCriteria(true);
             }
 
@@ -34,45 +33,30 @@ public class SearchEngine {
             }
 
         }
+        /*ShowMap sm = new ShowMap();
+        sm.printMapAfterSearch(beach);
+        this option will be modified according to Daniel's part*/
         return beach;
     }
 
-    public boolean checkNearby(Place temporaryPlace) {
-
+    public boolean checkIfNoNearbyMeetsSpecifiedCriteria(Place temporaryPlace) {
         x = temporaryPlace.getX();
         y = temporaryPlace.getY();
-
         maxX = beach.getMaxWidth();
         maxY = beach.getMaxHeight();
-
-        if ((!(x == 0) && (!(y == 0))) && temporaryPlace.getStatus() == beach.getPlaceByXY(x - 1, y - 1).getStatus()) {
-            return false;
+        PlaceComparator pc = new PlaceComparator();
+        pc.setBeach(this.beach);
+        for (int i = -1; i < 2; i++) {
+            for (int j = -1; j < 2; j++) {
+                if (pc.placeNotExist(x + i, y + j)) {
+                    continue;
+                } else {
+                    if (pc.comparePlaces(temporaryPlace, beach.getPlaceByXY(x + i, y + j))) {
+                        return true;
+                    }
+                }
+            }
         }
-        if ((!(y == 0)) && temporaryPlace.getStatus() == beach.getPlaceByXY(x, y - 1).getStatus()) {
-            return false;
-        }
-        if (((!(y == 0) && (!(x == maxX)))) && temporaryPlace.getStatus() == beach.getPlaceByXY(x + 1, y - 1).getStatus()) {
-            return false;
-        }
-        if ((!(x == 0)) && temporaryPlace.getStatus() == beach.getPlaceByXY(x - 1, y).getStatus()) {
-            return false;
-        }
-        if (temporaryPlace.getStatus() == beach.getPlaceByXY(x, y).getStatus()) {
-            return false;
-        }
-        if ((!(x == maxX)) && temporaryPlace.getStatus() == beach.getPlaceByXY(x + 1, y).getStatus()) {
-            return false;
-        }
-        if ((!(x == 0)) && (!(y == beach.getMaxWidth())) && temporaryPlace.getStatus() == beach.getPlaceByXY(x - 1, y + 1).getStatus()) {
-            return false;
-        }
-        if ((!(y == maxY)) && temporaryPlace.getStatus() == beach.getPlaceByXY(x, y + 1).getStatus()) {
-            return false;
-        }
-        if (((!(y == maxY) && (!(x == maxX)))) && temporaryPlace.getStatus() == beach.getPlaceByXY(x + 1, y + 1).getStatus()) {
-            return false;
-        }
-        return true;
+        return false;
     }
-
 }
