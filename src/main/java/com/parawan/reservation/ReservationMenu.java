@@ -13,8 +13,8 @@ no Set name option in menu - add!
 public class ReservationMenu {
 
     Scanner sc = new Scanner(System.in);
-    Integer choosenOption = 0;
-    String choosenItems;
+    Integer chosenOption = 0;
+    String chosenItems;
     Reservation reservation = new Reservation();
 
 
@@ -22,22 +22,22 @@ public class ReservationMenu {
         CheckStatus checkStatus = new CheckStatus(list);
         do {
             System.out.println("On what hour do you want to make reservation?");
-            choosenOption = sc.nextInt();
-            reservation.setHourOfReservation(choosenOption);
+            chosenOption = sc.nextInt();
+            reservation.setHourOfReservation(chosenOption);
 
             System.out.println("Choose ID of your place");
-            choosenOption = sc.nextInt();
-            reservation.setPlaceId(choosenOption);
+            chosenOption = sc.nextInt();
+            reservation.setPlaceId(chosenOption);
         } while (checkStatus.isAlreadyReserved(reservation));
 
         System.out.println("What items do you want to rent? [s]creen, [u]mbrella, [t]owel, sun[b]ed");
-        choosenItems = sc.next();
-        analyzeChoosenItems(choosenItems);
+        chosenItems = sc.next();
+        analyzeChosenItems(chosenItems);
         return this.reservation;
     }
 
 
-    public void analyzeChoosenItems(String options) {
+    public void analyzeChosenItems(String options) {
 
         options = options.toLowerCase();
         if (options.contains("s")) {

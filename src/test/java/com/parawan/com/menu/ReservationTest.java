@@ -32,16 +32,16 @@ class ReservationTest {
     }
 
     @Test
-    void shouldInformThatPlaceIsDIrtyDuringReservationWhenItsDirty() {
+    void shouldInformThatPlaceIsUnavailableDuringReservationWhenItsOutOfOrder() {
         //Given
         Beach beach = new Beach(10, 20);
 
         //When
         beach.createPlaces();
-        beach.getPlaces().get(0).setStatus(PlaceStatus.DIRTY);
+        beach.getPlaces().get(0).setStatus(PlaceStatus.OUTOFORDER);
 
         //Then
-        boolean result = reservation.dirty(beach, 1);
+        boolean result = reservation.outOfOrder(beach, 1);
         assertEquals(true, result);
     }
 }
