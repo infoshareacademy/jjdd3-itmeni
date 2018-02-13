@@ -4,7 +4,9 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @XmlType
@@ -18,7 +20,7 @@ public class Place {
     @XmlElement(required = true)
     private PlaceStatus status;
 
-    private Map<ItemType, Integer> rentedItems = new HashMap<ItemType, Integer>();
+    private List<ItemType> rentedItems = new ArrayList<ItemType>();
 
     private boolean meetsSearchCriteria = false;
 
@@ -53,8 +55,8 @@ public class Place {
         return y;
     }
 
-    public void putItems(ItemType o, Integer h) {
-        rentedItems.put(o, h);
+    public void putItemToRentedItemsList(ItemType accessory) {
+        rentedItems.add(accessory);
     }
 
     public PlaceStatus getStatus() {
@@ -75,11 +77,11 @@ public class Place {
         this.x = x;
     }
 
-    public Map<ItemType, Integer> getRentedItems() {
+    public List<ItemType> getRentedItems() {
         return rentedItems;
     }
 
-    public void setRentedItems(Map<ItemType, Integer> rentedItems) {
+    public void setRentedItems(List<ItemType> rentedItems) {
         this.rentedItems = rentedItems;
     }
 

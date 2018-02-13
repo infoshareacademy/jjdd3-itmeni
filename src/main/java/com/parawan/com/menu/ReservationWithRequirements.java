@@ -23,12 +23,12 @@ public class ReservationWithRequirements {
         System.out.println("Do you want place with no PARAWANS around? Please type [y]es or [n]o :");
         option = sc.nextLine();
         if (option.equals("y")) {
-            placeToAvoid.putItems(ItemType.SCREEN, 1);
+            placeToAvoid.putItemToRentedItemsList(ItemType.SCREEN);
         }
         System.out.println("Do you want place with no umbrellas around? Please type [y]es or [n] :");
         option = sc.nextLine().toLowerCase();
         if (option.equals("y")) {
-            placeToAvoid.putItems(ItemType.UMBRELLA, 1);
+            placeToAvoid.putItemToRentedItemsList(ItemType.UMBRELLA);
         }
         return placeToAvoid;
     }
