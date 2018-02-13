@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class ReservationPreviewTest {
 
-/*
+
     @Test
     void shouldThrowExceptionWhenPrintedParemeters() {
         Throwable exception =
@@ -15,5 +15,5 @@ class ReservationPreviewTest {
                 });
         assertEquals(, exception.getMessage(),"Wow-out of range!");
 
-    }*/
+    }
 }
