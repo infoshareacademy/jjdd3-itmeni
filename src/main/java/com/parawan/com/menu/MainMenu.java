@@ -1,15 +1,10 @@
 package com.parawan.com.menu;
 
-import com.parawan.Beach;
-import com.parawan.JavaToXML;
-import com.parawan.ReservationPreview;
-import com.parawan.SearchEngine;
+import com.parawan.*;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
+import javax.xml.bind.JAXBException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.Date;
 import java.util.Scanner;
 
 public class MainMenu {
@@ -22,10 +17,8 @@ public class MainMenu {
         String formattedDateTime = localDateTime.format(myFormatter);
         Scanner scanner = new Scanner(System.in);
 
-        boolean flag = true;
 
-
-        while (flag) {
+        while (true) {
 
             System.out.println("\nPrivate beach management system - PARAWAN. ||     date/hour: " + formattedDateTime);
             System.out.println("Please specify Your action.                ||               ver 1.0 ");
@@ -56,8 +49,13 @@ public class MainMenu {
 
             } else if (answer.equals("q")) {
 
-                Exit exit = new Exit();
-                flag = exit.quitMenu(flag, beach, javaToXML);
+                try {
+                    javaToXML.savePlacesToXML(beach.getPlaces());
+                } catch (JAXBException e) {
+                    e.printStackTrace();
+                }
+                System.out.println("Thank you for using PARAWAN - your private beach management system");
+                break;
             }
         }
     }

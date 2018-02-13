@@ -11,9 +11,15 @@ public class CancelReservation {
 
         try {
             int idNumberCancel = Integer.parseInt(scanner.nextLine());
-            beach.getPlaces().get(idNumberCancel - 1).setStatus((PlaceStatus.FREE));
+            cancel(beach, idNumberCancel);
         } catch (Exception e) {
             System.out.println("Please be sure to type Integer within the bounds");
         }
+    }
+
+    public PlaceStatus cancel(Beach beach, int IdInt) {
+
+        beach.getPlaces().get(IdInt - 1).setStatus(PlaceStatus.FREE);
+        return beach.getPlaces().get(IdInt - 1).getStatus();
     }
 }
