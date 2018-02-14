@@ -4,7 +4,7 @@
         <id>1</id>
         <x>0</x>
         <y>0</y>
-        <status>RESERVED</status>
+        <status>OUTOFORDER</status>
         <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>

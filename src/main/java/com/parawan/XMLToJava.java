@@ -6,7 +6,7 @@ import javax.xml.bind.*;
 
 public class XMLToJava {
 
-    public Places xmlToJava() {
+    public Places xmlToJava(String path) {
         PlacesWrapper placesWrapper;
         Places placesFromFile = null;
         try {
@@ -21,7 +21,7 @@ public class XMLToJava {
                         }
                     });
 
-            File f = new File(JavaToXML.DATA_FILE_NAME);
+            File f = new File(path);
 
             placesWrapper = (PlacesWrapper) u.unmarshal(f);
             placesFromFile = placesWrapper.getPlaces();

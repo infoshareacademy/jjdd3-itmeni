@@ -26,7 +26,8 @@ public class MainMenu {
             System.out.println("\nPrivate beach management system - PARAWAN. ||     date/hour: " + formattedDateTime);
             System.out.println("Please specify Your action.                ||               ver 1.0 ");
             System.out.println("\nWould You like to: [r]eserve place, r[e]serve place with additional requirements," +
-                    " \n[c]ancel reservation, [s]ee current beach preview, c[h]eck storehouse status, [q]uit program");
+                    " \n[c]ancel reservation, [s]ee current beach preview, c[h]eck storehouse status,\n" +
+                    "se[t] place to be out of order, [q]uit program");
 
             String answer = scanner.nextLine();
 
@@ -49,6 +50,11 @@ public class MainMenu {
                 ReservationPreview reservationPreview = new ReservationPreview();
                 reservationPreview.preview(beach);
 
+            } else if (answer.equals("t")) {
+
+                OutOfOrder outOfOrder = new OutOfOrder();
+                outOfOrder.makeUnavailable(beach, scanner);
+                
             } else if (answer.equals("q")) {
 
                 try {
