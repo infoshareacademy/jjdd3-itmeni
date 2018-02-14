@@ -14,6 +14,8 @@ public class ShowMap {
     public void printMap(Beach beach) {
         List<Place> placesToPrint = beach.getPlaces();
 
+        System.out.println("Status of beach at: " + beach.getHourOfStatus() + " hour");
+
         for (int i = 0; i < beach.getMaxHeight(); i++) {
             for (int j = 0; j < beach.getMaxWidth(); j++) {
                 switch (beach.getPlaces().get(placeIndex).getStatus()) {
@@ -38,12 +40,12 @@ public class ShowMap {
         System.out.println(sb.toString());
     }
 
-    public  void printMapAfterSearch(Beach beach){
+    public void printMapAfterSearch(Beach beach) {
         List<Place> placesToPrint = beach.getPlaces();
-
+        System.out.println("Status of beach after search at: " + beach.getHourOfStatus() + " hour");
         for (int i = 0; i < beach.getMaxHeight(); i++) {
             for (int j = 0; j < beach.getMaxWidth(); j++) {
-                if(beach.getPlaces().get(placeIndex).isMeetSearchCriteria()) {
+                if (beach.getPlaces().get(placeIndex).isMeetSearchCriteria()) {
                     symbol = ("     " + Integer.toString(beach.getPlaces().get(placeIndex).getId())).substring(Integer.toString(beach.getPlaces().get(placeIndex).getId()).length());
                 } else {
                     symbol = "     ";

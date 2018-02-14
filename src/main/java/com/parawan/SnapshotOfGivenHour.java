@@ -26,19 +26,18 @@ public class SnapshotOfGivenHour {
 
     public Beach getSnapshot(Integer hour) {
         List<Reservation> reservationsFromGivenHour = getReservationsFromGivenHour(hour);
-        beach.getPlaces().forEach(x -> match(x, reservationsFromGivenHour));
+        beach.getPlaces().forEach(x -> setWhenMatch(x, reservationsFromGivenHour));
         return this.beach;
     }
 
-    public Place match(Place place, List<Reservation> reservations) {
-        Reservation reservation = reservations.stream()
-                .filter(x -> x.getPlaceId() == place.getId())
-                .collect(Collectors.toList())
-                .get(0);
-        place.setStatus(PlaceStatus.RESERVED);
-        place.setRentedItems(reservation.getRentedItems());
-        return place;
+    public void setWhenMatch(Place place, List<Reservation> reservations) {
+
+        for (Reservation reservation : reservations) {
+            if (place.getId() == reservation.getPlaceId()) {
+                place.setStatus(PlaceStatus.RESERVED);
+                place.setRentedItems(reservation.getRentedItems());
+            }
+
+        }
     }
-
-
 }
