@@ -1,6 +1,7 @@
 package com.parawan.com.menu;
 
 import com.parawan.*;
+import com.parawan.reservation.ReservationTable;
 
 import javax.xml.bind.JAXBException;
 import java.time.LocalDateTime;
@@ -11,6 +12,8 @@ public class MainMenu {
     public void showMenu(Beach beach, JavaToXML javaToXML) {
 
         DateTimeFormatter myFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy - HH:mm");
+
+        ReservationTable reservationTable = new ReservationTable();
 
 
         LocalDateTime localDateTime = LocalDateTime.now();
@@ -28,9 +31,8 @@ public class MainMenu {
             String answer = scanner.nextLine();
 
             if (answer.equals("r")) {
-
-                Reservation reservation = new Reservation();
-                reservation.makeReservation(beach, scanner);
+                //test
+                reservationTable.reservePlace(beach);
 
             } else if (answer.equals("e")) {
 
