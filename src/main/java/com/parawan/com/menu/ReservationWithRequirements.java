@@ -25,8 +25,8 @@ public class ReservationWithRequirements {
         if (option.equals("y")) {
             placeToAvoid.putItemToRentedItemsList(ItemType.SCREEN);
         }
-        System.out.println("Do you want place with no umbrellas around? Please type [y]es or [n] :");
-        option = sc.nextLine().toLowerCase();
+        System.out.println("Do you want place with no umbrellas around? Please type [y]es or [n]o :");
+        option = sc.nextLine();
         if (option.equals("y")) {
             placeToAvoid.putItemToRentedItemsList(ItemType.UMBRELLA);
         }
