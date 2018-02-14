@@ -8,8 +8,8 @@ import java.util.stream.Collectors;
 
 public class SnapshotOfGivenHour {
 
-    Beach beach;
-    ReservationTable reservationTable;
+    private Beach beach;
+    private ReservationTable reservationTable;
 
     public void setBeachAndReservationTable(Beach beach, ReservationTable reservationTable) {
         this.beach = beach;
