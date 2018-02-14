@@ -1,4 +1,4 @@
-package com.parawan;
+package com.parawan.reservation;
 
 import org.junit.jupiter.api.Test;
 

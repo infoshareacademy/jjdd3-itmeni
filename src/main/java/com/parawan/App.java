@@ -1,10 +1,15 @@
 package com.parawan;
 
+import com.parawan.XMLparser.JavaToXML;
+import com.parawan.XMLparser.Places;
+import com.parawan.XMLparser.XMLToJava;
 import com.parawan.com.menu.*;
+
+import java.io.IOException;
 
 
 public class App {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         
         Beach sunnyBeach = new Beach(20, 10);
         sunnyBeach.createPlaces();
@@ -12,7 +17,7 @@ public class App {
         JavaToXML myXMLWriter = new JavaToXML();
 
         XMLToJava myXMLReader = new XMLToJava();
-        Places places = myXMLReader.xmlToJava();
+        Places places = myXMLReader.xmlToJava("");
         sunnyBeach.setPlaces(places);
 
         MainMenu mainMenu = new MainMenu();

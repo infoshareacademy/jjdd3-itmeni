@@ -1,7 +1,6 @@
 package com.parawan;
 
-import java.util.ArrayList;
-import java.util.List;
+import com.parawan.XMLparser.Places;
 
 public class Beach {
 

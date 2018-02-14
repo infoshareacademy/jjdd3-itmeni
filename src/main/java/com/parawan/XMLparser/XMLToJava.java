@@ -1,12 +1,17 @@
-package com.parawan;
+package com.parawan.XMLparser;
+
+import com.parawan.Place;
+import com.parawan.PlaceStatus;
 
 import java.io.File;
+import java.nio.file.Files;
+import java.nio.file.Path;
 
 import javax.xml.bind.*;
 
 public class XMLToJava {
 
-    public Places xmlToJava() {
+    public Places xmlToJava(String path) {
         PlacesWrapper placesWrapper;
         Places placesFromFile = null;
         try {
@@ -21,7 +26,7 @@ public class XMLToJava {
                         }
                     });
 
-            File f = new File(JavaToXML.DATA_FILE_NAME);
+            File f = new File( !path.isEmpty() ? path : getClass().getClassLoader().getResource(JavaToXML.DATA_FILE_NAME).getFile());
 
             placesWrapper = (PlacesWrapper) u.unmarshal(f);
             placesFromFile = placesWrapper.getPlaces();
