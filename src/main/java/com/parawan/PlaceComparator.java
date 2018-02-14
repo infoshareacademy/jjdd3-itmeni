@@ -20,8 +20,8 @@ public class PlaceComparator {
         }
 
         for (int i = 0; i < ItemType.values().length; i++) {
-            return ((placeMain.getRentedItems().containsKey(ItemType.values()[i])
-                    && placeToCompare.getRentedItems().containsKey(ItemType.values()[i])));
+            return ((placeMain.getRentedItems().contains(ItemType.values()[i])
+                    && placeToCompare.getRentedItems().contains(ItemType.values()[i])));
         }
         return false;
     }

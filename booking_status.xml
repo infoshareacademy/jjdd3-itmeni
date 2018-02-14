@@ -4,8 +4,8 @@
         <id>1</id>
         <x>0</x>
         <y>0</y>
-        <status>FREE</status>
-        <rentedItems/>
+        <status>RESERVED</status>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -13,7 +13,7 @@
         <x>1</x>
         <y>0</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -21,7 +21,7 @@
         <x>2</x>
         <y>0</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -29,7 +29,7 @@
         <x>3</x>
         <y>0</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -37,7 +37,7 @@
         <x>4</x>
         <y>0</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -45,7 +45,7 @@
         <x>5</x>
         <y>0</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -53,7 +53,7 @@
         <x>6</x>
         <y>0</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -61,7 +61,7 @@
         <x>7</x>
         <y>0</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -69,7 +69,7 @@
         <x>8</x>
         <y>0</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -77,7 +77,7 @@
         <x>9</x>
         <y>0</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -85,7 +85,7 @@
         <x>10</x>
         <y>0</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -93,7 +93,7 @@
         <x>11</x>
         <y>0</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -101,7 +101,7 @@
         <x>12</x>
         <y>0</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -109,7 +109,7 @@
         <x>13</x>
         <y>0</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -117,7 +117,7 @@
         <x>14</x>
         <y>0</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -125,7 +125,7 @@
         <x>15</x>
         <y>0</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -133,7 +133,7 @@
         <x>16</x>
         <y>0</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -141,7 +141,7 @@
         <x>17</x>
         <y>0</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -149,7 +149,7 @@
         <x>18</x>
         <y>0</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -157,7 +157,7 @@
         <x>19</x>
         <y>0</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -165,15 +165,20 @@
         <x>0</x>
         <y>1</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
         <id>22</id>
         <x>1</x>
         <y>1</y>
+<<<<<<< HEAD
         <status>RESERVED</status>
         <rentedItems/>
+=======
+        <status>FREE</status>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
+>>>>>>> develop
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -181,7 +186,7 @@
         <x>2</x>
         <y>1</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -189,7 +194,7 @@
         <x>3</x>
         <y>1</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -197,7 +202,7 @@
         <x>4</x>
         <y>1</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -205,7 +210,7 @@
         <x>5</x>
         <y>1</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -213,7 +218,7 @@
         <x>6</x>
         <y>1</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -221,7 +226,7 @@
         <x>7</x>
         <y>1</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -229,7 +234,7 @@
         <x>8</x>
         <y>1</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -237,7 +242,7 @@
         <x>9</x>
         <y>1</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -245,7 +250,7 @@
         <x>10</x>
         <y>1</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -253,7 +258,7 @@
         <x>11</x>
         <y>1</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -261,7 +266,7 @@
         <x>12</x>
         <y>1</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -269,7 +274,7 @@
         <x>13</x>
         <y>1</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -277,7 +282,7 @@
         <x>14</x>
         <y>1</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -285,7 +290,7 @@
         <x>15</x>
         <y>1</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -293,7 +298,7 @@
         <x>16</x>
         <y>1</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -301,7 +306,7 @@
         <x>17</x>
         <y>1</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -309,7 +314,7 @@
         <x>18</x>
         <y>1</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -317,7 +322,7 @@
         <x>19</x>
         <y>1</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -325,7 +330,7 @@
         <x>0</x>
         <y>2</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -333,7 +338,7 @@
         <x>1</x>
         <y>2</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -341,7 +346,7 @@
         <x>2</x>
         <y>2</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -349,7 +354,7 @@
         <x>3</x>
         <y>2</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -357,7 +362,7 @@
         <x>4</x>
         <y>2</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -365,7 +370,7 @@
         <x>5</x>
         <y>2</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -373,7 +378,7 @@
         <x>6</x>
         <y>2</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -381,7 +386,7 @@
         <x>7</x>
         <y>2</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -389,7 +394,7 @@
         <x>8</x>
         <y>2</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -397,7 +402,7 @@
         <x>9</x>
         <y>2</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -405,7 +410,7 @@
         <x>10</x>
         <y>2</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -413,7 +418,7 @@
         <x>11</x>
         <y>2</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -421,7 +426,7 @@
         <x>12</x>
         <y>2</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -429,7 +434,7 @@
         <x>13</x>
         <y>2</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -437,7 +442,7 @@
         <x>14</x>
         <y>2</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -445,7 +450,7 @@
         <x>15</x>
         <y>2</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -453,7 +458,7 @@
         <x>16</x>
         <y>2</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -461,7 +466,7 @@
         <x>17</x>
         <y>2</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -469,7 +474,7 @@
         <x>18</x>
         <y>2</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -477,7 +482,7 @@
         <x>19</x>
         <y>2</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -485,7 +490,7 @@
         <x>0</x>
         <y>3</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -493,7 +498,7 @@
         <x>1</x>
         <y>3</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -501,7 +506,7 @@
         <x>2</x>
         <y>3</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -509,7 +514,7 @@
         <x>3</x>
         <y>3</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -517,7 +522,7 @@
         <x>4</x>
         <y>3</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -525,7 +530,7 @@
         <x>5</x>
         <y>3</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -533,7 +538,7 @@
         <x>6</x>
         <y>3</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -541,7 +546,7 @@
         <x>7</x>
         <y>3</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -549,7 +554,7 @@
         <x>8</x>
         <y>3</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -557,7 +562,7 @@
         <x>9</x>
         <y>3</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -565,7 +570,7 @@
         <x>10</x>
         <y>3</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -573,7 +578,7 @@
         <x>11</x>
         <y>3</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -581,7 +586,7 @@
         <x>12</x>
         <y>3</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -589,7 +594,7 @@
         <x>13</x>
         <y>3</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -597,7 +602,7 @@
         <x>14</x>
         <y>3</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -605,7 +610,7 @@
         <x>15</x>
         <y>3</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -613,7 +618,7 @@
         <x>16</x>
         <y>3</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -621,7 +626,7 @@
         <x>17</x>
         <y>3</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -629,7 +634,7 @@
         <x>18</x>
         <y>3</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -637,7 +642,7 @@
         <x>19</x>
         <y>3</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -645,7 +650,7 @@
         <x>0</x>
         <y>4</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -653,7 +658,7 @@
         <x>1</x>
         <y>4</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -661,7 +666,7 @@
         <x>2</x>
         <y>4</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -669,7 +674,7 @@
         <x>3</x>
         <y>4</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -677,7 +682,7 @@
         <x>4</x>
         <y>4</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -685,7 +690,7 @@
         <x>5</x>
         <y>4</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -693,7 +698,7 @@
         <x>6</x>
         <y>4</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -701,7 +706,7 @@
         <x>7</x>
         <y>4</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -709,7 +714,7 @@
         <x>8</x>
         <y>4</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -717,7 +722,7 @@
         <x>9</x>
         <y>4</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -725,7 +730,7 @@
         <x>10</x>
         <y>4</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -733,7 +738,7 @@
         <x>11</x>
         <y>4</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -741,7 +746,7 @@
         <x>12</x>
         <y>4</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -749,7 +754,7 @@
         <x>13</x>
         <y>4</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -757,7 +762,7 @@
         <x>14</x>
         <y>4</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -765,7 +770,7 @@
         <x>15</x>
         <y>4</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -773,7 +778,7 @@
         <x>16</x>
         <y>4</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -781,7 +786,7 @@
         <x>17</x>
         <y>4</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -789,7 +794,7 @@
         <x>18</x>
         <y>4</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -797,7 +802,7 @@
         <x>19</x>
         <y>4</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -805,7 +810,7 @@
         <x>0</x>
         <y>5</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -813,7 +818,7 @@
         <x>1</x>
         <y>5</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -821,7 +826,7 @@
         <x>2</x>
         <y>5</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -829,7 +834,7 @@
         <x>3</x>
         <y>5</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -837,7 +842,7 @@
         <x>4</x>
         <y>5</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -845,7 +850,7 @@
         <x>5</x>
         <y>5</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -853,7 +858,7 @@
         <x>6</x>
         <y>5</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -861,7 +866,7 @@
         <x>7</x>
         <y>5</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -869,7 +874,7 @@
         <x>8</x>
         <y>5</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -877,7 +882,7 @@
         <x>9</x>
         <y>5</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -885,7 +890,7 @@
         <x>10</x>
         <y>5</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -893,7 +898,7 @@
         <x>11</x>
         <y>5</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -901,7 +906,7 @@
         <x>12</x>
         <y>5</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -909,7 +914,7 @@
         <x>13</x>
         <y>5</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -917,7 +922,7 @@
         <x>14</x>
         <y>5</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -925,7 +930,7 @@
         <x>15</x>
         <y>5</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -933,7 +938,7 @@
         <x>16</x>
         <y>5</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -941,7 +946,7 @@
         <x>17</x>
         <y>5</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -949,7 +954,7 @@
         <x>18</x>
         <y>5</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -957,7 +962,7 @@
         <x>19</x>
         <y>5</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -965,7 +970,7 @@
         <x>0</x>
         <y>6</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -973,7 +978,7 @@
         <x>1</x>
         <y>6</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -981,7 +986,7 @@
         <x>2</x>
         <y>6</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -989,7 +994,7 @@
         <x>3</x>
         <y>6</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -997,7 +1002,7 @@
         <x>4</x>
         <y>6</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -1005,7 +1010,7 @@
         <x>5</x>
         <y>6</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -1013,7 +1018,7 @@
         <x>6</x>
         <y>6</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -1021,7 +1026,7 @@
         <x>7</x>
         <y>6</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -1029,7 +1034,7 @@
         <x>8</x>
         <y>6</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -1037,7 +1042,7 @@
         <x>9</x>
         <y>6</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -1045,7 +1050,7 @@
         <x>10</x>
         <y>6</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -1053,7 +1058,7 @@
         <x>11</x>
         <y>6</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -1061,7 +1066,7 @@
         <x>12</x>
         <y>6</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -1069,7 +1074,7 @@
         <x>13</x>
         <y>6</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -1077,7 +1082,7 @@
         <x>14</x>
         <y>6</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -1085,7 +1090,7 @@
         <x>15</x>
         <y>6</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -1093,7 +1098,7 @@
         <x>16</x>
         <y>6</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -1101,7 +1106,7 @@
         <x>17</x>
         <y>6</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -1109,7 +1114,7 @@
         <x>18</x>
         <y>6</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -1117,7 +1122,7 @@
         <x>19</x>
         <y>6</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -1125,7 +1130,7 @@
         <x>0</x>
         <y>7</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -1133,7 +1138,7 @@
         <x>1</x>
         <y>7</y>
         <status>RESERVED</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -1141,7 +1146,7 @@
         <x>2</x>
         <y>7</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -1149,7 +1154,7 @@
         <x>3</x>
         <y>7</y>
         <status>RESERVED</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -1157,7 +1162,7 @@
         <x>4</x>
         <y>7</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -1165,7 +1170,7 @@
         <x>5</x>
         <y>7</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -1173,7 +1178,7 @@
         <x>6</x>
         <y>7</y>
         <status>RESERVED</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -1181,7 +1186,7 @@
         <x>7</x>
         <y>7</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -1189,7 +1194,7 @@
         <x>8</x>
         <y>7</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -1197,7 +1202,7 @@
         <x>9</x>
         <y>7</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -1205,7 +1210,7 @@
         <x>10</x>
         <y>7</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -1213,7 +1218,7 @@
         <x>11</x>
         <y>7</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -1221,7 +1226,7 @@
         <x>12</x>
         <y>7</y>
         <status>RESERVED</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -1229,7 +1234,7 @@
         <x>13</x>
         <y>7</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -1237,7 +1242,7 @@
         <x>14</x>
         <y>7</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -1245,7 +1250,7 @@
         <x>15</x>
         <y>7</y>
         <status>RESERVED</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -1253,7 +1258,7 @@
         <x>16</x>
         <y>7</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -1261,7 +1266,7 @@
         <x>17</x>
         <y>7</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -1269,7 +1274,7 @@
         <x>18</x>
         <y>7</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -1277,7 +1282,7 @@
         <x>19</x>
         <y>7</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -1285,7 +1290,7 @@
         <x>0</x>
         <y>8</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -1293,7 +1298,7 @@
         <x>1</x>
         <y>8</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -1301,7 +1306,7 @@
         <x>2</x>
         <y>8</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -1309,7 +1314,7 @@
         <x>3</x>
         <y>8</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -1317,7 +1322,7 @@
         <x>4</x>
         <y>8</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -1325,7 +1330,7 @@
         <x>5</x>
         <y>8</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -1333,7 +1338,7 @@
         <x>6</x>
         <y>8</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -1341,7 +1346,7 @@
         <x>7</x>
         <y>8</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -1349,7 +1354,7 @@
         <x>8</x>
         <y>8</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -1357,7 +1362,7 @@
         <x>9</x>
         <y>8</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -1365,7 +1370,7 @@
         <x>10</x>
         <y>8</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -1373,7 +1378,7 @@
         <x>11</x>
         <y>8</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -1381,7 +1386,7 @@
         <x>12</x>
         <y>8</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -1389,7 +1394,7 @@
         <x>13</x>
         <y>8</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -1397,7 +1402,7 @@
         <x>14</x>
         <y>8</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -1405,7 +1410,7 @@
         <x>15</x>
         <y>8</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -1413,7 +1418,7 @@
         <x>16</x>
         <y>8</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -1421,7 +1426,7 @@
         <x>17</x>
         <y>8</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -1429,7 +1434,7 @@
         <x>18</x>
         <y>8</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -1437,7 +1442,7 @@
         <x>19</x>
         <y>8</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -1445,7 +1450,7 @@
         <x>0</x>
         <y>9</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -1453,7 +1458,7 @@
         <x>1</x>
         <y>9</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -1461,7 +1466,7 @@
         <x>2</x>
         <y>9</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -1469,7 +1474,7 @@
         <x>3</x>
         <y>9</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -1477,7 +1482,7 @@
         <x>4</x>
         <y>9</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -1485,7 +1490,7 @@
         <x>5</x>
         <y>9</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -1493,7 +1498,7 @@
         <x>6</x>
         <y>9</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -1501,7 +1506,7 @@
         <x>7</x>
         <y>9</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -1509,7 +1514,7 @@
         <x>8</x>
         <y>9</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -1517,7 +1522,7 @@
         <x>9</x>
         <y>9</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -1525,7 +1530,7 @@
         <x>10</x>
         <y>9</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -1533,7 +1538,7 @@
         <x>11</x>
         <y>9</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -1541,7 +1546,7 @@
         <x>12</x>
         <y>9</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -1549,7 +1554,7 @@
         <x>13</x>
         <y>9</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -1557,7 +1562,7 @@
         <x>14</x>
         <y>9</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -1565,7 +1570,7 @@
         <x>15</x>
         <y>9</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -1573,7 +1578,7 @@
         <x>16</x>
         <y>9</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -1581,7 +1586,7 @@
         <x>17</x>
         <y>9</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -1589,7 +1594,7 @@
         <x>18</x>
         <y>9</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -1597,7 +1602,7 @@
         <x>19</x>
         <y>9</y>
         <status>FREE</status>
-        <rentedItems/>
+        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
 </places>

@@ -30,7 +30,7 @@ public class SearchMenu {
                 "Type Y to confirm");
         option = sc.nextLine().toLowerCase();
         if (option.equals("y")) {
-            searchConditions.putItems(ItemType.SCREEN, 1);
+            searchConditions.putItemToRentedItemsList(ItemType.SCREEN);
         }
     }
 }
