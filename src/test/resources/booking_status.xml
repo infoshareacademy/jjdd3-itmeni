@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<places>
+    <place>
+        <id>1</id>
+        <x>0</x>
+        <y>0</y>
+        <status>FREE</status>
+        <rentedItems/>
+        <meetsSearchCriteria>false</meetsSearchCriteria>
+    </place>
+    <place>
+        <id>2</id>
+        <x>1</x>
+        <y>0</y>
+        <status>FREE</status>
+        <rentedItems/>
+        <meetsSearchCriteria>false</meetsSearchCriteria>
+    </place>
+</places>

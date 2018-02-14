@@ -34,7 +34,7 @@ public class ReservationPreview {
 
     public Place getPlaceByCoordinates(Beach beach, int x, int y) {
         if (x >= beach.getMaxWidth() || y >= beach.getMaxHeight()) {
-            throw new IllegalArgumentException("Wow-out of range!");
+            throw new IllegalArgumentException();
         }
         return beach.getPlaces().stream()
                 .filter(place -> place.getX() == x && place.getY() == y)
