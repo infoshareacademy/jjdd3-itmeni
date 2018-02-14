@@ -172,13 +172,8 @@
         <id>22</id>
         <x>1</x>
         <y>1</y>
-<<<<<<< HEAD
-        <status>RESERVED</status>
-        <rentedItems/>
-=======
         <status>FREE</status>
         <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
->>>>>>> develop
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>

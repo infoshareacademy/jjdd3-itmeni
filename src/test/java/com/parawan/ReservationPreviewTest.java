@@ -17,7 +17,6 @@ class ReservationPreviewTest {
     }
 
     @Test
-<<<<<<< HEAD
     void shouldIndicateCompleteInformationAboutBookedPoint() {
         Places places = subject.xmlToJava("src/test/resources/booking_status.xml");
         Beach beach = new Beach(2, 1);
@@ -25,14 +24,6 @@ class ReservationPreviewTest {
         reservationPreview = new ReservationPreview();
         assertTrue(reservationPreview.getPlaceByCoordinates(beach, 0, 0).getStatus() == PlaceStatus.FREE);
     }
-=======
-    void shouldThrowExceptionWhenPrintedParemeters() {
-        Throwable exception =
-                assertThrows(IllegalArgumentException.class, () -> {
-                    ;
-                });
->>>>>>> develop
-
     @Test
     void shouldThrowExceptionWhenParametersAreOutOfRange() {
         Beach beach = new Beach(12, 10);
