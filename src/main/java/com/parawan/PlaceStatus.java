@@ -9,5 +9,5 @@ public enum PlaceStatus {
     FREE,
     BOOKED,
     RESERVED,
-    DIRTY
+    OUTOFORDER
 }

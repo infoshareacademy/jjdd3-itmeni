@@ -12,8 +12,8 @@ public class Reservation {
         try {
             int idNumber = Integer.parseInt(scanner.nextLine());
 
-            if (beach.getPlaces().get(idNumber - 1).getStatus() == PlaceStatus.DIRTY) {
-                System.out.println("Sorry, but right now this place is dirty and cannot be reserved ");
+            if (beach.getPlaces().get(idNumber - 1).getStatus() == PlaceStatus.OUTOFORDER) {
+                System.out.println("Sorry, but right now this place is out of order and cannot be reserved ");
             } else if (beach.getPlaces().get(idNumber - 1).getStatus() == PlaceStatus.RESERVED) {
                 System.out.println("Sorry, but this place is already reserved at that time");
 
@@ -26,8 +26,8 @@ public class Reservation {
     }
 
     public boolean reserve (Beach beach, int idNum) {
-        if (beach.getPlaces().get(idNum - 1).getStatus() == PlaceStatus.DIRTY) {
-            System.out.println("Sorry, but right now this place is dirty and cannot be reserved ");
+        if (beach.getPlaces().get(idNum - 1).getStatus() == PlaceStatus.OUTOFORDER) {
+            System.out.println("Sorry, but right now this place is out of order and cannot be reserved ");
             return false;
         } else if (beach.getPlaces().get(idNum - 1).getStatus() == PlaceStatus.RESERVED) {
             System.out.println("Sorry, but this place is already reserved at that time");
@@ -38,9 +38,9 @@ public class Reservation {
         }
     }
 
-    public boolean dirty (Beach beach, int idNum) {
-        if (beach.getPlaces().get(idNum - 1).getStatus() == PlaceStatus.DIRTY) {
-            System.out.println("Sorry, but right now this place is dirty and cannot be reserved ");
+    public boolean outOfOrder (Beach beach, int idNum) {
+        if (beach.getPlaces().get(idNum - 1).getStatus() == PlaceStatus.OUTOFORDER) {
+            System.out.println("Sorry, but right now this place is out of order and cannot be reserved ");
             return true;
         } else if (beach.getPlaces().get(idNum - 1).getStatus() == PlaceStatus.RESERVED) {
             System.out.println("Sorry, but this place is already reserved at that time");
