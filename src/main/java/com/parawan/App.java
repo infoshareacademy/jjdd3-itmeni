@@ -13,8 +13,6 @@ public class App {
             path = args[0];
             System.out.println("INPUT FILE: " + path);
         }
-        String firstCommandLineArgument = args[0];
-
 
         Beach sunnyBeach = new Beach(20, 10);
         sunnyBeach.createPlaces();
