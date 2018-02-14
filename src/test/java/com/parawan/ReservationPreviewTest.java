@@ -12,7 +12,7 @@ class ReservationPreviewTest {
     private ReservationPreview reservationPreview;
 
     @BeforeEach
-    void setUp(){
+    void setUp() {
         subject = new XMLToJava();
     }
 

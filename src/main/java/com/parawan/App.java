@@ -9,8 +9,7 @@ public class App {
         if (args.length != 1) {
             System.out.println("Please provide input file.");
             System.exit(1);
-        }
-        else {
+        } else {
             path = args[0];
             System.out.println("INPUT FILE: " + path);
         }

@@ -12,7 +12,7 @@ public class ReservationPreview {
             if (i == 0) {
                 System.out.print("    ");
             }
-            System.out.print(i+1 + "  ");
+            System.out.print(i + 1 + "  ");
         }
         System.out.println();
         for (int y = 0; y < beach.getMaxHeight(); y++) {
@@ -30,7 +30,7 @@ public class ReservationPreview {
     }
 
     public Place getPlaceByCoordinates(Beach beach, int x, int y) {
-        if( x >= beach.getMaxWidth() || y >= beach.getMaxHeight() ){
+        if (x >= beach.getMaxWidth() || y >= beach.getMaxHeight()) {
             throw new IllegalArgumentException();
         }
         return beach.getPlaces().stream()
