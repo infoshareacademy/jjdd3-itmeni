@@ -5,12 +5,21 @@ import com.parawan.XMLparser.Places;
 public class Beach {
 
     private Places places = new Places();
-    private int maxWidth;
-    private int maxHeight;
+    private Integer maxWidth;
+    private Integer maxHeight;
+    private Integer hourOfStatus;
 
     public Beach(int maxWidth, int maxHeight) {
         this.maxWidth = maxWidth;
         this.maxHeight = maxHeight;
+    }
+
+    public Integer getHourOfStatus() {
+        return hourOfStatus;
+    }
+
+    public void setHourOfStatus(Integer hourOfStatus) {
+        this.hourOfStatus = hourOfStatus;
     }
 
     public int getMaxWidth() {
@@ -30,6 +39,7 @@ public class Beach {
     }
 
     public void createPlaces() {
+        this.places.clear();
         int x = 0;
         int y = 0;
         for (int i = 0; i < (maxWidth * maxHeight); i++) {
@@ -43,7 +53,6 @@ public class Beach {
                 y++;
             }
         }
-
     }
 
     public Place getPlaceByXY(int x, int y) {

@@ -1,7 +1,11 @@
 package com.parawan.com.menu;
 
 import com.parawan.*;
+<<<<<<< HEAD
 import com.parawan.XMLparser.JavaToXML;
+=======
+import com.parawan.reservation.ReservationTable;
+>>>>>>> 4926e0c16215283b6007de4b38d7a0c577fce402
 
 import javax.xml.bind.JAXBException;
 import java.io.IOException;
@@ -13,6 +17,8 @@ public class MainMenu {
     public void showMenu(Beach beach, JavaToXML javaToXML) throws IOException {
 
         DateTimeFormatter myFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy - HH:mm");
+
+        ReservationTable reservationTable = new ReservationTable();
 
 
         LocalDateTime localDateTime = LocalDateTime.now();
@@ -31,9 +37,8 @@ public class MainMenu {
             String answer = scanner.nextLine();
 
             if (answer.equals("r")) {
-
-                Reservation reservation = new Reservation();
-                reservation.makeReservation(beach, scanner);
+                //test
+                reservationTable.reservePlace(beach);
 
             } else if (answer.equals("e")) {
 
