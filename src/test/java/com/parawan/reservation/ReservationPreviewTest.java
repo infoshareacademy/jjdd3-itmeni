@@ -1,5 +1,10 @@
-package com.parawan;
+package com.parawan.reservation;
 
+import com.parawan.Beach;
+import com.parawan.PlaceStatus;
+import com.parawan.ReservationPreview;
+import com.parawan.XMLparser.Places;
+import com.parawan.XMLparser.XMLToJava;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

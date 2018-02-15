@@ -1,11 +1,18 @@
 package com.parawan;
 
+import com.parawan.XMLparser.JavaToXML;
+import com.parawan.XMLparser.Places;
+import com.parawan.XMLparser.XMLToJava;
 import com.parawan.com.menu.*;
+
+import java.io.IOException;
 
 
 public class App {
-    public static void main(String[] args) {
-        String path = "src/test/resources/booking_status.xml";
+
+    public static void main(String[] args) throws IOException {
+
+        String path = "src/main/resources/booking_status.xml";
         if (args.length != 1) {
             System.out.println("Please provide input file.");
             System.exit(1);

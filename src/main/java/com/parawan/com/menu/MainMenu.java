@@ -1,15 +1,17 @@
 package com.parawan.com.menu;
 
 import com.parawan.*;
+import com.parawan.XMLparser.JavaToXML;
 import com.parawan.reservation.ReservationTable;
 
 import javax.xml.bind.JAXBException;
+import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
 public class MainMenu {
-    public void showMenu(Beach beach, JavaToXML javaToXML) {
+    public void showMenu(Beach beach, JavaToXML javaToXML) throws IOException {
 
         DateTimeFormatter myFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy - HH:mm");
 

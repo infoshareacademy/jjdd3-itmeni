@@ -1,4 +1,4 @@
-package com.parawan;
+package com.parawan.XMLparser;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
