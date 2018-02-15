@@ -15,19 +15,35 @@ public class ReservationMenu {
     Scanner sc = new Scanner(System.in);
     Integer chosenOption = 0;
     String chosenItems;
+    String chosenName;
     Reservation reservation = new Reservation();
-
+    boolean flag=true;
+    //int idNumberOutOrder = Integer.parseInt(scanner.nextLine());
 
     public Reservation makeReservation(Beach beach, List<Reservation> list) {
         CheckStatus checkStatus = new CheckStatus(list);
         do {
-            System.out.println("On what hour do you want to make reservation?");
-            chosenOption = sc.nextInt();
+            System.out.println("Please type hour of reservation (Beach is open from 8.00 to 19.00)");
+
+            try {
+                chosenOption = Integer.parseInt(sc.nextLine());
+            }
+            catch (Exception e) {
+                System.out.println("Please be sure to type Integer within the bounds");
+            }
+
+
             reservation.setHourOfReservation(chosenOption);
 
-            System.out.println("Choose ID of your place");
-            chosenOption = sc.nextInt();
+            System.out.println("Please type ID of your place");
+            chosenOption = Integer.parseInt(sc.nextLine());
             reservation.setPlaceId(chosenOption);
+
+            System.out.println("Please type your name ");
+            chosenName = sc.nextLine();
+            reservation.setNameOfPerson(chosenName);
+
+
         } while (checkStatus.isAlreadyReserved(reservation));
 
         System.out.println("What items do you want to rent? [s]creen, [u]mbrella, [t]owel, sun[b]ed");
