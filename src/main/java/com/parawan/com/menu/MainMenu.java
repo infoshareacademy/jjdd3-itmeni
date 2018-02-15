@@ -1,11 +1,8 @@
 package com.parawan.com.menu;
 
 import com.parawan.*;
-<<<<<<< HEAD
 import com.parawan.XMLparser.JavaToXML;
-=======
 import com.parawan.reservation.ReservationTable;
->>>>>>> 4926e0c16215283b6007de4b38d7a0c577fce402
 
 import javax.xml.bind.JAXBException;
 import java.io.IOException;
