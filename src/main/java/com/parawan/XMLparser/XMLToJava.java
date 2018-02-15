@@ -24,11 +24,7 @@ public class XMLToJava {
                         return true;
                     });
 
-
-            File f = new File( !path.isEmpty() && (path.contains("/") || path.contains("\\")) ? path : getClass().getClassLoader().getResource(JavaToXML.DATA_FILE_NAME).getFile());
-
-   //         File f = new File(path);
-
+            File f = new File(!path.isEmpty() && (path.contains("/") || path.contains("\\")) ? path : getClass().getClassLoader().getResource(JavaToXML.DATA_FILE_NAME).getFile());
 
             placesWrapper = (PlacesWrapper) u.unmarshal(f);
             placesFromFile = placesWrapper.getPlaces();
