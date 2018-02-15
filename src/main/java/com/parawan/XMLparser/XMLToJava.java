@@ -19,14 +19,16 @@ public class XMLToJava {
             Unmarshaller u = jc.createUnmarshaller();
 
             u.setEventHandler(
-                    new ValidationEventHandler() {
-                        public boolean handleEvent(ValidationEvent event) {
-                            System.out.println(event.getMessage());
-                            return true;
-                        }
+                    event -> {
+                        System.out.println(event.getMessage());
+                        return true;
                     });
 
-            File f = new File( !path.isEmpty() ? path : getClass().getClassLoader().getResource(JavaToXML.DATA_FILE_NAME).getFile());
+
+            File f = new File( !path.isEmpty() && (path.contains("/") || path.contains("\\")) ? path : getClass().getClassLoader().getResource(JavaToXML.DATA_FILE_NAME).getFile());
+
+   //         File f = new File(path);
+
 
             placesWrapper = (PlacesWrapper) u.unmarshal(f);
             placesFromFile = placesWrapper.getPlaces();

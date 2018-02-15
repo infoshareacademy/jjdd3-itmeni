@@ -16,10 +16,6 @@ public class XMLToJavaTest {
     private static final String PATH = "src/test/resources/booking_status.xml";
     private XMLToJava subject;
 
-    @Test
-    public void test() {
-        System.out.print("The test environment has been successfully established");
-    }
 
     @BeforeEach
     void setUp() {

@@ -5,7 +5,7 @@
         <x>0</x>
         <y>0</y>
         <status>FREE</status>
-        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
+        <rentedItems/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
     <place>
@@ -13,7 +13,7 @@
         <x>1</x>
         <y>0</y>
         <status>FREE</status>
-        <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
+        <rentedItems/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
 </places>
