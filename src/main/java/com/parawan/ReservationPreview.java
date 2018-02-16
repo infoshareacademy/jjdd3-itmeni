@@ -6,24 +6,20 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class ReservationPreview {
+    private Place place;
 
     public void preview(Beach beach) {
         for (int i = 0; i < beach.getMaxWidth(); i++) {
-            if (i == 0) {
-                System.out.print("    ");
-            }
-            System.out.print(i + 1 + "  ");
+            System.out.println();
         }
-        System.out.println();
         for (int y = 0; y < beach.getMaxHeight(); y++) {
-            System.out.print(y + 1 + "  ");
             for (int x = 0; x < beach.getMaxWidth(); x++) {
                 if (getPlaceByCoordinates(beach, x, y).getStatus() == PlaceStatus.RESERVED) {
-                    System.out.print("#   ");
+                    System.out.print(" #\t");
                 } else if (getPlaceByCoordinates(beach, x, y).getStatus() == PlaceStatus.OUTOFORDER) {
-                    System.out.print("*   ");
+                    System.out.print(" *\t");
                 } else {
-                    System.out.print(".   ");
+                    System.out.print(getPlaceByCoordinates(beach, x, y).getId() + "\t");
                 }
             }
             System.out.println();
@@ -39,6 +35,6 @@ public class ReservationPreview {
         return beach.getPlaces().stream()
                 .filter(place -> place.getX() == x && place.getY() == y)
                 .findFirst()
-                .orElse(null);
+                .get();
     }
 }

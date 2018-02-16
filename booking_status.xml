@@ -4,7 +4,7 @@
         <id>1</id>
         <x>0</x>
         <y>0</y>
-        <status>OUTOFORDER</status>
+        <status>FREE</status>
         <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
@@ -12,7 +12,7 @@
         <id>2</id>
         <x>1</x>
         <y>0</y>
-        <status>FREE</status>
+        <status>RESERVED</status>
         <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
@@ -44,7 +44,7 @@
         <id>6</id>
         <x>5</x>
         <y>0</y>
-        <status>FREE</status>
+        <status>RESERVED</status>
         <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
@@ -148,7 +148,7 @@
         <id>19</id>
         <x>18</x>
         <y>0</y>
-        <status>FREE</status>
+        <status>RESERVED</status>
         <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
@@ -228,7 +228,7 @@
         <id>29</id>
         <x>8</x>
         <y>1</y>
-        <status>FREE</status>
+        <status>RESERVED</status>
         <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
@@ -540,7 +540,7 @@
         <id>68</id>
         <x>7</x>
         <y>3</y>
-        <status>FREE</status>
+        <status>RESERVED</status>
         <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
@@ -748,7 +748,7 @@
         <id>94</id>
         <x>13</x>
         <y>4</y>
-        <status>FREE</status>
+        <status>RESERVED</status>
         <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
@@ -756,7 +756,7 @@
         <id>95</id>
         <x>14</x>
         <y>4</y>
-        <status>FREE</status>
+        <status>RESERVED</status>
         <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
@@ -764,7 +764,7 @@
         <id>96</id>
         <x>15</x>
         <y>4</y>
-        <status>FREE</status>
+        <status>RESERVED</status>
         <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
@@ -772,7 +772,7 @@
         <id>97</id>
         <x>16</x>
         <y>4</y>
-        <status>FREE</status>
+        <status>RESERVED</status>
         <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
@@ -892,7 +892,7 @@
         <id>112</id>
         <x>11</x>
         <y>5</y>
-        <status>FREE</status>
+        <status>RESERVED</status>
         <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
@@ -988,7 +988,7 @@
         <id>124</id>
         <x>3</x>
         <y>6</y>
-        <status>FREE</status>
+        <status>RESERVED</status>
         <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
@@ -1036,7 +1036,7 @@
         <id>130</id>
         <x>9</x>
         <y>6</y>
-        <status>FREE</status>
+        <status>OUTOFORDER</status>
         <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
@@ -1060,7 +1060,7 @@
         <id>133</id>
         <x>12</x>
         <y>6</y>
-        <status>FREE</status>
+        <status>OUTOFORDER</status>
         <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
@@ -1068,7 +1068,7 @@
         <id>134</id>
         <x>13</x>
         <y>6</y>
-        <status>FREE</status>
+        <status>OUTOFORDER</status>
         <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
@@ -1132,7 +1132,7 @@
         <id>142</id>
         <x>1</x>
         <y>7</y>
-        <status>RESERVED</status>
+        <status>FREE</status>
         <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
@@ -1148,7 +1148,7 @@
         <id>144</id>
         <x>3</x>
         <y>7</y>
-        <status>RESERVED</status>
+        <status>FREE</status>
         <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
@@ -1172,7 +1172,7 @@
         <id>147</id>
         <x>6</x>
         <y>7</y>
-        <status>RESERVED</status>
+        <status>FREE</status>
         <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
@@ -1220,7 +1220,7 @@
         <id>153</id>
         <x>12</x>
         <y>7</y>
-        <status>RESERVED</status>
+        <status>FREE</status>
         <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
@@ -1244,7 +1244,7 @@
         <id>156</id>
         <x>15</x>
         <y>7</y>
-        <status>RESERVED</status>
+        <status>FREE</status>
         <rentedItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         <meetsSearchCriteria>false</meetsSearchCriteria>
     </place>
