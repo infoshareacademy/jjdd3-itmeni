@@ -8,15 +8,9 @@ import java.util.Scanner;
 public class ReservationPreview {
     private Place place;
     public void preview(Beach beach) {
-        for (int i = 0; i < beach.getMaxWidth(); i++) {
-            if (i == 0) {
-//                System.out.print("    ");
-            }
-//            System.out.print(i + 1 + "\t");
-        }
+        for (int i = 0; i < beach.getMaxWidth(); i++)
         System.out.println();
         for (int y = 0; y < beach.getMaxHeight(); y++) {
-//            System.out.printf("%3s\t", y+1);
             for (int x = 0; x < beach.getMaxWidth(); x++) {
                 if (getPlaceByCoordinates(beach, x, y).getStatus() == PlaceStatus.RESERVED) {
                     System.out.print(" #\t");
