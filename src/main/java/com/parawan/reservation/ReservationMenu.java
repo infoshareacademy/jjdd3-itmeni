@@ -23,16 +23,18 @@ public class ReservationMenu {
     public Reservation makeReservation(Beach beach, List<Reservation> list) {
         CheckStatus checkStatus = new CheckStatus(list);
         do {
-            System.out.println("Please type hour of reservation (Beach is open from 8.00 to 19.00)");
 
-            try {
-                chosenOption = Integer.parseInt(sc.nextLine());
+            while(chosenOption<8 || chosenOption>19) {
+
+                System.out.println("Please type hour of reservation (Beach is open from 8.00 to 19.00)");
+
+                try {
+                    chosenOption = Integer.parseInt(sc.nextLine());
+                } catch (Exception e) {
+                    System.out.println("Please be sure to type Integer within the bounds");
+                }
+
             }
-            catch (Exception e) {
-                System.out.println("Please be sure to type Integer within the bounds");
-            }
-
-
             reservation.setHourOfReservation(chosenOption);
 
             System.out.println("Please type ID of your place");
