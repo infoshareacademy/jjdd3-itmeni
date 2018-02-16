@@ -7,9 +7,11 @@ import java.util.Scanner;
 
 public class ReservationPreview {
     private Place place;
+
     public void preview(Beach beach) {
-        for (int i = 0; i < beach.getMaxWidth(); i++)
-        System.out.println();
+        for (int i = 0; i < beach.getMaxWidth(); i++) {
+            System.out.println();
+        }
         for (int y = 0; y < beach.getMaxHeight(); y++) {
             for (int x = 0; x < beach.getMaxWidth(); x++) {
                 if (getPlaceByCoordinates(beach, x, y).getStatus() == PlaceStatus.RESERVED) {
@@ -17,7 +19,7 @@ public class ReservationPreview {
                 } else if (getPlaceByCoordinates(beach, x, y).getStatus() == PlaceStatus.OUTOFORDER) {
                     System.out.print(" *\t");
                 } else {
-                    System.out.print(getPlaceByCoordinates(beach, x, y).getId()+ "\t");
+                    System.out.print(getPlaceByCoordinates(beach, x, y).getId() + "\t");
                 }
             }
             System.out.println();
