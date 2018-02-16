@@ -2,7 +2,6 @@ package com.parawan.com.menu;
 
 import com.parawan.*;
 import com.parawan.reservation.ReservationTable;
-
 import javax.xml.bind.JAXBException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
