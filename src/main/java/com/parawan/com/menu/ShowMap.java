@@ -12,7 +12,6 @@ public class ShowMap {
     private Integer placeIndex = 0;
 
     public void printMap(Beach beach) {
-       // List<Place> placesToPrint = beach.getPlaces();
 
         System.out.println("Beach status at " + beach.getHourOfStatus() + " o'clock");
 
