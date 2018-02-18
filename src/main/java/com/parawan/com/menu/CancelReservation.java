@@ -1,25 +1,50 @@
 package com.parawan.com.menu;
 
 import com.parawan.Beach;
-import com.parawan.PlaceStatus;
+import com.parawan.reservation.ReservationTable;
 
 import java.util.Scanner;
 
 public class CancelReservation {
-    public void undoReservation(Beach beach, Scanner scanner) {
-        System.out.println("Please specify ID number from " + beach.getPlaces().get(0).getId() + " to " + beach.getPlaces().get(beach.getPlaces().size() - 1).getId() + " to cancel reservation");
+    private int cancelId = 0;
+    private int cancelHour = 0;
 
-        try {
-            int idNumberCancel = Integer.parseInt(scanner.nextLine());
-            cancel(beach, idNumberCancel);
-        } catch (Exception e) {
-            System.out.println("Please be sure to type Integer within the bounds");
+    public void undoReservation(Beach beach, Scanner scanner, ReservationTable reservationTable) {
+
+        while (conditionForId(beach)) {
+
+            System.out.println("Please specify ID number from " + beach.getPlaces().get(0).getId() + " to " + beach.getPlaces().get(beach.getPlaces().size() - 1).getId() + " to cancel reservation");
+            try {
+                cancelId = Integer.parseInt(scanner.nextLine());
+            } catch (Exception e) {
+                System.out.println("Please be sure to type Integer within the bounds");
+            }
+        }
+
+        while (cancelHour < 8 || cancelHour > 19) {
+
+            System.out.println("Please type hour of reservation You wish to cancel (Beach is open from 8.00 to 19.00)");
+            try {
+                cancelHour = Integer.parseInt(scanner.nextLine());
+            } catch (Exception e) {
+                System.out.println("Please be sure to type Integer within the bounds");
+            }
+        }
+
+        for (int i = 0; i < reservationTable.getTableOfReservations().size(); ++i) {
+            if (conditionForCancellation(reservationTable, i)) {
+                reservationTable.getTableOfReservations().remove(i);
+            }
         }
     }
 
-    public PlaceStatus cancel(Beach beach, int IdInt) {
+    private boolean conditionForId(Beach beach){
 
-        beach.getPlaces().get(IdInt - 1).setStatus(PlaceStatus.FREE);
-        return beach.getPlaces().get(IdInt - 1).getStatus();
+        return cancelId < beach.getPlaces().get(0).getId() || cancelId > beach.getPlaces().get(beach.getPlaces().size() - 1).getId();
+    }
+
+    private boolean conditionForCancellation(ReservationTable reservationTable, int i){
+
+        return reservationTable.getTableOfReservations().get(i).getHourOfReservation() == cancelHour && reservationTable.getTableOfReservations().get(i).getPlaceId() == cancelId;
     }
 }
