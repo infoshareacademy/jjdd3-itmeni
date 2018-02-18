@@ -3,6 +3,7 @@ package com.parawan.com.menu;
 import com.parawan.*;
 import com.parawan.XMLparser.JavaToXML;
 import com.parawan.reservation.ReservationTable;
+
 import javax.xml.bind.JAXBException;
 import java.io.IOException;
 import java.time.LocalDateTime;
@@ -13,13 +14,12 @@ public class MainMenu {
     public void showMenu(Beach beach, JavaToXML javaToXML) throws IOException {
 
         DateTimeFormatter myFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy - HH:mm");
-
-        ReservationTable reservationTable = new ReservationTable();
-
         LocalDateTime localDateTime = LocalDateTime.now();
         String formattedDateTime = localDateTime.format(myFormatter);
+
+        ReservationTable reservationTable = new ReservationTable();
         Scanner scanner = new Scanner(System.in);
-        int typedHour=0;
+        ReservationPreview reservationPreview = new ReservationPreview();
 
 
         while (true) {
@@ -27,7 +27,7 @@ public class MainMenu {
             System.out.println("\nPrivate beach management system - PARAWAN. ||     Current time: " + formattedDateTime);
             System.out.println("Chose action.                              ||               ver 1.0 ");
             System.out.println("\nWould You like to: [r]eserve place, [f]ind place with additional requirements," +
-                    " \n[c]ancel reservation, [s]ee current beach preview, c[h]eck storehouse status, [q]uit ");
+                    " \n[c]ancel reservation, [s]ee current beach preview, \nc[h]eck the number of items available for rent, [q]uit ");
 
             String answer = scanner.nextLine();
 
@@ -35,9 +35,9 @@ public class MainMenu {
                 reservationTable.reservePlace(beach);
 
             } else if (answer.equals("f")) {
+                int typedHour = 0;
 
-
-                while(typedHour<8 || typedHour>19) {
+                while (typedHour < 8 || typedHour > 19) {
                     System.out.println("Please type hour that interest You  (Beach is open from 8.00 to 19.00)");
 
                     try {
@@ -48,7 +48,7 @@ public class MainMenu {
                 }
 
                 beach.setHourOfStatus(typedHour);
-                SnapshotOfGivenHour snapshotOfGivenHour = new SnapshotOfGivenHour() ;
+                SnapshotOfGivenHour snapshotOfGivenHour = new SnapshotOfGivenHour();
                 snapshotOfGivenHour.setBeachAndReservationTable(beach, reservationTable);
                 snapshotOfGivenHour.getSnapshot(beach.getHourOfStatus());
                 SearchEngine searchEngine = new SearchEngine();
@@ -58,20 +58,18 @@ public class MainMenu {
                 beach.createPlaces();
 
             } else if (answer.equals("c")) {
-                ShowMap showMap = new ShowMap();
-                System.out.println("give hour");
-                SnapshotOfGivenHour snapshotOfGivenHour = new SnapshotOfGivenHour();
-                snapshotOfGivenHour.setBeachAndReservationTable(beach, reservationTable);
-                beach.setHourOfStatus(scanner.nextInt());
-                showMap.printMap(snapshotOfGivenHour.getSnapshot(beach.getHourOfStatus()));
-                beach.createPlaces();
-               /*
-               CancelReservation cancelReservation = new CancelReservation();
-               cancelReservation.undoReservation(beach, scanner);
-               */
+
+                CancelReservation cancelReservation = new CancelReservation();
+                cancelReservation.undoReservation(beach, scanner, reservationTable);
 
             } else if (answer.equals("s")) {
 
+                reservationPreview.preview(beach);
+
+            } else if (answer.equals("h")) {
+
+                ItemManagement itemManagement = new ItemManagement();
+                itemManagement.itemCount(reservationTable, scanner);
 
             } else if (answer.equals("q")) {
 

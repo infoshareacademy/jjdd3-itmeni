@@ -11,8 +11,6 @@ public class ReservationPreview {
             for (int x = 0; x < beach.getMaxWidth(); x++) {
                 if (getPlaceByCoordinates(beach, x, y).getStatus() == PlaceStatus.RESERVED) {
                     System.out.print(" #\t");
-                } else if (getPlaceByCoordinates(beach, x, y).getStatus() == PlaceStatus.OUTOFORDER) {
-                    System.out.print(" *\t");
                 } else {
                     System.out.print(getPlaceByCoordinates(beach, x, y).getId() + "\t");
                 }
@@ -20,7 +18,7 @@ public class ReservationPreview {
             System.out.println();
         }
         System.out.println("\n                             SEA SIDE");
-        System.out.println("\nLegend:\n(number) - free place\n* - out of order\n# - reserved place\n");
+        System.out.println("\nLegend:\n\n(number) - free place\n       # - reserved place\n");
     }
 
     public Place getPlaceByCoordinates(Beach beach, int x, int y) {
