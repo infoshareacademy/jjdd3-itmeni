@@ -1,4 +1,4 @@
-package com.parawan.datamenager;
+package com.parawan.datamanager;
 
 import com.parawan.Beach;
 import com.parawan.reservation.Reservation;
@@ -9,7 +9,6 @@ import java.io.PrintWriter;
 
 public class WriteReservationsToFile {
 
-    //File file = new File("database.beach");
     StringBuilder sb = new StringBuilder("");
 
     public void writeReservationsToFile(ReservationTable reservationTable, Beach beach) {
@@ -18,18 +17,18 @@ public class WriteReservationsToFile {
         try {
             pw = new PrintWriter("database.beach");
         } catch (FileNotFoundException e1) {
-            e1.printStackTrace();
+            System.out.println("No database found!");;
         }
-        pw.println(beach.getName() + ";" + beach.getMaxWidth() + ";" + beach.getMaxWidth() + ";");
+        pw.println(beach.getName() + ";" + beach.getMaxWidth() + ";" + beach.getMaxHeight() + ";");
         Reservation reservationToPrint = new Reservation();
         for (int i = 0; i < reservationTable.getTableOfReservations().size(); i++) {
             reservationToPrint = reservationTable.getTableOfReservations().get(i);
 
             sb.append(reservationToPrint.getHourOfReservation() + ";");
             sb.append(reservationToPrint.getPlaceId() + ";");
-            sb.append(reservationToPrint.getNameOfPerson() + ";");
             reservationToPrint.getRentedItems().forEach(x -> sb.append(x).append(" "));
             sb.append(";");
+            sb.append(reservationToPrint.getNameOfPerson() + ";");
             pw.println(sb);
             sb.setLength(0);
         }

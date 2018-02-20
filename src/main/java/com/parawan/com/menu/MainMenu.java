@@ -1,26 +1,27 @@
 package com.parawan.com.menu;
 
-import com.parawan.*;
-import com.parawan.XMLparser.JavaToXML;
+import com.parawan.Beach;
+import com.parawan.ReservationPreview;
+import com.parawan.SearchEngine;
+import com.parawan.SnapshotOfGivenHour;
+import com.parawan.datamanager.WriteReservationsToFile;
 import com.parawan.reservation.ReservationTable;
 
-import javax.xml.bind.JAXBException;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
 public class MainMenu {
-    public void showMenu(Beach beach, JavaToXML javaToXML) throws IOException {
+    public void showMenu(Beach beach, ReservationTable reservationTable) throws IOException {
 
         DateTimeFormatter myFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy - HH:mm");
         LocalDateTime localDateTime = LocalDateTime.now();
         String formattedDateTime = localDateTime.format(myFormatter);
 
-        ReservationTable reservationTable = new ReservationTable();
         Scanner scanner = new Scanner(System.in);
         ReservationPreview reservationPreview = new ReservationPreview();
-
+        SnapshotOfGivenHour snapshotOfGivenHour = new SnapshotOfGivenHour();
 
         while (true) {
 
@@ -35,24 +36,11 @@ public class MainMenu {
                 reservationTable.reservePlace(beach);
 
             } else if (answer.equals("f")) {
-                int typedHour = 0;
 
-                while (typedHour < 8 || typedHour > 19) {
-                    System.out.println("Please type hour that interest You  (Beach is open from 8.00 to 19.00)");
-
-                    try {
-                        typedHour = Integer.parseInt(scanner.nextLine());
-                    } catch (Exception e) {
-                        System.out.println("Please be sure to type Integer within the bounds");
-                    }
-                }
-
-                beach.setHourOfStatus(typedHour);
-                SnapshotOfGivenHour snapshotOfGivenHour = new SnapshotOfGivenHour();
+                beach.setHourOfStatus(chooseHour(scanner));
                 snapshotOfGivenHour.setBeachAndReservationTable(beach, reservationTable);
                 snapshotOfGivenHour.getSnapshot(beach.getHourOfStatus());
                 SearchEngine searchEngine = new SearchEngine();
-
                 ShowMap showMap = new ShowMap();
                 showMap.printMapAfterSearch(searchEngine.search(beach));
                 beach.createPlaces();
@@ -63,7 +51,9 @@ public class MainMenu {
                 cancelReservation.undoReservation(beach, scanner, reservationTable);
 
             } else if (answer.equals("s")) {
-
+                beach.setHourOfStatus(chooseHour(scanner));
+                snapshotOfGivenHour.setBeachAndReservationTable(beach, reservationTable);
+                snapshotOfGivenHour.getSnapshot(beach.getHourOfStatus());
                 reservationPreview.preview(beach);
 
             } else if (answer.equals("h")) {
@@ -73,14 +63,28 @@ public class MainMenu {
 
             } else if (answer.equals("q")) {
 
-                try {
-                    javaToXML.savePlacesToXML(beach.getPlaces());
-                } catch (JAXBException e) {
-                    e.printStackTrace();
-                }
+                WriteReservationsToFile wr = new WriteReservationsToFile();
+                wr.writeReservationsToFile(reservationTable, beach);
                 System.out.println("Thank you for using PARAWAN - your private beach management system");
                 break;
             }
         }
+    }
+
+    public Integer chooseHour(Scanner scanner) {
+
+        int typedHour = 0;
+
+        while (typedHour < 8 || typedHour > 19) {
+            System.out.println("Please type hour that interest You  (Beach is open from 8.00 to 19.00)");
+
+            try {
+                typedHour = Integer.parseInt(scanner.nextLine());
+            } catch (Exception e) {
+                System.out.println("Please be sure to type Integer within the bounds");
+            }
+
+        }
+        return typedHour;
     }
 }

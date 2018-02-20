@@ -11,7 +11,7 @@ class CheckStatusTest {
 
     @Test
     void isAlreadyReserved() {
-        Beach beach = new Beach(10,10);
+        Beach beach = new Beach("testbeach",10,10);
         int placeId = new Random().nextInt(beach.getMaxWidth()*beach.getMaxWidth());
         int hour = new Random().nextInt(24);
         ReservationTable reservationTable = new ReservationTable();
