@@ -31,7 +31,7 @@ public class ReadReservationsFromFile {
                 List<ItemType> items = createListOfItems(itemsList);
                 Reservation reservation = new Reservation(Integer.parseInt(reservationParameters[0]),
                         Integer.parseInt(reservationParameters[1]), items, reservationParameters[3]);
-                reservationTable.getTableOfReservations().add(reservation);
+                reservationTable.add(reservation);
             }
         }
         return reservationTable;
@@ -40,7 +40,7 @@ public class ReadReservationsFromFile {
 
     public List<ItemType> createListOfItems(String[] list) {
         List<ItemType> items = new ArrayList<>();
-        if (!items.isEmpty()) {
+        if (!(list[0].equals(""))) {
             for (String itemName : list) {
                 items.add(ItemType.valueOf(itemName));
             }

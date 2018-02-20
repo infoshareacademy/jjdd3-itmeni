@@ -18,11 +18,11 @@ class CheckStatusTest {
         Reservation reservation = new Reservation();
         reservation.setPlaceId(placeId);
         reservation.setHourOfReservation(hour);
-        reservationTable.getTableOfReservations().add(reservation);
+        reservationTable.add(reservation);
         Reservation reservation2 = new Reservation();
         reservation2.setHourOfReservation(hour);
         reservation2.setPlaceId(placeId);
-        CheckStatus checkStatus = new CheckStatus(reservationTable.getTableOfReservations());
+        CheckStatus checkStatus = new CheckStatus(reservationTable);
         
         assertTrue(checkStatus.isAlreadyReserved(reservation2));
 

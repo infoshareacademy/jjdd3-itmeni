@@ -21,8 +21,8 @@ public class WriteReservationsToFile {
         }
         pw.println(beach.getName() + ";" + beach.getMaxWidth() + ";" + beach.getMaxHeight() + ";");
         Reservation reservationToPrint = new Reservation();
-        for (int i = 0; i < reservationTable.getTableOfReservations().size(); i++) {
-            reservationToPrint = reservationTable.getTableOfReservations().get(i);
+        for (int i = 0; i < reservationTable.size(); i++) {
+            reservationToPrint = reservationTable.get(i);
 
             sb.append(reservationToPrint.getHourOfReservation() + ";");
             sb.append(reservationToPrint.getPlaceId() + ";");

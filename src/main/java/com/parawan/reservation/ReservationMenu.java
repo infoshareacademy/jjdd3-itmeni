@@ -3,6 +3,8 @@ package com.parawan.reservation;
 import com.parawan.Beach;
 import com.parawan.ItemType;
 import com.parawan.ReservationPreview;
+import com.parawan.SnapshotOfGivenHour;
+
 import java.util.List;
 import java.util.Scanner;
 
@@ -16,9 +18,8 @@ public class ReservationMenu {
     Reservation reservation = new Reservation();
 
 
-    public Reservation makeReservation(Beach beach, List<Reservation> list) {
-        CheckStatus checkStatus = new CheckStatus(list);
-
+    public Reservation makeReservation(Beach beach, ReservationTable reservationTable) {
+        CheckStatus checkStatus = new CheckStatus(reservationTable);
 
         do {
             Integer chosenId = 0;
@@ -39,7 +40,9 @@ public class ReservationMenu {
 
                 System.out.println("\nBeach status at " + chosenHour + " o'clock");
                 ReservationPreview reservationPreview = new ReservationPreview();
-                reservationPreview.preview(beach);
+                SnapshotOfGivenHour snapshotOfGivenHour = new SnapshotOfGivenHour();
+                snapshotOfGivenHour.setBeachAndReservationTable(beach, reservationTable);
+                reservationPreview.preview(snapshotOfGivenHour.getSnapshot(chosenHour));
 
                 System.out.println("Please specify ID number from " + beach.getPlaces().get(0).getId() + " to " + beach.getPlaces().get(beach.getPlaces().size() - 1).getId() + " to make reservation");
 

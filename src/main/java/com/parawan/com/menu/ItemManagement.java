@@ -28,18 +28,18 @@ public class ItemManagement {
             }
         }
 
-        for (int i = 0; i < reservationTable.getTableOfReservations().size(); ++i) {
-            if (reservationTable.getTableOfReservations().get(i).getHourOfReservation() == typedHour) {
-                if (reservationTable.getTableOfReservations().get(i).getRentedItems().contains(ItemType.SCREEN)) {
+        for (int i = 0; i < reservationTable.size(); ++i) {
+            if (reservationTable.get(i).getHourOfReservation() == typedHour) {
+                if (reservationTable.get(i).getRentedItems().contains(ItemType.SCREEN)) {
                     rentedScreenCount++;
                 }
-                if (reservationTable.getTableOfReservations().get(i).getRentedItems().contains(ItemType.UMBRELLA)) {
+                if (reservationTable.get(i).getRentedItems().contains(ItemType.UMBRELLA)) {
                     rentedUmbrellaCount++;
                 }
-                if (reservationTable.getTableOfReservations().get(i).getRentedItems().contains(ItemType.TOWEL)) {
+                if (reservationTable.get(i).getRentedItems().contains(ItemType.TOWEL)) {
                     rentedTowelCount++;
                 }
-                if (reservationTable.getTableOfReservations().get(i).getRentedItems().contains(ItemType.SUNBED)) {
+                if (reservationTable.get(i).getRentedItems().contains(ItemType.SUNBED)) {
                     rentedSunbedCount++;
                 }
             }

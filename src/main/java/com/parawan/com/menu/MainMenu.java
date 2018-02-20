@@ -53,8 +53,7 @@ public class MainMenu {
             } else if (answer.equals("s")) {
                 beach.setHourOfStatus(chooseHour(scanner));
                 snapshotOfGivenHour.setBeachAndReservationTable(beach, reservationTable);
-                snapshotOfGivenHour.getSnapshot(beach.getHourOfStatus());
-                reservationPreview.preview(beach);
+                reservationPreview.preview(snapshotOfGivenHour.getSnapshot(beach.getHourOfStatus()));
 
             } else if (answer.equals("h")) {
 

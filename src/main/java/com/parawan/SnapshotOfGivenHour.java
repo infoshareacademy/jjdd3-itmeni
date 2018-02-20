@@ -18,13 +18,13 @@ public class SnapshotOfGivenHour {
 
 
     public List<Reservation> getReservationsFromGivenHour(Integer hour) {
-        return reservationTable.getTableOfReservations()
-                .stream()
+        return reservationTable.stream()
                 .filter(x -> x.getHourOfReservation() == hour)
                 .collect(Collectors.toList());
     }
 
     public Beach getSnapshot(Integer hour) {
+        beach.createPlaces();
         List<Reservation> reservationsFromGivenHour = getReservationsFromGivenHour(hour);
         beach.getPlaces().forEach(x -> setWhenMatch(x, reservationsFromGivenHour));
         return this.beach;
