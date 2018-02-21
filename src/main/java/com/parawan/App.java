@@ -8,10 +8,14 @@ import java.io.IOException;
 
 public class App {
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args)  {
 
         ReadReservationsFromFile readReservationsFromFile = new ReadReservationsFromFile();
         MainMenu mainMenu = new MainMenu();
-        mainMenu.showMenu(readReservationsFromFile.constructBeachFromFile(), readReservationsFromFile.constructReservationTableFromFile());
+        try {
+            mainMenu.showMenu(readReservationsFromFile.constructBeachFromFile(), readReservationsFromFile.constructReservationTableFromFile());
+        } catch (IOException e) {
+            System.out.println("No file found!");;
+        }
     }
 }
