@@ -19,7 +19,7 @@ class CancelReservationTest {
     @Test
     void shouldSetPlaceStatusToFreeAfterCancelation() {
         //Given
-        Beach beach = new Beach(5, 5);
+        Beach beach = new Beach("testbeach", 5, 5);
 
         //When
         beach.createPlaces();

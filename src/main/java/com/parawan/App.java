@@ -1,37 +1,21 @@
 package com.parawan;
 
-import com.parawan.XMLparser.JavaToXML;
-import com.parawan.XMLparser.Places;
-import com.parawan.XMLparser.XMLToJava;
 import com.parawan.com.menu.*;
+import com.parawan.datamanager.ReadReservationsFromFile;
 
 import java.io.IOException;
 
 
 public class App {
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args)  {
 
-        String path = "src/main/resources/booking_status.xml";
-        if (args.length != 1) {
-            System.out.println("Please provide input file.");
-            System.exit(1);
-        } else {
-            path = args[0];
-            System.out.println("INPUT FILE: " + path);
-        }
-
-        Beach sunnyBeach = new Beach(20, 10);
-        sunnyBeach.createPlaces();
-
-        JavaToXML myXMLWriter = new JavaToXML();
-
-        XMLToJava myXMLReader = new XMLToJava();
-
-        Places places = myXMLReader.xmlToJava(path);
-        sunnyBeach.setPlaces(places);
-
+        ReadReservationsFromFile readReservationsFromFile = new ReadReservationsFromFile();
         MainMenu mainMenu = new MainMenu();
-        mainMenu.showMenu(sunnyBeach, myXMLWriter);
+        try {
+            mainMenu.showMenu(readReservationsFromFile.constructBeachFromFile(), readReservationsFromFile.constructReservationTableFromFile());
+        } catch (IOException e) {
+            System.out.println("No file found!");;
+        }
     }
 }

@@ -4,18 +4,29 @@ import com.parawan.XMLparser.Places;
 
 public class Beach {
 
+    private String name;
     private Places places = new Places();
     private Integer maxWidth;
     private Integer maxHeight;
     private Integer hourOfStatus;
 
-    public Beach(int maxWidth, int maxHeight) {
+    public Beach(String name, int maxWidth, int maxHeight) {
+        this.name = name;
         this.maxWidth = maxWidth;
         this.maxHeight = maxHeight;
+        createPlaces();
     }
 
     public Integer getHourOfStatus() {
         return hourOfStatus;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public void setHourOfStatus(Integer hourOfStatus) {

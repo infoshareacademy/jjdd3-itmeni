@@ -31,9 +31,9 @@ public class CancelReservation {
             }
         }
 
-        for (int i = 0; i < reservationTable.getTableOfReservations().size(); ++i) {
+        for (int i = 0; i < reservationTable.size(); ++i) {
             if (conditionForCancellation(reservationTable, i)) {
-                reservationTable.getTableOfReservations().remove(i);
+                reservationTable.remove(i);
             }
         }
     }
@@ -45,6 +45,6 @@ public class CancelReservation {
 
     private boolean conditionForCancellation(ReservationTable reservationTable, int i){
 
-        return reservationTable.getTableOfReservations().get(i).getHourOfReservation() == cancelHour && reservationTable.getTableOfReservations().get(i).getPlaceId() == cancelId;
+        return reservationTable.get(i).getHourOfReservation() == cancelHour && reservationTable.get(i).getPlaceId() == cancelId;
     }
 }

@@ -13,6 +13,16 @@ public class Reservation {
     private List<ItemType> rentedItems = new ArrayList<ItemType>();
     private String nameOfPerson;
 
+    public Reservation(Integer hourOfReservation, Integer placeId, List<ItemType> rentedItems, String nameOfPerson) {
+        this.hourOfReservation = hourOfReservation;
+        this.placeId = placeId;
+        this.rentedItems = rentedItems;
+        this.nameOfPerson = nameOfPerson;
+    }
+
+    public Reservation() {
+    }
+
     public Integer getHourOfReservation() {
         return hourOfReservation;
     }
