@@ -17,7 +17,7 @@ class ReservationTest {
     void ConstructorTest(){
         int testID = new Random().nextInt(9999);
         int testHour = new Random().nextInt(9999);
-        List<ItemType> items = new ArrayList<ItemType>(Arrays.asList(ItemType.values()[new Random().nextInt(ItemType.values().length + 1)]));
+        List<ItemType> items = new ArrayList<ItemType>(Arrays.asList(ItemType.values()[new Random().nextInt(ItemType.values().length)]));
         Reservation exampleOfReservation = new Reservation(testHour, testID, items, "XXXXXX");
         assertTrue(exampleOfReservation.getHourOfReservation().equals(testHour));
         assertTrue(exampleOfReservation.getHourOfReservation().equals(testHour));

@@ -18,7 +18,7 @@ class SnapshotOfGivenHourTest {
         SnapshotOfGivenHour snapshotOfGivenHour = new SnapshotOfGivenHour();
         ReservationTable reservationTable = new ReservationTable();
         Reservation testReservation1 = new Reservation(1, 5, new ArrayList<>(Arrays.asList(ItemType.SCREEN, ItemType.SUNBED, ItemType.TOWEL)), "Bogdan");
-        Reservation testReservation2 = new Reservation(1, 2, new ArrayList<>(Arrays.asList(ItemType.SCREEN, ItemType.TOWEL)), "Ataliah");
+        Reservation testReservation2 = new Reservation(1, 2, new ArrayList<>(Arrays.asList(ItemType.TOWEL)), "Ataliah");
         Reservation testReservation3 = new Reservation(1, 90, new ArrayList<>(Arrays.asList(ItemType.SCREEN)), "");
         Reservation testReservation4 = new Reservation(2, 66, new ArrayList<>(Arrays.asList(ItemType.SCREEN, ItemType.TOWEL)), "Mikael");
         Reservation testReservation5 = new Reservation(2, 19, new ArrayList<>(Arrays.asList(ItemType.TOWEL, ItemType.TOWEL)), "Isaac");
