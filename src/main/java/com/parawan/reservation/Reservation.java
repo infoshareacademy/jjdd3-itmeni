@@ -43,16 +43,8 @@ public class Reservation {
         return rentedItems;
     }
 
-    public void setRentedItems(List<ItemType> rentedItems) {
-        this.rentedItems = rentedItems;
-    }
-
     public void putRentedItemOnList(ItemType item) {
         this.rentedItems.add(item);
-    }
-
-    public void removeRentedItemFromList(ItemType item) {
-        this.rentedItems.remove(item);
     }
 
     public String getNameOfPerson() {

@@ -71,8 +71,7 @@ public class Beach {
         for (int i = 0; i < places.size(); i++) {
             if ((places.get(i).getX() == x) && (places.get(i).getY() == y)) {
                 place = places.get(i);
-                break;
-            }
+                }
         }
         return place;
     }
