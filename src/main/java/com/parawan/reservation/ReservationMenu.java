@@ -38,7 +38,7 @@ public class ReservationMenu {
 
             while (chosenId < beach.getPlaces().get(0).getId() || chosenId > beach.getPlaces().get(beach.getPlaces().size() - 1).getId()) {
 
-                System.out.println("\nBeach status at " + chosenHour + " o'clock");
+                System.out.println("\nBeach status at " + chosenHour + ":00");
                 ReservationPreview reservationPreview = new ReservationPreview();
                 SnapshotOfGivenHour snapshotOfGivenHour = new SnapshotOfGivenHour();
                 snapshotOfGivenHour.setBeachAndReservationTable(beach, reservationTable);

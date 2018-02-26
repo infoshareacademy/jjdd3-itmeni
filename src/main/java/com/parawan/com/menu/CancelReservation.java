@@ -9,6 +9,14 @@ public class CancelReservation {
     private int cancelId = 0;
     private int cancelHour = 0;
 
+    public void setCancelId(int cancelId) {
+        this.cancelId = cancelId;
+    }
+
+    public void setCancelHour(int cancelHour) {
+        this.cancelHour = cancelHour;
+    }
+
     public void undoReservation(Beach beach, Scanner scanner, ReservationTable reservationTable) {
 
         while (conditionForId(beach)) {
@@ -30,21 +38,25 @@ public class CancelReservation {
                 System.out.println("Please be sure to type Integer within the bounds");
             }
         }
+        cancel(reservationTable);
+    }
 
+    private boolean conditionForId(Beach beach) {
+
+        return cancelId < beach.getPlaces().get(0).getId() || cancelId > beach.getPlaces().get(beach.getPlaces().size() - 1).getId();
+    }
+
+    private boolean conditionForCancellation(ReservationTable reservationTable, int i) {
+
+        return reservationTable.get(i).getHourOfReservation() == cancelHour && reservationTable.get(i).getPlaceId() == cancelId;
+    }
+
+    public ReservationTable cancel(ReservationTable reservationTable) {
         for (int i = 0; i < reservationTable.size(); ++i) {
             if (conditionForCancellation(reservationTable, i)) {
                 reservationTable.remove(i);
             }
         }
-    }
-
-    private boolean conditionForId(Beach beach){
-
-        return cancelId < beach.getPlaces().get(0).getId() || cancelId > beach.getPlaces().get(beach.getPlaces().size() - 1).getId();
-    }
-
-    private boolean conditionForCancellation(ReservationTable reservationTable, int i){
-
-        return reservationTable.get(i).getHourOfReservation() == cancelHour && reservationTable.get(i).getPlaceId() == cancelId;
+        return reservationTable;
     }
 }
