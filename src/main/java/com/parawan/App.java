@@ -15,7 +15,7 @@ public class App {
         try {
             mainMenu.showMenu(readReservationsFromFile.constructBeachFromFile(), readReservationsFromFile.constructReservationTableFromFile());
         } catch (IOException e) {
-            System.out.println("No file found!");;
+            System.out.println("No file found!");
         }
     }
 }
