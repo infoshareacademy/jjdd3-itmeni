@@ -33,9 +33,6 @@ public class SearchEngine {
             }
 
         }
-        /*ShowMap sm = new ShowMap();
-        sm.printMapAfterSearch(beach);
-        this option will be modified according to Daniel's part*/
         return beach;
     }
 

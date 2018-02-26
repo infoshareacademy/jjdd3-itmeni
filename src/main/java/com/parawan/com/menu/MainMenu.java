@@ -41,7 +41,7 @@ public class MainMenu {
                 snapshotOfGivenHour.setBeachAndReservationTable(beach, reservationTable);
                 snapshotOfGivenHour.getSnapshot(beach.getHourOfStatus());
                 SearchEngine searchEngine = new SearchEngine();
-                ShowMap showMap = new ShowMap();
+                ShowMapAfterSearch showMap = new ShowMapAfterSearch();
                 showMap.printMapAfterSearch(searchEngine.search(beach));
                 beach.createPlaces();
 

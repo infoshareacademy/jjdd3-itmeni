@@ -69,10 +69,6 @@ public class Place {
                 "X: " + x + " || " + "Y: " + y + " || " + "Status: " + status;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
     public void setX(int x) {
         this.x = x;
     }

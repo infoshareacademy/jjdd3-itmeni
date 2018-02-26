@@ -5,17 +5,15 @@ import com.parawan.ItemType;
 import com.parawan.ReservationPreview;
 import com.parawan.SnapshotOfGivenHour;
 
-import java.util.List;
 import java.util.Scanner;
 
 public class ReservationMenu {
 
-    Scanner sc = new Scanner(System.in);
+    private Scanner sc = new Scanner(System.in);
 
-
-    String chosenItems;
-    String chosenName;
-    Reservation reservation = new Reservation();
+    private String chosenItems;
+    private String chosenName;
+    private Reservation reservation = new Reservation();
 
 
     public Reservation makeReservation(Beach beach, ReservationTable reservationTable) {
