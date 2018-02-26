@@ -1,6 +1,5 @@
 package com.parawan;
 
-import com.parawan.reservation.Reservation;
 import org.junit.jupiter.api.Test;
 
 import java.util.Random;
@@ -8,9 +7,9 @@ import java.util.Random;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-class BeachTest {
+public class BeachTest {
     @Test
-    void isBeachConstructorMaxPlacesProperlyCounted() {
+    public void isBeachConstructorMaxPlacesProperlyCounted() {
         int x = new Random().nextInt(1000);
         int y = new Random().nextInt(1000);
         Beach testBeach = new Beach("test", x, y);
@@ -18,7 +17,7 @@ class BeachTest {
     }
 
     @Test
-    void shouldReturnOnePlaceByXY() {
+    public void shouldReturnOnePlaceByXY() {
         int x = new Random().nextInt(1000);
         int y = new Random().nextInt(1000);
         Beach testBeach = new Beach("test", x, y);

@@ -12,9 +12,9 @@ import java.util.stream.Collectors;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class SnapshotOfGivenHourTest {
+public class SnapshotOfGivenHourTest {
     @Test
-    void getReservationsFromGivenHourTest() {
+    public void getReservationsFromGivenHourTest() {
         SnapshotOfGivenHour snapshotOfGivenHour = new SnapshotOfGivenHour();
         ReservationTable reservationTable = new ReservationTable();
         Reservation testReservation1 = new Reservation(1, 5, new ArrayList<>(Arrays.asList(ItemType.SCREEN, ItemType.SUNBED, ItemType.TOWEL)), "Bogdan");

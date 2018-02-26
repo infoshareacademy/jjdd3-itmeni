@@ -11,10 +11,10 @@ import java.util.stream.Collectors;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class ReservationTest {
+public class ReservationTest {
 
     @Test
-    void ConstructorTest(){
+    public void constructorTest(){
         int testID = new Random().nextInt(9999);
         int testHour = new Random().nextInt(9999);
         List<ItemType> items = new ArrayList<ItemType>(Arrays.asList(ItemType.values()[new Random().nextInt(ItemType.values().length)]));
@@ -26,18 +26,18 @@ class ReservationTest {
 
 
     @Test
-    void shouldEquals() {
+    public void shouldEquals() {
         Reservation reservation1 = new Reservation(1, 1, new ArrayList<ItemType>(Arrays.asList(ItemType.SCREEN, ItemType.SUNBED)), "Monica");
         Reservation reservation2 = new Reservation(1, 1, new ArrayList<ItemType>(Arrays.asList()), "XX xx XX");
         Reservation reservation3 = new Reservation(1, 1, new ArrayList<ItemType>(Arrays.asList
                 (ItemType.SCREEN, ItemType.SUNBED, ItemType.SCREEN, ItemType.TOWEL)), "");
         assertTrue(reservation1.equals(reservation1));
         assertTrue(reservation1.equals(reservation2));
-        assertTrue(reservation2.equals(reservation1));
+        assertTrue(reservation2.equals(reservation3));
     }
 
     @Test
-    void shouldNotEquals(){
+    public void shouldNotEquals(){
         Reservation reservation1 = new Reservation(1, 1, new ArrayList<ItemType>(Arrays.asList(ItemType.SCREEN)), "Monica");
         Reservation reservation2 = new Reservation(20, 1, new ArrayList<ItemType>(Arrays.asList(ItemType.SCREEN)), "Monica");
         Reservation reservation3 = new Reservation(20, 5, new ArrayList<ItemType>(Arrays.asList(ItemType.SCREEN)), "Monica");
