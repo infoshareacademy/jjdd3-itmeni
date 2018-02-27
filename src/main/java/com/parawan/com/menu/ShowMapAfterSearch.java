@@ -5,7 +5,7 @@ import com.parawan.Place;
 
 import java.util.List;
 
-public class ShowMapAfterSearch {
+public class ShowMapAfterSearch implements ShowMapAfterSearchDao{
 
     private StringBuilder sb = new StringBuilder();
     private String symbol = "";

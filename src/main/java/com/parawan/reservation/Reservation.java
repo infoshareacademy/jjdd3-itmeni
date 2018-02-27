@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-public class Reservation {
+public class Reservation implements ReservationDao {
 
     private Integer hourOfReservation;
     private Integer placeId;

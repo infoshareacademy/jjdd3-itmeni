@@ -1,6 +1,7 @@
 package com.parawan;
 
-public class ReservationPreview {
+
+public class ReservationPreview implements ReservationPreviewDao {
     private Place place;
 
     public void preview(Beach beach) {

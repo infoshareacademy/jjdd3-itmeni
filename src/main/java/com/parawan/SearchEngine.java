@@ -5,7 +5,7 @@ import com.parawan.com.menu.ReservationWithRequirements;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SearchEngine {
+public class SearchEngine implements SearchEngineDao {
 
     private Place temporaryPlace = new Place();
     private String option = "";

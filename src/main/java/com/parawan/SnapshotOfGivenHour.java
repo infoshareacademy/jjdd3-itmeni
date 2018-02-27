@@ -6,7 +6,7 @@ import com.parawan.reservation.ReservationTable;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class SnapshotOfGivenHour {
+public class SnapshotOfGivenHour implements SnapshotOfGivenHOurDao {
 
     private Beach beach;
     private ReservationTable reservationTable;

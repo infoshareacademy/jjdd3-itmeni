@@ -2,7 +2,7 @@ package com.parawan.reservation;
 
 import java.util.List;
 
-public class CheckStatus {
+public class CheckStatus implements CheckStatusDao {
 
     private List<Reservation> listOfReservations;
 

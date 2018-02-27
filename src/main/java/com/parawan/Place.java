@@ -12,7 +12,7 @@ import java.util.Map;
 @XmlType
 @XmlAccessorType(XmlAccessType.FIELD)
 
-public class Place {
+public class Place implements PlaceDao {
 
     @XmlElement(required = true)
     private int id, x, y;

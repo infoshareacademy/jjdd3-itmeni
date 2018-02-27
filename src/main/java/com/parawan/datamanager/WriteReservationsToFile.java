@@ -7,7 +7,7 @@ import com.parawan.reservation.ReservationTable;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 
-public class WriteReservationsToFile {
+public class WriteReservationsToFile implements WriteReservationsToFileDao{
 
     StringBuilder sb = new StringBuilder("");
 

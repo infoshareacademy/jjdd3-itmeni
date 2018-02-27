@@ -6,7 +6,7 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ReservationTable extends ArrayList<Reservation> {
+public class ReservationTable extends ArrayList<Reservation> implements ReservationTableDao {
 
     public void reservePlace(Beach beach) {
         ReservationMenu menu = new ReservationMenu();

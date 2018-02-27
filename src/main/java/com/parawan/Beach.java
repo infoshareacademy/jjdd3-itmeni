@@ -2,7 +2,7 @@ package com.parawan;
 
 import com.parawan.XMLparser.Places;
 
-public class Beach {
+public class Beach implements BeachDao {
 
     private String name;
     private Places places = new Places();

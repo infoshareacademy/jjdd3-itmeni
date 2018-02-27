@@ -12,7 +12,7 @@ import java.io.LineNumberReader;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ReadReservationsFromFile {
+public class ReadReservationsFromFile implements ReadReservationsFromFileDao {
 
     public Beach constructBeachFromFile() throws IOException {
         BufferedReader br = new BufferedReader(new FileReader("database.beach"));

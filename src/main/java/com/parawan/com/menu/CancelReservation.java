@@ -5,7 +5,7 @@ import com.parawan.reservation.ReservationTable;
 
 import java.util.Scanner;
 
-public class CancelReservation {
+public class CancelReservation implements CancelReservationDao{
     private int cancelId = 0;
     private int cancelHour = 0;
 
@@ -41,12 +41,12 @@ public class CancelReservation {
         cancel(reservationTable);
     }
 
-    private boolean conditionForId(Beach beach) {
+    public boolean conditionForId(Beach beach) {
 
         return cancelId < beach.getPlaces().get(0).getId() || cancelId > beach.getPlaces().get(beach.getPlaces().size() - 1).getId();
     }
 
-    private boolean conditionForCancellation(ReservationTable reservationTable, int i) {
+    public boolean conditionForCancellation(ReservationTable reservationTable, int i) {
 
         return reservationTable.get(i).getHourOfReservation() == cancelHour && reservationTable.get(i).getPlaceId() == cancelId;
     }

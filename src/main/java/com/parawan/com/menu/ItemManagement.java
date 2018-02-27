@@ -5,7 +5,7 @@ import com.parawan.reservation.ReservationTable;
 
 import java.util.*;
 
-public class ItemManagement {
+public class ItemManagement implements ItemManagementDao {
 
     private int typedHour = 0;
     private int amountOfScreen = 200;

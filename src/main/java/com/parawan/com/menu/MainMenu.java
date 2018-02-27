@@ -12,7 +12,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
-public class MainMenu {
+public class MainMenu implements MainMenuDao {
     public void showMenu(Beach beach, ReservationTable reservationTable) throws IOException {
 
         DateTimeFormatter myFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy - HH:mm");

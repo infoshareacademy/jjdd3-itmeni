@@ -1,6 +1,6 @@
 package com.parawan;
 
-public class PlaceComparator {
+public class PlaceComparator implements PlaceComparatorDao {
 
     private Beach beach;
 

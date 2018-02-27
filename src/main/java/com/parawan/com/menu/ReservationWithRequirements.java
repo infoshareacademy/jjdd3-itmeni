@@ -6,7 +6,7 @@ import com.parawan.PlaceStatus;
 
 import java.util.Scanner;
 
-public class ReservationWithRequirements {
+public class ReservationWithRequirements implements ReservationWithRequirementsDao{
 
     private String option;
     private Scanner sc = new Scanner(System.in);

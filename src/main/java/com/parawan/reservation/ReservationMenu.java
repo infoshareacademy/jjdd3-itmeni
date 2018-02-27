@@ -7,7 +7,7 @@ import com.parawan.SnapshotOfGivenHour;
 
 import java.util.Scanner;
 
-public class ReservationMenu {
+public class ReservationMenu implements ReservationMenuDao {
 
     private Scanner sc = new Scanner(System.in);
 
