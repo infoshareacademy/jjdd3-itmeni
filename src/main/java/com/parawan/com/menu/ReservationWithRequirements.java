@@ -3,7 +3,6 @@ package com.parawan.com.menu;
 import com.parawan.ItemType;
 import com.parawan.Place;
 import com.parawan.PlaceStatus;
-
 import java.util.Scanner;
 
 public class ReservationWithRequirements {

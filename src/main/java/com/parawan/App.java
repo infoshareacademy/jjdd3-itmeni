@@ -2,7 +2,6 @@ package com.parawan;
 
 import com.parawan.com.menu.*;
 import com.parawan.datamanager.ReadReservationsFromFile;
-
 import java.io.IOException;
 
 
