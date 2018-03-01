@@ -31,5 +31,4 @@ public class PlaceComparator {
     public boolean placeNotExist(int x, int y) {
         return (x < 0 || x >= beach.getMaxWidth ( ) || y < 0 || y >= beach.getMaxHeight ( ));
     }
-
 }

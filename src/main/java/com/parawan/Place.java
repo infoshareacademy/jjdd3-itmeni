@@ -7,7 +7,6 @@ import javax.xml.bind.annotation.XmlType;
 import java.util.ArrayList;
 import java.util.List;
 
-
 @XmlType
 @XmlAccessorType(XmlAccessType.FIELD)
 

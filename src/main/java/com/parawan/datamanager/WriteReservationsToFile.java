@@ -21,7 +21,7 @@ public class WriteReservationsToFile {
             pw = new PrintWriter ( "database.beach" );
         } catch (FileNotFoundException e1) {
             System.out.println ( "No database found!" );
-            LOG.error ( "Source file is not find!!!" );
+            LOG.error ( "Source file is not found!!!" );
 
         }
         pw.println ( beach.getName ( ) + ";" + beach.getMaxWidth ( ) + ";" + beach.getMaxHeight ( ) + ";" );
