@@ -19,7 +19,7 @@ public class HelloServlet extends HttpServlet{
         printWriter.write("<html>");
         printWriter.write("<body>");
         printWriter.write("<p>Private beach management system - PARAWAN</p>");
-        printWriter.write("<p><a href=\"http://127.0.0.1:8080/main-menu\">Move on to main menu </a></p>");
+        printWriter.write("<p><a href=\"/main-menu\">Move on to main menu </a></p>");
         printWriter.write("</body>");
         printWriter.write("</html>");
     }

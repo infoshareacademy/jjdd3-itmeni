@@ -18,7 +18,7 @@ public class FindPlaceServlet extends HttpServlet {
         printWriter.write("<html>");
         printWriter.write("<body>");
         printWriter.write("<p>Find place with additional requirements</p>");
-        printWriter.write("<p><a href=\"http://127.0.0.1:8080/main-menu\">Go back to main menu </a></p>");
+        printWriter.write("<p><a href=\"/main-menu\">Go back to main menu </a></p>");
         printWriter.write("</body>");
         printWriter.write("</html>");
     }
