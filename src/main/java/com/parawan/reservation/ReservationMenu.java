@@ -9,7 +9,7 @@ import org.slf4j.Logger;
 import java.util.Scanner;
 
 public class ReservationMenu {
-    private final Logger logger = LoggerFactory.getLogger ( ReservationMenu.class );
+    private final Logger LOGGER = LoggerFactory.getLogger ( ReservationMenu.class );
     private Scanner sc = new Scanner(System.in);
 
     private String chosenItems;
@@ -30,7 +30,7 @@ public class ReservationMenu {
                 try {
                     chosenHour = Integer.parseInt(sc.nextLine());
                 } catch (Exception e) {
-                    logger.trace ( "Select wrong type: {}", chosenHour );
+                    LOGGER.warn ( "Wrong type for hour was selected.");
                     System.out.println("Please be sure to type Integer within the bounds");
                 }
             }
@@ -49,7 +49,7 @@ public class ReservationMenu {
                 try {
                     chosenId = Integer.parseInt(sc.nextLine());
                 } catch (Exception e) {
-                    logger.trace ( "Select wrong type: {}", chosenId );
+                    LOGGER.warn ( "Wrong type for place ID number was selected.");
                     System.out.println("Please be sure to type Integer within the bounds");
                 }
             }
@@ -57,12 +57,13 @@ public class ReservationMenu {
             reservation.setPlaceId(chosenId);
             System.out.println("Please type your name ");
             chosenName = sc.nextLine();
-            logger.trace ( "Who has booked : {}", chosenName );
+            LOGGER.trace ( "Place {} is booked by {}.",String.valueOf(chosenId),chosenName);
             reservation.setNameOfPerson(chosenName);
 
 
             if (checkStatus.isAlreadyReserved(reservation)) {
                 System.out.println("\nSorry, but this place is already reserved at that time\n");
+                LOGGER.trace ( "Selected place is already booked.");
             }
 
         } while (checkStatus.isAlreadyReserved(reservation));
@@ -70,7 +71,7 @@ public class ReservationMenu {
         System.out.println("Please select items to rent: [s]creen, [u]mbrella, [t]owel, sun[b]ed, [n]othing.");
         System.out.println("For example if You wish to rent: screen, towel and sunbed, type: stb");
         chosenItems = sc.next();
-        logger.trace ( "Is rented : {}", chosenItems );
+        LOGGER.trace ( "Is rented : {}", chosenItems );
         analyzeChosenItems(chosenItems);
         return this.reservation;
     }

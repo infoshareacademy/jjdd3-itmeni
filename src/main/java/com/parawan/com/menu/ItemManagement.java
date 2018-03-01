@@ -2,6 +2,8 @@ package com.parawan.com.menu;
 
 import com.parawan.ItemType;
 import com.parawan.reservation.ReservationTable;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.*;
 
@@ -12,6 +14,7 @@ public class ItemManagement {
     private int amountOfUmbrella = 200;
     private int amountOfTowel = 200;
     private int amountOfSunbed = 200;
+    final Logger LOG = LoggerFactory.getLogger(ItemManagement.class);
 
     public void setTypedHour(int typedHour) {
         this.typedHour = typedHour;
@@ -24,8 +27,10 @@ public class ItemManagement {
 
             try {
                 typedHour = Integer.parseInt(scanner.nextLine());
+                LOG.debug("Canceled reservation for place with ID {}.", String.valueOf(typedHour));
             } catch (Exception e) {
                 System.out.println("Please be sure to type Integer within the bounds");
+                LOG.warn("Wrong type for hour was selected.");
             }
         }
 
@@ -43,15 +48,19 @@ public class ItemManagement {
             if (reservationTable.get(i).getHourOfReservation() == typedHour) {
                 if (reservationTable.get(i).getRentedItems().contains(ItemType.SCREEN)) {
                     rentedScreenCount++;
+                    LOG.trace("Is already rented {} screens.", rentedScreenCount);
                 }
                 if (reservationTable.get(i).getRentedItems().contains(ItemType.UMBRELLA)) {
                     rentedUmbrellaCount++;
+                    LOG.trace("Is already rented {} umbrellas.", rentedUmbrellaCount);
                 }
                 if (reservationTable.get(i).getRentedItems().contains(ItemType.TOWEL)) {
                     rentedTowelCount++;
+                    LOG.trace("Is already rented {} towels.", rentedTowelCount);
                 }
                 if (reservationTable.get(i).getRentedItems().contains(ItemType.SUNBED)) {
                     rentedSunbedCount++;
+                    LOG.trace("Is already rented {} sunbeds.", rentedSunbedCount);
                 }
             }
         }

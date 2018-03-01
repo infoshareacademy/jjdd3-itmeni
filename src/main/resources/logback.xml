@@ -2,13 +2,11 @@
 <Configuration>
 
     <appender name="FILE" class="ch.qos.logback.core.FileAppender">
-
         <!--<filter class="ch.qos.logback.classic.filter.LevelFilter">-->
-            <!--<level>DEBUG</level>-->
+            <!--<level>TRACE</level>-->
             <!--<onMatch>ACCEPT</onMatch>-->
             <!--<onMismatch>DENY</onMismatch>-->
         <!--</filter>-->
-
         <file>testFile.log</file>
         <append>true</append>
         <encoder>
@@ -22,7 +20,7 @@
         </encoder>
     </appender>
 
-    <root level="TRACE">
+    <root level="WARN">
         <appender-ref ref="STDOUT"/>
         <appender-ref ref="FILE"/>
     </root>

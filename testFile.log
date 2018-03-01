@@ -2,3 +2,18 @@
 21:48:34.528 [main] TRACE c.p.reservation.ReservationMenu - Select wrong type: 0
 21:48:55.075 [main] TRACE c.p.reservation.ReservationMenu - Select wrong type: 0
 21:49:15.091 [main] TRACE c.p.reservation.ReservationMenu - Who has booked : 32
+16:18:07.780 [main] WARN  c.p.reservation.ReservationMenu - Wrong type for hour was selected.
+16:18:26.736 [main] WARN  c.p.reservation.ReservationMenu - Wrong type for hour was selected.
+16:18:36.954 [main] WARN  c.p.reservation.ReservationMenu - Wrong type for place ID number was selected.
+16:19:17.600 [main] TRACE c.p.reservation.ReservationMenu - Place 32 is booked by Daniel.
+16:19:17.603 [main] TRACE c.p.reservation.ReservationMenu - Selected place is already booked.
+16:19:58.347 [main] WARN  c.p.reservation.ReservationMenu - Wrong type for hour was selected.
+16:20:30.953 [main] TRACE c.p.reservation.ReservationMenu - Place 54 is booked by Daniel.
+16:20:40.818 [main] TRACE c.p.reservation.ReservationMenu - Is rented : s
+16:22:35.427 [main] WARN  c.p.com.menu.CancelReservation - Wrong type for ID number was selected.
+16:22:50.676 [main] DEBUG c.p.com.menu.CancelReservation - Canceled reservation for place with ID 43.
+16:23:03.388 [main] WARN  c.p.com.menu.CancelReservation - Wrong type for hour was selected.
+16:23:24.788 [main] DEBUG c.p.com.menu.CancelReservation - Canceled reservation for place with ID 43.
+16:24:20.980 [main] WARN  c.p.com.menu.CancelReservation - Wrong type for hour was selected.
+16:24:32.134 [main] DEBUG c.p.com.menu.CancelReservation - Canceled reservation for place with ID 43.
+16:25:02.173 [main] TRACE c.p.reservation.ReservationMenu - Place 54 is booked by Daniel.
