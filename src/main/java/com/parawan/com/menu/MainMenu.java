@@ -8,6 +8,7 @@ import com.parawan.datamanager.WriteReservationsToFile;
 import com.parawan.reservation.ReservationTable;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -15,6 +16,7 @@ import java.util.Scanner;
 
 public class MainMenu {
     private final Logger LOG = LoggerFactory.getLogger(MainMenu.class);
+
     public void showMenu(Beach beach, ReservationTable reservationTable) throws IOException {
 
         DateTimeFormatter myFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy - HH:mm");

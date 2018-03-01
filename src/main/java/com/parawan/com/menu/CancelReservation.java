@@ -2,7 +2,9 @@ package com.parawan.com.menu;
 
 import com.parawan.Beach;
 import com.parawan.reservation.ReservationTable;
+
 import java.util.Scanner;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

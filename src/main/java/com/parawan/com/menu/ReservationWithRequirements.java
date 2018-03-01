@@ -11,6 +11,7 @@ public class ReservationWithRequirements {
     private String option;
     private Scanner sc = new Scanner(System.in);
     private Place placeToAvoid = new Place();
+
     public Place getRequirements() {
         System.out.println("Do you want place with no neighbours around? Please type [y]es or [n]o :");
         option = sc.nextLine();

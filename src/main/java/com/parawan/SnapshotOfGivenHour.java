@@ -16,7 +16,6 @@ public class SnapshotOfGivenHour {
         this.reservationTable = reservationTable;
     }
 
-
     public List<Reservation> getReservationsFromGivenHour(Integer hour) {
         return reservationTable.stream()
                 .filter(x -> x.getHourOfReservation() == hour)

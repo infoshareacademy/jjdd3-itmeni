@@ -9,7 +9,6 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlAccessorType(XmlAccessType.FIELD)
 public class PlacesWrapper {
 
-
     @XmlElement(name = "place")
     private Places places = new Places();
 

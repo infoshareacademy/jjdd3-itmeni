@@ -14,7 +14,7 @@ public class ShowMapAfterSearch {
 
     public void printMapAfterSearch(Beach beach) {
         List<Place> placesToPrint = beach.getPlaces();
-        System.out.println("Beach status after search at: " + beach.getHourOfStatus() +":00");
+        System.out.println("Beach status after search at: " + beach.getHourOfStatus() + ":00");
         for (int i = 0; i < beach.getMaxHeight(); i++) {
             for (int j = 0; j < beach.getMaxWidth(); j++) {
                 if (beach.getPlaces().get(placeIndex).isMeetSearchCriteria()) {

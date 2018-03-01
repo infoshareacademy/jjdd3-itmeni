@@ -37,7 +37,7 @@ public class ItemManagement {
         forRentAtGivenHour(reservationTable);
     }
 
-    public int [] forRentAtGivenHour(ReservationTable reservationTable) {
+    public int[] forRentAtGivenHour(ReservationTable reservationTable) {
 
         int rentedScreenCount = 0;
         int rentedUmbrellaCount = 0;
@@ -70,7 +70,7 @@ public class ItemManagement {
         int towelForRentAtGivenHour = amountOfTowel - rentedTowelCount;
         int sunbedForRentAtGivenHour = amountOfSunbed - rentedSunbedCount;
 
-        int [] stillForRent = {screenForRentAtGivenHour, umbrellaForRentAtGivenHour, towelForRentAtGivenHour, sunbedForRentAtGivenHour};
+        int[] stillForRent = {screenForRentAtGivenHour, umbrellaForRentAtGivenHour, towelForRentAtGivenHour, sunbedForRentAtGivenHour};
 
         System.out.println("At " + typedHour + ":00 we have:\n ");
         System.out.println(screenForRentAtGivenHour + " screens available for rent");
