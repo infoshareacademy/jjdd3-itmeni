@@ -3,9 +3,9 @@ package com.parawan;
 import javax.xml.bind.annotation.XmlEnum;
 import javax.xml.bind.annotation.XmlType;
 
-@XmlType(name = "PlaceStatus")
+@XmlType(name="PlaceStatus")
 @XmlEnum
-public enum PlaceStatus {
+public enum PlaceStatus{
     FREE,
     BOOKED,
     RESERVED,

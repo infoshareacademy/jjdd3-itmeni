@@ -1,6 +1,6 @@
 package com.parawan;
 
-public enum ItemType {
+public enum ItemType{
     UMBRELLA,
     SUNBED,
     TOWEL,
