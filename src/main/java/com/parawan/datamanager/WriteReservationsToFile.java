@@ -12,7 +12,7 @@ import java.io.PrintWriter;
 public class WriteReservationsToFile {
 
     StringBuilder sb = new StringBuilder("");
-    final Logger LOG = LoggerFactory.getLogger(WriteReservationsToFile.class);
+    private final Logger LOG = LoggerFactory.getLogger(WriteReservationsToFile.class);
 
     public void writeReservationsToFile(ReservationTable reservationTable, Beach beach) {
 

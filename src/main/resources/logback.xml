@@ -2,12 +2,7 @@
 <Configuration>
 
     <appender name="FILE" class="ch.qos.logback.core.FileAppender">
-        <!--<filter class="ch.qos.logback.classic.filter.LevelFilter">-->
-            <!--<level>TRACE</level>-->
-            <!--<onMatch>ACCEPT</onMatch>-->
-            <!--<onMismatch>DENY</onMismatch>-->
-        <!--</filter>-->
-        <file>testFile.log</file>
+        <file>logback.log</file>
         <append>true</append>
         <encoder>
             <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{35} - %msg%n</pattern>

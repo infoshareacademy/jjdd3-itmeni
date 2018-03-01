@@ -14,7 +14,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
 public class MainMenu {
-    final Logger LOG = LoggerFactory.getLogger(MainMenu.class);
+    private final Logger LOG = LoggerFactory.getLogger(MainMenu.class);
     public void showMenu(Beach beach, ReservationTable reservationTable) throws IOException {
 
         DateTimeFormatter myFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy - HH:mm");
@@ -82,7 +82,7 @@ public class MainMenu {
             System.out.println("Please type hour that interest You  (Beach is open from 8.00 to 19.00)");
             try {
                 typedHour = Integer.parseInt(scanner.nextLine());
-                LOG.debug("Selected our {} to check booked pleces.", String.valueOf(typedHour));
+                LOG.debug("Selected our {} to check booked pleces.", typedHour);
             } catch (Exception e) {
                 System.out.println("Please be sure to type Integer within the bounds");
                 LOG.warn("Wrong type for hour was selected.");

@@ -9,16 +9,17 @@ import java.io.IOException;
 
 
 public class App {
+    private static final Logger LOGGER = LoggerFactory.getLogger(App.class);
 
     public static void main(String[] args)  {
-        final Logger LOGGER = LoggerFactory.getLogger(App.class);
+
         ReadReservationsFromFile readReservationsFromFile = new ReadReservationsFromFile();
         MainMenu mainMenu = new MainMenu();
         try {
             mainMenu.showMenu(readReservationsFromFile.constructBeachFromFile(), readReservationsFromFile.constructReservationTableFromFile());
         } catch (IOException e) {
             System.out.println("No file found!");
-            LOGGER.error("Source file was not find !!!");
+            LOGGER.error("Source file was not found !!!");
         }
     }
 }

@@ -14,7 +14,7 @@ public class ItemManagement {
     private int amountOfUmbrella = 200;
     private int amountOfTowel = 200;
     private int amountOfSunbed = 200;
-    final Logger LOG = LoggerFactory.getLogger(ItemManagement.class);
+    private final Logger LOG = LoggerFactory.getLogger(ItemManagement.class);
 
     public void setTypedHour(int typedHour) {
         this.typedHour = typedHour;
@@ -27,7 +27,7 @@ public class ItemManagement {
 
             try {
                 typedHour = Integer.parseInt(scanner.nextLine());
-                LOG.debug("Canceled reservation for place with ID {}.", String.valueOf(typedHour));
+                LOG.debug("Canceled reservation for place with ID {}.", typedHour);
             } catch (Exception e) {
                 System.out.println("Please be sure to type Integer within the bounds");
                 LOG.warn("Wrong type for hour was selected.");
