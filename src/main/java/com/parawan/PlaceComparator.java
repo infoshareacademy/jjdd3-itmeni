@@ -4,7 +4,6 @@ public class PlaceComparator {
 
     private Beach beach;
 
-
     public Beach getBeach() {
         return beach;
     }
@@ -15,14 +14,14 @@ public class PlaceComparator {
 
     public boolean comparePlaces(Place placeMain, Place placeToCompare) {
 
-        if (placeMain.getStatus() == placeToCompare.getStatus()
-                && !(placeMain.getStatus() == PlaceStatus.FREE && placeToCompare.getStatus() == PlaceStatus.FREE)) {
+        if (placeMain.getStatus ( ) == placeToCompare.getStatus ( )
+                && !(placeMain.getStatus ( ) == PlaceStatus.FREE && placeToCompare.getStatus ( ) == PlaceStatus.FREE)) {
             return true;
         }
 
-        for (int i = 0; i < ItemType.values().length; i++) {
-            if (placeMain.getRentedItems().contains(ItemType.values()[i])
-                    && placeToCompare.getRentedItems().contains(ItemType.values()[i])) {
+        for (int i = 0; i < ItemType.values ( ).length; i++) {
+            if (placeMain.getRentedItems ( ).contains ( ItemType.values ( )[i] )
+                    && placeToCompare.getRentedItems ( ).contains ( ItemType.values ( )[i] )) {
                 return true;
             }
         }
@@ -30,7 +29,7 @@ public class PlaceComparator {
     }
 
     public boolean placeNotExist(int x, int y) {
-        return (x < 0 || x >= beach.getMaxWidth() || y < 0 || y >= beach.getMaxHeight());
+        return (x < 0 || x >= beach.getMaxWidth ( ) || y < 0 || y >= beach.getMaxHeight ( ));
     }
 
 }

@@ -11,7 +11,7 @@ import org.slf4j.LoggerFactory;
 public class CancelReservation {
     private int cancelId = 0;
     private int cancelHour = 0;
-    private final Logger LOGGER = LoggerFactory.getLogger(CancelReservation.class);
+    private final Logger LOGGER = LoggerFactory.getLogger ( CancelReservation.class );
 
     public void setCancelId(int cancelId) {
         this.cancelId = cancelId;
@@ -23,46 +23,46 @@ public class CancelReservation {
 
     public void undoReservation(Beach beach, Scanner scanner, ReservationTable reservationTable) {
 
-        while (conditionForId(beach)) {
+        while (conditionForId ( beach )) {
 
-            System.out.println("Please specify ID number from " + beach.getPlaces().get(0).getId() + " to " + beach.getPlaces().get(beach.getPlaces().size() - 1).getId() + " to cancel reservation");
+            System.out.println ( "Please specify ID number from " + beach.getPlaces ( ).get ( 0 ).getId ( ) + " to " + beach.getPlaces ( ).get ( beach.getPlaces ( ).size ( ) - 1 ).getId ( ) + " to cancel reservation" );
             try {
-                cancelId = Integer.parseInt(scanner.nextLine());
-                LOGGER.debug("Canceled reservation for place with ID {}.", cancelId);
+                cancelId = Integer.parseInt ( scanner.nextLine ( ) );
+                LOGGER.debug ( "Canceled reservation for place with ID {}.", cancelId );
             } catch (Exception e) {
-                System.out.println("Please be sure to type Integer within the bounds");
-                LOGGER.warn("Wrong type for ID number was selected.");
+                System.out.println ( "Please be sure to type Integer within the bounds" );
+                LOGGER.warn ( "Wrong type for ID number was selected." );
             }
         }
 
         while (cancelHour < 8 || cancelHour > 19) {
 
-            System.out.println("Please type hour of reservation You wish to cancel (Beach is open from 8.00 to 19.00)");
+            System.out.println ( "Please type hour of reservation You wish to cancel (Beach is open from 8.00 to 19.00)" );
             try {
-                cancelHour = Integer.parseInt(scanner.nextLine());
-                LOGGER.debug("Canceled reservation for place with ID {}.", cancelId);
+                cancelHour = Integer.parseInt ( scanner.nextLine ( ) );
+                LOGGER.debug ( "Canceled reservation for place with ID {}.", cancelId );
             } catch (Exception e) {
-                System.out.println("Please be sure to type Integer within the bounds");
-                LOGGER.warn("Wrong type for hour was selected.");
+                System.out.println ( "Please be sure to type Integer within the bounds" );
+                LOGGER.warn ( "Wrong type for hour was selected." );
             }
         }
-        cancel(reservationTable);
+        cancel ( reservationTable );
     }
 
     private boolean conditionForId(Beach beach) {
 
-        return cancelId < beach.getPlaces().get(0).getId() || cancelId > beach.getPlaces().get(beach.getPlaces().size() - 1).getId();
+        return cancelId < beach.getPlaces ( ).get ( 0 ).getId ( ) || cancelId > beach.getPlaces ( ).get ( beach.getPlaces ( ).size ( ) - 1 ).getId ( );
     }
 
     private boolean conditionForCancellation(ReservationTable reservationTable, int i) {
 
-        return reservationTable.get(i).getHourOfReservation() == cancelHour && reservationTable.get(i).getPlaceId() == cancelId;
+        return reservationTable.get ( i ).getHourOfReservation ( ) == cancelHour && reservationTable.get ( i ).getPlaceId ( ) == cancelId;
     }
 
     public ReservationTable cancel(ReservationTable reservationTable) {
-        for (int i = 0; i < reservationTable.size(); ++i) {
-            if (conditionForCancellation(reservationTable, i)) {
-                reservationTable.remove(i);
+        for (int i = 0; i < reservationTable.size ( ); ++i) {
+            if (conditionForCancellation ( reservationTable, i )) {
+                reservationTable.remove ( i );
 
             }
         }

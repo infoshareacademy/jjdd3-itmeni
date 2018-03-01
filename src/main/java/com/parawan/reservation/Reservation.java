@@ -9,7 +9,7 @@ public class Reservation {
 
     private Integer hourOfReservation;
     private Integer placeId;
-    private List<ItemType> rentedItems = new ArrayList<ItemType>();
+    private List<ItemType> rentedItems = new ArrayList<ItemType> ( );
     private String nameOfPerson;
 
     public Reservation(Integer hourOfReservation, Integer placeId, List<ItemType> rentedItems, String nameOfPerson) {
@@ -43,7 +43,7 @@ public class Reservation {
     }
 
     public void putRentedItemOnList(ItemType item) {
-        this.rentedItems.add(item);
+        this.rentedItems.add ( item );
     }
 
     public String getNameOfPerson() {
@@ -56,7 +56,7 @@ public class Reservation {
 
     @Override
     public int hashCode() {
-        return super.hashCode();
+        return super.hashCode ( );
     }
 
     @Override
@@ -68,7 +68,7 @@ public class Reservation {
             return false;
         }
         Reservation r = (Reservation) o;
-        return (Integer.compare(this.hourOfReservation, r.hourOfReservation) == 0 &&
-                Integer.compare(this.placeId, r.placeId) == 0);
+        return (Integer.compare ( this.hourOfReservation, r.hourOfReservation ) == 0 &&
+                Integer.compare ( this.placeId, r.placeId ) == 0);
     }
 }

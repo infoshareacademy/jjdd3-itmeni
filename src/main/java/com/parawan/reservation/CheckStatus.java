@@ -11,7 +11,7 @@ public class CheckStatus {
     }
 
     public boolean isAlreadyReserved(Reservation checkThisReservation) {
-        return listOfReservations.stream()
-                .anyMatch(o -> o.equals(checkThisReservation));
+        return listOfReservations.stream ( )
+                .anyMatch ( o -> o.equals ( checkThisReservation ) );
     }
 }

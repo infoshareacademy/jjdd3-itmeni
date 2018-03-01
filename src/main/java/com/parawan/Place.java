@@ -5,9 +5,8 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
+
 
 @XmlType
 @XmlAccessorType(XmlAccessType.FIELD)
@@ -20,7 +19,7 @@ public class Place {
     @XmlElement(required = true)
     private PlaceStatus status;
 
-    private List<ItemType> rentedItems = new ArrayList<ItemType>();
+    private List<ItemType> rentedItems = new ArrayList<ItemType> ( );
 
     private boolean meetsSearchCriteria = false;
 
@@ -56,7 +55,7 @@ public class Place {
     }
 
     public void putItemToRentedItemsList(ItemType accessory) {
-        rentedItems.add(accessory);
+        rentedItems.add ( accessory );
     }
 
     public PlaceStatus getStatus() {

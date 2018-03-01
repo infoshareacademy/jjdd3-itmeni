@@ -15,61 +15,61 @@ import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
 public class MainMenu {
-    private final Logger LOG = LoggerFactory.getLogger(MainMenu.class);
+    private final Logger LOG = LoggerFactory.getLogger ( MainMenu.class );
 
     public void showMenu(Beach beach, ReservationTable reservationTable) throws IOException {
 
-        DateTimeFormatter myFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy - HH:mm");
-        LocalDateTime localDateTime = LocalDateTime.now();
-        String formattedDateTime = localDateTime.format(myFormatter);
+        DateTimeFormatter myFormatter = DateTimeFormatter.ofPattern ( "dd/MM/yyyy - HH:mm" );
+        LocalDateTime localDateTime = LocalDateTime.now ( );
+        String formattedDateTime = localDateTime.format ( myFormatter );
 
-        Scanner scanner = new Scanner(System.in);
-        ReservationPreview reservationPreview = new ReservationPreview();
-        SnapshotOfGivenHour snapshotOfGivenHour = new SnapshotOfGivenHour();
+        Scanner scanner = new Scanner ( System.in );
+        ReservationPreview reservationPreview = new ReservationPreview ( );
+        SnapshotOfGivenHour snapshotOfGivenHour = new SnapshotOfGivenHour ( );
 
         while (true) {
 
-            System.out.println("\nPrivate beach management system - PARAWAN. ||     Current time: " + formattedDateTime);
-            System.out.println("Chose action.                              ||               ver 1.0 ");
-            System.out.println("\nWould You like to: [r]eserve place, [f]ind place with additional requirements," +
-                    " \n[c]ancel reservation, [s]ee current beach preview, \nc[h]eck the number of items available for rent, [q]uit ");
+            System.out.println ( "\nPrivate beach management system - PARAWAN. ||     Current time: " + formattedDateTime );
+            System.out.println ( "Chose action.                              ||               ver 1.0 " );
+            System.out.println ( "\nWould You like to: [r]eserve place, [f]ind place with additional requirements," +
+                    " \n[c]ancel reservation, [s]ee current beach preview, \nc[h]eck the number of items available for rent, [q]uit " );
 
-            String answer = scanner.nextLine();
+            String answer = scanner.nextLine ( );
 
-            if (answer.equals("r")) {
-                reservationTable.reservePlace(beach);
+            if (answer.equals ( "r" )) {
+                reservationTable.reservePlace ( beach );
 
-            } else if (answer.equals("f")) {
+            } else if (answer.equals ( "f" )) {
 
-                beach.setHourOfStatus(chooseHour(scanner));
-                snapshotOfGivenHour.setBeachAndReservationTable(beach, reservationTable);
-                snapshotOfGivenHour.getSnapshot(beach.getHourOfStatus());
-                SearchEngine searchEngine = new SearchEngine();
-                ShowMapAfterSearch showMap = new ShowMapAfterSearch();
-                showMap.printMapAfterSearch(searchEngine.search(beach));
-                beach.createPlaces();
+                beach.setHourOfStatus ( chooseHour ( scanner ) );
+                snapshotOfGivenHour.setBeachAndReservationTable ( beach, reservationTable );
+                snapshotOfGivenHour.getSnapshot ( beach.getHourOfStatus ( ) );
+                SearchEngine searchEngine = new SearchEngine ( );
+                ShowMapAfterSearch showMap = new ShowMapAfterSearch ( );
+                showMap.printMapAfterSearch ( searchEngine.search ( beach ) );
+                beach.createPlaces ( );
 
-            } else if (answer.equals("c")) {
+            } else if (answer.equals ( "c" )) {
 
-                CancelReservation cancelReservation = new CancelReservation();
-                cancelReservation.undoReservation(beach, scanner, reservationTable);
+                CancelReservation cancelReservation = new CancelReservation ( );
+                cancelReservation.undoReservation ( beach, scanner, reservationTable );
 
-            } else if (answer.equals("s")) {
-                beach.setHourOfStatus(chooseHour(scanner));
-                snapshotOfGivenHour.setBeachAndReservationTable(beach, reservationTable);
-                reservationPreview.preview(snapshotOfGivenHour.getSnapshot(beach.getHourOfStatus()));
+            } else if (answer.equals ( "s" )) {
+                beach.setHourOfStatus ( chooseHour ( scanner ) );
+                snapshotOfGivenHour.setBeachAndReservationTable ( beach, reservationTable );
+                reservationPreview.preview ( snapshotOfGivenHour.getSnapshot ( beach.getHourOfStatus ( ) ) );
 
-            } else if (answer.equals("h")) {
+            } else if (answer.equals ( "h" )) {
 
-                ItemManagement itemManagement = new ItemManagement();
-                itemManagement.itemCount(reservationTable, scanner);
+                ItemManagement itemManagement = new ItemManagement ( );
+                itemManagement.itemCount ( reservationTable, scanner );
 
-            } else if (answer.equals("q")) {
+            } else if (answer.equals ( "q" )) {
 
-                WriteReservationsToFile wr = new WriteReservationsToFile();
-                wr.writeReservationsToFile(reservationTable, beach);
-                System.out.println("Thank you for using PARAWAN - your private beach management system");
-                LOG.debug("Log out from system.");
+                WriteReservationsToFile wr = new WriteReservationsToFile ( );
+                wr.writeReservationsToFile ( reservationTable, beach );
+                System.out.println ( "Thank you for using PARAWAN - your private beach management system" );
+                LOG.debug ( "Log out from system." );
 
                 break;
             }
@@ -81,13 +81,13 @@ public class MainMenu {
         int typedHour = 0;
 
         while (typedHour < 8 || typedHour > 19) {
-            System.out.println("Please type hour that interest You  (Beach is open from 8.00 to 19.00)");
+            System.out.println ( "Please type hour that interest You  (Beach is open from 8.00 to 19.00)" );
             try {
-                typedHour = Integer.parseInt(scanner.nextLine());
-                LOG.debug("Selected our {} to check booked pleces.", typedHour);
+                typedHour = Integer.parseInt ( scanner.nextLine ( ) );
+                LOG.debug ( "Selected our {} to check booked places.", typedHour );
             } catch (Exception e) {
-                System.out.println("Please be sure to type Integer within the bounds");
-                LOG.warn("Wrong type for hour was selected.");
+                System.out.println ( "Please be sure to type Integer within the bounds" );
+                LOG.warn ( "Wrong type for hour was selected." );
             }
         }
         return typedHour;

@@ -5,7 +5,7 @@ import com.parawan.XMLparser.Places;
 public class Beach {
 
     private String name;
-    private Places places = new Places();
+    private Places places = new Places ( );
     private Integer maxWidth;
     private Integer maxHeight;
     private Integer hourOfStatus;
@@ -14,7 +14,7 @@ public class Beach {
         this.name = name;
         this.maxWidth = maxWidth;
         this.maxHeight = maxHeight;
-        createPlaces();
+        createPlaces ( );
     }
 
     public Integer getHourOfStatus() {
@@ -50,13 +50,13 @@ public class Beach {
     }
 
     public void createPlaces() {
-        this.places.clear();
+        this.places.clear ( );
         int x = 0;
         int y = 0;
         for (int i = 0; i < (maxWidth * maxHeight); i++) {
 
-            Place place = new Place((i + 1), x, y, PlaceStatus.FREE);
-            places.add(place);
+            Place place = new Place ( (i + 1), x, y, PlaceStatus.FREE );
+            places.add ( place );
             x++;
 
             if (x >= maxWidth) {
@@ -68,9 +68,9 @@ public class Beach {
 
     public Place getPlaceByXY(int x, int y) {
         Place place = null;
-        for (int i = 0; i < places.size(); i++) {
-            if ((places.get(i).getX() == x) && (places.get(i).getY() == y)) {
-                place = places.get(i);
+        for (int i = 0; i < places.size ( ); i++) {
+            if ((places.get ( i ).getX ( ) == x) && (places.get ( i ).getY ( ) == y)) {
+                place = places.get ( i );
             }
         }
         return place;
