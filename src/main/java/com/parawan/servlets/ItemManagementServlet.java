@@ -10,11 +10,11 @@ import java.io.PrintWriter;
 
 
 @WebServlet("/item-management")
-public class ItemManagementServlet extends HttpServlet{
+public class ItemManagementServlet extends HttpServlet {
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        PrintWriter printWriter=resp.getWriter();
+        PrintWriter printWriter = resp.getWriter();
 
         printWriter.write("<!DOCTYPE html>");
         printWriter.write("<html>");

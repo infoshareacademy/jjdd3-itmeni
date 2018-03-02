@@ -9,10 +9,10 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 @WebServlet("/find-place")
-public class FindPlaceServlet extends HttpServlet{
+public class FindPlaceServlet extends HttpServlet {
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
-        PrintWriter printWriter=resp.getWriter();
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        PrintWriter printWriter = resp.getWriter();
 
         printWriter.write("<!DOCTYPE html>");
         printWriter.write("<html>");
