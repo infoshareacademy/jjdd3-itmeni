@@ -10,22 +10,22 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
-public class JavaToXML {
-    public static final String DATA_FILE_NAME = "booking_status.xml";
+public class JavaToXML{
+    public static final String DATA_FILE_NAME="booking_status.xml";
 
-    public void savePlacesToXML(Places places) throws JAXBException, IOException {
-        JAXBContext context = JAXBContext.newInstance(PlacesWrapper.class, Places.class, Place.class, PlaceStatus.class);
+    public void savePlacesToXML(Places places) throws JAXBException, IOException{
+        JAXBContext context=JAXBContext.newInstance(PlacesWrapper.class, Places.class, Place.class, PlaceStatus.class);
 
-        Marshaller m = context.createMarshaller();
+        Marshaller m=context.createMarshaller();
         m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
 
-        try {
-            FileOutputStream fileOutputStream = new FileOutputStream(DATA_FILE_NAME);
-            PlacesWrapper placesWrapper = new PlacesWrapper();
+        try{
+            FileOutputStream fileOutputStream=new FileOutputStream(DATA_FILE_NAME);
+            PlacesWrapper placesWrapper=new PlacesWrapper();
             placesWrapper.setPlaces(places);
             m.marshal(placesWrapper, fileOutputStream);
             fileOutputStream.close();
-        } catch (FileNotFoundException e) {
+        }catch(FileNotFoundException e){
             e.printStackTrace();
         }
     }

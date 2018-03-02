@@ -31,7 +31,6 @@ public class SearchEngine {
                 temporaryPlace.setX(0);
                 temporaryPlace.setY(temporaryPlace.getY() + 1);
             }
-
         }
         return beach;
     }

@@ -3,7 +3,6 @@ package com.parawan.reservation;
 import com.parawan.ItemType;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 public class Reservation {
