@@ -6,9 +6,9 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>webapp</artifactId>
+    <artifactId>webparawan</artifactId>
     <packaging>war</packaging>
-    <name>webapp Maven Webapp</name>
+    <name>webparawan</name>
     <url>http://maven.apache.org</url>
     <dependencies>
         <dependency>
@@ -83,6 +83,6 @@
 
 
     <build>
-        <finalName>webapp</finalName>
+        <finalName>webparawan</finalName>
     </build>
 </project>
