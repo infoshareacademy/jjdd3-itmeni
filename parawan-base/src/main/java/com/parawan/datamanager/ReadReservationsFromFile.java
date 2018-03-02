@@ -37,7 +37,6 @@ public class ReadReservationsFromFile {
         return reservationTable;
     }
 
-
     public List<ItemType> createListOfItems(String[] list) {
         List<ItemType> items = new ArrayList<>();
         if (!(list[0].equals(""))) {

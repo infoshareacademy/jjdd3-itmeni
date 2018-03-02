@@ -6,6 +6,8 @@ import com.parawan.SearchEngine;
 import com.parawan.SnapshotOfGivenHour;
 import com.parawan.datamanager.WriteReservationsToFile;
 import com.parawan.reservation.ReservationTable;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import java.time.LocalDateTime;
@@ -13,6 +15,8 @@ import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
 public class MainMenu {
+    private final Logger LOG = LoggerFactory.getLogger(MainMenu.class);
+
     public void showMenu(Beach beach, ReservationTable reservationTable) throws IOException {
 
         DateTimeFormatter myFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy - HH:mm");
@@ -65,6 +69,8 @@ public class MainMenu {
                 WriteReservationsToFile wr = new WriteReservationsToFile();
                 wr.writeReservationsToFile(reservationTable, beach);
                 System.out.println("Thank you for using PARAWAN - your private beach management system");
+                LOG.debug("Log out from system.");
+
                 break;
             }
         }
@@ -76,13 +82,13 @@ public class MainMenu {
 
         while (typedHour < 8 || typedHour > 19) {
             System.out.println("Please type hour that interest You  (Beach is open from 8.00 to 19.00)");
-
             try {
                 typedHour = Integer.parseInt(scanner.nextLine());
+                LOG.debug("Selected our {} to check booked places.", typedHour);
             } catch (Exception e) {
                 System.out.println("Please be sure to type Integer within the bounds");
+                LOG.warn("Wrong type for hour was selected.");
             }
-
         }
         return typedHour;
     }

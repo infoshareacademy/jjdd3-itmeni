@@ -1,7 +1,6 @@
 package com.parawan;
 
 public class ReservationPreview {
-    private Place place;
 
     public void preview(Beach beach) {
 

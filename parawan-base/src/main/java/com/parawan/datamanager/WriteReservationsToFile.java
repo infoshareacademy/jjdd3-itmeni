@@ -3,6 +3,8 @@ package com.parawan.datamanager;
 import com.parawan.Beach;
 import com.parawan.reservation.Reservation;
 import com.parawan.reservation.ReservationTable;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
@@ -10,6 +12,7 @@ import java.io.PrintWriter;
 public class WriteReservationsToFile {
 
     StringBuilder sb = new StringBuilder("");
+    private final Logger LOG = LoggerFactory.getLogger(WriteReservationsToFile.class);
 
     public void writeReservationsToFile(ReservationTable reservationTable, Beach beach) {
 
@@ -17,7 +20,9 @@ public class WriteReservationsToFile {
         try {
             pw = new PrintWriter("database.beach");
         } catch (FileNotFoundException e1) {
-            System.out.println("No database found!");;
+            System.out.println("No database found!");
+            LOG.error("Source file is not found!!!");
+
         }
         pw.println(beach.getName() + ";" + beach.getMaxWidth() + ";" + beach.getMaxHeight() + ";");
         Reservation reservationToPrint = new Reservation();
@@ -33,8 +38,5 @@ public class WriteReservationsToFile {
             sb.setLength(0);
         }
         pw.close();
-
     }
-
-
 }

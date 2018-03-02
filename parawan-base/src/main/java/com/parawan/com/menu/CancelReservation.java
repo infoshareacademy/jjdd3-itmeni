@@ -5,9 +5,13 @@ import com.parawan.reservation.ReservationTable;
 
 import java.util.Scanner;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 public class CancelReservation {
     private int cancelId = 0;
     private int cancelHour = 0;
+    private final Logger LOGGER = LoggerFactory.getLogger(CancelReservation.class);
 
     public void setCancelId(int cancelId) {
         this.cancelId = cancelId;
@@ -24,8 +28,10 @@ public class CancelReservation {
             System.out.println("Please specify ID number from " + beach.getPlaces().get(0).getId() + " to " + beach.getPlaces().get(beach.getPlaces().size() - 1).getId() + " to cancel reservation");
             try {
                 cancelId = Integer.parseInt(scanner.nextLine());
+                LOGGER.debug("Canceled reservation for place with ID {}.", cancelId);
             } catch (Exception e) {
                 System.out.println("Please be sure to type Integer within the bounds");
+                LOGGER.warn("Wrong type for ID number was selected.");
             }
         }
 
@@ -34,8 +40,10 @@ public class CancelReservation {
             System.out.println("Please type hour of reservation You wish to cancel (Beach is open from 8.00 to 19.00)");
             try {
                 cancelHour = Integer.parseInt(scanner.nextLine());
+                LOGGER.debug("Canceled reservation for place with ID {}.", cancelId);
             } catch (Exception e) {
                 System.out.println("Please be sure to type Integer within the bounds");
+                LOGGER.warn("Wrong type for hour was selected.");
             }
         }
         cancel(reservationTable);
@@ -55,6 +63,7 @@ public class CancelReservation {
         for (int i = 0; i < reservationTable.size(); ++i) {
             if (conditionForCancellation(reservationTable, i)) {
                 reservationTable.remove(i);
+
             }
         }
         return reservationTable;

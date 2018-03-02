@@ -10,8 +10,8 @@ public class CheckStatus {
         this.listOfReservations = listOfReservations;
     }
 
-    public boolean isAlreadyReserved(Reservation checkThisReservation){
-     return listOfReservations.stream()
+    public boolean isAlreadyReserved(Reservation checkThisReservation) {
+        return listOfReservations.stream()
                 .anyMatch(o -> o.equals(checkThisReservation));
     }
 }

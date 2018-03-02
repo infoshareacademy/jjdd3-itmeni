@@ -2,6 +2,8 @@ package com.parawan.com.menu;
 
 import com.parawan.ItemType;
 import com.parawan.reservation.ReservationTable;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.*;
 
@@ -12,6 +14,7 @@ public class ItemManagement {
     private int amountOfUmbrella = 200;
     private int amountOfTowel = 200;
     private int amountOfSunbed = 200;
+    private final Logger LOG = LoggerFactory.getLogger(ItemManagement.class);
 
     public void setTypedHour(int typedHour) {
         this.typedHour = typedHour;
@@ -24,15 +27,17 @@ public class ItemManagement {
 
             try {
                 typedHour = Integer.parseInt(scanner.nextLine());
+                LOG.debug("Canceled reservation for place with ID {}.", typedHour);
             } catch (Exception e) {
                 System.out.println("Please be sure to type Integer within the bounds");
+                LOG.warn("Wrong type for hour was selected.");
             }
         }
 
         forRentAtGivenHour(reservationTable);
     }
 
-    public int [] forRentAtGivenHour(ReservationTable reservationTable) {
+    public int[] forRentAtGivenHour(ReservationTable reservationTable) {
 
         int rentedScreenCount = 0;
         int rentedUmbrellaCount = 0;
@@ -43,15 +48,19 @@ public class ItemManagement {
             if (reservationTable.get(i).getHourOfReservation() == typedHour) {
                 if (reservationTable.get(i).getRentedItems().contains(ItemType.SCREEN)) {
                     rentedScreenCount++;
+                    LOG.trace("Is already rented {} screens.", rentedScreenCount);
                 }
                 if (reservationTable.get(i).getRentedItems().contains(ItemType.UMBRELLA)) {
                     rentedUmbrellaCount++;
+                    LOG.trace("Is already rented {} umbrellas.", rentedUmbrellaCount);
                 }
                 if (reservationTable.get(i).getRentedItems().contains(ItemType.TOWEL)) {
                     rentedTowelCount++;
+                    LOG.trace("Is already rented {} towels.", rentedTowelCount);
                 }
                 if (reservationTable.get(i).getRentedItems().contains(ItemType.SUNBED)) {
                     rentedSunbedCount++;
+                    LOG.trace("Is already rented {} sunbeds.", rentedSunbedCount);
                 }
             }
         }
@@ -61,7 +70,7 @@ public class ItemManagement {
         int towelForRentAtGivenHour = amountOfTowel - rentedTowelCount;
         int sunbedForRentAtGivenHour = amountOfSunbed - rentedSunbedCount;
 
-        int [] stillForRent = {screenForRentAtGivenHour, umbrellaForRentAtGivenHour, towelForRentAtGivenHour, sunbedForRentAtGivenHour};
+        int[] stillForRent = {screenForRentAtGivenHour, umbrellaForRentAtGivenHour, towelForRentAtGivenHour, sunbedForRentAtGivenHour};
 
         System.out.println("At " + typedHour + ":00 we have:\n ");
         System.out.println(screenForRentAtGivenHour + " screens available for rent");

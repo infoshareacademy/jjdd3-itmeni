@@ -16,7 +16,6 @@ public class SnapshotOfGivenHour {
         this.reservationTable = reservationTable;
     }
 
-
     public List<Reservation> getReservationsFromGivenHour(Integer hour) {
         return reservationTable.stream()
                 .filter(x -> x.getHourOfReservation() == hour)
@@ -37,7 +36,6 @@ public class SnapshotOfGivenHour {
                 place.setStatus(PlaceStatus.RESERVED);
                 place.setRentedItems(reservation.getRentedItems());
             }
-
         }
     }
 }
