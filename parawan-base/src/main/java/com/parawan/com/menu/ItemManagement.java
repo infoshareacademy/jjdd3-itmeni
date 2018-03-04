@@ -16,9 +16,16 @@ public class ItemManagement {
     private int amountOfSunbed = 200;
     private final Logger LOG = LoggerFactory.getLogger(ItemManagement.class);
 
+
+    public int getTypedHour() {
+        return typedHour;
+    }
+
     public void setTypedHour(int typedHour) {
         this.typedHour = typedHour;
     }
+
+
 
     public void itemCount(ReservationTable reservationTable, Scanner scanner) {
 
