@@ -10,80 +10,80 @@ import java.util.List;
 @XmlType
 @XmlAccessorType(XmlAccessType.FIELD)
 
-public class Place{
+public class Place {
 
-    @XmlElement(required=true)
+    @XmlElement(required = true)
     private int id, x, y;
 
-    @XmlElement(required=true)
+    @XmlElement(required = true)
     private PlaceStatus status;
 
-    private List<ItemType> rentedItems=new ArrayList<ItemType>();
+    private List<ItemType> rentedItems = new ArrayList<ItemType>();
 
-    private boolean meetsSearchCriteria=false;
+    private boolean meetsSearchCriteria = false;
 
-    public Place(){
+    public Place() {
     }
 
-    public Place(int id, int x, int y, PlaceStatus status){
+    public Place(int id, int x, int y, PlaceStatus status) {
 
-        this.id=id;
-        this.x=x;
-        this.y=y;
-        this.status=status;
+        this.id = id;
+        this.x = x;
+        this.y = y;
+        this.status = status;
     }
 
-    public boolean isMeetSearchCriteria(){
+    public boolean isMeetSearchCriteria() {
         return meetsSearchCriteria;
     }
 
-    public void setMeetsSearchCriteria(boolean meetsSearchCriteria){
-        this.meetsSearchCriteria=meetsSearchCriteria;
+    public void setMeetsSearchCriteria(boolean meetsSearchCriteria) {
+        this.meetsSearchCriteria = meetsSearchCriteria;
     }
 
-    public int getId(){
+    public int getId() {
         return id;
     }
 
-    public int getX(){
+    public int getX() {
         return x;
     }
 
-    public int getY(){
+    public int getY() {
         return y;
     }
 
-    public void putItemToRentedItemsList(ItemType accessory){
+    public void putItemToRentedItemsList(ItemType accessory) {
         rentedItems.add(accessory);
     }
 
-    public PlaceStatus getStatus(){
+    public PlaceStatus getStatus() {
         return status;
     }
 
     @Override
-    public String toString(){
-        return "Id miejsca: "+id+" || "+""+
-                "X: "+x+" || "+"Y: "+y+" || "+"Status: "+status;
+    public String toString() {
+        return "Id miejsca: " + id + " || " + "" +
+                "X: " + x + " || " + "Y: " + y + " || " + "Status: " + status;
     }
 
-    public void setX(int x){
-        this.x=x;
+    public void setX(int x) {
+        this.x = x;
     }
 
-    public List<ItemType> getRentedItems(){
+    public List<ItemType> getRentedItems() {
         return rentedItems;
     }
 
-    public void setRentedItems(List<ItemType> rentedItems){
-        this.rentedItems=rentedItems;
+    public void setRentedItems(List<ItemType> rentedItems) {
+        this.rentedItems = rentedItems;
     }
 
-    public void setY(int y){
-        this.y=y;
+    public void setY(int y) {
+        this.y = y;
     }
 
-    public void setStatus(PlaceStatus status){
-        this.status=status;
+    public void setStatus(PlaceStatus status) {
+        this.status = status;
     }
 }
