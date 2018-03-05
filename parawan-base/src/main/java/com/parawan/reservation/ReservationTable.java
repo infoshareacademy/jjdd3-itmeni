@@ -9,6 +9,5 @@ public class ReservationTable extends ArrayList<Reservation> {
     public void reservePlace(Beach beach) {
         ReservationMenu menu = new ReservationMenu();
         this.add(menu.makeReservation(beach, this));
-
     }
 }

@@ -14,7 +14,7 @@ public class ItemManagement {
     private int amountOfUmbrella = 200;
     private int amountOfTowel = 200;
     private int amountOfSunbed = 200;
-    private final Logger LOG = LoggerFactory.getLogger(ItemManagement.class);
+    private static final Logger LOG = LoggerFactory.getLogger(ItemManagement.class);
     
     public int getTypedHour() {
         return typedHour;

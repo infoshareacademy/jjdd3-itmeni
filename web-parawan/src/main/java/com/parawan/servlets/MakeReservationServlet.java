@@ -6,6 +6,7 @@ import com.parawan.reservation.Reservation;
 import com.parawan.reservation.ReservationTable;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
+import org.slf4j.LoggerFactory;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -22,7 +23,7 @@ import java.util.logging.Logger;
 @WebServlet("/make-reservation")
 public class MakeReservationServlet extends HttpServlet {
 
-    Logger logger = Logger.getLogger(getClass().getName());
+    private static final org.slf4j.Logger LOG = LoggerFactory.getLogger(CancelReservationServlet.class);
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -35,7 +36,7 @@ public class MakeReservationServlet extends HttpServlet {
         try {
             template.process(dataModel, printWriter);
         } catch (TemplateException e) {
-            logger.log(Level.SEVERE, e.getMessage(), e);
+            LOG.error("Error while loading freemarker template", e);
         }
     }
     @Override
