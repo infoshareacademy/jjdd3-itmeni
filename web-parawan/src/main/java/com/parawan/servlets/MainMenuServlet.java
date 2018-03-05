@@ -1,5 +1,9 @@
 package com.parawan.servlets;
 
+import com.parawan.freemarker.TemplateProvider;
+import freemarker.template.Template;
+import freemarker.template.TemplateException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -7,38 +11,30 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.HashMap;
+import java.util.Map;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-@WebServlet("main-menu")
+
+@WebServlet("/main-menu")
 public class MainMenuServlet extends HttpServlet {
+
+    private static final Logger LOG = LoggerFactory.getLogger(MainMenuServlet.class);
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
+        Map<String, Object> dataModel = new HashMap<>();
+
+        Template template = TemplateProvider.createTemplate(getServletContext(), "main-menu.ftlh");
+
         PrintWriter printWriter = resp.getWriter();
+        try {
+            template.process(dataModel, printWriter);
+        } catch (TemplateException e) {
+            LOG.error("Error while loading freemarker template", e);
+        }
 
-        printWriter.write("<!DOCTYPE html>");
-        printWriter.write("<html>");
-        printWriter.write("<body>");
-        printWriter.write("<p>Main Menu</p>");
-
-        printWriter.write("<nav>");
-        printWriter.write("<ul>");
-        printWriter.write("<li>");
-        printWriter.write("<a href=\"/make-reservation.html\">Make reservation </a>");
-        printWriter.write("</li>");
-        printWriter.write("<li>");
-        printWriter.write("<a href=\"/cancel-reservation\">Cancel reservation </a>");
-        printWriter.write("</li>");
-        printWriter.write("<li>");
-        printWriter.write("<a href=\"/find-place\">Find place with additional requirements </a>");
-        printWriter.write("</li>");
-        printWriter.write("<li>");
-        printWriter.write("<a href=\"/item-management\">Number of items available for rent  </a>");
-        printWriter.write("</li>");
-        printWriter.write("</ul>");
-        printWriter.write("</nav>");
-
-        printWriter.write("<p><a href=\"/hello-servlet\">Go back to intro page </a></p>");
-        printWriter.write("</body>");
-        printWriter.write("</html>");
     }
 }
