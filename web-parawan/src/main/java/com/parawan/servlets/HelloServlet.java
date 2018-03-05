@@ -14,13 +14,12 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import org.slf4j.Logger;
 
 @WebServlet("/hello-servlet")
 public class HelloServlet extends HttpServlet {
 
-    private static final org.slf4j.Logger LOG = LoggerFactory.getLogger(CancelReservationServlet.class);
+    private static final Logger LOG = LoggerFactory.getLogger(CancelReservationServlet.class);
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

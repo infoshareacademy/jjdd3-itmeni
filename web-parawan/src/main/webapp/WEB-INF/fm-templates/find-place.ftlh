@@ -5,10 +5,3 @@
     <p><a href=main-menu >Go back to main menu </a></p>
   </body>
 </html>
-
-
-
-
-
-
-

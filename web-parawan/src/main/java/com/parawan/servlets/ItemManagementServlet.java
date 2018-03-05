@@ -6,6 +6,7 @@ import com.parawan.freemarker.TemplateProvider;
 import com.parawan.reservation.ReservationTable;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
+import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.servlet.ServletException;
@@ -17,14 +18,13 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
 
 
 @WebServlet("/item-management")
 public class ItemManagementServlet extends HttpServlet {
 
-    private static final org.slf4j.Logger LOG = LoggerFactory.getLogger(CancelReservationServlet.class);
+    private static final Logger LOG = LoggerFactory.getLogger(CancelReservationServlet.class);
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
