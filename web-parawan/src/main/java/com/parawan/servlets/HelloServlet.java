@@ -19,7 +19,7 @@ import org.slf4j.Logger;
 @WebServlet("/hello-servlet")
 public class HelloServlet extends HttpServlet {
 
-    private static final Logger LOG = LoggerFactory.getLogger(CancelReservationServlet.class);
+    private static final Logger LOG = LoggerFactory.getLogger(HelloServlet.class);
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

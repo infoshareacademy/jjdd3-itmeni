@@ -20,7 +20,7 @@ import org.slf4j.LoggerFactory;
 @WebServlet("/main-menu")
 public class MainMenuServlet extends HttpServlet {
 
-    private static final Logger LOG = LoggerFactory.getLogger(CancelReservationServlet.class);
+    private static final Logger LOG = LoggerFactory.getLogger(MainMenuServlet.class);
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

@@ -24,7 +24,7 @@ import java.util.Map;
 @WebServlet("/item-management")
 public class ItemManagementServlet extends HttpServlet {
 
-    private static final Logger LOG = LoggerFactory.getLogger(CancelReservationServlet.class);
+    private static final Logger LOG = LoggerFactory.getLogger(ItemManagementServlet.class);
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

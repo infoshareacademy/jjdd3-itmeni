@@ -20,7 +20,7 @@ import org.slf4j.Logger;
 @WebServlet("/find-place")
 public class FindPlaceServlet extends HttpServlet {
 
-    private static final Logger LOG = LoggerFactory.getLogger(CancelReservationServlet.class);
+    private static final Logger LOG = LoggerFactory.getLogger(FindPlaceServlet.class);
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
