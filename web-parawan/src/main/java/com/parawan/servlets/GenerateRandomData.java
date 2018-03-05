@@ -1,6 +1,8 @@
 package com.parawan.servlets;
 
+import com.parawan.dao.BeachDao;
 import com.parawan.dao.ReservationDao;
+import com.parawan.model.Beach;
 import com.parawan.model.Reservation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -21,6 +23,8 @@ public class GenerateRandomData extends HttpServlet {
     @Inject
     private ReservationDao singleReservationDao;
 
+    @Inject
+    private BeachDao beachDao;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
@@ -28,12 +32,12 @@ public class GenerateRandomData extends HttpServlet {
 
             fillDatabase(req, resp);
 
-
     }
 
     public void fillDatabase(HttpServletRequest req, HttpServletResponse resp) {
 
-
+        Beach beach = new Beach(null, "Brzezno", 20, 10);
+        beachDao.save(beach);
         for (int i = 0; i < 1000; i++) {
             String itemsString = "";
             String nameString = "Tester" + new Random().nextInt(10000);
@@ -61,6 +65,7 @@ public class GenerateRandomData extends HttpServlet {
                     , new Random().nextInt(100)
                     , itemsString
                     , nameString);
+            reservation.setBeach(beach);
             singleReservationDao.save(reservation);
         }
     }

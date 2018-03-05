@@ -24,6 +24,9 @@ public class Reservation {
     @Column(name = "name_of_person")
     private String nameOfPerson;
 
+    @ManyToOne
+    @JoinColumn(name = "beach_id")
+    private Beach beach;
 
     public Reservation(Long idOfReservation, Integer hourOfReservation, Integer placeId, String rentedItems, String nameOfPerson) {
         this.idOfReservation = idOfReservation;
@@ -34,6 +37,14 @@ public class Reservation {
     }
 
     public Reservation() {
+    }
+
+    public Beach getBeach() {
+        return beach;
+    }
+
+    public void setBeach(Beach beach) {
+        this.beach = beach;
     }
 
     public Long getIdOfReservation() {
