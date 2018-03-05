@@ -1,5 +1,6 @@
 package com.parawan.servlets;
 
+import com.parawan.Beach;
 import com.parawan.ItemType;
 import com.parawan.freemarker.TemplateProvider;
 import com.parawan.reservation.Reservation;
@@ -27,7 +28,13 @@ public class MakeReservationServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
+        Beach beach =new Beach("BrzeźnoBeach", 20, 10);
+        int firstId = beach.getPlaces().get(0).getId();
+        int lastId = beach.getPlaces().get(beach.getPlaces().size() - 1).getId();
+
         Map<String, Object> dataModel = new HashMap<>();
+        dataModel.put("firstId", firstId);
+        dataModel.put("lastId", lastId);
 
         Template template = TemplateProvider.createTemplate(getServletContext(), "make-reservation.ftlh");
 
@@ -38,27 +45,53 @@ public class MakeReservationServlet extends HttpServlet {
             LOG.error("Error while loading freemarker template", e);
         }
     }
+
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        Reservation reservation =new Reservation();
+        Reservation reservation = new Reservation();
 
-        reservation.setHourOfReservation(Integer.parseInt(req.getParameter("chosenHour")));
-        reservation.setPlaceId(Integer.parseInt(req.getParameter("chosenId")));
+        try {
+            reservation.setHourOfReservation(Integer.parseInt(req.getParameter("chosenHour")));
+            reservation.setPlaceId(Integer.parseInt(req.getParameter("chosenId")));
+        } catch (NumberFormatException e) {
+            LOG.error("Error while making reservation", e);
+            resp.sendRedirect("/error-servlet");
+        }
         reservation.setNameOfPerson(req.getParameter("chosenName"));
 
-        if(!(req.getParameter("chosenScreen").equals(null))){
-            reservation.putRentedItemOnList(ItemType.SCREEN);
+        try {
+            if (req.getParameter("chosenScreen").equals("s")) {
+                reservation.putRentedItemOnList(ItemType.SCREEN);
+            }
+        } catch (NullPointerException e) {
+            LOG.info("During reservation, screen was not chosen", e);
         }
-        if(!(req.getParameter("chosenUmbrella").equals(null))){
-            reservation.putRentedItemOnList(ItemType.UMBRELLA);
+
+        try {
+            if (req.getParameter("chosenUmbrella").equals("u")) {
+                reservation.putRentedItemOnList(ItemType.UMBRELLA);
+            }
+        } catch (NullPointerException e) {
+            LOG.info("During reservation, umbrella was not chosen", e);
         }
-        if(!(req.getParameter("chosenTowel").equals(null))){
-            reservation.putRentedItemOnList(ItemType.TOWEL);
+
+        try {
+            if (req.getParameter("chosenTowel").equals("t")) {
+                reservation.putRentedItemOnList(ItemType.TOWEL);
+            }
+        } catch (NullPointerException e) {
+            LOG.info("During reservation, towel was not chosen", e);
         }
-        if(!(req.getParameter("chosenSunbed").equals(null))){
-            reservation.putRentedItemOnList(ItemType.SUNBED);
+
+        try {
+            if (req.getParameter("chosenSunbed").equals("b")) {
+                reservation.putRentedItemOnList(ItemType.SUNBED);
+            }
+        } catch (NullPointerException e) {
+            LOG.info("During reservation, towel was not chosen", e);
         }
+
         ReservationTable reservationTable = new ReservationTable();
         reservationTable.add(reservation);
         resp.sendRedirect("/make-reservation");
