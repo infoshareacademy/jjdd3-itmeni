@@ -40,7 +40,7 @@ public class ReservationDao {
         return query.getResultList();
     }
 
-    public List<Reservation> findFromGivenHour(Integer hour) {
+    public List<Reservation> findByHour(Integer hour) {
         Query query = entityManager.createQuery("SELECT r FROM Reservation r WHERE r.hourOfReservation = :param");
         query.setParameter("param", hour);
         return query.getResultList();

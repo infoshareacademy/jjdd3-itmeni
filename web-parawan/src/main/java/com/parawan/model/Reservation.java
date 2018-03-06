@@ -78,32 +78,13 @@ public class Reservation {
     public void setPlaceId(Integer placeId) {
         this.placeId = placeId;
     }
-
-
+    
     public String getNameOfPerson() {
         return nameOfPerson;
     }
 
     public void setNameOfPerson(String nameOfPerson) {
         this.nameOfPerson = nameOfPerson;
-    }
-
-    @Override
-    public int hashCode() {
-        return super.hashCode();
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (o == this) {
-            return true;
-        }
-        if (!(o instanceof Reservation)) {
-            return false;
-        }
-        Reservation r = (Reservation) o;
-        return (Integer.compare(this.hourOfReservation, r.hourOfReservation) == 0 &&
-                Integer.compare(this.placeId, r.placeId) == 0);
     }
 
     @Override

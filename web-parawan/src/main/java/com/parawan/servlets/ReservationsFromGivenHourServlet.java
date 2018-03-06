@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 @WebServlet(urlPatterns = "reservationsfromgivenhour")
@@ -30,7 +29,7 @@ public class ReservationsFromGivenHourServlet extends HttpServlet {
         List<Reservation> result;
         Integer hour = Integer.parseInt(req.getParameter("hour"));
 
-        result = reservationDao.findFromGivenHour(hour);
+        result = reservationDao.findByHour(hour);
 
 
         for (Reservation r : result) {

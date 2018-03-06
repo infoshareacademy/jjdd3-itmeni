@@ -15,10 +15,10 @@ public class Beach {
     @Column(name = "name")
     private String name;
 
-    @Column(name = "maxWidth")
+    @Column(name = "max_width")
     private Integer maxWidth;
 
-    @Column(name = "maxHeight")
+    @Column(name = "max_height")
     private Integer maxHeight;
 
     @OneToMany(mappedBy = "beach", fetch = FetchType.EAGER)
