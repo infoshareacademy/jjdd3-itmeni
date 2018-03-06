@@ -1,25 +1,28 @@
 <!DOCTYPE html>
 <html>
-  <body>
-    <p>Main Menu</p>
+<body>
+<p>Main Menu</p>
 
-    <nav>
-      <ul>
+<nav>
+    <ul>
         <li>
-          <a href=make-reservation>Make reservation </a>
+            <a href=make-reservation>Make reservation </a>
         </li>
         <li>
-          <a href=cancel-reservation>Cancel reservation </a>
+            <a href=cancel-reservation>Cancel reservation </a>
         </li>
         <li>
-          <a href=find-place>Find place with additional requirements </a>
+            <a href=find-place>Find place with additional requirements </a>
         </li>
         <li>
-          <a href=item-management?hourFromForm=0>Number of items available for rent  </a>
+            <a href=item-management?hourFromForm=0>Number of items available for rent </a>
         </li>
-      </ul>
-    </nav>
+        <li>
+            <a href=change-beach>Change actual working beach</a>
+        </li>
+    </ul>
+</nav>
 
-    <p><a href=hello-servlet>Go back to intro page </a></p>
-  </body>
+<p><a href=hello-servlet>Go back to intro page </a></p>
+</body>
 </html>
