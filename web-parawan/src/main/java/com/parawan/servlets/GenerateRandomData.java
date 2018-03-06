@@ -34,7 +34,7 @@ public class GenerateRandomData extends HttpServlet {
 
     }
 
-    public void fillDatabase(HttpServletRequest req, HttpServletResponse resp) {
+    public void fillDatabase(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 
         Beach beach = new Beach(null, "Brzezno", 20, 10);
         beachDao.save(beach);
@@ -62,12 +62,13 @@ public class GenerateRandomData extends HttpServlet {
             }
             Reservation reservation = new Reservation(null
                     , new Random().nextInt(20)
-                    , new Random().nextInt(100)
+                    , new Random().nextInt(10)
                     , itemsString
                     , nameString);
             reservation.setBeach(beach);
             singleReservationDao.save(reservation);
         }
+        resp.sendRedirect("/index.html");
     }
 }
 
