@@ -114,6 +114,7 @@ public class Reservation {
         sb.append(", placeId=").append(placeId);
         sb.append(", rentedItems='").append(rentedItems).append('\'');
         sb.append(", nameOfPerson='").append(nameOfPerson).append('\'');
+        sb.append(", beach=").append(beach.getId());
         sb.append('}');
         return sb.toString();
     }

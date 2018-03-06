@@ -1,11 +1,6 @@
 package com.parawan.model;
 
-import com.parawan.Place;
-import com.parawan.PlaceStatus;
-
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -15,7 +10,7 @@ public class Beach {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private Long id;
+    private Integer id;
 
     @Column(name = "name")
     private String name;
@@ -32,18 +27,18 @@ public class Beach {
     public Beach() {
     }
 
-    public Beach(Long id, String name, Integer maxWidth, Integer maxHeight) {
+    public Beach(Integer id, String name, Integer maxWidth, Integer maxHeight) {
         this.id = id;
         this.name = name;
         this.maxWidth = maxWidth;
         this.maxHeight = maxHeight;
         }
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

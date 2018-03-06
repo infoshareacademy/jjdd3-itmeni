@@ -5,6 +5,8 @@ import com.parawan.model.Beach;
 import javax.ejb.Singleton;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
+import java.util.List;
 
 @Singleton
 public class BeachDao {
@@ -12,7 +14,7 @@ public class BeachDao {
     @PersistenceContext
     private EntityManager entityManager;
 
-    public Long save(Beach b) {
+    public Integer save(Beach b) {
         entityManager.persist(b);
         return b.getId();
     }
@@ -21,18 +23,22 @@ public class BeachDao {
         return entityManager.merge(b);
     }
 
-    public void delete(Long id) {
+    public void delete(Integer id) {
         final Beach b = entityManager.find(Beach.class, id);
         if (b != null) {
             entityManager.remove(b);
         }
     }
 
-    public Beach findById(Long id) {
+    public Beach findById(Integer id) {
         return entityManager.find(Beach.class, id);
     }
 
 
+    public List<Beach> findAll() {
+        final Query query = entityManager.createQuery("SELECT b FROM Beach b");
 
+        return query.getResultList();
+    }
 
 }
