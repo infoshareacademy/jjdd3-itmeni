@@ -38,6 +38,8 @@ public class GenerateRandomData extends HttpServlet {
 
         Beach beach = new Beach(null, "Brzezno", 20, 10);
         beachDao.save(beach);
+        Beach beach2 = new Beach(null, "Stogi", 10, 10);
+        beachDao.save(beach2);
         for (int i = 0; i < 1000; i++) {
             String itemsString = "";
             String nameString = "Tester" + new Random().nextInt(10000);

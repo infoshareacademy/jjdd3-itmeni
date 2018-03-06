@@ -1,16 +1,18 @@
 package com.parawan.servlets;
 
-import com.parawan.Beach;
-import com.parawan.ItemType;
+import com.parawan.dao.BeachDao;
 import com.parawan.dao.ReservationDao;
 import com.parawan.freemarker.TemplateProvider;
 
+import com.parawan.model.Beach;
 import com.parawan.model.Reservation;
+import com.parawan.model.ActualBeach;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import javax.ejb.EJB;
 import javax.inject.Inject;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -32,13 +34,18 @@ public class MakeReservationServlet extends HttpServlet {
     @Inject
     private ReservationDao reservationDao;
 
+    @Inject
+    private ActualBeach actualBeach;
+
+    @Inject
+    private BeachDao beachDao;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        Beach beach = new Beach("BrzeźnoBeach", 20, 10);
-        int firstId = beach.getPlaces().get(0).getId();
-        int lastId = beach.getPlaces().get(beach.getPlaces().size() - 1).getId();
+
+        int firstId = 0;
+        int lastId = actualBeach.getMaxWidth()* actualBeach.getMaxHeight();
 
         Map<String, Object> dataModel = new HashMap<>();
         dataModel.put("firstId", firstId);
@@ -101,6 +108,9 @@ public class MakeReservationServlet extends HttpServlet {
             LOG.info("During reservation, towel was not chosen", e);
         }
         reservation.setRentedItems(sb.toString());
+        Integer a = actualBeach.getId();
+        Beach beach = beachDao.findById(a);
+        reservation.setBeach(beach);
         reservationDao.save(reservation);
         resp.sendRedirect("/make-reservation");
     }
