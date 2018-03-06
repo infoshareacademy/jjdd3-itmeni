@@ -1,5 +1,8 @@
 package com.parawan.servlets;
 
+import com.parawan.ItemType;
+import com.parawan.Place;
+import com.parawan.PlaceStatus;
 import com.parawan.com.menu.CancelReservation;
 import com.parawan.freemarker.TemplateProvider;
 import freemarker.template.Template;
@@ -35,5 +38,26 @@ public class FindPlaceServlet extends HttpServlet {
         } catch (TemplateException e) {
             LOG.error("Error while loading freemarker template", e);
         }
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+        Place placeToAvoid = new Place();
+
+        if (req.getParameter("noNeighbours").equals("y")) {
+            placeToAvoid.setStatus(PlaceStatus.RESERVED);
+        } else {
+            placeToAvoid.setStatus(PlaceStatus.FREE);
+        }
+
+        if (req.getParameter("noScreens").equals("y")) {
+            placeToAvoid.putItemToRentedItemsList(ItemType.SCREEN);
+        }
+
+        if (req.getParameter("noUmbrella").equals("y")) {
+            placeToAvoid.putItemToRentedItemsList(ItemType.UMBRELLA);
+        }
+        resp.sendRedirect("/find-place");
     }
 }
