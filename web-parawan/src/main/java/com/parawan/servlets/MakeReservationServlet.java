@@ -1,16 +1,15 @@
 package com.parawan.servlets;
 
-import com.parawan.dao.BeachDao;
-import com.parawan.dao.ReservationDao;
+import com.parawan.Beach;
+import com.parawan.ItemType;
 import com.parawan.freemarker.TemplateProvider;
-import com.parawan.model.Beach;
-import com.parawan.model.Reservation;
+import com.parawan.reservation.Reservation;
+import com.parawan.reservation.ReservationTable;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import javax.inject.Inject;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -19,7 +18,6 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 @WebServlet("/make-reservation")
@@ -27,16 +25,16 @@ public class MakeReservationServlet extends HttpServlet {
 
     private static final Logger LOG = LoggerFactory.getLogger(MakeReservationServlet.class);
 
-    @Inject
-    ReservationDao reservationDao;
-
-    @Inject
-    BeachDao beachDao;
-
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
+        Beach beach =new Beach("BrzeźnoBeach", 20, 10);
+        int firstId = beach.getPlaces().get(0).getId();
+        int lastId = beach.getPlaces().get(beach.getPlaces().size() - 1).getId();
+
         Map<String, Object> dataModel = new HashMap<>();
+        dataModel.put("firstId", firstId);
+        dataModel.put("lastId", lastId);
 
         Template template = TemplateProvider.createTemplate(getServletContext(), "make-reservation.ftlh");
 
@@ -52,26 +50,50 @@ public class MakeReservationServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         Reservation reservation = new Reservation();
-        StringBuilder sb = new StringBuilder("");
-        reservation.setHourOfReservation(Integer.parseInt(req.getParameter("chosenHour")));
-        reservation.setPlaceId(Integer.parseInt(req.getParameter("chosenId")));
+
+        try {
+            reservation.setHourOfReservation(Integer.parseInt(req.getParameter("chosenHour")));
+            reservation.setPlaceId(Integer.parseInt(req.getParameter("chosenId")));
+        } catch (NumberFormatException e) {
+            LOG.error("Error while making reservation", e);
+            resp.sendRedirect("/error-servlet");
+        }
         reservation.setNameOfPerson(req.getParameter("chosenName"));
 
-        if (!(req.getParameter("chosenScreen").equals(null))) {
-            sb.append("s");
+        try {
+            if (req.getParameter("chosenScreen").equals("s")) {
+                reservation.putRentedItemOnList(ItemType.SCREEN);
+            }
+        } catch (NullPointerException e) {
+            LOG.info("During reservation, screen was not chosen", e);
         }
-        if (!(req.getParameter("chosenUmbrella").equals(null))) {
-            sb.append("u");
+
+        try {
+            if (req.getParameter("chosenUmbrella").equals("u")) {
+                reservation.putRentedItemOnList(ItemType.UMBRELLA);
+            }
+        } catch (NullPointerException e) {
+            LOG.info("During reservation, umbrella was not chosen", e);
         }
-        if (!(req.getParameter("chosenTowel").equals(null))) {
-            sb.append("t");
+
+        try {
+            if (req.getParameter("chosenTowel").equals("t")) {
+                reservation.putRentedItemOnList(ItemType.TOWEL);
+            }
+        } catch (NullPointerException e) {
+            LOG.info("During reservation, towel was not chosen", e);
         }
-        if (!(req.getParameter("chosenSunbed").equals(null))) {
-            sb.append("b");
+
+        try {
+            if (req.getParameter("chosenSunbed").equals("b")) {
+                reservation.putRentedItemOnList(ItemType.SUNBED);
+            }
+        } catch (NullPointerException e) {
+            LOG.info("During reservation, towel was not chosen", e);
         }
-        reservation.setBeach(beachDao.findById(1));
-        reservation.setRentedItems(sb.toString());
-        reservationDao.save(reservation);
+
+        ReservationTable reservationTable = new ReservationTable();
+        reservationTable.add(reservation);
         resp.sendRedirect("/make-reservation");
     }
 }

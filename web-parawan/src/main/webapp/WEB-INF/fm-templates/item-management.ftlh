@@ -4,7 +4,7 @@
     <p>Number of items available for rent</p>
 
     <form method="get" action="/item-management">
-        Hour: <input type="number" name="hourFromForm" min="9" max="19" required/><br/><br/>
+        Choose hour: <input type="number" name="hourFromForm" min="9" max="19" required/><br/><br/>
         <input type="submit" name="save" value="check items"/><br/><br/>
     </form>
 
