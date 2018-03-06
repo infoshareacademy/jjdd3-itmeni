@@ -62,7 +62,6 @@ public class CancelReservation {
         for (int i = 0; i < reservationTable.size(); ++i) {
             if (conditionForCancellation(reservationTable, i)) {
                 reservationTable.remove(i);
-
             }
         }
         return reservationTable;

@@ -2,11 +2,13 @@ package com.parawan.servlets;
 
 import com.parawan.com.menu.CancelReservation;
 import com.parawan.freemarker.TemplateProvider;
+import com.parawan.reservation.ReservationTable;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -26,19 +28,9 @@ public class CancelReservationServlet extends HttpServlet {
     Template template;
 
     @Override
-    public void init() throws ServletException{
-        try {
-            template = TemplateProvider.createTemplate(getServletContext(), "cancel-reservation.ftlh");
-        } catch (IOException e) {
-            LOG.error("Error while loading freemarker template", e);
-        }
-    }
-
-    @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         Template template = TemplateProvider.createTemplate(getServletContext(), "cancel-reservation.ftlh");
-
         PrintWriter printWriter = resp.getWriter();
 
         Map<String, Object> dataModel = new HashMap<>();
@@ -54,10 +46,13 @@ public class CancelReservationServlet extends HttpServlet {
 
         CancelReservation cancelReservation = new CancelReservation();
 
-        cancelReservation.setCancelId(Integer.parseInt(req.getParameter("cancelId")));
-        cancelReservation.setCancelHour(Integer.parseInt(req.getParameter("cancelHour")));
-
+        try {
+            cancelReservation.setCancelId(Integer.parseInt(req.getParameter("cancelId")));
+            cancelReservation.setCancelHour(Integer.parseInt(req.getParameter("cancelHour")));
+        } catch (NumberFormatException e) {
+            LOG.error("Error while making reservation", e);
+            resp.sendRedirect("/error-servlet");
+        }
         resp.sendRedirect("/main-menu");
-
     }
 }
