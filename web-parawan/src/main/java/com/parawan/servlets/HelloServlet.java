@@ -57,7 +57,6 @@ public class HelloServlet extends HttpServlet {
             } else {
                 LOG.error("Error while loading data fron database");
             }
-
-        };
+        }
     }
 }
