@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html>
 <body>
+
+<h2>Please fill below to cancel your reservation:</h2>
+<form method="post" action="/cancel-reservation">
+    Choose ID: <input type="number" name="cancelId" value="${(user.id)!}"min="1" max="200" required/><br/><br/>
+    Choose hour: <input type="number" name="cancelHour" value="${(user.name)!}" min="9" max="19" required/><br/><br/>
+    <input type="submit" name="save" value="save"/><br/><br/>
+</form>
 <#if errors??>
     <#list errors>
     <ul>
@@ -10,11 +17,5 @@
     </ul>
     </#list>
 </#if>
-<h2>Please fill below to cancel your reservation:</h2>
-<form method="post" action="/cancel-reservation">
-    Choose ID: <input type="number" name="cancelId" value="${(user.id)!}"min="1" max="200" required/><br/><br/>
-    Choose hour: <input type="number" name="cancelHour" value="${(user.name)!}" min="9" max="19" required/><br/><br/>
-    <input type="submit" name="save" value="save"/><br/><br/>
-</form>
 </body>
 </html>

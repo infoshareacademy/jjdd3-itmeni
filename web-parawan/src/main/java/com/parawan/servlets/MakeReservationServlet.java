@@ -2,14 +2,16 @@ package com.parawan.servlets;
 
 import com.parawan.Beach;
 import com.parawan.ItemType;
+import com.parawan.dao.ReservationDao;
 import com.parawan.freemarker.TemplateProvider;
-import com.parawan.reservation.Reservation;
-import com.parawan.reservation.ReservationTable;
+
+import com.parawan.model.Reservation;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import javax.inject.Inject;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -23,12 +25,18 @@ import java.util.Map;
 @WebServlet("/make-reservation")
 public class MakeReservationServlet extends HttpServlet {
 
+
     private static final Logger LOG = LoggerFactory.getLogger(MakeReservationServlet.class);
+
+
+    @Inject
+    private ReservationDao reservationDao;
+
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        Beach beach =new Beach("BrzeźnoBeach", 20, 10);
+        Beach beach = new Beach("BrzeźnoBeach", 20, 10);
         int firstId = beach.getPlaces().get(0).getId();
         int lastId = beach.getPlaces().get(beach.getPlaces().size() - 1).getId();
 
@@ -50,6 +58,7 @@ public class MakeReservationServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         Reservation reservation = new Reservation();
+        StringBuilder sb = new StringBuilder("");
 
         try {
             reservation.setHourOfReservation(Integer.parseInt(req.getParameter("chosenHour")));
@@ -62,7 +71,7 @@ public class MakeReservationServlet extends HttpServlet {
 
         try {
             if (req.getParameter("chosenScreen").equals("s")) {
-                reservation.putRentedItemOnList(ItemType.SCREEN);
+                sb.append("s");
             }
         } catch (NullPointerException e) {
             LOG.info("During reservation, screen was not chosen", e);
@@ -70,7 +79,7 @@ public class MakeReservationServlet extends HttpServlet {
 
         try {
             if (req.getParameter("chosenUmbrella").equals("u")) {
-                reservation.putRentedItemOnList(ItemType.UMBRELLA);
+                sb.append("u");
             }
         } catch (NullPointerException e) {
             LOG.info("During reservation, umbrella was not chosen", e);
@@ -78,7 +87,7 @@ public class MakeReservationServlet extends HttpServlet {
 
         try {
             if (req.getParameter("chosenTowel").equals("t")) {
-                reservation.putRentedItemOnList(ItemType.TOWEL);
+                sb.append("t");
             }
         } catch (NullPointerException e) {
             LOG.info("During reservation, towel was not chosen", e);
@@ -86,14 +95,13 @@ public class MakeReservationServlet extends HttpServlet {
 
         try {
             if (req.getParameter("chosenSunbed").equals("b")) {
-                reservation.putRentedItemOnList(ItemType.SUNBED);
+                sb.append("b");
             }
         } catch (NullPointerException e) {
             LOG.info("During reservation, towel was not chosen", e);
         }
-
-        ReservationTable reservationTable = new ReservationTable();
-        reservationTable.add(reservation);
+        reservation.setRentedItems(sb.toString());
+        reservationDao.save(reservation);
         resp.sendRedirect("/make-reservation");
     }
 }
