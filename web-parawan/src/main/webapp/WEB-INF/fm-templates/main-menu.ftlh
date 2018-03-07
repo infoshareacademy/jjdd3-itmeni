@@ -6,7 +6,7 @@
 <nav>
     <ul>
         <li>
-            <a href=make-reservation>Make reservation </a>
+            <a href=make-reservation?status=0>Make reservation </a>
         </li>
         <li>
             <a href=cancel-reservation>Cancel reservation </a>
