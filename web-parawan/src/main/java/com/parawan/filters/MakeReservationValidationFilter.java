@@ -1,6 +1,8 @@
 package com.parawan.filters;
 
+import com.parawan.messages.UserOperationsMessages;
 import com.parawan.model.Reservation;
+import com.parawan.servlets.CancelReservationServlet;
 import com.parawan.servlets.MainMenuServlet;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -36,6 +38,20 @@ public class MakeReservationValidationFilter implements Filter {
         HttpServletRequest httpRequest = (HttpServletRequest) servletRequest;
         HttpServletResponse httpResponse = (HttpServletResponse) servletResponse;
         Reservation reservation = getReservationObject(httpRequest);
+        List<String> messages = new ArrayList<>();
+
+        String idParameter = httpRequest.getParameter("chosenId");
+        String hourParameter = httpRequest.getParameter("chosenHour");
+
+        if(!isIntegerParameterValid("chosenId", httpRequest)){
+            messages.add(UserOperationsMessages.ID_NOT_INTEGER);
+            isValidationOK = false;
+        }
+        else if(idParameter != null && !idParameter.isEmpty()){
+            reservation.setPlaceId(Integer);
+        }
+
+
 
 
 
@@ -44,6 +60,32 @@ public class MakeReservationValidationFilter implements Filter {
     private Reservation getReservationObject(HttpServletRequest servletRequest) {
         Reservation reservation = new Reservation();
 
+        reservation.setHourOfReservation(null);
+        reservation.setIdOfReservation(null);
+        reservation.setNameOfPerson(servletRequest.getParameter("chosenName"));
+
+        return reservation;
+    }
+
+    private boolean isIntegerParameterValid (String parameterKey, HttpServletRequest servletRequest){
+        String parameter = servletRequest.getParameter(parameterKey);
+        HttpServletRequest httpRequest = (HttpServletRequest) servletRequest;
+        boolean isPost = httpRequest.getMethod().equalsIgnoreCase("post");
+
+        final Logger LOG = LoggerFactory.getLogger(MakeReservationValidationFilter.class);
+
+        if (parameter == null || parameter.isEmpty()){
+            return !isPost;
+        }
+
+        Pattern integerPattern = Pattern.compile("\\d+");
+        Matcher matcher = integerPattern.matcher(parameter);
+
+        if(!matcher.matches()){
+            return false;
+        }
+
+        return true;
     }
 
     @Override
