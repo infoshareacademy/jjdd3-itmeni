@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(urlPatterns = "reservationsfromgivenhour")
+@WebServlet(urlPatterns = "/parawan/reservationsfromgivenhour")
 public class ReservationsFromGivenHourServlet extends HttpServlet {
 
     @Inject

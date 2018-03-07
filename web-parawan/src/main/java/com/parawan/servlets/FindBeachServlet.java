@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(urlPatterns = "find-beach")
+@WebServlet("/parawan/find-beach")
 public class FindBeachServlet extends HttpServlet {
 
     @Inject

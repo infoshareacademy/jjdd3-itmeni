@@ -21,7 +21,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@WebServlet("change-beach")
+@WebServlet("/parawan/change-beach")
 public class ChangeBeachServlet extends HttpServlet {
 
     private static final Logger LOG = LoggerFactory.getLogger(ChangeBeachServlet.class);
@@ -57,6 +57,6 @@ public class ChangeBeachServlet extends HttpServlet {
         actualBeach.setName(beach.getName());
         actualBeach.setMaxWidth(beach.getMaxWidth());
         actualBeach.setMaxHeight(beach.getMaxHeight());
-        resp.sendRedirect("/main-menu");
+        resp.sendRedirect("/parawan/main-menu");
     }
 }

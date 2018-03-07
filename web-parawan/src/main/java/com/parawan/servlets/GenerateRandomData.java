@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.Random;
 
-@WebServlet(urlPatterns = "/generaterandomdata")
+@WebServlet("/generaterandomdata")
 public class GenerateRandomData extends HttpServlet {
 
     private Logger LOG = LoggerFactory.getLogger(GenerateRandomData.class);

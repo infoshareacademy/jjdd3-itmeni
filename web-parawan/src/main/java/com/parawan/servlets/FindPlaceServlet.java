@@ -20,7 +20,7 @@ import java.util.HashMap;
 import java.util.Map;
 import org.slf4j.Logger;
 
-@WebServlet("/find-place")
+@WebServlet("/parawan/find-place")
 public class FindPlaceServlet extends HttpServlet {
 
     private static final Logger LOG = LoggerFactory.getLogger(FindPlaceServlet.class);
@@ -58,6 +58,6 @@ public class FindPlaceServlet extends HttpServlet {
         if (req.getParameter("noUmbrella").equals("y")) {
             placeToAvoid.putItemToRentedItemsList(ItemType.UMBRELLA);
         }
-        resp.sendRedirect("/find-place");
+        resp.sendRedirect("/parawan/find-place");
     }
 }

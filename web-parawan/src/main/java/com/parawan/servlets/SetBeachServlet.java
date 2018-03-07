@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-@WebServlet("/set-beach")
+@WebServlet("/parawan/set-beach")
 public class SetBeachServlet extends HttpServlet {
 
 
@@ -19,7 +19,7 @@ public class SetBeachServlet extends HttpServlet {
 
         req.getSession().setAttribute("beach_id", choosenBeach);
 
-        resp.sendRedirect("/main-menu");
+        resp.sendRedirect("/parawan/main-menu");
 
     }
 }

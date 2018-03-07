@@ -8,11 +8,11 @@
 <h1>Private beach management system - PARAW@N.</h1>
 <br/>
 <br/>
-This is the test menu of Parawan app - will be deleted before
+This is the test menu of Parawan app - will be deleted before deployemnt to production
 <br/>
 
 
-    <form action="/reservationsfromgivenhour">
+    <form action="/parawan/reservationsfromgivenhour">
         Type hour:
         <input type="text" name="hour" value="10">
         <input type="submit">
@@ -21,19 +21,14 @@ This is the test menu of Parawan app - will be deleted before
 <form action="/generaterandomdata">
     <input type="submit" value="Generate random data"/>
 </form>
-<form action="/addnewbeach">
-    Type name:
-    <input type="text" name="nameofbeach" value=""><br/>
-    Type width:
-    <input type="text" name="width" value="">
-    type height:
-    <input type="text" name="height" value="">
-    <input type="submit">
-</form>
-<form action="/find-beach">
+
+<form action="/parawan/find-beach">
+    Find Beach:
     <input type="text" name="beachId" value="">
     <input type="submit">
 </form>
+
+<a href="hello-servlet">GO TO HELLO</a>
 
 </body>
 </html>

@@ -48,12 +48,15 @@ public class HelloServlet extends HttpServlet {
 
     public void setActualBeachIfNotSet(ActualBeach actualBeach) {
         if(actualBeach.getName() == null || actualBeach.getName().isEmpty()){
-            Beach firstBeachFromDatabase = beachDao.findById(1);
-            actualBeach.setId(firstBeachFromDatabase.getId());
-            actualBeach.setName(firstBeachFromDatabase.getName());
-            actualBeach.setMaxWidth(firstBeachFromDatabase.getMaxWidth());
-            actualBeach.setMaxHeight(firstBeachFromDatabase.getMaxHeight());
-
+            if(beachDao.findById(1)!= null) {
+                Beach firstBeachFromDatabase = beachDao.findById(1);
+                actualBeach.setId(firstBeachFromDatabase.getId());
+                actualBeach.setName(firstBeachFromDatabase.getName());
+                actualBeach.setMaxWidth(firstBeachFromDatabase.getMaxWidth());
+                actualBeach.setMaxHeight(firstBeachFromDatabase.getMaxHeight());
+            } else {
+                LOG.error("Error while loading data fron database");
+            }
 
         };
     }

@@ -24,7 +24,7 @@ import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.Map;
 
-@WebServlet("/make-reservation")
+@WebServlet("/parawan/make-reservation")
 public class MakeReservationServlet extends HttpServlet {
 
 
@@ -72,7 +72,7 @@ public class MakeReservationServlet extends HttpServlet {
             reservation.setPlaceId(Integer.parseInt(req.getParameter("chosenId")));
         } catch (NumberFormatException e) {
             LOG.error("Error while making reservation", e);
-            resp.sendRedirect("/error-servlet");
+            resp.sendRedirect("/parawan/error-servlet");
         }
         reservation.setNameOfPerson(req.getParameter("chosenName"));
 
@@ -108,10 +108,9 @@ public class MakeReservationServlet extends HttpServlet {
             LOG.info("During reservation, towel was not chosen", e);
         }
         reservation.setRentedItems(sb.toString());
-        Integer a = actualBeach.getId();
-        Beach beach = beachDao.findById(a);
+        Beach beach = beachDao.findById(actualBeach.getId());
         reservation.setBeach(beach);
         reservationDao.save(reservation);
-        resp.sendRedirect("/make-reservation");
+        resp.sendRedirect("/parawan/make-reservation");
     }
 }
