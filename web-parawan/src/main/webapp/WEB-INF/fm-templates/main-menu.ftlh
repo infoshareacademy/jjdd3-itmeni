@@ -1,28 +1,50 @@
 <!DOCTYPE html>
 <html>
-<body>
-<p>Main Menu</p>
+  <body>
+    <p>Main Menu</p>
 
-<nav>
-    <ul>
+    <nav>
+      <ul>
         <li>
-            <a href=/parawan/make-reservation>Make reservation </a>
+          <a href=make-reservation?chosenHour=0>Make reservation </a>
         </li>
         <li>
-            <a href=/parawan/cancel-reservation>Cancel reservation </a>
+          <a href=cancel-reservation>Cancel reservation </a>
         </li>
         <li>
-            <a href=/parawan/find-place>Find place with additional requirements </a>
+          <a href=find-place>Find place with additional requirements </a>
         </li>
         <li>
-            <a href=/parawan/item-management?hourFromForm=0>Number of items available for rent </a>
+          <a href=item-management?hourFromForm=0>Number of items available for rent  </a>
         </li>
-        <li>
-            <a href=/parawan/change-beach>Change actual working beach</a>
-        </li>
-    </ul>
-</nav>
+      </ul>
+    </nav>
 
-<p><a href=hello-servlet>Go back to intro page </a></p>
-</body>
+    <p><a href=../hello-servlet>Go back to intro page </a></p>
+
+    <p>-------------------------------------------------</p>
+    <p>Random data generator</p>
+    <form action="/generaterandomdata">
+        <input type="submit" value="Generate random data"/>
+    </form>
+    <p>-------------------------------------------------</p>
+
+    <p>Add new beach</p>
+    <form action="/addnewbeach">
+        Type name: <input type="text" name="nameofbeach" value=""><br/>
+        Type width: <input type="text" name="width" value=""><br/>
+        type height: <input type="text" name="height" value=""><br/><br/>
+        <input type="submit"><br/>
+    </form>
+    <p>-------------------------------------------------</p>
+    <br/>
+    <br/>
+    <br/>
+
+    <p>List of all reservations</p>
+    <form action="/parawan/reservationsfromgivenhour">
+        Choose hour: <input type="number" name="hour" min="9" max="19" required>
+        <input type="submit">
+    </form>
+  </body>
 </html>
