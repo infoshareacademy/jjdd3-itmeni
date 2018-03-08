@@ -1,8 +1,10 @@
 package com.parawan.servlets;
 
-import com.parawan.Beach;
+import com.parawan.dao.BeachDao;
 import com.parawan.dao.ReservationDao;
 import com.parawan.freemarker.TemplateProvider;
+import com.parawan.model.ActualBeach;
+import com.parawan.model.Beach;
 import com.parawan.model.Reservation;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
@@ -20,21 +22,26 @@ import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.Map;
 
-@WebServlet("/make-reservation-next")
+@WebServlet("/parawan/make-reservation-next")
 public class MakeReservationNextServlet extends HttpServlet {
     private static final Logger LOG = LoggerFactory.getLogger(MakeReservationNextServlet.class);
 
-
     @Inject
     private ReservationDao reservationDao;
+
+    @Inject
+    private BeachDao beachDao;
+
+    @Inject
+    private ActualBeach actualBeach;
 
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        Beach beach = new Beach("BrzeźnoBeach", 20, 10);
-        int firstId = beach.getPlaces().get(0).getId();
-        int lastId = beach.getPlaces().get(beach.getPlaces().size() - 1).getId();
+        int firstId = 0;
+        int lastId = actualBeach.getMaxWidth()* actualBeach.getMaxHeight();
+
         int hourFromLastStep = Integer.parseInt(req.getParameter("chosenHour"));
 
         Map<String, Object> dataModel = new HashMap<>();
@@ -85,7 +92,9 @@ public class MakeReservationNextServlet extends HttpServlet {
         }
 
         reservation.setRentedItems(sb.toString());
+        Beach beach = beachDao.findById(actualBeach.getId());
+        reservation.setBeach(beach);
         reservationDao.save(reservation);
-        resp.sendRedirect("/main-menu");
+        resp.sendRedirect("/parawan/main-menu");
     }
 }

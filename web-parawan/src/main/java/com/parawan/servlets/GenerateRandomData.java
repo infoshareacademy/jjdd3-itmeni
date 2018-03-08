@@ -65,7 +65,7 @@ public class GenerateRandomData extends HttpServlet {
             reservation.setBeach(beach);
             singleReservationDao.save(reservation);
         }
-        resp.sendRedirect("/main-menu");
+        resp.sendRedirect("/parawan/main-menu");
     }
 }
 
