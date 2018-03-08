@@ -10,7 +10,9 @@
     <packaging>pom</packaging>
 
     <properties>
-        <!-- Sonar -->
+        <!-- Below property indicates the pattern of the test suite -->
+        <runSuite>**/*Test.class</runSuite>
+        <!-- Sonar-JaCoCo properties -->
         <sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin>
         <sonar.dynamicAnalysis>reuseReports</sonar.dynamicAnalysis>
         <sonar.jacoco.reportPath>${project.basedir}/../target/jacoco.exec</sonar.jacoco.reportPath>
