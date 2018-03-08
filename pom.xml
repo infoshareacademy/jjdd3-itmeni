@@ -11,7 +11,7 @@
 
     <properties>
         <!-- Below property indicates the pattern of the test suite -->
-        <runSuite>**/*Test.*</runSuite>
+        <runSuite>**/*Test.java</runSuite>
         <!-- Sonar-JaCoCo properties -->
         <sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin>
         <sonar.dynamicAnalysis>reuseReports</sonar.dynamicAnalysis>
