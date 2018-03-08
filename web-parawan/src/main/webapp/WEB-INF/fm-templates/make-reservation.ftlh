@@ -1,8 +1,17 @@
 <html>
 <body>
 <h1>Please fill all fields to make a reservation</h1>
+<#if errors??>
+    <#list errors>
+    <ul>
+        <#items as error>
+            <li style="color: #ff0000; font-weight: bold; font-size: 14px;">${error}</li>
+        </#items>
+    </ul>
+    </#list>
+</#if>
 <form method="get" action="/parawan/make-reservation-next">
-    Choose hour: <input type="number" name="chosenHour" min="9" max="19" required/>
+    Choose hour: <input type="text" name="chosenHour"  required/>
     <input type="submit" value="proceed to next step"/>
 </form>
 
