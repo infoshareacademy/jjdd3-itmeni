@@ -6,19 +6,19 @@
 <nav>
     <ul>
         <li>
-            <a href=make-reservation>Make reservation </a>
+            <a href=/parawan/make-reservation>Make reservation </a>
         </li>
         <li>
-            <a href=cancel-reservation>Cancel reservation </a>
+            <a href=/parawan/cancel-reservation>Cancel reservation </a>
         </li>
         <li>
-            <a href=find-place>Find place with additional requirements </a>
+            <a href=/parawan/find-place>Find place with additional requirements </a>
         </li>
         <li>
-            <a href=item-management?hourFromForm=0>Number of items available for rent </a>
+            <a href=/parawan/item-management?hourFromForm=0>Number of items available for rent </a>
         </li>
         <li>
-            <a href=change-beach>Change actual working beach</a>
+            <a href=/parawan/change-beach>Change actual working beach</a>
         </li>
     </ul>
 </nav>

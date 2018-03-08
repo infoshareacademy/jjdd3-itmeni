@@ -2,7 +2,7 @@
 <body>
 <h1>Actual choosen beach is: ${actualBeach.name}</h1>
 <h2>Choose beach:</h2>
-<form method="post" action="/change-beach">
+<form method="post" action="/parawan/change-beach">
     <#list beaches as beach>
         <input type="radio" name="beach" value="${beach.id}"> ${beach.name}<br>
     </#list>
