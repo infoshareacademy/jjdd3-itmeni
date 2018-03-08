@@ -25,7 +25,7 @@ public class ReservationsFromGivenHourServlet extends HttpServlet {
         getReservations(req, resp);
     }
 
-    private void getReservations(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+    private List<Reservation> getReservations(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         List<Reservation> result;
         Integer hour = Integer.parseInt(req.getParameter("hour"));
 
@@ -35,5 +35,6 @@ public class ReservationsFromGivenHourServlet extends HttpServlet {
         for (Reservation r : result) {
             resp.getWriter().write(r.toString() + "\n");
         }
+        return result;
     }
 }
