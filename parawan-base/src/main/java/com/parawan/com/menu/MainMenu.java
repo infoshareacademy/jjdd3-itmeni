@@ -9,6 +9,7 @@ import com.parawan.reservation.ReservationTable;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -67,9 +68,14 @@ public class MainMenu {
             } else if (answer.equals("q")) {
 
                 WriteReservationsToFile wr = new WriteReservationsToFile();
-                wr.writeReservationsToFile(reservationTable, beach);
+                try {
+                    wr.writeReservationsToFile(reservationTable, beach);
+                } catch (FileNotFoundException e){
+                    LOG.error("No file to write to.");
+                }
+
                 System.out.println("Thank you for using PARAWAN - your private beach management system");
-                LOG.debug("Log out from system.");
+                LOG.info("Log out from system.");
 
                 break;
             }
