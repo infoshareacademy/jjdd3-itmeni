@@ -14,18 +14,12 @@ public class WriteReservationsToFile {
     StringBuilder sb = new StringBuilder("");
     private final Logger LOG = LoggerFactory.getLogger(WriteReservationsToFile.class);
 
-    public void writeReservationsToFile(ReservationTable reservationTable, Beach beach) {
+    public void writeReservationsToFile(ReservationTable reservationTable, Beach beach) throws FileNotFoundException {
 
-        PrintWriter pw = null;
-        try {
-            pw = new PrintWriter("database.beach");
-        } catch (FileNotFoundException e1) {
-            System.out.println("No database found!");
-            LOG.error("Source file is not found!!!");
+        PrintWriter pw = new PrintWriter("database.beach");
 
-        }
         pw.println(beach.getName() + ";" + beach.getMaxWidth() + ";" + beach.getMaxHeight() + ";");
-        Reservation reservationToPrint = new Reservation();
+        Reservation reservationToPrint;
         for (int i = 0; i < reservationTable.size(); i++) {
             reservationToPrint = reservationTable.get(i);
 

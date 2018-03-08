@@ -1,11 +1,12 @@
 package com.parawan;
 
-import com.parawan.XMLparser.Places;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Beach {
 
     private String name;
-    private Places places = new Places();
+    private List<Place> places = new ArrayList<>();
     private Integer maxWidth;
     private Integer maxHeight;
     private Integer hourOfStatus;
@@ -41,11 +42,11 @@ public class Beach {
         return maxHeight;
     }
 
-    public Places getPlaces() {
+    public List<Place> getPlaces() {
         return places;
     }
 
-    public void setPlaces(Places places) {
+    public void setPlaces(List<Place> places) {
         this.places = places;
     }
 
