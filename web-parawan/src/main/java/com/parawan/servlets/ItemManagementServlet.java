@@ -21,7 +21,7 @@ import java.util.Map;
 
 
 
-@WebServlet("/item-management")
+@WebServlet("/parawan/item-management")
 public class ItemManagementServlet extends HttpServlet {
 
     private static final Logger LOG = LoggerFactory.getLogger(ItemManagementServlet.class);

@@ -73,4 +73,16 @@ public class Beach {
     public void setReservations(Set<Reservation> reservations) {
         this.reservations = reservations;
     }
+
+    @Override
+    public String toString() {
+        final StringBuffer sb = new StringBuffer("Beach{");
+        sb.append("id=").append(id);
+        sb.append(", name='").append(name).append('\'');
+        sb.append(", maxWidth=").append(maxWidth);
+        sb.append(", maxHeight=").append(maxHeight);
+        sb.append(", reservations=").append(reservations);
+        sb.append('}');
+        return sb.toString();
+    }
 }

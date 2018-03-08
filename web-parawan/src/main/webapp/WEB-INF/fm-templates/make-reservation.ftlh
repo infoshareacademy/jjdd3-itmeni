@@ -1,7 +1,7 @@
 <html>
 <body>
 <h1>Please fill all fields to make a reservation</h1>
-<form method="post" action="/make-reservation">
+<form method="post" action="/parawan/make-reservation">
     Choose hour: <input type="number" name="chosenHour" min="9" max="19" required/><br/><br/>
     Choose ID: <input type="number" name="chosenId" min="${firstId}" max="${lastId}" required/><br/><br/>
     Choose name: <input type="text" name="chosenName" required/><br/><br/>
@@ -12,6 +12,6 @@
     <input type="submit" name="save" value="make reservation"/><br/><br/>
 </form>
 
-<a href=main-menu>Go back to main menu </a>
+<a href=/parawan/main-menu>Go back to main menu </a>
 </body>
 </html>
