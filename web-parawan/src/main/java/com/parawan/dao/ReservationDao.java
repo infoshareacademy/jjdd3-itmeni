@@ -45,4 +45,15 @@ public class ReservationDao {
         query.setParameter("param", hour);
         return query.getResultList();
     }
+
+    public boolean checkIfAlreadyReserved(Reservation r){
+        Query query = entityManager.createQuery("SELECT r FROM Reservation r " +
+                "WHERE r.hourOfReservation = :hour AND r.placeId = :placeId AND r.beach = :beach");
+        query.setParameter("hour", r.getHourOfReservation());
+        query.setParameter("placeId", r.getPlaceId());
+        query.setParameter("beach", r.getBeach());
+        List<Reservation> foundReservations = query.getResultList();
+        if (foundReservations.isEmpty()) return false;
+        return true;
+    }
 }

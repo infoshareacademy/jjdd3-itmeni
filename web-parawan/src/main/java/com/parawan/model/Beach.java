@@ -13,13 +13,13 @@ public class Beach {
     private Integer id;
 
     @Column(name = "name")
-    private String name;
+    private String name ="";
 
     @Column(name = "max_width")
-    private Integer maxWidth;
+    private Integer maxWidth = 0;
 
     @Column(name = "max_height")
-    private Integer maxHeight;
+    private Integer maxHeight = 0;
 
     @OneToMany(mappedBy = "beach", fetch = FetchType.EAGER)
     private Set<Reservation> reservations;

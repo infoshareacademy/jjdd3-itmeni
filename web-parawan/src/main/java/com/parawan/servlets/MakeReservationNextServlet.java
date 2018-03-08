@@ -24,6 +24,7 @@ import java.util.Map;
 
 @WebServlet("/parawan/make-reservation-next")
 public class MakeReservationNextServlet extends HttpServlet {
+
     private static final Logger LOG = LoggerFactory.getLogger(MakeReservationNextServlet.class);
 
     @Inject
@@ -94,7 +95,13 @@ public class MakeReservationNextServlet extends HttpServlet {
         reservation.setRentedItems(sb.toString());
         Beach beach = beachDao.findById(actualBeach.getId());
         reservation.setBeach(beach);
-        reservationDao.save(reservation);
-        resp.sendRedirect("/parawan/main-menu");
+        if(!reservationDao.checkIfAlreadyReserved(reservation)){
+            reservationDao.save(reservation);
+            resp.sendRedirect("/parawan/main-menu");
+        } else {
+            req.setAttribute("isAlreadyReserved", true);
+            this.doGet(req, resp);
+        }
+
     }
 }
