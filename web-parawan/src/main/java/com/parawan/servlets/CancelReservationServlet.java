@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 
-@WebServlet("/cancel-reservation")
+@WebServlet("/parawan/cancel-reservation")
 public class CancelReservationServlet extends HttpServlet {
 
     private static final Logger LOG = LoggerFactory.getLogger(CancelReservationServlet.class);

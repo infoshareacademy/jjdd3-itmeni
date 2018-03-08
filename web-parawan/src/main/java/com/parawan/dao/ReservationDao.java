@@ -45,6 +45,4 @@ public class ReservationDao {
         query.setParameter("param", hour);
         return query.getResultList();
     }
-
-
 }

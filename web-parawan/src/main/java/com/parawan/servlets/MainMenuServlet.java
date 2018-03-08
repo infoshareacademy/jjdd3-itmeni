@@ -21,7 +21,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 
-@WebServlet("/main-menu")
+@WebServlet("/parawan/main-menu")
 public class MainMenuServlet extends HttpServlet {
 
     private static final Logger LOG = LoggerFactory.getLogger(MainMenuServlet.class);
