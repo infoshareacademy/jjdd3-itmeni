@@ -11,7 +11,7 @@
     </#list>
 </#if>
 <form method="get" action="/parawan/make-reservation-next">
-    Choose hour: <input type="text" name="chosenHour"  required/>
+    Choose hour: <input type="text" name="chosenHour"  />
     <input type="submit" value="proceed to next step"/>
 </form>
 
