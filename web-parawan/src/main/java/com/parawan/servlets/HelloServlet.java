@@ -17,6 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import org.slf4j.Logger;
 
@@ -48,8 +49,10 @@ public class HelloServlet extends HttpServlet {
 
     public void setActualBeachIfNotSet(ActualBeach actualBeach) {
         if(actualBeach.getName() == null || actualBeach.getName().isEmpty()){
-            if(beachDao.findById(1)!= null) {
-                Beach firstBeachFromDatabase = beachDao.findById(1);
+
+            List<Beach> beaches = beachDao.findAll();
+            if(beaches.size() != 0) {
+                Beach firstBeachFromDatabase = beaches.get(0);
                 actualBeach.setId(firstBeachFromDatabase.getId());
                 actualBeach.setName(firstBeachFromDatabase.getName());
                 actualBeach.setMaxWidth(firstBeachFromDatabase.getMaxWidth());
