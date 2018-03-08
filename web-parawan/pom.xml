@@ -132,6 +132,7 @@
                     <includes>
                         <include>${runSuite}</include>
                     </includes>
+                    <reportsDirectory>${sonar.junit.reportPaths}</reportsDirectory>
                 </configuration>
             </plugin>
 
@@ -141,7 +142,7 @@
                 <artifactId>jacoco-maven-plugin</artifactId>
                 <version>0.7.6.201602180812</version>
                 <configuration>
-                    <destFile>${sonar.jacoco.reportPath}</destFile>
+                    <destFile>${sonar.jacoco.reportPaths}</destFile>
                     <append>true</append>
                 </configuration>
                 <executions>
