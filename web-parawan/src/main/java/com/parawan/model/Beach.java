@@ -13,7 +13,7 @@ public class Beach {
     private Integer id;
 
     @Column(name = "name")
-    private String name ="";
+    private String name = "";
 
     @Column(name = "max_width")
     private Integer maxWidth = 0;
@@ -32,7 +32,7 @@ public class Beach {
         this.name = name;
         this.maxWidth = maxWidth;
         this.maxHeight = maxHeight;
-        }
+    }
 
     public Integer getId() {
         return id;
