@@ -1,15 +1,14 @@
 <html>
 <body>
 <h1>Please fill all fields to make a reservation</h1>
-<form method="post" action="/make-reservation">
-    Choose hour: <input type="number" name="chosenHour" min="9" max="19" required/><br/><br/>
-    Choose ID: <input type="number" name="chosenId" min="${firstId}" max="${lastId}" required/><br/><br/>
-    Choose name: <input type="text" name="chosenName" required/><br/><br/>
-    Rent a screen: <input type="checkbox" name="chosenScreen" value="s"/><br/><br/>
-    Rent an umbrella: <input type="checkbox" name="chosenUmbrella" value="u"/><br/><br/>
-    Rent a towel: <input type="checkbox" name="chosenTowel" value="t"/><br/><br/>
-    Rent a sunbed: <input type="checkbox" name="chosenSunbed" value="b"/><br/><br/>
-    <input type="submit" name="save" value="make reservation"/><br/><br/>
+<form method="get" action="/parawan/make-reservation-next">
+    Choose hour: <input type="number" name="chosenHour" min="9" max="19" required/>
+    <input type="submit" value="proceed to next step"/>
+</form>
+
+<form method="get" action="/parawan/make-reservation">
+    Choose hour: <input type="number" name="status" min="9" max="19" required/>
+    <input type="submit" value="check beach status"/>
 </form>
 
 <a href=main-menu>Go back to main menu </a>

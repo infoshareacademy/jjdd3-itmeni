@@ -4,8 +4,6 @@ import com.parawan.dao.BeachDao;
 import com.parawan.dao.ReservationDao;
 import com.parawan.model.Beach;
 import com.parawan.model.Reservation;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import javax.inject.Inject;
 import javax.servlet.annotation.WebServlet;
@@ -15,10 +13,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.Random;
 
-@WebServlet(urlPatterns = "/generaterandomdata")
+@WebServlet("/generaterandomdata")
 public class GenerateRandomData extends HttpServlet {
-
-    private Logger LOG = LoggerFactory.getLogger(GenerateRandomData.class);
 
     @Inject
     private ReservationDao singleReservationDao;
@@ -30,14 +26,15 @@ public class GenerateRandomData extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws IOException {
 
-            fillDatabase(req, resp);
-
+        fillDatabase(req, resp);
     }
 
     public void fillDatabase(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 
         Beach beach = new Beach(null, "Brzezno", 20, 10);
         beachDao.save(beach);
+        Beach beach2 = new Beach(null, "Stogi", 10, 10);
+        beachDao.save(beach2);
         for (int i = 0; i < 1000; i++) {
             String itemsString = "";
             String nameString = "Tester" + new Random().nextInt(10000);
@@ -68,7 +65,7 @@ public class GenerateRandomData extends HttpServlet {
             reservation.setBeach(beach);
             singleReservationDao.save(reservation);
         }
-        resp.sendRedirect("/test.html");
+        resp.sendRedirect("/parawan/main-menu");
     }
 }
 

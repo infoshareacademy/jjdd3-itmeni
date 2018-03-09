@@ -16,7 +16,7 @@ import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.Map;
 
-@WebServlet("/error-servlet")
+@WebServlet("/parawan/error-servlet")
 public class ErrorServlet extends HttpServlet {
 
     private static final Logger LOG = LoggerFactory.getLogger(ErrorServlet.class);
