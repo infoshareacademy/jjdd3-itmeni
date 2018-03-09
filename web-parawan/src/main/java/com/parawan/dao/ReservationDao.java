@@ -53,7 +53,6 @@ public class ReservationDao {
         query.setParameter("placeId", r.getPlaceId());
         query.setParameter("beach", r.getBeach());
         List<Reservation> foundReservations = query.getResultList();
-        if (foundReservations.isEmpty()) return false;
-        return true;
+        return (!foundReservations.isEmpty());
     }
 }

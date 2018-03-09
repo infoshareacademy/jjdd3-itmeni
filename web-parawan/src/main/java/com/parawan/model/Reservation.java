@@ -13,10 +13,10 @@ public class Reservation {
     private Long idOfReservation;
 
     @Column(name = "hour")
-    private Integer hourOfReservation = 0;
+    private int hourOfReservation;
 
     @Column(name = "place_id")
-    private Integer placeId = 0;
+    private int placeId;
 
     @Column(name = "rented_items")
     private String rentedItems = "";
