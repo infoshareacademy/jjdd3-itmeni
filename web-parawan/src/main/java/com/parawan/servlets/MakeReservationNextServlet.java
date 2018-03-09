@@ -40,8 +40,8 @@ public class MakeReservationNextServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        int firstId = 0;
-        int lastId = actualBeach.getMaxWidth()* actualBeach.getMaxHeight();
+        int firstId = 1;
+        int lastId = (actualBeach.getMaxWidth())*(actualBeach.getMaxHeight());
 
         int hourFromLastStep = Integer.parseInt(req.getParameter("chosenHour"));
 
