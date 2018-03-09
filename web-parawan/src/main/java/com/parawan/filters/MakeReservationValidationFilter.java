@@ -40,7 +40,7 @@ public class MakeReservationValidationFilter implements Filter {
             isValidationOK = false;
         }
 
-        if(!isIntegerParameterInScope("chosenHour", httpRequest)){
+        else if(!isIntegerParameterInScope("chosenHour", httpRequest)){
             messages.add(UserOperationsMessages.CLOSED);
             isValidationOK = false;
         }
