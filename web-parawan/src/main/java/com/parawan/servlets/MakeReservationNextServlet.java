@@ -24,6 +24,7 @@ import java.util.Map;
 
 @WebServlet("/parawan/make-reservation-next")
 public class MakeReservationNextServlet extends HttpServlet {
+
     private static final Logger LOG = LoggerFactory.getLogger(MakeReservationNextServlet.class);
 
     @Inject
@@ -39,8 +40,8 @@ public class MakeReservationNextServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        int firstId = 0;
-        int lastId = actualBeach.getMaxWidth()* actualBeach.getMaxHeight();
+        int firstId = 1;
+        int lastId = (actualBeach.getMaxWidth())*(actualBeach.getMaxHeight());
 
         int hourFromLastStep = Integer.parseInt(req.getParameter("chosenHour"));
 
@@ -94,7 +95,13 @@ public class MakeReservationNextServlet extends HttpServlet {
         reservation.setRentedItems(sb.toString());
         Beach beach = beachDao.findById(actualBeach.getId());
         reservation.setBeach(beach);
-        reservationDao.save(reservation);
-        resp.sendRedirect("/parawan/main-menu");
+        if(!reservationDao.checkIfAlreadyReserved(reservation)){
+            reservationDao.save(reservation);
+            resp.sendRedirect("/parawan/main-menu");
+        } else {
+            req.setAttribute("isAlreadyReserved", true);
+            this.doGet(req, resp);
+        }
+
     }
 }
