@@ -2,6 +2,7 @@ package com.parawan.servlets;
 
 import com.parawan.com.menu.CancelReservation;
 import com.parawan.freemarker.TemplateProvider;
+import com.parawan.messages.CancelOperationsMessages;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
 
@@ -14,6 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -23,7 +25,6 @@ import java.util.Map;
 public class CancelReservationServlet extends HttpServlet {
 
     private static final Logger LOG = LoggerFactory.getLogger(CancelReservationServlet.class);
-    Template template;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -33,6 +34,7 @@ public class CancelReservationServlet extends HttpServlet {
 
         Map<String, Object> dataModel = new HashMap<>();
 
+
         List<String> errors = (List<String>) req.getSession().getAttribute("errors");
         if (errors != null && !errors.isEmpty()) {
             dataModel.put("errors", errors);
@@ -40,7 +42,6 @@ public class CancelReservationServlet extends HttpServlet {
             req.getSession().removeAttribute("error");
             req.getSession().removeAttribute("cancelReservation");
         }
-
         try {
             template.process(dataModel, printWriter);
         } catch (TemplateException e) {
@@ -53,13 +54,9 @@ public class CancelReservationServlet extends HttpServlet {
 
         CancelReservation cancelReservation = new CancelReservation();
 
-//        try {
             cancelReservation.setCancelId(Integer.parseInt(req.getParameter("cancelId")));
             cancelReservation.setCancelHour(Integer.parseInt(req.getParameter("cancelHour")));
-//        } catch (NumberFormatException e) {
-//            LOG.error("Error while making reservation", e);
-//            resp.sendRedirect("/error-servlet");
-//        }
+
         resp.sendRedirect("/main-menu");
     }
 }

@@ -1,10 +1,10 @@
-package com.parawan.CancelReservationValidationFilter;
+package com.parawan.filters;
 
 import com.parawan.com.menu.CancelReservation;
 import com.parawan.messages.CancelOperationsMessages;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
@@ -17,7 +17,9 @@ import java.util.regex.Pattern;
 
 @WebFilter(
         filterName = "CancelReservationValidationFilter",
-        urlPatterns = {"/cancel-reservation"})
+        urlPatterns = {"/parawan/cancel-reservation"}
+        )
+
 public class CancelReservationValidationFilter implements Filter{
 
     private static final Logger LOG = LoggerFactory.getLogger(CancelReservationValidationFilter.class);
@@ -43,6 +45,8 @@ public class CancelReservationValidationFilter implements Filter{
             isValidationOK = false;
         } else if (idParameter != null && !idParameter.isEmpty()) {
             cancelReservation.setCancelId (Integer.parseInt(idParameter));
+        } else {
+            messages.add (CancelOperationsMessages.ID_OUT_OF_RANGE);
         }
 
         if (!isIntegerParameterValid("cancelHour", httpRequest)) {
@@ -50,6 +54,8 @@ public class CancelReservationValidationFilter implements Filter{
             isValidationOK = false;
         } else if (hourParameter != null && !hourParameter.isEmpty()) {
             cancelReservation.setCancelHour (Integer.parseInt(httpRequest.getParameter("cancelHour")));
+        } else {
+            messages.add (CancelOperationsMessages.HOUR_OUT_OF_RANGE);
         }
 
         if (!isValidationOK) {
