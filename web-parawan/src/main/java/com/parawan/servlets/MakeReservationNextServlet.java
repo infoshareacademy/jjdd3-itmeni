@@ -46,6 +46,7 @@ public class MakeReservationNextServlet extends HttpServlet {
         int hourFromLastStep = Integer.parseInt(req.getParameter("chosenHour"));
 
         Map<String, Object> dataModel = new HashMap<>();
+        dataModel.put("actualBeach", actualBeach);
         dataModel.put("firstId", firstId);
         dataModel.put("lastId", lastId);
         dataModel.put("hourFromLastStep", hourFromLastStep);
