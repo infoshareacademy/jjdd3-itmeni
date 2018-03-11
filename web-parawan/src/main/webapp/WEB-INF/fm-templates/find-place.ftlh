@@ -17,5 +17,6 @@
     </form>
     <p><a href=main-menu>Go back to main menu </a></p>
 </div>
+<#include "/default/parawan-footer.html">
 </body>
 </html>

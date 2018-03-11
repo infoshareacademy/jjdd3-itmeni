@@ -21,5 +21,6 @@
     </#list>
 </#if>
 </div>
+<#include "/default/parawan-footer.html">
 </body>
 </html>

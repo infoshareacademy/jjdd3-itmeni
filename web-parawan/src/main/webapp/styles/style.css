@@ -2,23 +2,26 @@
 body{
     font-size: 100%;
     display: flex;
-    flex-flow: column;
+    flex-direction: column;
+    margin-left: 3%;
+    margin-right: 3%;
+    min-width: 80%;
+    max-width: fit-content;
+    flex: 1 1 auto;
 }
 
 .parawan-header{
-    color: whitesmoke;
+    color: azure;
     background: linear-gradient(to top right, red, yellow);
     border-radius: 25px 25px 0px 0px;
     padding: 10px;
     font-size: 1.4em;
-    flex: 0 1 40px
+    flex: 0 1 auto;
 }
 
 .parawan-body{
-    max-height: 100%;
-    min-height: 100%;
     background-color: floralwhite;
-    padding: 5px;
+    padding: 10px;
     border-right: 2px red solid;
     border-left: 2px red solid;
     flex: 1 1 auto;
@@ -26,7 +29,8 @@ body{
 }
 .parawan-footer{
     text-align: right;
-    position: absolute;
-    bottom: 0;
-    flex: 0 1 40px
+    color: white;
+    background-color: black;
+    padding: 3px 10px 3px 3px;
+    flex: 0 1 auto;
 }

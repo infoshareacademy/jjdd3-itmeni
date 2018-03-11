@@ -50,5 +50,6 @@
         <input type="submit">
     </form>
 </div>
+<#include "/default/parawan-footer.html">
 </body>
 </html>

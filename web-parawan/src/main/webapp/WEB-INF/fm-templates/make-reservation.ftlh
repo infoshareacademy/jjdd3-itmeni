@@ -25,5 +25,6 @@
 
     <a href=main-menu>Go back to main menu </a>
 </div>
+<#include "/default/parawan-footer.html">
 </body>
 </html>
