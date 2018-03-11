@@ -32,7 +32,7 @@ public class MakeReservationServlet extends HttpServlet {
 
         if (errors != null && !errors.isEmpty()) {
             dataModel.put("errors", errors);
-            req.getSession().removeAttribute("error");
+            req.getSession().removeAttribute("errors");
         }
 
         Template template = TemplateProvider.createTemplate(getServletContext(), "make-reservation.ftlh");

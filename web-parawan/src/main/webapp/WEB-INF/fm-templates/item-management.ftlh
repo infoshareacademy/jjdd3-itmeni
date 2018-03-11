@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
-  <body>
-    <p>Number of items available for rent.</p>
-    <p>Beach is open from 9:00 to 19:00</p>
+<body>
+<p>Number of items available for rent.</p>
+<p>Beach is open from 9:00 to 19:00</p>
 <#if errors??>
     <#list errors>
     <ul>
@@ -13,20 +13,20 @@
     </#list>
 </#if>
 
-    <form method="get" action="/parawan/item-management">
-        Choose hour: <input type="number" name="hourFromForm" min="9" max="19" required /><br/><br/>
-        <input type="submit"  value="check items"/><br/><br/>
-    </form>
+<form method="get" action="/parawan/item-management">
+    Choose hour: <input type="number" name="hourFromForm" min="9" max="19" required/><br/><br/>
+    <input type="submit" value="check items"/><br/><br/>
+</form>
 
-    <#if (hour > 8 && hour <19) >
+      <#if (hour > 8 && hour <19) >
+        <p>At ${hour}:00 we have:</p>
+        <p>Screens: ${items[0]} available for rent</p>
+        <p>Umbrellas: ${items[1]} available for rent</p>
+        <p>Towels: ${items[2]} available for rent</p>
+        <p>sunbeds: ${items[3]} available for rent</p>
 
-    <p>Screens: ${items[0]} available for rent</p>
-    <p>Umbrellas: ${items[1]} available for rent</p>
-    <p>Towels: ${items[2]} available for rent</p>
-    <p>sunbeds: ${items[3]} available for rent</p>
+      </#if>
 
-    </#if>
-
-    <p><a href=main-menu >Go back to main menu </a></p>
-  </body>
+<p><a href=main-menu>Go back to main menu </a></p>
+</body>
 </html>
