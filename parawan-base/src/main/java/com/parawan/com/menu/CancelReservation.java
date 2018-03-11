@@ -2,22 +2,21 @@ package com.parawan.com.menu;
 
 import com.parawan.Beach;
 import com.parawan.reservation.ReservationTable;
-
 import java.util.Scanner;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class CancelReservation {
-    private int cancelId = 0;
-    private int cancelHour = 0;
+    private Integer cancelId = 0;
+    private Integer cancelHour = 0;
     private final Logger LOGGER = LoggerFactory.getLogger(CancelReservation.class);
 
-    public void setCancelId(int cancelId) {
+    public void setCancelId(Integer cancelId) {
         this.cancelId = cancelId;
     }
 
-    public void setCancelHour(int cancelHour) {
+    public void setCancelHour(Integer cancelHour) {
         this.cancelHour = cancelHour;
     }
 
@@ -63,7 +62,6 @@ public class CancelReservation {
         for (int i = 0; i < reservationTable.size(); ++i) {
             if (conditionForCancellation(reservationTable, i)) {
                 reservationTable.remove(i);
-
             }
         }
         return reservationTable;
