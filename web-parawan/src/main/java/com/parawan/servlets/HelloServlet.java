@@ -36,6 +36,8 @@ public class HelloServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         setActualBeachIfNotSet(actualBeach);
         Map<String, Object> dataModel = new HashMap<>();
+        List<Beach> beaches = beachDao.findAll();
+        dataModel.put("beaches", beaches);
         dataModel.put("actualBeach", actualBeach);
         Template template = TemplateProvider.createTemplate(getServletContext(), "hello.ftlh");
 
