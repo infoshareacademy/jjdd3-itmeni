@@ -2,7 +2,6 @@ package com.parawan.servlets;
 
 import com.parawan.com.menu.CancelReservation;
 import com.parawan.freemarker.TemplateProvider;
-import com.parawan.messages.CancelOperationsMessages;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
 
@@ -15,7 +14,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -33,7 +31,6 @@ public class CancelReservationServlet extends HttpServlet {
         PrintWriter printWriter = resp.getWriter();
 
         Map<String, Object> dataModel = new HashMap<>();
-
 
         List<String> errors = (List<String>) req.getSession().getAttribute("errors");
         if (errors != null && !errors.isEmpty()) {
@@ -54,9 +51,9 @@ public class CancelReservationServlet extends HttpServlet {
 
         CancelReservation cancelReservation = new CancelReservation();
 
-            cancelReservation.setCancelId(Integer.parseInt(req.getParameter("cancelId")));
-            cancelReservation.setCancelHour(Integer.parseInt(req.getParameter("cancelHour")));
+        cancelReservation.setCancelId(Integer.parseInt(req.getParameter("cancelId")));
+        cancelReservation.setCancelHour(Integer.parseInt(req.getParameter("cancelHour")));
 
-        resp.sendRedirect("/main-menu");
+        resp.sendRedirect("/parawan/main-menu");
     }
 }

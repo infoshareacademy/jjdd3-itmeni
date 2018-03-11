@@ -1,12 +1,8 @@
 package com.parawan.servlets;
 
-import com.parawan.dao.ReservationDao;
 import com.parawan.freemarker.TemplateProvider;
-import com.parawan.model.Reservation;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
-
-import javax.inject.Inject;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -15,7 +11,6 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
