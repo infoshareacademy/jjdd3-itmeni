@@ -17,6 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 
@@ -36,6 +37,12 @@ public class ItemManagementServlet extends HttpServlet {
         itemManagement.setTypedHour(Integer.parseInt(req.getParameter("hourFromForm")));
 
         Map<String, Object> dataModel = new HashMap<>();
+        List<String> errors = (List<String>) req.getSession().getAttribute("errors");
+
+        if (errors != null && !errors.isEmpty()) {
+            dataModel.put("errors", errors);
+            req.getSession().removeAttribute("error");
+        }
         dataModel.put("items", itemManagement.forRentAtGivenHour(reservationTable));
         dataModel.put("hour", s);
 

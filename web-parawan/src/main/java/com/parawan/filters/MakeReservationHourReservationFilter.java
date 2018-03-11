@@ -15,12 +15,12 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 @WebFilter(
-        filterName = "MakeReservationValidationFilter",
+        filterName = "MakeReservationHourReservationFilter",
         urlPatterns = {"/parawan/make-reservation-next"}
 )
 
-public class MakeReservationValidationFilter implements Filter {
-    private static final Logger LOG = LoggerFactory.getLogger(MakeReservationValidationFilter.class);
+public class MakeReservationHourReservationFilter extends IntegerValidator implements Filter {
+    private static final Logger LOG = LoggerFactory.getLogger(MakeReservationHourReservationFilter.class);
 
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
@@ -47,39 +47,13 @@ public class MakeReservationValidationFilter implements Filter {
 
         if(!isValidationOK){
             httpRequest.getSession().setAttribute("errors", messages);
-            httpResponse.sendRedirect("/parawan/make-reservation");
+            httpResponse.sendRedirect("/parawan/make-reservation?status=9");
             return;
         }
 
         filterChain.doFilter(servletRequest, servletResponse);
     }
 
-    private boolean isIntegerParameterValid (String parameterKey, HttpServletRequest servletRequest){
-        String parameter = servletRequest.getParameter(parameterKey);
-        HttpServletRequest httpRequest = (HttpServletRequest) servletRequest;
-        boolean isGet = httpRequest.getMethod().equalsIgnoreCase("get");
-
-        if (parameter == null || parameter.isEmpty()){
-            return !isGet;
-        }
-
-        Pattern integerPattern = Pattern.compile("\\d+");
-        Matcher matcher = integerPattern.matcher(parameter);
-
-        if(!matcher.matches()){
-            return false;
-        }
-
-        return true;
-    }
-
-    private boolean isIntegerParameterInScope(String parameterKey, HttpServletRequest servletRequest){
-        int parameter =Integer.parseInt(servletRequest.getParameter(parameterKey));
-        if(parameter>8 && parameter <19){
-            return true;
-        }
-        return false;
-    }
 
     @Override
     public void destroy() {

@@ -6,7 +6,7 @@
     <nav>
       <ul>
         <li>
-          <a href=make-reservation?chosenHour=0>Make reservation </a>
+          <a href=make-reservation?status=9>Make reservation </a>
         </li>
         <li>
           <a href=cancel-reservation>Cancel reservation </a>
@@ -15,7 +15,7 @@
           <a href=find-place>Find place with additional requirements </a>
         </li>
         <li>
-          <a href=item-management?hourFromForm=0>Number of items available for rent  </a>
+          <a href=item-management?hourFromForm=9>Number of items available for rent  </a>
         </li>
       </ul>
     </nav>

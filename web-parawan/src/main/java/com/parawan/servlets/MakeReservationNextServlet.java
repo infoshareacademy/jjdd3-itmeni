@@ -71,7 +71,6 @@ public class MakeReservationNextServlet extends HttpServlet {
             reservation.setPlaceId(Integer.parseInt(req.getParameter("chosenId")));
         } catch (NumberFormatException e) {
             LOG.error("Error while making reservation", e);
-            resp.sendRedirect("/error-servlet");
         }
         reservation.setNameOfPerson(req.getParameter("chosenName"));
 
@@ -102,6 +101,5 @@ public class MakeReservationNextServlet extends HttpServlet {
             req.setAttribute("isAlreadyReserved", true);
             this.doGet(req, resp);
         }
-
     }
 }
