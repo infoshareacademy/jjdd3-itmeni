@@ -14,7 +14,7 @@
         <input type="radio" name="chosenUmbrella" value="z" checked/>no<br/><br/>
         Rent a Towel: <input type="radio" name="chosenTowel" value="t"/>yes
         <input type="radio" name="chosenTowel" value="z" checked/>no<br/><br/>
-        Rent a Towel: <input type="radio" name="chosenSunbed" value="b"/>yes
+        Rent a Sunbed: <input type="radio" name="chosenSunbed" value="b"/>yes
         <input type="radio" name="chosenSunbed" value="z" checked/>no<br/><br/>
         <input type="submit" name="save" value="make reservation"/><br/><br/>
     </form>
