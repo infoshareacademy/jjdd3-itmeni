@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html>
-  <body>
+<#include "/default/head.html">
+<body>
+    <#include "/default/parawan-header.html">
+<div class="parawan-body">
     <p>Number of items available for rent</p>
 
     <form method="get" action="/parawan/item-management">
@@ -17,6 +20,7 @@
 
     </#if>
 
-    <p><a href=main-menu >Go back to main menu </a></p>
-  </body>
+    <p><a href=main-menu>Go back to main menu </a></p>
+</div>
+</body>
 </html>

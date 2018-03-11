@@ -1,6 +1,9 @@
 <html>
+<#include "/default/head.html">
 <body>
-<h1>Please fill all fields to make a reservation</h1>
+  <#include "/default/parawan-header.html">
+<div class="parawan-body">
+    <h1>Please fill all fields to make a reservation</h1>
 <#if errors??>
     <#list errors>
     <ul>
@@ -10,16 +13,17 @@
     </ul>
     </#list>
 </#if>
-<form method="get" action="/parawan/make-reservation-next">
-    Choose hour: <input type="text" name="chosenHour"  />
-    <input type="submit" value="proceed to next step"/>
-</form>
+    <form method="get" action="/parawan/make-reservation-next">
+        Choose hour: <input type="text" name="chosenHour"/>
+        <input type="submit" value="proceed to next step"/>
+    </form>
 
-<form method="get" action="/parawan/make-reservation">
-    Choose hour: <input type="number" name="status" min="9" max="19" required/>
-    <input type="submit" value="check beach status"/>
-</form>
+    <form method="get" action="/parawan/make-reservation">
+        Choose hour: <input type="number" name="status" min="9" max="19" required/>
+        <input type="submit" value="check beach status"/>
+    </form>
 
-<a href=main-menu>Go back to main menu </a>
+    <a href=main-menu>Go back to main menu </a>
+</div>
 </body>
 </html>

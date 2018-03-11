@@ -51,7 +51,6 @@ public class HelloServlet extends HttpServlet {
 
     public void setActualBeachIfNotSet(ActualBeach actualBeach) {
         if(actualBeach.getName() == null || actualBeach.getName().isEmpty()){
-
             List<Beach> beaches = beachDao.findAll();
             if(beaches.size() != 0) {
                 Beach firstBeachFromDatabase = beaches.get(0);
@@ -60,7 +59,7 @@ public class HelloServlet extends HttpServlet {
                 actualBeach.setMaxWidth(firstBeachFromDatabase.getMaxWidth());
                 actualBeach.setMaxHeight(firstBeachFromDatabase.getMaxHeight());
             } else {
-                LOG.error("Error while loading data fron database");
+                LOG.error("Error while loading data from database");
             }
         }
     }

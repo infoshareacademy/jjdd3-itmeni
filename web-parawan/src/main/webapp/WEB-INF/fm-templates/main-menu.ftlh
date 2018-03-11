@@ -1,23 +1,26 @@
 <!DOCTYPE html>
 <html>
-  <body>
+<#include "/default/head.html">
+<body>
+    <#include "/default/parawan-header.html">
+<div class="parawan-body">
     <p>Main Menu</p>
 
     <nav>
-      <ul>
-        <li>
-          <a href=make-reservation?chosenHour=0>Make reservation </a>
-        </li>
-        <li>
-          <a href=cancel-reservation>Cancel reservation </a>
-        </li>
-        <li>
-          <a href=find-place>Find place with additional requirements </a>
-        </li>
-        <li>
-          <a href=item-management?hourFromForm=0>Number of items available for rent  </a>
-        </li>
-      </ul>
+        <ul>
+            <li>
+                <a href=make-reservation?chosenHour=0>Make reservation </a>
+            </li>
+            <li>
+                <a href=cancel-reservation>Cancel reservation </a>
+            </li>
+            <li>
+                <a href=find-place>Find place with additional requirements </a>
+            </li>
+            <li>
+                <a href=item-management?hourFromForm=0>Number of items available for rent </a>
+            </li>
+        </ul>
     </nav>
 
     <p><a href=../hello-servlet>Go back to intro page </a></p>
@@ -46,5 +49,6 @@
         Choose hour: <input type="number" name="hour" min="9" max="19" required>
         <input type="submit">
     </form>
-  </body>
+</div>
+</body>
 </html>

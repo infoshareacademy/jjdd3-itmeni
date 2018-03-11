@@ -1,0 +1,32 @@
+
+body{
+    font-size: 100%;
+    display: flex;
+    flex-flow: column;
+}
+
+.parawan-header{
+    color: whitesmoke;
+    background: linear-gradient(to top right, red, yellow);
+    border-radius: 25px 25px 0px 0px;
+    padding: 10px;
+    font-size: 1.4em;
+    flex: 0 1 40px
+}
+
+.parawan-body{
+    max-height: 100%;
+    min-height: 100%;
+    background-color: floralwhite;
+    padding: 5px;
+    border-right: 2px red solid;
+    border-left: 2px red solid;
+    flex: 1 1 auto;
+
+}
+.parawan-footer{
+    text-align: right;
+    position: absolute;
+    bottom: 0;
+    flex: 0 1 40px
+}
