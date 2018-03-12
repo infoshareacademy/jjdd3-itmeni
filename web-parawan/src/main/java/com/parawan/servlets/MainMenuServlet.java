@@ -15,6 +15,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.Map;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -30,6 +31,12 @@ public class MainMenuServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
+     processDataMOdel(resp);
+    }
+
+    public Map<String, Object> processDataMOdel(HttpServletResponse resp) throws IOException {
+
+
         Map<String, Object> dataModel = new HashMap<>();
 
         Template template = TemplateProvider.createTemplate(getServletContext(), "main-menu.ftlh");
@@ -40,5 +47,7 @@ public class MainMenuServlet extends HttpServlet {
         } catch (TemplateException e) {
             LOG.error("Error while loading freemarker template", e);
         }
+
+        return dataModel;
     }
 }
