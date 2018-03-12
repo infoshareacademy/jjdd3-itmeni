@@ -15,29 +15,25 @@
     </#list>
 
 </#if>
-    <form method="get" action="/parawan/make-reservation-next">
-        Choose hour: <input type="number" name="chosenHour" min="9" max="19" required/>
-        <input type="submit" value="proceed to next step"/>
-    </form>
-
     <form method="get" action="/parawan/make-reservation">
         Choose hour: <input type="number" name="status" min="9" max="19" required/>
         <input type="submit" value="check beach status"/>
     </form>
     <br/>
-    <div>Legend: <p><span class="unreserved-place"> </span> FREE</p>
+    <div>Legend: <p><span class="unreserved-place"> </span>FREE</p>
         <p>
             <span class="reserved-place"> </span>RESERVED</p></div>
     <div class="beach-preview">
         <#list places as place>
-            <#if (((place.id) % actualBeach.maxWidth) == 1)>
+            <#if ((place.id % actualBeach.maxWidth) == 1)>
                 <div class="row">
             </#if>
+            <a href="/parawan/make-reservation-next?chosenId=${place.id}&chosenHour=${hour}">
                 <span class=
             <#if place.occupied>"reserved-place"
             <#else>"unreserved-place"
             </#if>
-            >${place.id} </span>
+            >${place.id} </span></a>
             <#if ((place.id % actualBeach.maxWidth) == 0)> </div>
             </#if>
         </#list>
