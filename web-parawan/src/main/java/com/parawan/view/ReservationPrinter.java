@@ -44,8 +44,7 @@ public class ReservationPrinter {
         return listOfPlaces;
     }
 
-
-    public void setWhenMatch(Place place, List<Reservation> reservations) {
+    private void setWhenMatch(Place place, List<Reservation> reservations) {
 
         for (Reservation reservation : reservations) {
             if (place.getId() == reservation.getPlaceId()) {

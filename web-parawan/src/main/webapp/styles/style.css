@@ -1,16 +1,16 @@
 
-body{
+body {
     font-size: 100%;
     display: flex;
     flex-direction: column;
     margin-left: 2%;
     margin-right: 2%;
-    min-width: 90%;
-    max-width: fit-content;
+    min-width: fit-content;
+    max-width: 100vw;
     flex: 1 1 auto;
 }
 
-.parawan-header{
+.parawan-header {
     color: azure;
     background: linear-gradient(to top right, red, yellow);
     border-radius: 25px 25px 0px 0px;
@@ -19,7 +19,7 @@ body{
     flex: 0 1 auto;
 }
 
-.parawan-body{
+.parawan-body {
     background-color: floralwhite;
     padding: 10px;
     border-right: 2px red solid;
@@ -27,10 +27,40 @@ body{
     flex: 1 1 auto;
 
 }
-.parawan-footer{
+
+.parawan-footer {
     text-align: right;
     color: white;
     background-color: black;
     padding: 3px 10px 3px 3px;
     flex: 0 1 auto;
+}
+
+.beach-preview {
+}
+.row {
+    flex: none;
+    width: 100%;
+    display: table-row;
+}
+.reserved-place{
+    min-width: 40px;
+    max-width: 40px;
+    display: table-cell;
+    padding: 5px;
+    margin: 10px;
+    background-color: coral;
+    border: black solid 1px;
+    text-align: center;
+}
+.unreserved-place {
+    min-width: 40px;
+    max-width: 40px;
+    display: table-cell;
+    padding: 5px;
+    margin: 10px;
+    background-color: lawngreen;
+    border: black solid 1px;
+    text-align: center;
+
 }
