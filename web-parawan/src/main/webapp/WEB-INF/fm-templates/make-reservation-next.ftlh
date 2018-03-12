@@ -1,5 +1,9 @@
 <html>
-<#include "/default/head.html">
+<head>
+<#if ((isReserved = true)??) >
+    <meta http-equiv="refresh" content="3; url=/parawan/main-menu" />
+</#if>
+</head>
 <body>
   <#include "/default/parawan-header.html">
 <div class="parawan-body">
@@ -19,7 +23,15 @@
         <input type="submit" name="save" value="make reservation"/><br/><br/>
     </form>
 
-    <a href=main-menu>Go back to main menu </a>
+ <#if ((isAlreadyReserved = true)??) >
+    <p>I'm sorry but the place is already reserved.</p>
+ </#if>
+
+ <#if ((isReserved = true)??) >
+    <p>You have successfully reserved a place.</p>
+ </#if>
+
+<a href=main-menu>Go back to main menu </a>
 </div>
 <#include "/default/parawan-footer.html">
 </body>
