@@ -4,11 +4,12 @@ import com.parawan.dao.ReservationDao;
 import com.parawan.model.ActualBeach;
 import com.parawan.model.Reservation;
 
+import javax.ejb.Stateless;
 import javax.inject.Inject;
-import javax.servlet.annotation.WebServlet;
 import java.util.ArrayList;
 import java.util.List;
 
+@Stateless
 public class ReservationPrinter {
 
     @Inject
