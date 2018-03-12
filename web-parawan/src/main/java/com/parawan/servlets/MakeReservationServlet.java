@@ -1,8 +1,11 @@
 package com.parawan.servlets;
 
+import com.parawan.dao.ReservationDao;
 import com.parawan.freemarker.TemplateProvider;
 
 import com.parawan.model.ActualBeach;
+import com.parawan.view.Place;
+import com.parawan.view.ReservationPrinter;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
 import org.slf4j.Logger;
@@ -28,6 +31,9 @@ public class MakeReservationServlet extends HttpServlet {
     @Inject
     private ActualBeach actualBeach;
 
+    @Inject
+    private ReservationDao reservationDao;
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
@@ -42,6 +48,13 @@ public class MakeReservationServlet extends HttpServlet {
 
         Template template = TemplateProvider.createTemplate(getServletContext(), "make-reservation.ftlh");
         dataModel.put("actualBeach", actualBeach);
+
+        if (req.getParameter("status") != null) {
+            ReservationPrinter reservationPrinter = new ReservationPrinter();
+            int hour = Integer.parseInt(req.getParameter("status"));
+            List<Place> placesToPrint = reservationPrinter.beachToPrint(hour);
+            dataModel.put("places", placesToPrint);
+        }
         PrintWriter printWriter = resp.getWriter();
         try {
             template.process(dataModel, printWriter);
@@ -55,4 +68,5 @@ public class MakeReservationServlet extends HttpServlet {
 
         resp.sendRedirect("/parawan/make-reservation-next");
     }
+
 }

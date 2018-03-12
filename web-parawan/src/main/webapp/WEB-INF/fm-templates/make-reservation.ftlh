@@ -22,8 +22,19 @@
         Choose hour: <input type="number" name="status" min="9" max="19" required/>
         <input type="submit" value="check beach status"/>
     </form>
-
     <a href=main-menu>Go back to main menu </a>
+    <div>
+        <#if places??>
+        <#list places as place>
+            <div class="single-place">${(place.id)! ""} </div>
+            <#if place.id % actualBeach.maxWidth>
+            <br/>
+            </#if>
+        </#list>
+        <#else > ""
+        </#if>
+    </div>
+
 </div>
 <#include "/default/parawan-footer.html">
 </body>
