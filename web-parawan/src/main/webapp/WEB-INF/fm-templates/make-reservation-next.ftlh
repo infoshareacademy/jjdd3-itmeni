@@ -1,4 +1,9 @@
 <html>
+<head>
+<#if ((isReserved = true)??) >
+    <meta http-equiv="refresh" content="3; url=/parawan/main-menu" />
+</#if>
+</head>
 <body>
 <h1>Please fill all fields to make a reservation</h1>
 <form method="post" action="/parawan/make-reservation-next">
@@ -15,6 +20,14 @@
     <input type="radio" name="chosenSunbed" value="z" checked/>no<br/><br/>
     <input type="submit" name="save" value="make reservation"/><br/><br/>
 </form>
+
+ <#if ((isAlreadyReserved = true)??) >
+    <p>I'm sorry but the place is already reserved.</p>
+ </#if>
+
+ <#if ((isReserved = true)??) >
+    <p>You have successfully reserved a place.</p>
+ </#if>
 
 <a href=main-menu>Go back to main menu </a>
 </body>
