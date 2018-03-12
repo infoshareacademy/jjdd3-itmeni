@@ -7,20 +7,20 @@
     <p>Main Menu</p>
 
     <nav>
-        <ul>
-            <li>
-                <a href=make-reservation?chosenHour=0>Make reservation </a>
-            </li>
-            <li>
-                <a href=cancel-reservation>Cancel reservation </a>
-            </li>
-            <li>
-                <a href=find-place>Find place with additional requirements </a>
-            </li>
-            <li>
-                <a href=item-management?hourFromForm=0>Number of items available for rent </a>
-            </li>
-        </ul>
+      <ul>
+        <li>
+          <a href=make-reservation?status=9>Make reservation </a>
+        </li>
+        <li>
+          <a href=cancel-reservation>Cancel reservation </a>
+        </li>
+        <li>
+          <a href=find-place>Find place with additional requirements </a>
+        </li>
+        <li>
+          <a href=item-management?hourFromForm=9>Number of items available for rent  </a>
+        </li>
+      </ul>
     </nav>
 
     <p><a href=../hello-servlet>Go back to intro page </a></p>
