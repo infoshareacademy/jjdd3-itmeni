@@ -1,6 +1,5 @@
 package com.parawan.dao;
 
-import com.parawan.filters.IntegerValidator;
 import com.parawan.model.Reservation;
 
 import javax.ejb.Stateless;
@@ -47,7 +46,7 @@ public class ReservationDao {
         return query.getResultList();
     }
 
-    public boolean checkIfAlreadyReserved(Reservation r){
+    public boolean checkIfAlreadyReserved(Reservation r) {
         Query query = entityManager.createQuery("SELECT r FROM Reservation r " +
                 "WHERE r.hourOfReservation = :hour AND r.placeId = :placeId AND r.beach = :beach");
         query.setParameter("hour", r.getHourOfReservation());
@@ -55,11 +54,5 @@ public class ReservationDao {
         query.setParameter("beach", r.getBeach());
         List<Reservation> foundReservations = query.getResultList();
         return (!foundReservations.isEmpty());
-    }
-
-    public List<Reservation>findItemsByHour(Integer hour){
-        Query query = entityManager.createQuery("SELECT r.rented_items from Reservation r WHERE r.hourOfReservation = :param");
-        query.setParameter("param", hour);
-        return query.getResultList();
     }
 }

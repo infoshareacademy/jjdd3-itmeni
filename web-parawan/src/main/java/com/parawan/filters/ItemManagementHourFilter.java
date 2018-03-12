@@ -34,17 +34,15 @@ public class ItemManagementHourFilter extends IntegerValidator implements Filter
         HttpServletResponse httpResponse = (HttpServletResponse) servletResponse;
         List<String> messages = new ArrayList<>();
 
-        if(!isIntegerParameterValid("hourFromForm", httpRequest)){
+        if (!isIntegerParameterValid("hourFromForm", httpRequest)) {
             messages.add(UserOperationsMessages.HOUR_NOT_INTEGER);
             isValidationOK = false;
-        }
-
-        else if(!isIntegerParameterInScope("hourFromForm", httpRequest)){
+        } else if (!isIntegerParameterInScope("hourFromForm", httpRequest)) {
             messages.add(UserOperationsMessages.CLOSED);
             isValidationOK = false;
         }
 
-        if(!isValidationOK){
+        if (!isValidationOK) {
             httpRequest.getSession().setAttribute("errors", messages);
             httpResponse.sendRedirect("/parawan/item-management?hourFromForm=9");
             return;
