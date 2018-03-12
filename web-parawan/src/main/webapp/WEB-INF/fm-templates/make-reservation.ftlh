@@ -1,5 +1,8 @@
 <html>
+<#include "/default/head.html">
 <body>
+  <#include "/default/parawan-header.html">
+<div class="parawan-body">
 <h1>Please fill all fields to make a reservation</h1>
 <p>Beach is open from 9:00 to 19:00</p>
 <#if errors??>
@@ -21,6 +24,8 @@
     <input type="submit" value="check beach status"/>
 </form>
 
-<a href=main-menu>Go back to main menu </a>
+    <a href=main-menu>Go back to main menu </a>
+</div>
+<#include "/default/parawan-footer.html">
 </body>
 </html>

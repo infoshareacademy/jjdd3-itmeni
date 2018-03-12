@@ -56,6 +56,7 @@ public class MakeReservationNextServlet extends HttpServlet {
             dataModel.put("isReserved", true);
             req.getSession().removeAttribute("isReserved");
         }
+        dataModel.put("actualBeach", actualBeach);
         dataModel.put("firstId", firstId);
         dataModel.put("lastId", lastId);
         dataModel.put("hourFromLastStep", hourFromLastStep);
@@ -68,7 +69,6 @@ public class MakeReservationNextServlet extends HttpServlet {
         } catch (TemplateException e) {
             LOG.error("Error while loading freemarker template", e);
         }
-
     }
 
     @Override

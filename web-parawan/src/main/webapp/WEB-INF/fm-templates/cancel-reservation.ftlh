@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html>
+<#include "/default/head.html">
 <body>
-
+ <#include "/default/parawan-header.html">
+<div class="parawan-body">
 <h2>Please fill below to cancel your reservation:</h2>
 <p>Beach is open from 9:00 to 19:00</p>
 <form method="post" action="/cancel-reservation">
@@ -18,5 +20,7 @@
     </ul>
     </#list>
 </#if>
+</div>
+<#include "/default/parawan-footer.html">
 </body>
 </html>

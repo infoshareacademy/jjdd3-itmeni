@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html>
-  <body>
+<#include "/default/head.html">
+<body>
+    <#include "/default/parawan-header.html">
+<div class="parawan-body">
     <p>Main Menu</p>
 
     <nav>
@@ -23,19 +26,9 @@
     <p><a href=../hello-servlet>Go back to intro page </a></p>
 
     <p>-------------------------------------------------</p>
-    <p>Random data generator</p>
-    <form action="/generaterandomdata">
-        <input type="submit" value="Generate random data"/>
-    </form>
+
     <p>-------------------------------------------------</p>
 
-    <p>Add new beach</p>
-    <form action="/addnewbeach">
-        Type name: <input type="text" name="nameofbeach" value=""><br/>
-        Type width: <input type="text" name="width" value=""><br/>
-        type height: <input type="text" name="height" value=""><br/><br/>
-        <input type="submit"><br/>
-    </form>
     <p>-------------------------------------------------</p>
     <br/>
     <br/>
@@ -46,5 +39,7 @@
         Choose hour: <input type="number" name="hour" min="9" max="19" required>
         <input type="submit">
     </form>
-  </body>
+</div>
+<#include "/default/parawan-footer.html">
+</body>
 </html>
