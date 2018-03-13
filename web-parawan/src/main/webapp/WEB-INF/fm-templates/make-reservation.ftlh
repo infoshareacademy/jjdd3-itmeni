@@ -1,5 +1,4 @@
-
-    <h1>Please fill all fields to make a reservation</h1>
+<h1>Please fill all fields to make a reservation</h1>
     <p>Beach is open from 9:00 to 19:00</p>
 <#if errors??>
     <#list errors>
@@ -9,16 +8,20 @@
         </#items>
     </ul>
     </#list>
- <button type="button" class="btn btn-primary" onclick="location.href = '/parawan/make-reservation';">Make reservation</button>
 </#if>
     <form method="get" action="/parawan/make-reservation">
         Choose hour: <input type="number" name="status" min="9" max="19" required/>
         <input type="submit" value="check beach status"/>
     </form>
     <br/>
-    <div>Legend: <p><span class="unreserved-place"> </span>FREE</p>
+    <div>Legend:
         <p>
-            <span class="reserved-place"> </span>RESERVED</p></div>
+            <button class="btn btn-success">FREE</button>
+        </p>
+        <p>
+            <button class="btn btn-danger">RESERVED</button>
+        </p>
+    </div>
             <table class="table">
                 <tbody>
 
@@ -27,15 +30,16 @@
                 <tr>
             </#if>
             <td>
-                <button class="btn <#if place.occupied>btn-danger" <#else>btn-success" onclick = location.href="/parawan/make-reservation-next?chosenId=${place.id}&chosenHour=${hour}">
-
-
-            </#if>
-            ${place.id} </td></a>
+                <button type="button" class="btn
+                    <#if place.occupied>btn-danger">
+                    <#else>btn-success" onclick="location.href = '/parawan/make-reservation-next?chosenId=${place.id}&chosenHour=${hour}';">
+                    </#if>
+                    ${place.id}
             </button>
+            </td>
             <#if ((place.id % actualBeach.maxWidth) == 0)> </tr>
             </#if>
         </#list>
                 </tbody>
+            </table>
     <br/>
-    <a href=main-menu>Go back to main menu </a>
