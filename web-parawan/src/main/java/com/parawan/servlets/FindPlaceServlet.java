@@ -35,8 +35,11 @@ public class FindPlaceServlet extends HttpServlet {
 
         Map<String, Object> dataModel = new HashMap<>();
 
-        Template template = TemplateProvider.createTemplate(getServletContext(), "find-place.ftlh");
+        Template template = TemplateProvider.createTemplate(getServletContext(), "basepage.ftlh");
         dataModel.put("actualBeach", actualBeach);
+        dataModel.put("bodytemplate", "find-place");
+
+
 
         PrintWriter printWriter = resp.getWriter();
         try {

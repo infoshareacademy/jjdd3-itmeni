@@ -1,9 +1,11 @@
+html,body{
+    height: 100%
+}
+
 body {
     font-size: 100%;
     display: flex;
     flex-direction: column;
-    margin-left: 2%;
-    margin-right: 2%;
     min-width: max-content;
     max-width: 100vw;
     flex: 1 1 auto;
@@ -12,10 +14,10 @@ a {
     text-decoration: none;
 }
 .parawan-header {
+    min-height: 20px;
     color: azure;
     background: linear-gradient(to top right, red, yellow);
     border-radius: 25px 25px 0px 0px;
-    padding: 10px;
     font-size: 1.4em;
     flex: 0 1 auto;
 }

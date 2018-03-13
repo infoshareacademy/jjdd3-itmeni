@@ -42,8 +42,9 @@ public class MakeReservationServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         Map<String, Object> dataModel = new HashMap<>();
-        Template template = TemplateProvider.createTemplate(getServletContext(), "make-reservation.ftlh");
+        Template template = TemplateProvider.createTemplate(getServletContext(), "basepage.ftlh");
         dataModel.put("actualBeach", actualBeach);
+        dataModel.put("bodytemplate", "make-reservation");
 
         List<String> errors = (List<String>) req.getSession().getAttribute("errors");
 

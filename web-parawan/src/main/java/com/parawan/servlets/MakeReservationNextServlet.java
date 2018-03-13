@@ -62,8 +62,9 @@ public class MakeReservationNextServlet extends HttpServlet {
         dataModel.put("lastId", lastId);
         dataModel.put("hourFromLastStep", hourFromLastStep);
         dataModel.put("idFromLastStep", idFromLastStep);
+        dataModel.put("bodytemplate", "make-reservation-next");
 
-        Template template = TemplateProvider.createTemplate(getServletContext(), "make-reservation-next.ftlh");
+        Template template = TemplateProvider.createTemplate(getServletContext(), "basepage.ftlh");
 
         PrintWriter printWriter = resp.getWriter();
         try {

@@ -1,8 +1,4 @@
-<!DOCTYPE html>
-<html>
-<#include "/default/head.html">
-<body>
-    <#include "/default/parawan-header.html">
+
 <div class="parawan-body">
     <p>Find place with additional requirements</p>
     <form method="post" action="/parawan/find-place">
@@ -16,7 +12,3 @@
         <input type="submit" name="save" value="search place"/><br/><br/>
     </form>
     <p><a href=main-menu>Go back to main menu </a></p>
-</div>
-<#include "/default/parawan-footer.html">
-</body>
-</html>

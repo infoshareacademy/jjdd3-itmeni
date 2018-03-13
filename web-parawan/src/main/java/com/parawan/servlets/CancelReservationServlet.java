@@ -33,11 +33,12 @@ public class CancelReservationServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        Template template = TemplateProvider.createTemplate(getServletContext(), "cancel-reservation.ftlh");
+        Template template = TemplateProvider.createTemplate(getServletContext(), "basepage.ftlh");
         PrintWriter printWriter = resp.getWriter();
 
         Map<String, Object> dataModel = new HashMap<>();
         dataModel.put("actualBeach", actualBeach);
+        dataModel.put("bodytemplate", "cancel-reservation");
         List<String> errors = (List<String>) req.getSession().getAttribute("errors");
         if (errors != null && !errors.isEmpty()) {
             dataModel.put("errors", errors);
