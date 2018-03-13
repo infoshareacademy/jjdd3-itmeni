@@ -9,7 +9,7 @@
         </#items>
     </ul>
     </#list>
-
+ <button type="button" class="btn btn-primary" onclick="location.href = '/parawan/make-reservation';">Make reservation</button>
 </#if>
     <form method="get" action="/parawan/make-reservation">
         Choose hour: <input type="number" name="status" min="9" max="19" required/>
@@ -19,20 +19,23 @@
     <div>Legend: <p><span class="unreserved-place"> </span>FREE</p>
         <p>
             <span class="reserved-place"> </span>RESERVED</p></div>
-    <div class="beach-preview">
+            <table class="table">
+                <tbody>
+
         <#list places as place>
             <#if ((place.id % actualBeach.maxWidth) == 1)>
-                <div class="row">
+                <tr>
             </#if>
-            <a href="/parawan/make-reservation-next?chosenId=${place.id}&chosenHour=${hour}">
-                <span class=
-            <#if place.occupied>"reserved-place"
-            <#else>"unreserved-place"
+            <td>
+                <button class="btn <#if place.occupied>btn-danger" <#else>btn-success" onclick = location.href="/parawan/make-reservation-next?chosenId=${place.id}&chosenHour=${hour}">
+
+
             </#if>
-            >${place.id} </span></a>
-            <#if ((place.id % actualBeach.maxWidth) == 0)> </div>
+            ${place.id} </td></a>
+            </button>
+            <#if ((place.id % actualBeach.maxWidth) == 0)> </tr>
             </#if>
         </#list>
-    </div>
+                </tbody>
     <br/>
     <a href=main-menu>Go back to main menu </a>
