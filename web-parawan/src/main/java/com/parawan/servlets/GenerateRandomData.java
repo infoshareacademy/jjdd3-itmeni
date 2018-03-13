@@ -58,8 +58,8 @@ public class GenerateRandomData extends HttpServlet {
                     break;
             }
             Reservation reservation = new Reservation(null
-                    , new Random().nextInt(20)
-                    , new Random().nextInt(10)
+                    , new Random().nextInt(11)+9
+                    , new Random().nextInt(200)+1
                     , itemsString
                     , nameString);
             reservation.setBeach(beach);

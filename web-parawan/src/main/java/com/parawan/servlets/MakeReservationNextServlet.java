@@ -45,6 +45,7 @@ public class MakeReservationNextServlet extends HttpServlet {
         int lastId = (actualBeach.getMaxWidth()) * (actualBeach.getMaxHeight());
 
         int hourFromLastStep = Integer.parseInt(req.getParameter("chosenHour"));
+        int idFromLastStep = Integer.parseInt(req.getParameter("chosenId"));
 
         Map<String, Object> dataModel = new HashMap<>();
 
@@ -60,6 +61,7 @@ public class MakeReservationNextServlet extends HttpServlet {
         dataModel.put("firstId", firstId);
         dataModel.put("lastId", lastId);
         dataModel.put("hourFromLastStep", hourFromLastStep);
+        dataModel.put("idFromLastStep", idFromLastStep);
 
         Template template = TemplateProvider.createTemplate(getServletContext(), "make-reservation-next.ftlh");
 
