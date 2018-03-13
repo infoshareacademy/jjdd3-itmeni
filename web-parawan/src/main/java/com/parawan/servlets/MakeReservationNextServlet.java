@@ -20,6 +20,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @WebServlet("/parawan/make-reservation-next")
@@ -41,14 +42,26 @@ public class MakeReservationNextServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         int firstId = 1;
-        int lastId = (actualBeach.getMaxWidth())*(actualBeach.getMaxHeight());
+        int lastId = (actualBeach.getMaxWidth()) * (actualBeach.getMaxHeight());
 
         int hourFromLastStep = Integer.parseInt(req.getParameter("chosenHour"));
+        int idFromLastStep = Integer.parseInt(req.getParameter("chosenId"));
 
         Map<String, Object> dataModel = new HashMap<>();
+
+        if (req.getAttribute("isAlreadyReserved") != null) {
+            dataModel.put("isAlreadyReserved", true);
+            req.getSession().removeAttribute("isAlreadyReserved");
+        }
+        if (req.getAttribute("isReserved") != null) {
+            dataModel.put("isReserved", true);
+            req.getSession().removeAttribute("isReserved");
+        }
+        dataModel.put("actualBeach", actualBeach);
         dataModel.put("firstId", firstId);
         dataModel.put("lastId", lastId);
         dataModel.put("hourFromLastStep", hourFromLastStep);
+        dataModel.put("idFromLastStep", idFromLastStep);
 
         Template template = TemplateProvider.createTemplate(getServletContext(), "make-reservation-next.ftlh");
 
@@ -95,13 +108,14 @@ public class MakeReservationNextServlet extends HttpServlet {
         reservation.setRentedItems(sb.toString());
         Beach beach = beachDao.findById(actualBeach.getId());
         reservation.setBeach(beach);
-        if(!reservationDao.checkIfAlreadyReserved(reservation)){
+        if (!reservationDao.checkIfAlreadyReserved(reservation)) {
             reservationDao.save(reservation);
-            resp.sendRedirect("/parawan/main-menu");
+            req.setAttribute("isReserved", true);
+            this.doGet(req, resp);
+
         } else {
             req.setAttribute("isAlreadyReserved", true);
             this.doGet(req, resp);
         }
-
     }
 }

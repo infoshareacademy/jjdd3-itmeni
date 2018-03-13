@@ -5,10 +5,12 @@ import com.parawan.Place;
 import com.parawan.PlaceStatus;
 import com.parawan.com.menu.CancelReservation;
 import com.parawan.freemarker.TemplateProvider;
+import com.parawan.model.ActualBeach;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
 import org.slf4j.LoggerFactory;
 
+import javax.inject.Inject;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -25,12 +27,16 @@ public class FindPlaceServlet extends HttpServlet {
 
     private static final Logger LOG = LoggerFactory.getLogger(FindPlaceServlet.class);
 
+    @Inject
+    private ActualBeach actualBeach;
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         Map<String, Object> dataModel = new HashMap<>();
 
         Template template = TemplateProvider.createTemplate(getServletContext(), "find-place.ftlh");
+        dataModel.put("actualBeach", actualBeach);
 
         PrintWriter printWriter = resp.getWriter();
         try {

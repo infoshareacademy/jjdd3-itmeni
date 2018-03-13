@@ -17,7 +17,7 @@ import java.util.Random;
 public class GenerateRandomData extends HttpServlet {
 
     @Inject
-    private ReservationDao singleReservationDao;
+    private ReservationDao reservationDao;
 
     @Inject
     private BeachDao beachDao;
@@ -35,7 +35,7 @@ public class GenerateRandomData extends HttpServlet {
         beachDao.save(beach);
         Beach beach2 = new Beach(null, "Stogi", 10, 10);
         beachDao.save(beach2);
-        for (int i = 0; i < 1000; i++) {
+        for (int i = 0; i < 400;) {
             String itemsString = "";
             String nameString = "Tester" + new Random().nextInt(10000);
             int randomItems = new Random().nextInt(5);
@@ -58,12 +58,15 @@ public class GenerateRandomData extends HttpServlet {
                     break;
             }
             Reservation reservation = new Reservation(null
-                    , new Random().nextInt(20)
-                    , new Random().nextInt(10)
+                    , new Random().nextInt(11)+9
+                    , new Random().nextInt(200)+1
                     , itemsString
                     , nameString);
             reservation.setBeach(beach);
-            singleReservationDao.save(reservation);
+            if(!reservationDao.checkIfAlreadyReserved(reservation)){
+                reservationDao.save(reservation);
+            }
+            i++;
         }
         resp.sendRedirect("/parawan/main-menu");
     }

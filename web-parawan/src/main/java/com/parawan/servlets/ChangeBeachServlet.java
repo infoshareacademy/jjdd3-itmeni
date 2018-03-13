@@ -24,8 +24,6 @@ import java.util.Map;
 @WebServlet("/parawan/change-beach")
 public class ChangeBeachServlet extends HttpServlet {
 
-    private static final Logger LOG = LoggerFactory.getLogger(ChangeBeachServlet.class);
-
     @Inject
     private ActualBeach actualBeach;
 
@@ -33,30 +31,15 @@ public class ChangeBeachServlet extends HttpServlet {
     private BeachDao beachDao;
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
-        Map<String, Object> dataModel = new HashMap<>();
-        List<Beach> beaches = beachDao.findAll();
-        dataModel.put("beaches", beaches);
-        dataModel.put("actualBeach", actualBeach);
-
-        Template template = TemplateProvider.createTemplate(getServletContext(), "change-beach.ftlh");
-
-        PrintWriter printWriter = resp.getWriter();
-        try {
-            template.process(dataModel, printWriter);
-        } catch (TemplateException e) {
-            LOG.error("Error while loading freemarker template", e);
-        }
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        changeActualBeachParameters(beachDao.findById(Integer.parseInt(req.getParameter("beach"))));
+        resp.sendRedirect("/parawan/main-menu");
     }
 
-    @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        Beach beach = beachDao.findById(Integer.parseInt(req.getParameter("beach")));
+    private void changeActualBeachParameters(Beach beach){
         actualBeach.setId(beach.getId());
         actualBeach.setName(beach.getName());
         actualBeach.setMaxWidth(beach.getMaxWidth());
         actualBeach.setMaxHeight(beach.getMaxHeight());
-        resp.sendRedirect("/parawan/main-menu");
     }
 }

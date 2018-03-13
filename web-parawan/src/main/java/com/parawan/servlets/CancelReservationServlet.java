@@ -2,11 +2,14 @@ package com.parawan.servlets;
 
 import com.parawan.com.menu.CancelReservation;
 import com.parawan.freemarker.TemplateProvider;
+import com.parawan.model.ActualBeach;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import javax.inject.Inject;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -24,6 +27,9 @@ public class CancelReservationServlet extends HttpServlet {
 
     private static final Logger LOG = LoggerFactory.getLogger(CancelReservationServlet.class);
 
+    @Inject
+    private ActualBeach actualBeach;
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
@@ -31,7 +37,7 @@ public class CancelReservationServlet extends HttpServlet {
         PrintWriter printWriter = resp.getWriter();
 
         Map<String, Object> dataModel = new HashMap<>();
-
+        dataModel.put("actualBeach", actualBeach);
         List<String> errors = (List<String>) req.getSession().getAttribute("errors");
         if (errors != null && !errors.isEmpty()) {
             dataModel.put("errors", errors);
