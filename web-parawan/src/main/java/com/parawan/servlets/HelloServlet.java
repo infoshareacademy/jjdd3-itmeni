@@ -49,7 +49,7 @@ public class HelloServlet extends HttpServlet {
         }
     }
 
-    public void setActualBeachIfNotSet(ActualBeach actualBeach) {
+    public ActualBeach setActualBeachIfNotSet(ActualBeach actualBeach) {
         if(actualBeach.getName() == null || actualBeach.getName().isEmpty()){
             List<Beach> beaches = beachDao.findAll();
             if(beaches.size() != 0) {
@@ -62,5 +62,6 @@ public class HelloServlet extends HttpServlet {
                 LOG.error("Error while loading data from database");
             }
         }
+        return actualBeach;
     }
 }
