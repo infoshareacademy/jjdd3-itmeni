@@ -39,16 +39,16 @@ public class ReservationDao {
         return entityManager.find(Reservation.class, id);
     }
 
-    public List<Reservation> findAll() {
+    public List findAll() {
         final Query query = entityManager.createQuery("SELECT s FROM Reservation s");
 
         return query.getResultList();
     }
 
 
-    public List<Reservation> findByHour(Integer hour) {
+    public List findByHour(Integer hour) {
         Query query = entityManager.createQuery("SELECT r FROM Reservation r WHERE r.hourOfReservation = :param AND "
-                + "r.beach=" +actualBeach.getId());
+                + "r.beach=" + actualBeach.getId());
         query.setParameter("param", hour);
         return query.getResultList();
     }

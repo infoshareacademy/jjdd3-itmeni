@@ -34,9 +34,8 @@ public class BeachDao {
         return entityManager.find(Beach.class, id);
     }
 
-
-    public List<Beach> findAll() {
-        final Query query = entityManager.createQuery("SELECT b FROM Beach b");
+    public List findAll() {
+        final Query query = entityManager.createQuery ("SELECT b FROM Beach b");
 
         return query.getResultList();
     }
