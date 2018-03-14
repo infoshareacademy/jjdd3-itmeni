@@ -39,7 +39,8 @@ public class HelloServlet extends HttpServlet {
         List<Beach> beaches = beachDao.findAll();
         dataModel.put("beaches", beaches);
         dataModel.put("actualBeach", actualBeach);
-        Template template = TemplateProvider.createTemplate(getServletContext(), "hello.ftlh");
+        dataModel.put("bodytemplate", "hello");
+        Template template = TemplateProvider.createTemplate(getServletContext(), "basepage.ftlh");
 
         PrintWriter printWriter = resp.getWriter();
         try {

@@ -47,7 +47,8 @@ public class ItemManagementServlet extends HttpServlet {
         dataModel.put("hour", hour);
         dataModel.put("items", numberOfItemsStillToRent(req, resp));
 
-        Template template = TemplateProvider.createTemplate(getServletContext(), "item-management.ftlh");
+        Template template = TemplateProvider.createTemplate(getServletContext(), "basepage.ftlh");
+        dataModel.put("bodytemplate", "item-management");
 
         PrintWriter printWriter = resp.getWriter();
 

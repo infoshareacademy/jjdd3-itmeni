@@ -32,8 +32,10 @@ public class MainMenuServlet extends HttpServlet {
 
         Map<String, Object> dataModel = new HashMap<>();
 
-        Template template = TemplateProvider.createTemplate(getServletContext(), "main-menu.ftlh");
+        Template template = TemplateProvider.createTemplate(getServletContext(), "basepage.ftlh");
         dataModel.put("actualBeach", actualBeach);
+        dataModel.put("bodytemplate", "main-menu");
+
         PrintWriter printWriter = resp.getWriter();
         try {
             template.process(dataModel, printWriter);

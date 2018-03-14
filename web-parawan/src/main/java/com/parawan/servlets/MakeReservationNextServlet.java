@@ -6,6 +6,8 @@ import com.parawan.freemarker.TemplateProvider;
 import com.parawan.model.ActualBeach;
 import com.parawan.model.Beach;
 import com.parawan.model.Reservation;
+import com.parawan.view.Place;
+import com.parawan.view.ReservationPrinter;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
 import org.slf4j.Logger;
@@ -37,6 +39,8 @@ public class MakeReservationNextServlet extends HttpServlet {
     @Inject
     private ActualBeach actualBeach;
 
+    @Inject
+    private ReservationPrinter reservationPrinter;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -48,6 +52,10 @@ public class MakeReservationNextServlet extends HttpServlet {
         int idFromLastStep = Integer.parseInt(req.getParameter("chosenId"));
 
         Map<String, Object> dataModel = new HashMap<>();
+
+        List<Place> places = reservationPrinter.beachToPrint(hourFromLastStep);
+        dataModel.put("places", places);
+        dataModel.put("hour", hourFromLastStep);
 
         if (req.getAttribute("isAlreadyReserved") != null) {
             dataModel.put("isAlreadyReserved", true);
@@ -62,8 +70,9 @@ public class MakeReservationNextServlet extends HttpServlet {
         dataModel.put("lastId", lastId);
         dataModel.put("hourFromLastStep", hourFromLastStep);
         dataModel.put("idFromLastStep", idFromLastStep);
+        dataModel.put("bodytemplate", "make-reservation-next");
 
-        Template template = TemplateProvider.createTemplate(getServletContext(), "make-reservation-next.ftlh");
+        Template template = TemplateProvider.createTemplate(getServletContext(), "basepage.ftlh");
 
         PrintWriter printWriter = resp.getWriter();
         try {
