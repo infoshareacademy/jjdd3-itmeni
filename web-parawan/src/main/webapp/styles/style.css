@@ -44,36 +44,6 @@ a {
     font-size: 1.2em;
 }
 
-.row {
-    flex: none;
-    width: 100%;
-    display: table-row;
-    margin: 10px;
-    height: 40px;
-}
-
-.reserved-place {
-    min-width: 40px;
-    max-width: 40px;
-    display: table-cell;
-    padding: 5px;
-    margin: 15px;
-    background-color: coral;
-    border: black solid 1px;
-    text-align: center;
-}
-
-.unreserved-place {
-    min-width: 40px;
-    max-width: 40px;
-    display: table-cell;
-    padding: 5px;
-    margin: 15px;
-    background-color: lawngreen;
-    border: black solid 1px;
-    text-align: center;
-}
-
 .table td {
     padding: 0.4rem;
     horiz-align: center;
