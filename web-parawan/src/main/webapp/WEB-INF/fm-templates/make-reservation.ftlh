@@ -1,4 +1,4 @@
-<h1>Please fill all fields to make a reservation</h1>
+
     <p>Beach is open from 9:00 to 19:00</p>
 <#if errors??>
     <#list errors>
@@ -11,7 +11,7 @@
 </#if>
     <form method="get" action="/parawan/make-reservation">
         Choose hour: <input type="number" name="status" min="9" max="19" required/>
-        <input type="submit" value="check beach status"/>
+        <input type="submit" class="btn btn-primary" value="check beach status"/>
     </form>
     <br/>
     <div>Legend:

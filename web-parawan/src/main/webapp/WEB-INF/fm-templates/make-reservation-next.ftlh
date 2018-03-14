@@ -26,7 +26,7 @@
         <input type="radio" name="chosenTowel" value="z" checked/>no<br/><br/>
         Rent a Sunbed: <input type="radio" name="chosenSunbed" value="b"/>yes
         <input type="radio" name="chosenSunbed" value="z" checked/>no<br/><br/>
-        <input type="submit" name="save" value="make reservation"/><br/><br/>
+        <input type="submit" class="btn btn-primary" name="save" value="make reservation"/><br/><br/>
     </form>
 
 
