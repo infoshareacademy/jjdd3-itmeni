@@ -56,28 +56,9 @@ public class HelloServletTest {
         ActualBeach result = helloServlet.setActualBeachIfNotSet(actualBeach);
 
         //Then
-        assertAll(
-                () -> assertEquals((Integer) 1, result.getId()),
-                () -> assertEquals("testBeach", result.getName()),
-                () -> assertEquals((Integer) 15, result.getMaxWidth()),
-                () -> assertEquals((Integer) 10, result.getMaxHeight())
-        );
+        Mockito.verify(actualBeach).setId(1);
+        Mockito.verify(actualBeach).setName("testBeach");
+        Mockito.verify(actualBeach).setMaxWidth(15);
+        Mockito.verify(actualBeach).setMaxHeight(100);
     }
 }
-
-/*
-    public ActualBeach setActualBeachIfNotSet(ActualBeach actualBeach) {
-        if(actualBeach.getName() == null || actualBeach.getName().isEmpty()){
-            List<Beach> beaches = beachDao.findAll();
-            if(beaches.size() != 0) {
-                Beach firstBeachFromDatabase = beaches.get(0);
-                actualBeach.setId(firstBeachFromDatabase.getId());
-                actualBeach.setName(firstBeachFromDatabase.getName());
-                actualBeach.setMaxWidth(firstBeachFromDatabase.getMaxWidth());
-                actualBeach.setMaxHeight(firstBeachFromDatabase.getMaxHeight());
-            } else {
-                LOG.error("Error while loading data from database");
-            }
-        }
-        return actualBeach;
-    }*/

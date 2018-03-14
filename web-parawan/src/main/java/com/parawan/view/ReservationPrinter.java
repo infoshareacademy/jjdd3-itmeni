@@ -25,7 +25,7 @@ public class ReservationPrinter {
         return listOfPlaces;
     }
 
-    private List<Place> createPlaces(int maxWidth, int maxHeight) {
+     List<Place> createPlaces(int maxWidth, int maxHeight) {
 
         List<Place> listOfPlaces = new ArrayList<>();
         int x = 0;
@@ -44,7 +44,7 @@ public class ReservationPrinter {
         return listOfPlaces;
     }
 
-    private void setWhenMatch(Place place, List<Reservation> reservations) {
+     void setWhenMatch(Place place, List<Reservation> reservations) {
 
         for (Reservation reservation : reservations) {
             if (place.getId() == reservation.getPlaceId()) {
