@@ -1,6 +1,5 @@
 package com.parawan.view;
 
-import com.parawan.model.Reservation;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
