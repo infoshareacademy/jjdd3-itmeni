@@ -59,7 +59,7 @@ public class ItemManagementServlet extends HttpServlet {
         }
     }
 
-    private int [] numberOfItemsStillToRent(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+     int [] numberOfItemsStillToRent(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 
         int amountOfScreen = 200;
         int amountOfUmbrella = 200;
