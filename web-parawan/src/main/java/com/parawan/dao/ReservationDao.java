@@ -48,7 +48,7 @@ public class ReservationDao {
 
     public List<Reservation> findByHour(Integer hour) {
         Query query = entityManager.createQuery("SELECT r FROM Reservation r WHERE r.hourOfReservation = :param AND "
-                + "r.beach=" +actualBeach.getId());
+                + "r.beach=" + actualBeach.getId());
         query.setParameter("param", hour);
         return query.getResultList();
     }
@@ -62,4 +62,13 @@ public class ReservationDao {
         List<Reservation> foundReservations = query.getResultList();
         return (!foundReservations.isEmpty());
     }
+
+    /*public void deleteByHourAndId(Integer hour, Integer placeId) {
+        Query query = entityManager.createQuery("SELECT r FROM Reservation r WHERE r.hourOfReservation = :param1 AND r.placeId = :param2");
+        query.setParameter("param1", hour);
+        query.setParameter("param2", placeId);
+        entityManager.remove(r);
+    }*/
+
+
 }

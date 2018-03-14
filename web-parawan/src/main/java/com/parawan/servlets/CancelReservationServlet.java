@@ -33,12 +33,16 @@ public class CancelReservationServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
+        int firstId = 1;
+        int lastId = (actualBeach.getMaxWidth()) * (actualBeach.getMaxHeight());
         Template template = TemplateProvider.createTemplate(getServletContext(), "basepage.ftlh");
         PrintWriter printWriter = resp.getWriter();
 
         Map<String, Object> dataModel = new HashMap<>();
         dataModel.put("actualBeach", actualBeach);
         dataModel.put("bodytemplate", "cancel-reservation");
+        dataModel.put("firstId", firstId);
+        dataModel.put("lastId", lastId);
         List<String> errors = (List<String>) req.getSession().getAttribute("errors");
         if (errors != null && !errors.isEmpty()) {
             dataModel.put("errors", errors);
@@ -55,11 +59,12 @@ public class CancelReservationServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        int cancelationHour = Integer.parseInt(req.getParameter("cancelHour"));
+        int cancelationId = Integer.parseInt(req.getParameter("cancelId"));
+        //CancelReservation cancelReservation = new CancelReservation();
 
-        CancelReservation cancelReservation = new CancelReservation();
-
-        cancelReservation.setCancelId(Integer.parseInt(req.getParameter("cancelId")));
-        cancelReservation.setCancelHour(Integer.parseInt(req.getParameter("cancelHour")));
+        //cancelReservation.setCancelId(Integer.parseInt(req.getParameter("cancelId")));
+        //cancelReservation.setCancelHour(Integer.parseInt(req.getParameter("cancelHour")));
 
         resp.sendRedirect("/parawan/main-menu");
     }

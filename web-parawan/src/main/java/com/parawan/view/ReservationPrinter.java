@@ -44,13 +44,14 @@ public class ReservationPrinter {
         return listOfPlaces;
     }
 
-     void setWhenMatch(Place place, List<Reservation> reservations) {
+     Place setWhenMatch(Place place, List<Reservation> reservations) {
 
         for (Reservation reservation : reservations) {
             if (place.getId() == reservation.getPlaceId()) {
                 place.setOccupied(true);
             }
         }
+        return place;
     }
 
 

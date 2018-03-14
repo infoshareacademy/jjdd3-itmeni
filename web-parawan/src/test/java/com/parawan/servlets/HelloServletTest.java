@@ -57,6 +57,6 @@ public class HelloServletTest {
         Mockito.verify(actualBeach).setId(1);
         Mockito.verify(actualBeach).setName("testBeach");
         Mockito.verify(actualBeach).setMaxWidth(15);
-        Mockito.verify(actualBeach).setMaxHeight(100);
+        Mockito.verify(actualBeach).setMaxHeight(10);
     }
 }
