@@ -3,7 +3,7 @@
 <#include "/default/head.html">
 <body>
   <#include "/default/parawan-header.html">
-<div class="parawan-body">
+<div class="container-fluid parawan-body">
 
     <#include "/${bodytemplate}.ftlh">
 

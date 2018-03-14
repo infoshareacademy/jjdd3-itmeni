@@ -54,3 +54,9 @@ a {
     horiz-align: center;
     text-align: center;
 }
+.btn {
+    padding: 0.5rem;
+}
+.row{
+    max-width: fit-content;
+}
