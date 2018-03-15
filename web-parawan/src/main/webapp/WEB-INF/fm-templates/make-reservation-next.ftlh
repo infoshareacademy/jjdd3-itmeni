@@ -22,14 +22,14 @@
             Choose ID: <input type="number" name="chosenId" value="${idFromLastStep}" min="${firstId}" max="${lastId}"
                               required/><br/><br/>
             Choose name: <input type="text" name="chosenName" required autofocus/><br/><br/>
-            Rent a screen:<br/> <input type="radio" name="chosenScreen" value="s"/>yes
-            <input type="radio" name="chosenScreen" value="z" checked/>no<br/><br/>
-            Rent an umbrella:<br/>  <input type="radio" name="chosenUmbrella" value="u"/>yes
-            <input type="radio" name="chosenUmbrella" value="z" checked/>no<br/><br/>
-            Rent a Towel:<br/>  <input type="radio" name="chosenTowel" value="t"/>yes
-            <input type="radio" name="chosenTowel" value="z" checked/>no<br/><br/>
-            Rent a Sunbed:<br/>  <input type="radio" name="chosenSunbed" value="b"/>yes
-            <input type="radio" name="chosenSunbed" value="z" checked/>no<br/><br/>
+            Rent a screen:<br/><label><input type="radio" name="chosenScreen" value="s"/>&nbsp;yes</label>
+            <label><input type="radio" name="chosenScreen" value="z" checked/>&nbsp;no</label><br/><br/>
+            Rent an umbrella:<br/>  <label><input type="radio" name="chosenUmbrella" value="u"/>&nbsp;yes</label>
+            <label><input type="radio" name="chosenUmbrella" value="z" checked/>&nbsp;no</label><br/><br/>
+            Rent a Towel:<br/>  <label><input type="radio" name="chosenTowel" value="t"/>&nbsp;yes</label>
+            <label><input type="radio" name="chosenTowel" value="z" checked/>&nbsp;no</label><br/><br/>
+            Rent a Sunbed:<br/>  <label><input type="radio" name="chosenSunbed" value="b"/>&nbsp;yes</label>
+            <label><input type="radio" name="chosenSunbed" value="z" checked/>&nbsp;no</label><br/><br/>
             <input type="submit" class="btn btn-primary" name="save" value="make reservation"/><br/><br/>
         </form>
     </div>

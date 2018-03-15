@@ -4,6 +4,7 @@ import com.parawan.com.menu.ItemManagement;
 import com.parawan.dao.ReservationDao;
 import com.parawan.datamanager.ReadReservationsFromFile;
 import com.parawan.freemarker.TemplateProvider;
+import com.parawan.model.ActualBeach;
 import com.parawan.model.Reservation;
 import com.parawan.reservation.ReservationTable;
 import freemarker.template.Template;
@@ -30,6 +31,9 @@ public class ItemManagementServlet extends HttpServlet {
     @Inject
     private ReservationDao reservationDao;
 
+    @Inject
+    private ActualBeach actualBeach;
+
     private static final Logger LOG = LoggerFactory.getLogger(ItemManagementServlet.class);
 
     @Override
@@ -49,6 +53,7 @@ public class ItemManagementServlet extends HttpServlet {
 
         Template template = TemplateProvider.createTemplate(getServletContext(), "basepage.ftlh");
         dataModel.put("bodytemplate", "item-management");
+        dataModel.put("actualBeach", actualBeach);
 
         PrintWriter printWriter = resp.getWriter();
 

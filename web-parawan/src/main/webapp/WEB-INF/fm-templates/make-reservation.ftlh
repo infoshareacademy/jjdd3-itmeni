@@ -12,7 +12,7 @@
             </#list>
         </#if>
             <form method="get" action="/parawan/make-reservation">
-                Choose hour: <input type="number" name="status" min="9" max="19" required/>
+                Choose hour: <input type="number" name="status" min="9" max="18" value="${(hour)!}" required/>
                 <input type="submit" class="btn btn-primary" value="check beach status"/>
             </form>
             <br/>
