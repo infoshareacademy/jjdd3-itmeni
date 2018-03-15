@@ -1,11 +1,13 @@
 package com.parawan.servlets;
 
+import com.auth0.SessionUtils;
 import com.parawan.dao.BeachDao;
 import com.parawan.freemarker.TemplateProvider;
 import com.parawan.model.ActualBeach;
 import com.parawan.model.Beach;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
+import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.inject.Inject;
@@ -19,7 +21,6 @@ import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import org.slf4j.Logger;
 
 @WebServlet("/hello-servlet")
 public class HelloServlet extends HttpServlet {
@@ -34,6 +35,10 @@ public class HelloServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+        final String accessToken = (String) SessionUtils.get(req, "accessToken");
+        final String idToken = (String) SessionUtils.get(req, "idToken");
+
         setActualBeachIfNotSet(actualBeach);
         Map<String, Object> dataModel = new HashMap<>();
         List<Beach> beaches = beachDao.findAll();
@@ -48,7 +53,19 @@ public class HelloServlet extends HttpServlet {
         } catch (TemplateException e) {
             LOG.error("Error while loading freemarker template", e);
         }
+
+
+
+        if (accessToken != null) {
+            req.setAttribute("userId", accessToken);
+        } else if (idToken != null) {
+            req.setAttribute("userId", idToken);
+        }
+        req.getRequestDispatcher("/WEB-INF/jsp/home.jsp").forward(req, resp);
     }
+
+
+
 
     public ActualBeach setActualBeachIfNotSet(ActualBeach actualBeach) {
         if(actualBeach.getName() == null || actualBeach.getName().isEmpty()){

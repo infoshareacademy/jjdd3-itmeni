@@ -21,6 +21,6 @@ public class HomeServlet extends HttpServlet {
         } else if (idToken != null) {
             req.setAttribute("userId", idToken);
         }
-        req.getRequestDispatcher("/generaterandomdata").forward(req, res);
+        req.getRequestDispatcher("/WEB-INF/jsp/home.jsp").forward(req, res);
     }
 }

@@ -1,6 +1,6 @@
 package com.parawan.authorisation;
 
-import com.auth0.SessionUtils;
+import  com.auth0.SessionUtils;
 
 import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;
@@ -11,7 +11,7 @@ import java.io.IOException;
 /**
  * Filter class to check if a valid session exists. This will be true if the User Id is present.
  */
-@WebFilter(urlPatterns = "localhost/*")
+@WebFilter(urlPatterns = "localhost:8080/*")
 public class Auth0Filter implements Filter {
 
     @Override
@@ -27,8 +27,10 @@ public class Auth0Filter implements Filter {
      **/
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain next) throws IOException, ServletException {
+
         HttpServletRequest req = (HttpServletRequest) request;
         HttpServletResponse res = (HttpServletResponse) response;
+
         String accessToken = (String) SessionUtils.get(req, "accessToken");
         String idToken = (String) SessionUtils.get(req, "idToken");
         if (accessToken == null && idToken == null) {
