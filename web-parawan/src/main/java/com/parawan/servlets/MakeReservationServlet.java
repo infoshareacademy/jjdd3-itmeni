@@ -45,15 +45,7 @@ public class MakeReservationServlet extends HttpServlet {
         dataModel.put("bodytemplate", "make-reservation");
 
         this.putErrorToDataModel(dataModel, req);
-
-        if (req.getParameter("status") != null || req.getParameter("status").isEmpty()) {
-            int hour = Integer.parseInt(req.getParameter("status"));
-            List<Place> places = reservationPrinter.beachToPrint(hour);
-            dataModel.put("places", places);
-            dataModel.put("hour", hour);
-        }
-
-        dataModel.put("actualBeach", actualBeach);
+        this.putPlacesAndStatusToDataModel(dataModel, req);
 
         PrintWriter printWriter = resp.getWriter();
         try {
@@ -76,6 +68,16 @@ public class MakeReservationServlet extends HttpServlet {
         if (errors != null && !errors.isEmpty()) {
             dataModel.put("errors", errors);
             req.getSession().removeAttribute("errors");
+        }
+        return dataModel;
+    }
+
+    Map<String, Object> putPlacesAndStatusToDataModel (Map<String, Object> dataModel, HttpServletRequest req) {
+        if (req.getParameter("status") != null || req.getParameter("status").isEmpty()) {
+            int hour = Integer.parseInt(req.getParameter("status"));
+            List<Place> places = reservationPrinter.beachToPrint(hour);
+            dataModel.put("places", places);
+            dataModel.put("hour", hour);
         }
         return dataModel;
     }
