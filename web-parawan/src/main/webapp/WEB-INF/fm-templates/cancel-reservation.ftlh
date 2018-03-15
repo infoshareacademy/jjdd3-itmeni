@@ -1,10 +1,10 @@
 
 <h2>Please fill below to cancel your reservation:</h2>
 <p>Beach is open from 9:00 to 19:00</p>
-<form method="post" action="/cancel-reservation">
-    Choose ID: <input type="number" name="cancelId" value="${(user.id)!}"min="1" max="200" required/><br/><br/>
-    Choose hour: <input type="number" name="cancelHour" value="${(user.name)!}" min="9" max="19" required/><br/><br/>
-    <input type="submit" name="save" value="save"/><br/><br/>
+<form method="post" action="/parawan/cancel-reservation">
+    Choose ID: <input type="number" name="cancelId" min="${firstId}" max="${lastId}" required/><br/><br/>
+    Choose hour: <input type="number" name="cancelHour" min="9" max="19" required/><br/><br/>
+    <input type="submit"  value="save"/><br/><br/>
 </form>
 <#if errors??>
     <#list errors>
