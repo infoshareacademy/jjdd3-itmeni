@@ -30,12 +30,13 @@ public class MakeReservationServletTest {
     MakeReservationServlet makeReservationServlet;
 
     @Test
-    public void gsg (){
+    public void dataModelShouldContainsSomeElements (){
+
         //Given
         Mockito.when(request.getSession()).thenReturn(httpSession);
 
         List <String> possibleErrors = new ArrayList<>();
-        possibleErrors.add("gsg");
+        possibleErrors.add("potential error");
         Map<String, Object> dataModel = new HashMap<>();
         Mockito.when(httpSession.getAttribute("errors")).thenReturn(possibleErrors);
 

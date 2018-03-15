@@ -46,19 +46,12 @@ public class MakeReservationServlet extends HttpServlet {
 
         this.putErrorToDataModel(dataModel, req);
 
-        /*List<String> errors = (List<String>) req.getSession().getAttribute("errors");
-
-        if (errors != null && !errors.isEmpty()) {
-            dataModel.put("errors", errors);
-            req.getSession().removeAttribute("errors");
-        }*/
         if (req.getParameter("status") != null || req.getParameter("status").isEmpty()) {
             int hour = Integer.parseInt(req.getParameter("status"));
             List<Place> places = reservationPrinter.beachToPrint(hour);
             dataModel.put("places", places);
             dataModel.put("hour", hour);
         }
-
 
         dataModel.put("actualBeach", actualBeach);
 

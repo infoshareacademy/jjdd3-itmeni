@@ -72,6 +72,4 @@ public class ReservationDao {
         Reservation reservation = (Reservation) (query.getResultList().get(0));
         entityManager.remove(reservation);
     }
-
-
 }
