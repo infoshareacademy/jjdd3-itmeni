@@ -12,6 +12,21 @@
     <password>pass123</password>
   </data-source>
 
+  <context-param>
+    <param-name>com.auth0.domain</param-name>
+    <param-value>parawanlogintest.eu.auth0.com</param-value>
+  </context-param>
+
+  <context-param>
+    <param-name>com.auth0.clientId</param-name>
+    <param-value>v2Mms_V_azYz0u8UTzGMf_hrh_2N_xJO</param-value>
+  </context-param>
+
+  <context-param>
+    <param-name>com.auth0.clientSecret</param-name>
+    <param-value>uEzu5AD9pyYbYVDz4HpMmj7KjEFsldNxd-JovBvBi0ISrWlwcNhAqkqEDl4cpROt</param-value>
+  </context-param>
+
 
 
 </web-app>
