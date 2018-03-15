@@ -1,6 +1,8 @@
 package com.parawan.servlets;
 
 import com.parawan.com.menu.CancelReservation;
+import com.parawan.dao.BeachDao;
+import com.parawan.dao.ReservationDao;
 import com.parawan.freemarker.TemplateProvider;
 import com.parawan.model.ActualBeach;
 import freemarker.template.Template;
@@ -29,6 +31,12 @@ public class CancelReservationServlet extends HttpServlet {
 
     @Inject
     private ActualBeach actualBeach;
+
+    @Inject
+    private ReservationDao reservationDao;
+
+    @Inject
+    private BeachDao beachDao;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -59,12 +67,11 @@ public class CancelReservationServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
         int cancelationHour = Integer.parseInt(req.getParameter("cancelHour"));
         int cancelationId = Integer.parseInt(req.getParameter("cancelId"));
-        //CancelReservation cancelReservation = new CancelReservation();
 
-        //cancelReservation.setCancelId(Integer.parseInt(req.getParameter("cancelId")));
-        //cancelReservation.setCancelHour(Integer.parseInt(req.getParameter("cancelHour")));
+        reservationDao.deleteByHourAndId(cancelationHour, cancelationId, beachDao.findById(actualBeach.getId()));
 
         resp.sendRedirect("/parawan/main-menu");
     }

@@ -40,7 +40,6 @@ public class HelloServletTest {
         //Then
         assertEquals(result, expected);
     }
-
     @Test
     public void shouldReturnNameOfBeachThatIsNotSetButIsFirstOnLIst() {
 
@@ -50,6 +49,7 @@ public class HelloServletTest {
         listOfTestBeaches.add(beach);
         Mockito.when(actualBeach.getName()).thenReturn(null);
         Mockito.when(beachDao.findAll()).thenReturn(listOfTestBeaches);
+
         //When
         ActualBeach result = helloServlet.setActualBeachIfNotSet(actualBeach);
 

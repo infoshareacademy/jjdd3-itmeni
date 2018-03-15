@@ -8,6 +8,7 @@ import org.mockito.Mockito;
 import org.mockito.runners.MockitoJUnitRunner;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -22,36 +23,27 @@ public class MakeReservationServletTest {
     @Mock
     HttpServletRequest request;
 
+    @Mock
+    HttpSession httpSession;
+
     @InjectMocks
     MakeReservationServlet makeReservationServlet;
 
     @Test
     public void gsg (){
         //Given
+        Mockito.when(request.getSession()).thenReturn(httpSession);
+
         List <String> possibleErrors = new ArrayList<>();
         possibleErrors.add("gsg");
         Map<String, Object> dataModel = new HashMap<>();
-        Mockito.when(request.getSession().getAttribute("errors")).thenReturn(possibleErrors);
+        Mockito.when(httpSession.getAttribute("errors")).thenReturn(possibleErrors);
 
         //When
         makeReservationServlet.putErrorToDataModel(dataModel, request);
 
         //Then
-        assertTrue(dataModel.isEmpty());
-
-
-
+        assertTrue(!dataModel.isEmpty());
     }
-
 }
 
-    /*Map<String, Object> putErrorToDataModel(Map<String, Object> dataModel, HttpServletRequest req) {
-
-        List<String> errors = (List<String>) req.getSession().getAttribute("errors");
-
-        if (errors != null && !errors.isEmpty()) {
-            dataModel.put("errors", errors);
-            req.getSession().removeAttribute("errors");
-        }
-        return dataModel;
-    }*/

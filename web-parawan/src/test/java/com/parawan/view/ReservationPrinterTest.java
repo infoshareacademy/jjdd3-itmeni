@@ -4,7 +4,6 @@ package com.parawan.view;
 import com.parawan.dao.ReservationDao;
 import com.parawan.model.ActualBeach;
 import com.parawan.model.Reservation;
-import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -44,7 +43,6 @@ public class ReservationPrinterTest {
         //Then
         assertEquals(expected, result);
     }
-
     @Test
     public void shouldSetOccupiedStatusForPlaceToTrue() {
 
@@ -78,13 +76,8 @@ public class ReservationPrinterTest {
 
         //Then
         assertTrue(!result.isEmpty());
-        //assertTrue(result.get(0).isOccupied());
+        assertTrue(result.get(14).isOccupied());
     }
 }
-   /* public List<Place> beachToPrint(Integer hour){
-        List<Reservation> reservations = reservationDao.findByHour(hour);
-        List<Place> listOfPlaces = this.createPlaces(actualBeach.getMaxWidth(), actualBeach.getMaxHeight());
-        listOfPlaces.forEach(x -> setWhenMatch(x, reservations));
-        return listOfPlaces;
-    }*/
+
 
