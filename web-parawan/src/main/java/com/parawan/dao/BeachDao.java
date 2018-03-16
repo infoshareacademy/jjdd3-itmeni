@@ -1,18 +1,25 @@
 package com.parawan.dao;
 
+import com.parawan.model.ActualBeach;
 import com.parawan.model.Beach;
 
 import javax.ejb.Singleton;
+import javax.ejb.Stateless;
+import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import java.util.List;
 
-@Singleton
+@Stateless
 public class BeachDao {
 
     @PersistenceContext
     private EntityManager entityManager;
+
+    @Inject
+    private ActualBeach actualBeach;
+
 
     public Integer save(Beach b) {
         entityManager.persist(b);

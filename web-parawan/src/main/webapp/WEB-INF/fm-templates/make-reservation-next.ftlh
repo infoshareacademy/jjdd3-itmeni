@@ -1,10 +1,18 @@
-<#if ((isAlreadyReserved = true)??) >chosenclass="alert alert-dismissible alert-warning">
+<#if ((isAlreadyReserved == true)??) >
+<div class="alert alert-dismissible alert-warning">
     <button type="button" class="close" data-dismiss="alert">&times;</button>
     <h4 class="alert-heading">Warning!</h4>
     <p class="mb-0">I'm sorry but the place is already reserved</p>
 </div>
 </#if>
-<#if ((isReserved = true)??) >
+<#if ((itemNotAvailable == true)??) >
+<div class="alert alert-dismissible alert-warning">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <h4 class="alert-heading">Warning!</h4>
+    <p class="mb-0">I'm sorry but ordered item/s are not available</p>
+</div>
+</#if>
+<#if ((isReserved == true)??) >
     <p>You have successfully reserved a place.</p>
 
 <div class="alert alert-dismissible alert-success">

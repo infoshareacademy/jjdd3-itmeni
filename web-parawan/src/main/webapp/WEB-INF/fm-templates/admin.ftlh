@@ -35,33 +35,29 @@
             <fieldset>
                 <legend>Manage items for rent on: ${actualBeach.name}</legend>
                 <div class="form-group">
-                    <label for="screen">Screen:</label>
+                    <label for="screen">Screens:</label>
                     <input type="number" class="form-control" id="screen" name="screen">
                 </div>
                 <div class="form-group">
-                    <label for="umbrella">Enter number of places by length</label>
+                    <label for="umbrella">Umbrellas:</label>
                     <input type="number" class="form-control" id="umbrella" value="umbrella">
                     </input>
                 </div>
                 <div class="form-group">
-                    <label for="umbrella">Enter number of places by length</label>
-                    <input type="number" class="form-control" id="umbrella" value="umbrella">
+                    <label for="umbrella">Towels:</label>
+                    <input type="number" class="form-control" id="towel" value="towel">
                     </input>
                 </div>
                 <div class="form-group">
-                    <label for="umbrella">Enter number of places by length</label>
-                    <input type="number" class="form-control" id="umbrella" value="umbrella">
-                    </input>
-                </div>
-                <div class="form-group">
-                    <label for="exampleSelect1">Enter number of places by width</label>
-                    <input type="number" class="form-control" id="exampleSelect1">
+                    <label for="sunbed">Sunbeds:</label>
+                    <input type="number" class="form-control" id="sunbed" value="sunbed">
                     </input>
                 </div>
 
+
                 <div class="form-group">
                     <small id="fileHelp" class="form-text text-muted" style="text-align: justify">
-                        Remember to enter all above fields. Please remember not to enter too high values, better split too big beach to ensure easier administration.
+                        Remember to double-check that you are on the right beach.
                     </small>
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>

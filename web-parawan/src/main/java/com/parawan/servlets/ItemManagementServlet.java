@@ -1,12 +1,10 @@
 package com.parawan.servlets;
 
-import com.parawan.com.menu.ItemManagement;
+import com.parawan.dao.ItemDao;
 import com.parawan.dao.ReservationDao;
-import com.parawan.datamanager.ReadReservationsFromFile;
 import com.parawan.freemarker.TemplateProvider;
 import com.parawan.model.ActualBeach;
 import com.parawan.model.Reservation;
-import com.parawan.reservation.ReservationTable;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
 import org.slf4j.Logger;
@@ -33,6 +31,9 @@ public class ItemManagementServlet extends HttpServlet {
 
     @Inject
     private ActualBeach actualBeach;
+
+    @Inject
+    private ItemDao itemDao;
 
     private static final Logger LOG = LoggerFactory.getLogger(ItemManagementServlet.class);
 
@@ -65,12 +66,12 @@ public class ItemManagementServlet extends HttpServlet {
         }
     }
 
-     int [] numberOfItemsStillToRent(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+     protected int [] numberOfItemsStillToRent(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 
-        int amountOfScreen = 200;
-        int amountOfUmbrella = 200;
-        int amountOfTowel = 200;
-        int amountOfSunbed = 200;
+        int amountOfScreen = itemDao.getItemByAbbreviation("s").getQuantity();
+        int amountOfUmbrella = itemDao.getItemByAbbreviation("u").getQuantity();
+        int amountOfTowel = itemDao.getItemByAbbreviation("t").getQuantity();
+        int amountOfSunbed = itemDao.getItemByAbbreviation("b").getQuantity();
 
         int rentedAmountOfScreen = 0;
         int rentedAmountOfUmbrella = 0;
