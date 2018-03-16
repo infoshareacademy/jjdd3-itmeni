@@ -20,6 +20,9 @@ public class ReservationDao {
     @Inject
     private ActualBeach actualBeach;
 
+    @Inject
+    private BeachDao beachDao;
+
     public Long save(Reservation s) {
         entityManager.persist(s);
         return s.getIdOfReservation();
@@ -49,8 +52,9 @@ public class ReservationDao {
 
     public List<Reservation> findByHour(Integer hour) {
         Query query = entityManager.createQuery("SELECT r FROM Reservation r WHERE r.hourOfReservation = :param AND "
-                + "r.beach=" + actualBeach.getId());
+                + "r.beach= :param2");
         query.setParameter("param", hour);
+        query.setParameter("param2", beachDao.findById(actualBeach.getId()));
         return query.getResultList();
     }
 
