@@ -65,10 +65,7 @@ public class ItemManagementServlet extends HttpServlet {
 
     protected int[] numberOfItemsStillToRent(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 
-        int amountOfScreen = itemDao.getItemByAbbreviation("s").getQuantity();
-        int amountOfUmbrella = itemDao.getItemByAbbreviation("u").getQuantity();
-        int amountOfTowel = itemDao.getItemByAbbreviation("t").getQuantity();
-        int amountOfSunbed = itemDao.getItemByAbbreviation("b").getQuantity();
+        int[] items = this.getItemsFromDatabase();
 
         int rentedAmountOfScreen = 0;
         int rentedAmountOfUmbrella = 0;
@@ -92,13 +89,21 @@ public class ItemManagementServlet extends HttpServlet {
                 rentedAmountOfSunbed++;
             }
         }
-        int stillToRentScreen = amountOfScreen - rentedAmountOfScreen;
-        int stillToRentUmbrella = amountOfUmbrella - rentedAmountOfUmbrella;
-        int stillToRentTowel = amountOfTowel - rentedAmountOfTowel;
-        int stillToRentSunbed = amountOfSunbed - rentedAmountOfSunbed;
+        int stillToRentScreen = items[0] - rentedAmountOfScreen;
+        int stillToRentUmbrella = items[1] - rentedAmountOfUmbrella;
+        int stillToRentTowel = items[2] - rentedAmountOfTowel;
+        int stillToRentSunbed = items[3] - rentedAmountOfSunbed;
 
         int[] forRent = {stillToRentScreen, stillToRentUmbrella, stillToRentTowel, stillToRentSunbed};
 
         return forRent;
+    }
+
+    protected int[] getItemsFromDatabase() {
+        int amountOfScreen = itemDao.getItemByAbbreviation("s").getQuantity();
+        int amountOfUmbrella = itemDao.getItemByAbbreviation("u").getQuantity();
+        int amountOfTowel = itemDao.getItemByAbbreviation("t").getQuantity();
+        int amountOfSunbed = itemDao.getItemByAbbreviation("b").getQuantity();
+        return new int[]{amountOfScreen, amountOfUmbrella, amountOfTowel, amountOfSunbed};
     }
 }

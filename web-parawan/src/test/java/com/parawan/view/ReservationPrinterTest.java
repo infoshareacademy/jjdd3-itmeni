@@ -60,7 +60,7 @@ public class ReservationPrinterTest {
         assertTrue(place.isOccupied());
     }
     @Test
-    public void blblblb(){
+    public void shouldMapReservationsToPlaces(){
 
         //Given
         Long idOfReservation = (long) 1;

@@ -13,8 +13,6 @@
 </div>
 </#if>
 <#if ((isReserved == true)??) >
-    <p>You have successfully reserved a place.</p>
-
 <div class="alert alert-dismissible alert-success">
     <button type="button" class="close" data-dismiss="alert">&times;</button>
     <strong>Great!</strong> You successfully reserved a place! <a href="/parawan/main-menu" class="alert-link">Go

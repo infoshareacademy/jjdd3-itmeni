@@ -127,6 +127,7 @@ public class MakeReservationNextServlet extends HttpServlet {
         if (!checkItems.isItemAvailable(sb.toString(), Integer.parseInt(req.getParameter("chosenHour")))){
             req.setAttribute("itemNotAvailable", true);
             this.doGet(req, resp);
+            resp.sendRedirect("parawan/make-reservation-next");
         }
 
         if (!reservationDao.checkIfAlreadyReserved(reservation)) {

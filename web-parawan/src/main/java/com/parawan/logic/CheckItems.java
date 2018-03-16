@@ -18,8 +18,6 @@ public class CheckItems {
     @Inject
     private ItemDao itemDao;
 
-
-
     public boolean isItemAvailable(String items, int hour) {
 
         List<Item> listOfItems = itemDao.findAll();
