@@ -43,6 +43,7 @@ public class ReservationPrinterTest {
         //Then
         assertEquals(expected, result);
     }
+
     @Test
     public void shouldSetOccupiedStatusForPlaceToTrue() {
 
@@ -59,8 +60,9 @@ public class ReservationPrinterTest {
         //Then
         assertTrue(place.isOccupied());
     }
+
     @Test
-    public void shouldMapReservationsToPlaces(){
+    public void shouldMapReservationsToPlaces() {
 
         //Given
         Long idOfReservation = (long) 1;
@@ -79,5 +81,3 @@ public class ReservationPrinterTest {
         assertTrue(result.get(14).isOccupied());
     }
 }
-
-
