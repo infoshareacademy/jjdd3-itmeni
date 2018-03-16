@@ -76,18 +76,6 @@ public class MakeReservationNextServlet extends HttpServlet {
         this.itemReservation(reservation, req);
 
         this.setProperReservationAttribute(reservation, req, resp);
-
-  /*      Beach beach = beachDao.findById(actualBeach.getId());
-        reservation.setBeach(beach);
-        if (!reservationDao.checkIfAlreadyReserved(reservation)) {
-            reservationDao.save(reservation);
-            req.setAttribute("isReserved", true);
-            this.doGet(req, resp);
-
-        } else {
-            req.setAttribute("isAlreadyReserved", true);
-            this.doGet(req, resp);
-        }*/
     }
 
     Map<String, Object> putParameterstoDataManager(Map<String, Object> dataModel, HttpServletRequest req) {

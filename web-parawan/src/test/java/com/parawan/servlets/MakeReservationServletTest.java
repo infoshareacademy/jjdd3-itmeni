@@ -53,13 +53,13 @@ public class MakeReservationServletTest {
     }
 
     @Test
-    public void dataModelShouldContainsKeyValuePlacesAndHour (){
+    public void dataModelShouldContainsKeyValuePlacesAndHour() {
 
         //Given
         Mockito.when(request.getParameter("status")).thenReturn("13");
         Place testPlace = new Place(21, false, "", false);
         Map<String, Object> dataModel = new HashMap<>();
-        List <Place> testPlaces = new ArrayList<>();
+        List<Place> testPlaces = new ArrayList<>();
         testPlaces.add(testPlace);
         Mockito.when(reservationPrinter.beachToPrint(13)).thenReturn(testPlaces);
 
@@ -72,6 +72,3 @@ public class MakeReservationServletTest {
         assertTrue(dataModel.containsKey("hour"));
     }
 }
-
-
-
