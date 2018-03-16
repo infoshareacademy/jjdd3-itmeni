@@ -1,7 +1,9 @@
 package com.parawan.servlets;
 
+import com.parawan.dao.ItemDao;
 import com.parawan.freemarker.TemplateProvider;
 import com.parawan.model.ActualBeach;
+import com.parawan.model.Item;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
 import org.slf4j.Logger;
@@ -26,6 +28,9 @@ public class AdminServlet extends HttpServlet {
     @Inject
     private ActualBeach actualBeach;
 
+    @Inject
+    private ItemDao itemDao;
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
@@ -45,11 +50,30 @@ public class AdminServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        super.doPost(req, resp);
+        setItems(req, resp);
     }
 
-    protected void setItems(){
+    protected void setItems(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+       Item screen = itemDao.getItemByAbbreviation("s");
+       Item umbrella = itemDao.getItemByAbbreviation("u");
+       Item towel = itemDao.getItemByAbbreviation("t");
+       Item sunbed = itemDao.getItemByAbbreviation("b");
 
+       int newAmountOfScreens = Integer.parseInt(req.getParameter("screen"));
+       int newAmountOfUmbrellas = Integer.parseInt(req.getParameter("umbrella"));
+       int newAmountOfTowels = Integer.parseInt(req.getParameter("towel"));
+       int newAmountOfSunbeds = Integer.parseInt(req.getParameter("sunbed"));
 
+       screen.setQuantity(newAmountOfScreens);
+       umbrella.setQuantity(newAmountOfUmbrellas);
+       towel.setQuantity(newAmountOfTowels);
+       sunbed.setQuantity(newAmountOfSunbeds);
+
+       itemDao.update(screen);
+       itemDao.update(umbrella);
+       itemDao.update(towel);
+       itemDao.update(sunbed);
+
+       resp.sendRedirect("/parawan/main-menu");
     }
 }

@@ -81,6 +81,14 @@ public class GenerateRandomData extends HttpServlet {
         itemDao.save(umbrella);
         itemDao.save(towel);
         itemDao.save(sunbed);
+        Item screen2 = new Item("screen", "s", 150, beach2);
+        Item umbrella2 = new Item("umbrella", "u", 150, beach2);
+        Item towel2 = new Item("towel", "t", 150, beach2);
+        Item sunbed2 = new Item("sunbed", "b", 150, beach2);
+        itemDao.save(screen2);
+        itemDao.save(umbrella2);
+        itemDao.save(towel2);
+        itemDao.save(sunbed2);
 
         resp.sendRedirect("/parawan/main-menu");
     }

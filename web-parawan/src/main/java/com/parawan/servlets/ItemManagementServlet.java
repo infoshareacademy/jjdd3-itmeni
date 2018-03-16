@@ -26,16 +26,13 @@ import java.util.Map;
 @WebServlet("/parawan/item-management")
 public class ItemManagementServlet extends HttpServlet {
 
+    private static final Logger LOG = LoggerFactory.getLogger(ItemManagementServlet.class);
     @Inject
     private ReservationDao reservationDao;
-
     @Inject
     private ActualBeach actualBeach;
-
     @Inject
     private ItemDao itemDao;
-
-    private static final Logger LOG = LoggerFactory.getLogger(ItemManagementServlet.class);
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -66,7 +63,7 @@ public class ItemManagementServlet extends HttpServlet {
         }
     }
 
-     protected int [] numberOfItemsStillToRent(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+    protected int[] numberOfItemsStillToRent(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 
         int amountOfScreen = itemDao.getItemByAbbreviation("s").getQuantity();
         int amountOfUmbrella = itemDao.getItemByAbbreviation("u").getQuantity();

@@ -1,4 +1,4 @@
-package com.parawan.Logic;
+package com.parawan.logic;
 
 import com.parawan.dao.ItemDao;
 import com.parawan.dao.ReservationDao;
@@ -7,8 +7,6 @@ import com.parawan.model.Reservation;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 import java.util.List;
 
 @Stateless
@@ -20,10 +18,11 @@ public class CheckItems {
     @Inject
     private ItemDao itemDao;
 
+
+
     public boolean isItemAvailable(String items, int hour) {
 
         List<Item> listOfItems = itemDao.findAll();
-
         List<Reservation> reservations = reservationDao.findByHour(hour);
         for (Item item : listOfItems) {
             Integer numberORentedItems = Math.toIntExact(reservations.stream()

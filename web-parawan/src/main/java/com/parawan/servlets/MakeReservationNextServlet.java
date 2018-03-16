@@ -1,6 +1,6 @@
 package com.parawan.servlets;
 
-import com.parawan.Logic.CheckItems;
+import com.parawan.logic.CheckItems;
 import com.parawan.dao.BeachDao;
 import com.parawan.dao.ReservationDao;
 import com.parawan.freemarker.TemplateProvider;
