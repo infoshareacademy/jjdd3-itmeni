@@ -5,13 +5,11 @@
   version="3.1">
 
   <data-source>
-    <name>java:ds/parawands</name>
+    <name>java:/AppDS</name>
     <class-name>com.mysql.cj.jdbc.MysqlDataSource</class-name>
-    <url>jdbc:mysql://0.0.0.0:6603/parawan</url>
+    <url>jdbc:mysql://0.0.0.0:3306/test</url>
     <user>root</user>
-    <password>pass123</password>
+    <password>root</password>
   </data-source>
-
-
 
 </web-app>

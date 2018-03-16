@@ -1,6 +1,5 @@
 package com.parawan.dao;
 
-import com.parawan.model.Beach;
 import com.parawan.model.Reservation;
 import org.junit.Test;
 import org.junit.jupiter.api.DisplayName;

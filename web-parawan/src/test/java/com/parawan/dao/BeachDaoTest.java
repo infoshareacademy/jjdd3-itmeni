@@ -1,15 +1,18 @@
 package com.parawan.dao;
 
+
 import com.parawan.model.Beach;
 import org.junit.Test;
-import org.junit.jupiter.api.DisplayName;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 import javax.persistence.EntityManager;
+
+import static org.mockito.Matchers.any;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
 @RunWith(MockitoJUnitRunner.class)
 public class BeachDaoTest{
@@ -21,7 +24,6 @@ public class BeachDaoTest{
     public BeachDao subject;
 
     @Test
-    @DisplayName("Test should saving to db")
     public void save(){
         // given
         Beach saveBeach = new Beach ();
@@ -35,7 +37,6 @@ public class BeachDaoTest{
     }
 
     @Test
-    @DisplayName("Test should updating object to db")
     public void update(){
         // given
         Beach updateBeach = new Beach ();
@@ -48,26 +49,37 @@ public class BeachDaoTest{
     }
 
     @Test
-    @DisplayName("Test should removing object from db")
     public void delete() {
         // given
-        Integer id = 0;
-        Beach deleteBeach = new Beach ();
+        Integer dummyId = 0;
+        Beach dummyBeach = new Beach ();
 
         // when
-        subject.delete (id);
+        subject.delete(dummyId);
 
         // then
-        verify (entityManagerMock, times (1)).find (Beach.class,id);
+        verify (entityManagerMock, times (1)).find (Beach.class,dummyId);
 
-        /* DO PRZEGADANIA CZY BEZ WARTOSCI Z BAZY MOŻNA ZWERYFIKOWAC POPRAWNOSC ZACHOWANIA FUNKCJI
-        verify (entityManagerMock,times (1)).remove ();
-         */
+    }
+
+
+    @Test
+    public void deleteWithNoBeachFound() {
+        // given
+        Integer dummyId = 0;
+        Beach dummyBeach = new Beach ();
+        when(entityManagerMock.find(any(), any())).thenReturn(dummyBeach);
+
+        // when
+        subject.delete(dummyId);
+
+        // then
+        verify (entityManagerMock, times (1)).find (Beach.class,dummyId);
+        verify (entityManagerMock, times(1)).remove(dummyBeach);
 
     }
 
     @Test
-    @DisplayName("Test should find object in db")
     public void findById() {
         // given
         Integer id = 0;
@@ -80,16 +92,6 @@ public class BeachDaoTest{
         verify (entityManagerMock,times (1)).find (findBeach.getClass (),id);
     }
 
-//    @Test
-//    @DisplayName("Test should find all objects from db")
-//    public void findAll() {
-//        // given
-//
-//        // when
-//        subject.findAll ();
-//
-//        // then
-//        verify (entityManagerMock,times (1)).createQuery ("SELECT b FROM Beach b");
-//    }
 }
+
 

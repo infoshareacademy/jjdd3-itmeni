@@ -10,6 +10,7 @@
     <packaging>pom</packaging>
 
     <properties>
+
         <!-- Below property indicates the pattern of the test suite -->
         <runSuite>**/*Test.java</runSuite>
         <!-- Sonar-JaCoCo properties -->
@@ -20,9 +21,38 @@
         <sonar.junit.reportPaths>${project.basedir}/../target/surefire-reports</sonar.junit.reportPaths>
     </properties>
 
+    <dependencies>
+
+        <!-- SLF4J -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>1.7.25</version>
+        </dependency>
+
+        <!-- logback -->
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-core</artifactId>
+            <version>1.0.13</version>
+        </dependency>
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>1.0.13</version>
+        </dependency>
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-access</artifactId>
+            <version>1.3.0-alpha4</version>
+        </dependency>
+
+    </dependencies>
+
     <modules>
         <module>parawan-base</module>
         <module>web-parawan</module>
     </modules>
+
 
 </project>
