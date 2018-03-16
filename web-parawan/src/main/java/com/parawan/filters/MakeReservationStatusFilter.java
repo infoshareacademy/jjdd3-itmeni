@@ -51,7 +51,6 @@ public class MakeReservationStatusFilter extends IntegerValidator implements Fil
         filterChain.doFilter(servletRequest, servletResponse);
     }
 
-
     @Override
     public void destroy() {
 

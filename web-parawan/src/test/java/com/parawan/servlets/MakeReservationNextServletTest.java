@@ -106,5 +106,3 @@ public class MakeReservationNextServletTest {
         assertEquals(expected, result.getRentedItems());
     }
 }
-
-

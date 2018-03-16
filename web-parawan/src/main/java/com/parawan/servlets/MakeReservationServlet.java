@@ -72,7 +72,7 @@ public class MakeReservationServlet extends HttpServlet {
         return dataModel;
     }
 
-    Map<String, Object> putPlacesAndStatusToDataModel (Map<String, Object> dataModel, HttpServletRequest req) {
+    Map<String, Object> putPlacesAndStatusToDataModel(Map<String, Object> dataModel, HttpServletRequest req) {
         if (req.getParameter("status") != null || req.getParameter("status").isEmpty()) {
             int hour = Integer.parseInt(req.getParameter("status"));
             List<Place> places = reservationPrinter.beachToPrint(hour);

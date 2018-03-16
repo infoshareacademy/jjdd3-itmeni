@@ -75,6 +75,8 @@ public class MakeReservationNextServlet extends HttpServlet {
 
         this.itemReservation(reservation, req);
 
+        this.setProperReservationAttribute(reservation, req, resp);
+
   /*      Beach beach = beachDao.findById(actualBeach.getId());
         reservation.setBeach(beach);
         if (!reservationDao.checkIfAlreadyReserved(reservation)) {
