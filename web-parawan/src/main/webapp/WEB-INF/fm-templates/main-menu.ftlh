@@ -20,10 +20,15 @@
         </div>
     </div>
     <div class="col-md-4">
-        <h1>Hello friend</h1>
+        <h1>Hello!</h1>
        <div style="text-align: justify">Welcome to our wonderful beaches. You are currently on the ${actualBeach.name}.
            Please choose options on the left panel. If you have any opinion on our services
-           please contact us at beaches4everyone@parawan.com . We hope that you will have a great time with us!</div>
+           please contact us at beaches4everyone@parawan.com . We hope that you will have a great time with us! </br></br>
+
+       user id: ${userId} </br>
+       id token: ${idToken} </br>
+       access token: ${accessToken} </br>
+       </div>
     </div>
 </div>
 <br/>

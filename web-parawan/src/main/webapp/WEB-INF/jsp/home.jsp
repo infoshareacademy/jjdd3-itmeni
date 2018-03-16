@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Home Page</title>
+    <title>Paraw@n</title>
     <link rel="stylesheet" type="text/css" href="/css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="/css/jumbotron-narrow.css">
     <link rel="stylesheet" type="text/css" href="/css/home.css">
@@ -20,11 +20,11 @@
     <div class="header clearfix">
         <nav>
             <ul class="nav nav-pills pull-right">
-                <li class="active" id="home"><a href="#">Home</a></li>
+                <li class="active" id="main-menu"><a href="/parawan/main-menu">Proceed to the Main Menu</a></li>
                 <li id="logout"><a href="#">Logout</a></li>
             </ul>
         </nav>
-        <h3 class="text-muted">App.com</h3>
+        <h3 class="text-muted">Paraw@n Welcome Page</h3>
     </div>
 
     <div class="jumbotron">

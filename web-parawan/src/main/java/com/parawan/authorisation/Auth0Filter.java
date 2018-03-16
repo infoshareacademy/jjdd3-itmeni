@@ -11,7 +11,7 @@ import java.io.IOException;
 /**
  * Filter class to check if a valid session exists. This will be true if the User Id is present.
  */
-@WebFilter(urlPatterns = "localhost:8080/*")
+@WebFilter(urlPatterns = "parawan/*")
 public class Auth0Filter implements Filter {
 
     @Override

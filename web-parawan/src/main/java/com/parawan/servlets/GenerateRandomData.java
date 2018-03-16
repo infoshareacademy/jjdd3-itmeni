@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.Random;
 
-@WebServlet("/generaterandomdata")
+@WebServlet("/parawan/generaterandomdata")
 public class GenerateRandomData extends HttpServlet {
 
     @Inject
@@ -68,7 +68,7 @@ public class GenerateRandomData extends HttpServlet {
             }
             i++;
         }
-        resp.sendRedirect("/parawan/main-menu");
+        resp.sendRedirect("/parawan/home");
     }
 }
 

@@ -5,6 +5,8 @@ import com.auth0.IdentityVerificationException;
 import com.auth0.SessionUtils;
 import com.auth0.Tokens;
 import com.parawan.authorisation.AuthenticationControllerProvider;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
@@ -21,6 +23,8 @@ import java.io.UnsupportedEncodingException;
  */
 @WebServlet(urlPatterns = {"/callback"})
 public class CallbackServlet extends HttpServlet {
+
+    private static final Logger logger = LoggerFactory.getLogger(CallbackServlet.class.getName());
 
     private String redirectOnSuccess;
     private String redirectOnFail;
@@ -45,8 +49,8 @@ public class CallbackServlet extends HttpServlet {
     @Override
     public void init(ServletConfig config) throws ServletException {
         super.init(config);
-        redirectOnSuccess = "/home";
-        redirectOnFail = "/login";
+        redirectOnSuccess = "/parawan/generaterandomdata";
+        redirectOnFail = "/parawan/login";
 
         try {
             authenticationController = AuthenticationControllerProvider.getInstance(config);
