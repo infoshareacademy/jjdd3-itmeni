@@ -1,6 +1,6 @@
 <p>Beach is open from 9:00 to 19:00</p>
     <div class="row">
-        <div class="col-md-3">
+        <div class="col-md-2">
         <#if errors??>
             <#list errors>
     <ul>
@@ -23,8 +23,11 @@
                 <p>
                     <button class="btn btn-danger btn-block">RESERVED</button>
                 </p>
+            <p>
+                Click a place to proceed.
+            </p>
         </div>
-            <div class="col-md-9">
+            <div class="col-md-10">
                 <table class="table">
                     <tbody>
 

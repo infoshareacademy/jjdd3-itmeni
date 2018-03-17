@@ -1,7 +1,10 @@
 package com.parawan.servlets;
 
 import com.parawan.dao.BeachDao;
+import com.parawan.dao.ItemDao;
 import com.parawan.model.Beach;
+import com.parawan.model.Item;
+import org.junit.jupiter.api.BeforeEach;
 
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
@@ -19,6 +22,8 @@ public class CreateBeach extends HttpServlet {
     @Inject
     private BeachDao beachDao;
 
+    @Inject
+    private ItemDao itemDao;
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -27,12 +32,22 @@ public class CreateBeach extends HttpServlet {
                || req.getParameter("beachY") == null){
             resp.sendRedirect("/parawan/admin");
         } else {
-          beachDao.save(new Beach(null,
+            Beach newBeach = new Beach(null,
                     req.getParameter("beachName"),
                     Integer.parseInt(req.getParameter("beachX")),
-                    Integer.parseInt(req.getParameter("beachY"))));
-          resp.sendRedirect("/parawan/admin?createdBeach=true");
+                    Integer.parseInt(req.getParameter("beachY")));
+
+            beachDao.save(newBeach);
+            addDefaultItems(newBeach);
+            resp.sendRedirect("/parawan/admin?createdBeach=true");
         }
 
+    }
+
+  private void addDefaultItems(Beach newBeach){
+        itemDao.save(new Item("screen", "s", 0, newBeach));
+        itemDao.save(new Item("umbrella", "u", 0, newBeach));
+        itemDao.save(new Item("towel", "t", 0, newBeach));
+        itemDao.save(new Item("sunbed", "b", 0, newBeach));
     }
 }

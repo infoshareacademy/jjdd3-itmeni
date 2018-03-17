@@ -21,13 +21,13 @@
 </#if>
     <h1>Please fill all fields to make a reservation</h1>
 <div class="row">
-    <div class="col-md-3">
+    <div class="col-md-2">
         <form method="post" action="/parawan/make-reservation-next">
             Choose hour: <input type="number" name="chosenHour" value="${hourFromLastStep}" min="9" max="19"
                                 required/><br/><br/>
             Choose ID: <input type="number" name="chosenId" value="${idFromLastStep}" min="${firstId}" max="${lastId}"
                               required/><br/><br/>
-            Choose name: <input type="text" name="chosenName" required autofocus/><br/><br/>
+            Choose name: <br/><input type="text" name="chosenName" required autofocus/><br/><br/>
             Rent a screen:<br/><label><input type="radio" name="chosenScreen" value="s"/>&nbsp;yes</label>
             <label><input type="radio" name="chosenScreen" value="z" checked/>&nbsp;no</label><br/><br/>
             Rent an umbrella:<br/>  <label><input type="radio" name="chosenUmbrella" value="u"/>&nbsp;yes</label>
@@ -39,7 +39,7 @@
             <input type="submit" class="btn btn-primary" name="save" value="make reservation"/><br/><br/>
         </form>
     </div>
-    <div class="col-md-9">
+    <div class="col-md-10">
         <table class="table">
             <tbody>
         <#list places as place>

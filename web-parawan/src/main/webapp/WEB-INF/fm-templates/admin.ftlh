@@ -20,7 +20,7 @@
 </div>
 </#if>
 <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-5">
         <form method="post" action="/parawan/admin">
             <fieldset>
                 <legend>Manage items for rent on: ${actualBeach.name}</legend>
@@ -53,9 +53,10 @@
         </form>
     </div>
 </div>
+<br/>
+<br/>
 <div class="row">
-
-    <div class="col-md-6">
+    <div class="col-md-5">
         <form method="post" action="/parawan/admin/createbeach">
             <fieldset>
                 <legend>Add beach</legend>
@@ -80,7 +81,7 @@
                         split too big beach to ensure easier administration.
                     </small>
                 </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary btn-block">Submit</button>
             </fieldset>
         </form>
     </div>
