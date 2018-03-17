@@ -4,8 +4,8 @@
   xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence
   http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd" version="2.2">
 
-  <persistence-unit name="parawan" transaction-type="JTA">
-    <jta-data-source>java:/AppDS</jta-data-source>
+  <persistence-unit name="itmeni" transaction-type="JTA">
+    <jta-data-source>java:/itmeni_app</jta-data-source>
 
     <properties>
       <!-- Hibernate settings -->

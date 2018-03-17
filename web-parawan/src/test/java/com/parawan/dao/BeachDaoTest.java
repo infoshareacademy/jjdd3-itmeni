@@ -46,6 +46,7 @@ public class BeachDaoTest{
 
         // then
         verify (entityManagerMock, times (1)).merge (updateBeach);
+
     }
 
     @Test
@@ -90,6 +91,7 @@ public class BeachDaoTest{
 
         // then
         verify (entityManagerMock,times (1)).find (findBeach.getClass (),id);
+
     }
 
 }

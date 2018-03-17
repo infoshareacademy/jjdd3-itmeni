@@ -58,8 +58,6 @@ public class ReservationDaoTest{
         // then
         verify (entityManagerMock, times (1)).find (Reservation.class,id);
 
-        // verify (entityManagerMock,times (1)).remove ();
-
     }
 
     @Test
@@ -74,18 +72,7 @@ public class ReservationDaoTest{
 
         // then
         verify (entityManagerMock,times (1)).find (findReservation.getClass (),id);
-    }
 
-    @Test
-    public void findAll(){
-    }
-
-    @Test
-    public void findByHour(){
-    }
-
-    @Test
-    public void checkIfAlreadyReserved(){
     }
 
 }
