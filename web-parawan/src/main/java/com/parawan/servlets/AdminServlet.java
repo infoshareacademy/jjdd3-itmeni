@@ -37,6 +37,12 @@ public class AdminServlet extends HttpServlet {
         Map<String, Object> dataModel = new HashMap<>();
 
         Template template = TemplateProvider.createTemplate(getServletContext(), "basepage.ftlh");
+        if(req.getAttribute("updatedItems") != null){
+            dataModel.put("updatedItems", true);
+        }
+        if(req.getParameter("createdBeach") != null){
+            dataModel.put("createdBeach", true);
+        }
         dataModel.put("actualBeach", actualBeach);
         dataModel.put("bodytemplate", "admin");
 
@@ -53,7 +59,7 @@ public class AdminServlet extends HttpServlet {
         setItems(req, resp);
     }
 
-    protected void setItems(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+    protected void setItems(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
        Item screen = itemDao.getItemByAbbreviation("s");
        Item umbrella = itemDao.getItemByAbbreviation("u");
        Item towel = itemDao.getItemByAbbreviation("t");
@@ -73,7 +79,7 @@ public class AdminServlet extends HttpServlet {
        itemDao.update(umbrella);
        itemDao.update(towel);
        itemDao.update(sunbed);
-
-       resp.sendRedirect("/parawan/main-menu");
+       req.setAttribute("updatedItems", true);
+       this.doGet(req, resp);
     }
 }
