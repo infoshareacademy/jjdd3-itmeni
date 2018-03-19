@@ -68,7 +68,7 @@ public class GenerateRandomData extends HttpServlet {
             }
             i++;
         }
-        resp.sendRedirect("/login");
+        resp.sendRedirect("/parawan/main-menu");
     }
 }
 

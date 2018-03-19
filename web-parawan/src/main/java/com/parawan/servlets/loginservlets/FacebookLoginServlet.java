@@ -82,7 +82,7 @@ public class FacebookLoginServlet extends HttpServlet {
                     LOGGER.info("e-mail: " + userEmail);
                     req.getSession().setAttribute(USER_LOGIN_TYPE, "fb");
                     req.getSession().setAttribute(USER_TYPE, adminService.isAdmin(userEmail));
-                    resp.sendRedirect("parawan/main-menu");
+                    resp.sendRedirect("parawan/generaterandomdata");
                     return;
                 }
             } catch (UnirestException | JSONException e) {
