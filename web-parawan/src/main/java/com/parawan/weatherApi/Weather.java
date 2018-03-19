@@ -11,9 +11,8 @@ public class Weather {
 
     @Override
     public String toString() {
-        final StringBuffer sb = new StringBuffer("Weather{");
-        sb.append("description='").append(description).append('\'');
-        sb.append('}');
+        final StringBuffer sb = new StringBuffer("");
+        sb.append("Description: ").append(description);
         return sb.toString();
     }
 }

@@ -31,10 +31,10 @@ public class Main {
 
     @Override
     public String toString() {
-        final StringBuffer sb = new StringBuffer("Main{");
-        sb.append("temp='").append(temp).append('\'');
-        sb.append(", pressure='").append(pressure).append('\'');
-        sb.append('}');
+        final StringBuffer sb = new StringBuffer("");
+        sb.append("Temperature: ").append(temp).append("\u00b0").append("C");
+        sb.append("\n");
+        sb.append("Pressure: ").append(pressure).append("hPa");
         return sb.toString();
     }
 }
