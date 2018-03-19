@@ -39,4 +39,12 @@ public class UserDao {
         return user;
     }
 
+    public User getUserToLogIn(String mail, String password) {
+        Query query = entityManager.createQuery("SELECT u FROM User u WHERE u.mail =:param1 AND u.password=:param2");
+        query.setParameter("param1", mail);
+        query.setParameter("param2", password);
+        User user =(User) query.getResultList().get(0);
+        return user;
+    }
+
 }

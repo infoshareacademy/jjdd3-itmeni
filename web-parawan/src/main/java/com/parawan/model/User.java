@@ -15,8 +15,8 @@ public class User {
     @Column(name = "name")
     private String name = "";
 
-    @Column(name = "mail")
-    private String mail = "";
+    @Column(name = "email")
+    private String email = "";
 
     @Column(name = "password")
     private String password ="";
@@ -27,9 +27,9 @@ public class User {
     public User() {
     }
 
-    public User(String name, String mail, String password, boolean admin) {
+    public User(String name, String email, String password, boolean admin) {
         this.name = name;
-        this.mail = mail;
+        this.email = email;
         this.password = password;
         this.admin = admin;
     }
@@ -50,12 +50,12 @@ public class User {
         this.name = name;
     }
 
-    public String getMail() {
-        return mail;
+    public String getEmail() {
+        return email;
     }
 
-    public void setMail(String mail) {
-        this.mail = mail;
+    public void setEmail(String mail) {
+        this.email = email;
     }
 
     public boolean isAdmin() {
