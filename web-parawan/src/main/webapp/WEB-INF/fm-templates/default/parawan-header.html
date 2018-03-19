@@ -1,4 +1,26 @@
 <div class="parawan-header">
-    <h1>PARAW@N</h1>
-    <p>Let's meet on the beach! You are currently on: ${(actualBeach.name)! " "}</p>
 </div>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <a class="navbar-brand" href="/parawan/main-menu">PARAW@N</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarColor01">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="/parawan/main-menu">Main menu<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href=#>Weather forecast</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href=#>About</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" style="color: white" href=#>You are currently at: ${(actualBeach.name)!""}</a>
+            </li>
+
+        </ul>
+    </div>
+</nav>

@@ -15,6 +15,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.Map;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -32,8 +33,10 @@ public class MainMenuServlet extends HttpServlet {
 
         Map<String, Object> dataModel = new HashMap<>();
 
-        Template template = TemplateProvider.createTemplate(getServletContext(), "main-menu.ftlh");
+        Template template = TemplateProvider.createTemplate(getServletContext(), "basepage.ftlh");
         dataModel.put("actualBeach", actualBeach);
+        dataModel.put("bodytemplate", "main-menu");
+
         PrintWriter printWriter = resp.getWriter();
         try {
             template.process(dataModel, printWriter);

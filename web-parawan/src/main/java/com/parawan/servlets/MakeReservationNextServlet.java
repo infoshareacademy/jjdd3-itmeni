@@ -3,9 +3,12 @@ package com.parawan.servlets;
 import com.parawan.dao.BeachDao;
 import com.parawan.dao.ReservationDao;
 import com.parawan.freemarker.TemplateProvider;
+import com.parawan.logic.CheckItems;
 import com.parawan.model.ActualBeach;
 import com.parawan.model.Beach;
 import com.parawan.model.Reservation;
+import com.parawan.view.Place;
+import com.parawan.view.ReservationPrinter;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
 import org.slf4j.Logger;
@@ -37,33 +40,20 @@ public class MakeReservationNextServlet extends HttpServlet {
     @Inject
     private ActualBeach actualBeach;
 
+    @Inject
+    private ReservationPrinter reservationPrinter;
+
+    @Inject
+    private CheckItems checkItems;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        int firstId = 1;
-        int lastId = (actualBeach.getMaxWidth()) * (actualBeach.getMaxHeight());
-
-        int hourFromLastStep = Integer.parseInt(req.getParameter("chosenHour"));
-        int idFromLastStep = Integer.parseInt(req.getParameter("chosenId"));
-
         Map<String, Object> dataModel = new HashMap<>();
 
-        if (req.getAttribute("isAlreadyReserved") != null) {
-            dataModel.put("isAlreadyReserved", true);
-            req.getSession().removeAttribute("isAlreadyReserved");
-        }
-        if (req.getAttribute("isReserved") != null) {
-            dataModel.put("isReserved", true);
-            req.getSession().removeAttribute("isReserved");
-        }
-        dataModel.put("actualBeach", actualBeach);
-        dataModel.put("firstId", firstId);
-        dataModel.put("lastId", lastId);
-        dataModel.put("hourFromLastStep", hourFromLastStep);
-        dataModel.put("idFromLastStep", idFromLastStep);
+        this.putParameterstoDataManager(dataModel, req);
 
-        Template template = TemplateProvider.createTemplate(getServletContext(), "make-reservation-next.ftlh");
+        Template template = TemplateProvider.createTemplate(getServletContext(), "basepage.ftlh");
 
         PrintWriter printWriter = resp.getWriter();
         try {
@@ -77,17 +67,58 @@ public class MakeReservationNextServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         Reservation reservation = new Reservation();
-        StringBuilder sb = new StringBuilder("");
 
         try {
             reservation.setHourOfReservation(Integer.parseInt(req.getParameter("chosenHour")));
             reservation.setPlaceId(Integer.parseInt(req.getParameter("chosenId")));
         } catch (NumberFormatException e) {
             LOG.error("Error while making reservation", e);
-            resp.sendRedirect("/error-servlet");
         }
         reservation.setNameOfPerson(req.getParameter("chosenName"));
 
+        this.itemReservation(reservation, req);
+
+        this.setProperReservationAttribute(reservation, req, resp);
+    }
+
+    Map<String, Object> putParameterstoDataManager(Map<String, Object> dataModel, HttpServletRequest req) {
+
+        int firstId = 1;
+        int lastId = (actualBeach.getMaxWidth()) * (actualBeach.getMaxHeight());
+        int hourFromLastStep = Integer.parseInt(req.getParameter("chosenHour"));
+        int idFromLastStep = Integer.parseInt(req.getParameter("chosenId"));
+        List<Place> places = reservationPrinter.beachToPrint(hourFromLastStep);
+        this.putAttributesToDataManager(dataModel, req);
+
+        dataModel.put("places", places);
+        dataModel.put("hour", hourFromLastStep);
+        dataModel.put("actualBeach", actualBeach);
+        dataModel.put("firstId", firstId);
+        dataModel.put("lastId", lastId);
+        dataModel.put("hourFromLastStep", hourFromLastStep);
+        dataModel.put("idFromLastStep", idFromLastStep);
+        dataModel.put("bodytemplate", "make-reservation-next");
+
+        return dataModel;
+    }
+
+    Map<String, Object> putAttributesToDataManager(Map<String, Object> dataModel, HttpServletRequest req) {
+
+        if (req.getAttribute("isAlreadyReserved") != null) {
+            dataModel.put("isAlreadyReserved", true);
+        }
+        if (req.getAttribute("isReserved") != null) {
+            dataModel.put("isReserved", true);
+        }
+        if (req.getAttribute("itemNotAvailable") != null) {
+            dataModel.put("itemNotAvailable", true);
+        }
+        return dataModel;
+    }
+
+    Reservation itemReservation(Reservation reservation, HttpServletRequest req) {
+
+        StringBuilder sb = new StringBuilder("");
         if (req.getParameter("chosenScreen").equals("s")) {
             sb.append("s");
             LOG.info("During reservation, screen was chosen");
@@ -104,15 +135,22 @@ public class MakeReservationNextServlet extends HttpServlet {
             sb.append("b");
             LOG.info("During reservation, Sunbed was chosen");
         }
-
         reservation.setRentedItems(sb.toString());
+
+        return reservation;
+    }
+
+    void setProperReservationAttribute(Reservation reservation, HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Beach beach = beachDao.findById(actualBeach.getId());
         reservation.setBeach(beach);
-        if (!reservationDao.checkIfAlreadyReserved(reservation)) {
+        if (!checkItems.isItemAvailable(reservation.getRentedItems(), Integer.parseInt(req.getParameter("chosenHour")))) {
+            req.setAttribute("itemNotAvailable", true);
+            this.doGet(req, resp);
+            resp.sendRedirect("parawan/make-reservation-next");
+        } else if (!reservationDao.checkIfAlreadyReserved(reservation)) {
             reservationDao.save(reservation);
             req.setAttribute("isReserved", true);
             this.doGet(req, resp);
-
         } else {
             req.setAttribute("isAlreadyReserved", true);
             this.doGet(req, resp);

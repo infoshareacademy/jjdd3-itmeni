@@ -1,21 +1,13 @@
-<!DOCTYPE html>
-<html>
-<#include "/default/head.html">
-<body>
-  <#include "/default/parawan-header.html">
-<div class="parawan-body">
-    <p> Actual beach: ${(actualBeach.name)! "EMPTY DATABASE"}</p>
-    <h2>Switch beach:</h2>
-    <form method="post" action="/parawan/change-beach" >
+<p> Actual beach: ${(actualBeach.name)! "EMPTY DATABASE"}</p>
+         <h2>Switch beach:</h2>
+         <form method="post" action="/parawan/change-beach">
+             <fieldset>
     <#list beaches as beach>
-        <input type="radio" name="beach" value="${beach.id}" required checked> ${beach.name}<br>
+    <label>
+        <input type="radio" name="beach" value="${beach.id}" required checked style="font-size: 1.5em"> ${beach.name}
+    </label>
+    <br/><br/>
     </#list>
-        <input type="submit" name="Choose beach">
-    </form>
-    <p><a href=parawan/main-menu>Move on to main menu </a></p>
-
-</div>
-<#include "/default/parawan-footer.html">
-</body>
-
-</html>
+                 <input type="submit" class="btn btn-primary" name="Choose beach" value="Choose beach">
+             </fieldset>
+         </form>

@@ -1,45 +1,29 @@
-<!DOCTYPE html>
-<html>
-<#include "/default/head.html">
-<body>
-    <#include "/default/parawan-header.html">
-<div class="parawan-body">
-    <p>Main Menu</p>
-
-    <nav>
-      <ul>
-        <li>
-          <a href=make-reservation?status=9>Make reservation </a>
-        </li>
-        <li>
-          <a href=cancel-reservation>Cancel reservation </a>
-        </li>
-        <li>
-          <a href=find-place>Find place with additional requirements </a>
-        </li>
-        <li>
-          <a href=item-management?hourFromForm=9>Number of items available for rent  </a>
-        </li>
-      </ul>
-    </nav>
-
-    <p><a href=../hello-servlet>Go back to intro page </a></p>
-
-    <p>-------------------------------------------------</p>
-
-    <p>-------------------------------------------------</p>
-
-    <p>-------------------------------------------------</p>
-    <br/>
-    <br/>
-    <br/>
-
-    <p>List of all reservations</p>
-    <form action="/parawan/reservationsfromgivenhour">
-        Choose hour: <input type="number" name="hour" min="9" max="19" required>
-        <input type="submit">
-    </form>
+<div class="row">
+    <div class="col-md-2">
+        <div class="btn-group-vertical">
+            <button type="button" class="btn btn-primary"
+                    onclick="location.href = '/parawan/make-reservation?status=9';">
+                Make reservation
+            </button>
+            <button type="button" class="btn btn-primary"
+                    onclick="location.href = '/parawan/cancel-reservation?status=9';">
+                Cancel reservation
+            </button>
+            <button type="button" class="btn btn-primary" onclick="location.href = '/parawan/find-place?status=9';">Find
+                place with additional requirements
+            </button>
+            <button type="button" class="btn btn-primary"
+                    onclick="location.href = '/parawan/item-management?hourFromForm=9';">Items available for rent
+            </button>
+            <button type="button" class="btn btn-primary" onclick="location.href = '/hello-servlet';">Change beach
+            </button>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <h1>Hello friend</h1>
+       <div style="text-align: justify">Welcome to our wonderful beaches. You are currently on the ${actualBeach.name}.
+           Please choose options on the left panel. If you have any opinion on our services
+           please contact us at beaches4everyone@parawan.com . We hope that you will have a great time with us!</div>
+    </div>
 </div>
-<#include "/default/parawan-footer.html">
-</body>
-</html>
+<br/>

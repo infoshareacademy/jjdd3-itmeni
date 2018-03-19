@@ -1,6 +1,7 @@
 package com.parawan.dao;
 
 import com.parawan.model.ActualBeach;
+import com.parawan.model.Beach;
 import com.parawan.model.Reservation;
 
 import javax.ejb.Stateless;
@@ -18,6 +19,9 @@ public class ReservationDao {
 
     @Inject
     private ActualBeach actualBeach;
+
+    @Inject
+    private BeachDao beachDao;
 
     public Long save(Reservation s) {
         entityManager.persist(s);
@@ -39,17 +43,18 @@ public class ReservationDao {
         return entityManager.find(Reservation.class, id);
     }
 
-    public List findAll() {
+    public List<Reservation> findAll() {
         final Query query = entityManager.createQuery("SELECT s FROM Reservation s");
 
         return query.getResultList();
     }
 
 
-    public List findByHour(Integer hour) {
+    public List<Reservation> findByHour(Integer hour) {
         Query query = entityManager.createQuery("SELECT r FROM Reservation r WHERE r.hourOfReservation = :param AND "
-                + "r.beach=" + actualBeach.getId());
+                + "r.beach= :param2");
         query.setParameter("param", hour);
+        query.setParameter("param2", beachDao.findById(actualBeach.getId()));
         return query.getResultList();
     }
 
@@ -61,5 +66,14 @@ public class ReservationDao {
         query.setParameter("beach", r.getBeach());
         List<Reservation> foundReservations = query.getResultList();
         return (!foundReservations.isEmpty());
+    }
+
+    public void deleteByHourAndId(Integer hour, Integer placeId, Beach beach) {
+        Query query = entityManager.createQuery("SELECT r FROM Reservation r WHERE r.hourOfReservation = :param1 AND r.placeId = :param2 AND r.beach = :beach");
+        query.setParameter("param1", hour);
+        query.setParameter("param2", placeId);
+        query.setParameter("beach", beach);
+        Reservation reservation = (Reservation) (query.getResultList().get(0));
+        entityManager.remove(reservation);
     }
 }

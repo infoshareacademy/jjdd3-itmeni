@@ -19,6 +19,7 @@ import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
 import org.slf4j.Logger;
 
 @WebServlet("/hello-servlet")
@@ -39,7 +40,8 @@ public class HelloServlet extends HttpServlet {
         List<Beach> beaches = beachDao.findAll();
         dataModel.put("beaches", beaches);
         dataModel.put("actualBeach", actualBeach);
-        Template template = TemplateProvider.createTemplate(getServletContext(), "hello.ftlh");
+        dataModel.put("bodytemplate", "hello");
+        Template template = TemplateProvider.createTemplate(getServletContext(), "basepage.ftlh");
 
         PrintWriter printWriter = resp.getWriter();
         try {
@@ -49,10 +51,10 @@ public class HelloServlet extends HttpServlet {
         }
     }
 
-    public void setActualBeachIfNotSet(ActualBeach actualBeach) {
-        if(actualBeach.getName() == null || actualBeach.getName().isEmpty()){
+    public ActualBeach setActualBeachIfNotSet(ActualBeach actualBeach) {
+        if (actualBeach.getName() == null || actualBeach.getName().isEmpty()) {
             List<Beach> beaches = beachDao.findAll();
-            if(beaches.size() != 0) {
+            if (beaches.size() != 0) {
                 Beach firstBeachFromDatabase = beaches.get(0);
                 actualBeach.setId(firstBeachFromDatabase.getId());
                 actualBeach.setName(firstBeachFromDatabase.getName());
@@ -62,5 +64,6 @@ public class HelloServlet extends HttpServlet {
                 LOG.error("Error while loading data from database");
             }
         }
+        return actualBeach;
     }
 }

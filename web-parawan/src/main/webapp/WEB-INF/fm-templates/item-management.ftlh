@@ -1,9 +1,4 @@
-<!DOCTYPE html>
-<html>
-<#include "/default/head.html">
-<body>
-    <#include "/default/parawan-header.html">
-<div class="parawan-body">
+
 <p>Number of items available for rent.</p>
 <p>Beach is open from 9:00 to 19:00</p>
 <#if errors??>
@@ -23,15 +18,11 @@
 
       <#if (hour > 8 && hour <19) >
         <p>At ${hour}:00 we have:</p>
-        <p>Screens: ${items[0]} available for rent</p>
-        <p>Umbrellas: ${items[1]} available for rent</p>
-        <p>Towels: ${items[2]} available for rent</p>
-        <p>sunbeds: ${items[3]} available for rent</p>
+        <p>Screens: ${(items[0])! "Nothing found in database what could be "} available for rent</p>
+        <p>Umbrellas: ${(items[1])! "Nothing found in database what could be "}  available for rent</p>
+        <p>Towels: ${(items[02])! "Nothing found in database what could be "}  available for rent</p>
+        <p>sunbeds: ${(items[3])! "Nothing found in database what could be"}  available for rent</p>
 
       </#if>
 
 <p><a href=main-menu>Go back to main menu </a></p>
-</div>
-<#include "/default/parawan-footer.html">
-</body>
-</html>
