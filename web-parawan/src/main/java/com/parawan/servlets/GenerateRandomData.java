@@ -3,9 +3,11 @@ package com.parawan.servlets;
 import com.parawan.dao.BeachDao;
 import com.parawan.dao.ItemDao;
 import com.parawan.dao.ReservationDao;
+import com.parawan.dao.UserDao;
 import com.parawan.model.Beach;
 import com.parawan.model.Item;
 import com.parawan.model.Reservation;
+import com.parawan.model.User;
 
 import javax.inject.Inject;
 import javax.servlet.annotation.WebServlet;
@@ -26,6 +28,9 @@ public class GenerateRandomData extends HttpServlet {
 
     @Inject
     private ItemDao itemDao;
+
+    @Inject
+    private UserDao userDao;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
@@ -89,7 +94,8 @@ public class GenerateRandomData extends HttpServlet {
         itemDao.save(umbrella2);
         itemDao.save(towel2);
         itemDao.save(sunbed2);
-
+        User pr0admin = new User("Admin", "admin@admin.admin", "admin", true);
+        userDao.save(pr0admin);
         resp.sendRedirect("/parawan/main-menu");
     }
 }
