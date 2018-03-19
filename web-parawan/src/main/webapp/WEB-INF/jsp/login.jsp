@@ -41,23 +41,7 @@
     <style>
         @import url(http://fonts.googleapis.com/css?family=Open+Sans);
 
-        .login {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            margin: -150px 0 0 -150px;
-            width: 300px;
-            height: 300px;
-            display: flex;
-            flex-direction: column;
-        }
 
-        .login h1 {
-            color: #fff;
-            text-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-            letter-spacing: 1px;
-            text-align: center;
-        }
 
         .loginBtn {
             box-sizing: border-box;

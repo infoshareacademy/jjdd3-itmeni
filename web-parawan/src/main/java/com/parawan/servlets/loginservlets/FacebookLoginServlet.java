@@ -41,21 +41,6 @@ public class FacebookLoginServlet extends HttpServlet {
         String facebookAppId = isLocal ? config.getTestFacebookAppId() : config.getFacebookAppId();
         String facebookAppSecret = isLocal ? config.getTestFacebookAppSecret() : config.getFacebookAppSecret();
 
-        String logout = req.getParameter("logout");
-        if ("1".equals(logout)) {
-            String loginType = (String) req.getSession().getAttribute(USER_LOGIN_TYPE);
-            req.getSession().removeAttribute(USER_NAME);
-            req.getSession().removeAttribute(USER_EMAIL);
-            req.getSession().removeAttribute(USER_LOGIN_TYPE);
-
-            if ("fb".equals(loginType)) {
-                req.setAttribute("facebookAppId", facebookAppId);
-                req.getRequestDispatcher("logout.jsp").forward(req, resp);
-            } else {
-                resp.sendRedirect("login");
-            }
-            return;
-        }
 
         String userName = req.getParameter("user_name");
         String userEmail = req.getParameter("user_email");
@@ -91,6 +76,22 @@ public class FacebookLoginServlet extends HttpServlet {
             } finally {
                 req.getRequestDispatcher("/WEB-INF/jsp/login.jsp").forward(req, resp);
             }
+        }
+
+        String logout = req.getParameter("logout");
+        if ("1".equals(logout)) {
+            String loginType = (String) req.getSession().getAttribute(USER_LOGIN_TYPE);
+            req.getSession().removeAttribute(USER_NAME);
+            req.getSession().removeAttribute(USER_EMAIL);
+            req.getSession().removeAttribute(USER_LOGIN_TYPE);
+
+            if ("fb".equals(loginType)) {
+                req.setAttribute("facebookAppId", facebookAppId);
+                req.getRequestDispatcher("/WEB-INF/jsp/logout.jsp").forward(req, resp);
+            } else {
+                resp.sendRedirect("login");
+            }
+            return;
         }
     }
 }
