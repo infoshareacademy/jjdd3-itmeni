@@ -17,9 +17,6 @@ public class BeachDao {
     @PersistenceContext
     private EntityManager entityManager;
 
-    @Inject
-    private ActualBeach actualBeach;
-
 
     public Integer save(Beach b) {
         entityManager.persist(b);

@@ -1,12 +1,10 @@
 package com.parawan.model;
 
-
 import javax.persistence.*;
 
 @Entity
 @Table(name = "items")
 public class Item {
-
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

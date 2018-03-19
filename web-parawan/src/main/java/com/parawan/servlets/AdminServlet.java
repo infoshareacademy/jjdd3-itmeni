@@ -37,10 +37,10 @@ public class AdminServlet extends HttpServlet {
         Map<String, Object> dataModel = new HashMap<>();
 
         Template template = TemplateProvider.createTemplate(getServletContext(), "basepage.ftlh");
-        if(req.getParameter("updatedItems") != null){
+        if (req.getParameter("updatedItems") != null) {
             dataModel.put("updatedItems", true);
         }
-        if(req.getParameter("createdBeach") != null){
+        if (req.getParameter("createdBeach") != null) {
             dataModel.put("createdBeach", true);
         }
         dataModel.put("actualBeach", actualBeach);
@@ -60,25 +60,25 @@ public class AdminServlet extends HttpServlet {
     }
 
     private void setItems(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
-       Item screen = itemDao.getItemByAbbreviation("s");
-       Item umbrella = itemDao.getItemByAbbreviation("u");
-       Item towel = itemDao.getItemByAbbreviation("t");
-       Item sunbed = itemDao.getItemByAbbreviation("b");
+        Item screen = itemDao.getItemByAbbreviation("s");
+        Item umbrella = itemDao.getItemByAbbreviation("u");
+        Item towel = itemDao.getItemByAbbreviation("t");
+        Item sunbed = itemDao.getItemByAbbreviation("b");
 
-       int newAmountOfScreens = Integer.parseInt(req.getParameter("screen"));
-       int newAmountOfUmbrellas = Integer.parseInt(req.getParameter("umbrella"));
-       int newAmountOfTowels = Integer.parseInt(req.getParameter("towel"));
-       int newAmountOfSunbeds = Integer.parseInt(req.getParameter("sunbed"));
+        int newAmountOfScreens = Integer.parseInt(req.getParameter("screen"));
+        int newAmountOfUmbrellas = Integer.parseInt(req.getParameter("umbrella"));
+        int newAmountOfTowels = Integer.parseInt(req.getParameter("towel"));
+        int newAmountOfSunbeds = Integer.parseInt(req.getParameter("sunbed"));
 
-       screen.setQuantity(newAmountOfScreens);
-       umbrella.setQuantity(newAmountOfUmbrellas);
-       towel.setQuantity(newAmountOfTowels);
-       sunbed.setQuantity(newAmountOfSunbeds);
+        screen.setQuantity(newAmountOfScreens);
+        umbrella.setQuantity(newAmountOfUmbrellas);
+        towel.setQuantity(newAmountOfTowels);
+        sunbed.setQuantity(newAmountOfSunbeds);
 
-       itemDao.update(screen);
-       itemDao.update(umbrella);
-       itemDao.update(towel);
-       itemDao.update(sunbed);
-       resp.sendRedirect("/parawan/admin?updatedItems=true");
+        itemDao.update(screen);
+        itemDao.update(umbrella);
+        itemDao.update(towel);
+        itemDao.update(sunbed);
+        resp.sendRedirect("/parawan/admin?updatedItems=true");
     }
 }
