@@ -1,7 +1,7 @@
 package com.parawan.filters;
 
 import com.parawan.com.menu.CancelReservation;
-import com.parawan.messages.CancelOperationsMessages;
+import com.parawan.messages.UserOperationsMessages;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -18,79 +18,75 @@ import java.util.regex.Pattern;
 @WebFilter(
         filterName = "CancelReservationValidationFilter",
         urlPatterns = {"/parawan/cancel-reservation"}
-        )
+)
 
 public class CancelReservationValidationFilter implements Filter{
 
-    private static final Logger LOG = LoggerFactory.getLogger(CancelReservationValidationFilter.class);
+    private static final Logger LOG = LoggerFactory.getLogger (CancelReservationValidationFilter.class);
 
     @Override
-    public void init(FilterConfig filterConfig) throws ServletException{
+    public void init(FilterConfig filterConfig){
     }
 
     @Override
-    public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
+    public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException{
 
         boolean isValidationOK = true;
-        HttpServletRequest httpRequest = (HttpServletRequest) servletRequest;
-        HttpServletResponse httpResponse = (HttpServletResponse) servletResponse;
-        CancelReservation cancelReservation = getCancelObject(httpRequest);
+        HttpServletRequest httpRequest = (HttpServletRequest)servletRequest;
+        HttpServletResponse httpResponse = (HttpServletResponse)servletResponse;
+        CancelReservation cancelReservation = getCancelObject (httpRequest);
         List<String> messages = new ArrayList<> ();
 
-        String idParameter = httpRequest.getParameter("cancelId");
-        String hourParameter = httpRequest.getParameter("cancelHour");
+        String idParameter = httpRequest.getParameter ("cancelId");
+        String hourParameter = httpRequest.getParameter ("cancelHour");
 
-        if (!isIntegerParameterValid("cancelId", httpRequest)) {
-            messages.add(CancelOperationsMessages.ID_NOT_INTEGER);
+        if (!isIntegerParameterValid ("cancelId", httpRequest)){
+            messages.add (UserOperationsMessages.ID_NOT_INTEGER);
             isValidationOK = false;
-        } else if (idParameter != null && !idParameter.isEmpty()) {
-            cancelReservation.setCancelId (Integer.parseInt(idParameter));
-        } else {
-            messages.add (CancelOperationsMessages.ID_OUT_OF_RANGE);
+        }else if (idParameter != null && !idParameter.isEmpty ()){
+            cancelReservation.setCancelId (Integer.parseInt (idParameter));
         }
 
-        if (!isIntegerParameterValid("cancelHour", httpRequest)) {
-            messages.add(CancelOperationsMessages.HOUR_NOT_INTEGER);
+        if (!isIntegerParameterValid ("cancelHour", httpRequest)){
+            messages.add (UserOperationsMessages.HOUR_NOT_INTEGER);
             isValidationOK = false;
-        } else if (hourParameter != null && !hourParameter.isEmpty()) {
-            cancelReservation.setCancelHour (Integer.parseInt(httpRequest.getParameter("cancelHour")));
-        } else {
-            messages.add (CancelOperationsMessages.HOUR_OUT_OF_RANGE);
+        }else if (hourParameter != null && !hourParameter.isEmpty ()){
+            cancelReservation.setCancelHour (Integer.parseInt (httpRequest.getParameter ("cancelHour")));
         }
 
-        if (!isValidationOK) {
-            httpRequest.getSession().setAttribute("errors", messages);
-            httpRequest.getSession().setAttribute("cancelReservation", cancelReservation);
-            httpResponse.sendRedirect(httpRequest.getRequestURL().toString());
+        if (!isValidationOK){
+            httpRequest.getSession ().setAttribute ("errors", messages);
+            httpRequest.getSession ().setAttribute ("cancelReservation", cancelReservation);
+            httpResponse.sendRedirect ("/parawan/cancel-reservation");
             return;
         }
 
-        filterChain.doFilter(servletRequest, servletResponse);
+        filterChain.doFilter (servletRequest, servletResponse);
     }
 
-    private CancelReservation getCancelObject(HttpServletRequest servletRequest) {
+    private CancelReservation getCancelObject(HttpServletRequest servletRequest){
         CancelReservation cancelReservation = new CancelReservation ();
         cancelReservation.setCancelId (null);
         cancelReservation.setCancelHour (null);
         return cancelReservation;
     }
 
-    private boolean isIntegerParameterValid(String parameterKey, HttpServletRequest servletRequest) {
+    private boolean isIntegerParameterValid(String parameterKey, HttpServletRequest servletRequest){
 
-        String parameter = servletRequest.getParameter(parameterKey);
-        HttpServletRequest httpRequest = (HttpServletRequest) servletRequest;
-        boolean isPost = httpRequest.getMethod().equalsIgnoreCase("post");
+        String parameter = servletRequest.getParameter (parameterKey);
+        HttpServletRequest httpRequest = servletRequest;
+        boolean isPost = httpRequest.getMethod ().equalsIgnoreCase ("post");
 
-        LOG.debug ("{}",String.valueOf(isPost));
+        LOG.debug ("{}", String.valueOf (isPost));
 
-        if (parameter == null || parameter.isEmpty()) {
+        if (parameter == null || parameter.isEmpty ()){
             return !isPost;
         }
 
-        Pattern integerPattern = Pattern.compile("\\d+");
-        Matcher matcher = integerPattern.matcher(parameter);
+        Pattern integerPattern = Pattern.compile ("\\d+");
+        Matcher matcher = integerPattern.matcher (parameter);
 
-        if (!matcher.matches()) {
+        if (!matcher.matches ()){
             return false;
         }
 
@@ -98,7 +94,7 @@ public class CancelReservationValidationFilter implements Filter{
     }
 
     @Override
-    public void destroy() {
+    public void destroy(){
     }
 
 }
