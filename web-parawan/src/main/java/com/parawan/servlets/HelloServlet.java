@@ -61,7 +61,7 @@ public class HelloServlet extends HttpServlet {
         } else if (idToken != null) {
             req.setAttribute("userId", idToken);
         }
-        req.getRequestDispatcher("/WEB-INF/jsp/home.jsp").forward(req, resp);
+        req.getRequestDispatcher("parawan/make-reservation").forward(req, resp);
     }
 
 

@@ -28,7 +28,7 @@ public class AdminService {
     private AdminConfiguration loadAdminFile() {
         try {
             ObjectMapper objectMapper = new ObjectMapper();
-            return objectMapper.reader(AdminConfiguration.class).readValue(AdminService.class.getResourceAsStream("/admin.json"));
+            return objectMapper.reader(AdminConfiguration.class).readValue(AdminService.class.getResourceAsStream("/admin_email_list.json"));
         } catch (IOException e) {
             logger.error("caught an exception during loading AdminFile", e);
             throw new RuntimeException(e);

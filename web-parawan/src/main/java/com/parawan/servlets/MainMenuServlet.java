@@ -2,9 +2,10 @@ package com.parawan.servlets;
 
 import com.parawan.freemarker.TemplateProvider;
 import com.parawan.model.ActualBeach;
-import com.parawan.servlets.loginservlets.HomeServlet;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.inject.Inject;
 import javax.servlet.ServletException;
@@ -16,8 +17,6 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.Map;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 
 @WebServlet("/parawan/main-menu")
@@ -28,15 +27,6 @@ public class MainMenuServlet extends HttpServlet {
     @Inject
     private ActualBeach actualBeach;
 
-    @Inject
-    private HomeServlet userId;
-
-    @Inject
-    private HomeServlet idToken;
-
-    @Inject
-    private HomeServlet accessToken;
-
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
@@ -45,9 +35,6 @@ public class MainMenuServlet extends HttpServlet {
         Template template = TemplateProvider.createTemplate(getServletContext(), "basepage.ftlh");
         dataModel.put("actualBeach", actualBeach);
         dataModel.put("bodytemplate", "main-menu");
-        dataModel.put("userId", userId);
-        dataModel.put("idToken", idToken);
-        dataModel.put("accessToken", accessToken);
 
         PrintWriter printWriter = resp.getWriter();
         try {

@@ -35,7 +35,7 @@ public class GenerateRandomData extends HttpServlet {
         beachDao.save(beach);
         Beach beach2 = new Beach(null, "Stogi", 10, 10);
         beachDao.save(beach2);
-        for (int i = 0; i < 100;) {
+        for (int i = 0; i < 20;) {
             String itemsString = "";
             String nameString = "Tester" + new Random().nextInt(10000);
             int randomItems = new Random().nextInt(5);
@@ -68,7 +68,7 @@ public class GenerateRandomData extends HttpServlet {
             }
             i++;
         }
-        resp.sendRedirect("/parawan/home");
+        resp.sendRedirect("/login");
     }
 }
 
