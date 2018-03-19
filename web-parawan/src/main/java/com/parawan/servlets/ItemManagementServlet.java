@@ -1,11 +1,10 @@
 package com.parawan.servlets;
 
-import com.parawan.com.menu.ItemManagement;
+import com.parawan.dao.ItemDao;
 import com.parawan.dao.ReservationDao;
-import com.parawan.datamanager.ReadReservationsFromFile;
 import com.parawan.freemarker.TemplateProvider;
+import com.parawan.model.ActualBeach;
 import com.parawan.model.Reservation;
-import com.parawan.reservation.ReservationTable;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
 import org.slf4j.Logger;
@@ -27,10 +26,13 @@ import java.util.Map;
 @WebServlet("/parawan/item-management")
 public class ItemManagementServlet extends HttpServlet {
 
+    private static final Logger LOG = LoggerFactory.getLogger(ItemManagementServlet.class);
     @Inject
     private ReservationDao reservationDao;
-
-    private static final Logger LOG = LoggerFactory.getLogger(ItemManagementServlet.class);
+    @Inject
+    private ActualBeach actualBeach;
+    @Inject
+    private ItemDao itemDao;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -49,6 +51,7 @@ public class ItemManagementServlet extends HttpServlet {
 
         Template template = TemplateProvider.createTemplate(getServletContext(), "basepage.ftlh");
         dataModel.put("bodytemplate", "item-management");
+        dataModel.put("actualBeach", actualBeach);
 
         PrintWriter printWriter = resp.getWriter();
 
@@ -60,12 +63,9 @@ public class ItemManagementServlet extends HttpServlet {
         }
     }
 
-     int [] numberOfItemsStillToRent(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+    protected int[] numberOfItemsStillToRent(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 
-        int amountOfScreen = 200;
-        int amountOfUmbrella = 200;
-        int amountOfTowel = 200;
-        int amountOfSunbed = 200;
+        int[] items = this.getItemsFromDatabase();
 
         int rentedAmountOfScreen = 0;
         int rentedAmountOfUmbrella = 0;
@@ -89,13 +89,21 @@ public class ItemManagementServlet extends HttpServlet {
                 rentedAmountOfSunbed++;
             }
         }
-        int stillToRentScreen = amountOfScreen - rentedAmountOfScreen;
-        int stillToRentUmbrella = amountOfUmbrella - rentedAmountOfUmbrella;
-        int stillToRentTowel = amountOfTowel - rentedAmountOfTowel;
-        int stillToRentSunbed = amountOfSunbed - rentedAmountOfSunbed;
+        int stillToRentScreen = items[0] - rentedAmountOfScreen;
+        int stillToRentUmbrella = items[1] - rentedAmountOfUmbrella;
+        int stillToRentTowel = items[2] - rentedAmountOfTowel;
+        int stillToRentSunbed = items[3] - rentedAmountOfSunbed;
 
         int[] forRent = {stillToRentScreen, stillToRentUmbrella, stillToRentTowel, stillToRentSunbed};
 
         return forRent;
+    }
+
+    protected int[] getItemsFromDatabase() {
+        int amountOfScreen = itemDao.getItemByAbbreviation("s").getQuantity();
+        int amountOfUmbrella = itemDao.getItemByAbbreviation("u").getQuantity();
+        int amountOfTowel = itemDao.getItemByAbbreviation("t").getQuantity();
+        int amountOfSunbed = itemDao.getItemByAbbreviation("b").getQuantity();
+        return new int[]{amountOfScreen, amountOfUmbrella, amountOfTowel, amountOfSunbed};
     }
 }

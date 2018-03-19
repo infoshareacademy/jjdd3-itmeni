@@ -1,12 +1,18 @@
-<#if ((isAlreadyReserved = true)??) >chosenclass="alert alert-dismissible alert-warning">
+<#if ((isAlreadyReserved == true)??) >
+<div class="alert alert-dismissible alert-warning">
     <button type="button" class="close" data-dismiss="alert">&times;</button>
     <h4 class="alert-heading">Warning!</h4>
     <p class="mb-0">I'm sorry but the place is already reserved</p>
 </div>
 </#if>
-<#if ((isReserved = true)??) >
-    <p>You have successfully reserved a place.</p>
-
+<#if ((itemNotAvailable == true)??) >
+<div class="alert alert-dismissible alert-warning">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <h4 class="alert-heading">Warning!</h4>
+    <p class="mb-0">I'm sorry but ordered item/s are not available</p>
+</div>
+</#if>
+<#if ((isReserved == true)??) >
 <div class="alert alert-dismissible alert-success">
     <button type="button" class="close" data-dismiss="alert">&times;</button>
     <strong>Great!</strong> You successfully reserved a place! <a href="/parawan/main-menu" class="alert-link">Go
@@ -15,25 +21,25 @@
 </#if>
     <h1>Please fill all fields to make a reservation</h1>
 <div class="row">
-    <div class="col-md-3">
+    <div class="col-md-2">
         <form method="post" action="/parawan/make-reservation-next">
             Choose hour: <input type="number" name="chosenHour" value="${hourFromLastStep}" min="9" max="19"
                                 required/><br/><br/>
             Choose ID: <input type="number" name="chosenId" value="${idFromLastStep}" min="${firstId}" max="${lastId}"
                               required/><br/><br/>
-            Choose name: <input type="text" name="chosenName" required autofocus/><br/><br/>
-            Rent a screen:<br/> <input type="radio" name="chosenScreen" value="s"/>yes
-            <input type="radio" name="chosenScreen" value="z" checked/>no<br/><br/>
-            Rent an umbrella:<br/>  <input type="radio" name="chosenUmbrella" value="u"/>yes
-            <input type="radio" name="chosenUmbrella" value="z" checked/>no<br/><br/>
-            Rent a Towel:<br/>  <input type="radio" name="chosenTowel" value="t"/>yes
-            <input type="radio" name="chosenTowel" value="z" checked/>no<br/><br/>
-            Rent a Sunbed:<br/>  <input type="radio" name="chosenSunbed" value="b"/>yes
-            <input type="radio" name="chosenSunbed" value="z" checked/>no<br/><br/>
+            Choose name: <br/><input type="text" name="chosenName" required autofocus/><br/><br/>
+            Rent a screen:<br/><label><input type="radio" name="chosenScreen" value="s"/>&nbsp;yes</label>
+            <label><input type="radio" name="chosenScreen" value="z" checked/>&nbsp;no</label><br/><br/>
+            Rent an umbrella:<br/>  <label><input type="radio" name="chosenUmbrella" value="u"/>&nbsp;yes</label>
+            <label><input type="radio" name="chosenUmbrella" value="z" checked/>&nbsp;no</label><br/><br/>
+            Rent a Towel:<br/>  <label><input type="radio" name="chosenTowel" value="t"/>&nbsp;yes</label>
+            <label><input type="radio" name="chosenTowel" value="z" checked/>&nbsp;no</label><br/><br/>
+            Rent a Sunbed:<br/>  <label><input type="radio" name="chosenSunbed" value="b"/>&nbsp;yes</label>
+            <label><input type="radio" name="chosenSunbed" value="z" checked/>&nbsp;no</label><br/><br/>
             <input type="submit" class="btn btn-primary" name="save" value="make reservation"/><br/><br/>
         </form>
     </div>
-    <div class="col-md-9">
+    <div class="col-md-10">
         <table class="table">
             <tbody>
         <#list places as place>

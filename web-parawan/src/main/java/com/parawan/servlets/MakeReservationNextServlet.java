@@ -3,6 +3,7 @@ package com.parawan.servlets;
 import com.parawan.dao.BeachDao;
 import com.parawan.dao.ReservationDao;
 import com.parawan.freemarker.TemplateProvider;
+import com.parawan.logic.CheckItems;
 import com.parawan.model.ActualBeach;
 import com.parawan.model.Beach;
 import com.parawan.model.Reservation;
@@ -15,7 +16,6 @@ import org.slf4j.LoggerFactory;
 
 import javax.inject.Inject;
 import javax.servlet.ServletException;
-import javax.servlet.ServletRequest;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -42,6 +42,9 @@ public class MakeReservationNextServlet extends HttpServlet {
 
     @Inject
     private ReservationPrinter reservationPrinter;
+
+    @Inject
+    private CheckItems checkItems;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -103,16 +106,17 @@ public class MakeReservationNextServlet extends HttpServlet {
 
         if (req.getAttribute("isAlreadyReserved") != null) {
             dataModel.put("isAlreadyReserved", true);
-            req.getSession().removeAttribute("isAlreadyReserved");
         }
         if (req.getAttribute("isReserved") != null) {
             dataModel.put("isReserved", true);
-            req.getSession().removeAttribute("isReserved");
+        }
+        if (req.getAttribute("itemNotAvailable") != null) {
+            dataModel.put("itemNotAvailable", true);
         }
         return dataModel;
     }
 
-    Reservation itemReservation (Reservation reservation, HttpServletRequest req) {
+    Reservation itemReservation(Reservation reservation, HttpServletRequest req) {
 
         StringBuilder sb = new StringBuilder("");
         if (req.getParameter("chosenScreen").equals("s")) {
@@ -135,19 +139,21 @@ public class MakeReservationNextServlet extends HttpServlet {
 
         return reservation;
     }
-    ServletRequest setProperReservationAttribute(Reservation reservation, HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+    void setProperReservationAttribute(Reservation reservation, HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Beach beach = beachDao.findById(actualBeach.getId());
         reservation.setBeach(beach);
-        if (!reservationDao.checkIfAlreadyReserved(reservation)) {
+        if (!checkItems.isItemAvailable(reservation.getRentedItems(), Integer.parseInt(req.getParameter("chosenHour")))) {
+            req.setAttribute("itemNotAvailable", true);
+            this.doGet(req, resp);
+            resp.sendRedirect("parawan/make-reservation-next");
+        } else if (!reservationDao.checkIfAlreadyReserved(reservation)) {
             reservationDao.save(reservation);
             req.setAttribute("isReserved", true);
             this.doGet(req, resp);
-            return req;
-
         } else {
             req.setAttribute("isAlreadyReserved", true);
             this.doGet(req, resp);
-            return req;
         }
     }
 }

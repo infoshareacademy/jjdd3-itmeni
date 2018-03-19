@@ -1,6 +1,6 @@
 <p>Beach is open from 9:00 to 19:00</p>
     <div class="row">
-        <div class="col-md-3">
+        <div class="col-md-2">
         <#if errors??>
             <#list errors>
     <ul>
@@ -12,7 +12,7 @@
             </#list>
         </#if>
             <form method="get" action="/parawan/make-reservation">
-                Choose hour: <input type="number" name="status" min="9" max="19" required/>
+                Choose hour: <input type="number" name="status" min="9" max="18" value="${(hour)!}" required/>
                 <input type="submit" class="btn btn-primary" value="check beach status"/>
             </form>
             <br/>
@@ -23,8 +23,11 @@
                 <p>
                     <button class="btn btn-danger btn-block">RESERVED</button>
                 </p>
+            <p>
+                Click a place to proceed.
+            </p>
         </div>
-            <div class="col-md-9">
+            <div class="col-md-10">
                 <table class="table">
                     <tbody>
 

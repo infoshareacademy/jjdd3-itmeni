@@ -18,10 +18,10 @@
 
       <#if (hour > 8 && hour <19) >
         <p>At ${hour}:00 we have:</p>
-        <p>Screens: ${items[0]} available for rent</p>
-        <p>Umbrellas: ${items[1]} available for rent</p>
-        <p>Towels: ${items[2]} available for rent</p>
-        <p>sunbeds: ${items[3]} available for rent</p>
+        <p>Screens: ${(items[0])! "Nothing found in database what could be "} available for rent</p>
+        <p>Umbrellas: ${(items[1])! "Nothing found in database what could be "}  available for rent</p>
+        <p>Towels: ${(items[02])! "Nothing found in database what could be "}  available for rent</p>
+        <p>sunbeds: ${(items[3])! "Nothing found in database what could be"}  available for rent</p>
 
       </#if>
 
