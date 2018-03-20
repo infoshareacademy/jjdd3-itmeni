@@ -49,6 +49,7 @@ public class ReservationPrinter {
         for (Reservation reservation : reservations) {
             if (place.getId() == reservation.getPlaceId()) {
                 place.setOccupied(true);
+                place.setRentedItems(reservation.getRentedItems());
             }
         }
         return place;

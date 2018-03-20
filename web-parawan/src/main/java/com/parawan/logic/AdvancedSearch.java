@@ -19,7 +19,7 @@ public class AdvancedSearch {
         String[] itemAbbreviations = reservation.getRentedItems().split("");
         for (Place p : placesFromGivenHour) {
             for (String s : itemAbbreviations) {
-                if (p.getRentedItems().contains(s)) {
+                if (p.getRentedItems().contains(s) && !s.equals("")) {
                     p.setMeetsSearchCriteria(true);
                 }
             }

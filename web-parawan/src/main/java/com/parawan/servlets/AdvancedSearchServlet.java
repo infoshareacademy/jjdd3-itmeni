@@ -51,7 +51,10 @@ public class AdvancedSearchServlet extends HttpServlet {
         dataModel.put("actualBeach", actualBeach);
         dataModel.put("bodytemplate", "advanced-search");
         if (req.getAttribute("listOfPlaces") != null){
-            dataModel.put("listOfPlaces", req.getParameter("listOfPlaces"));
+            dataModel.put("listOfPlaces", req.getAttribute("listOfPlaces"));
+        }
+        if (req.getAttribute("chosenHour") != null){
+            dataModel.put("chosenHour", req.getAttribute("chosenHour"));
         }
 
         PrintWriter printWriter = resp.getWriter();
@@ -78,6 +81,7 @@ public class AdvancedSearchServlet extends HttpServlet {
         reservation.setBeach(beachDao.findById(actualBeach.getId()));
         reservation.setRentedItems(sb.toString());
         req.setAttribute("listOfPlaces", advancedSearch.doSearch(reservation));
+        req.setAttribute("chosenHour", req.getParameter("chosenHour"));
         this.doGet(req, resp);
     }
 }
