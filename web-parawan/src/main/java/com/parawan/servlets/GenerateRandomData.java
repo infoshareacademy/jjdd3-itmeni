@@ -1,9 +1,13 @@
 package com.parawan.servlets;
 
 import com.parawan.dao.BeachDao;
+import com.parawan.dao.ItemDao;
 import com.parawan.dao.ReservationDao;
+import com.parawan.dao.UserDao;
 import com.parawan.model.Beach;
+import com.parawan.model.Item;
 import com.parawan.model.Reservation;
+import com.parawan.model.User;
 
 import javax.inject.Inject;
 import javax.servlet.annotation.WebServlet;
@@ -21,6 +25,12 @@ public class GenerateRandomData extends HttpServlet {
 
     @Inject
     private BeachDao beachDao;
+
+    @Inject
+    private ItemDao itemDao;
+
+    @Inject
+    private UserDao userDao;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
@@ -68,6 +78,26 @@ public class GenerateRandomData extends HttpServlet {
             }
             i++;
         }
+        Item screen = new Item("screen", "s", 150, beach);
+        Item umbrella = new Item("umbrella", "u", 150, beach);
+        Item towel = new Item("towel", "t", 150, beach);
+        Item sunbed = new Item("sunbed", "b", 150, beach);
+        itemDao.save(screen);
+        itemDao.save(umbrella);
+        itemDao.save(towel);
+        itemDao.save(sunbed);
+        Item screen2 = new Item("screen", "s", 150, beach2);
+        Item umbrella2 = new Item("umbrella", "u", 150, beach2);
+        Item towel2 = new Item("towel", "t", 150, beach2);
+        Item sunbed2 = new Item("sunbed", "b", 150, beach2);
+        itemDao.save(screen2);
+        itemDao.save(umbrella2);
+        itemDao.save(towel2);
+        itemDao.save(sunbed2);
+        User pr0admin = new User("Admin", "admin@admin.admin", "admin", true);
+        User pr0user = new User("Admin", "qwerty@qwerty.qwerty", "qwerty", false);
+        userDao.save(pr0admin);
+        userDao.save(pr0user);
         resp.sendRedirect("/parawan/main-menu");
     }
 }

@@ -7,7 +7,7 @@
   <data-source>
     <name>java:ds/parawands</name>
     <class-name>com.mysql.cj.jdbc.MysqlDataSource</class-name>
-    <url>jdbc:mysql://0.0.0.0:6603/parawan</url>
+    <url>jdbc:mysql://0.0.0.0:6603/parawan?useUnicode=true;characterEncoding=UTF-8;</url>
     <user>root</user>
     <password>pass123</password>
   </data-source>
