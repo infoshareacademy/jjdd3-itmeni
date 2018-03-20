@@ -9,7 +9,7 @@
                     onclick="location.href = '/parawan/cancel-reservation?status=9';">
                 Cancel reservation
             </button>
-            <button type="button" class="btn btn-primary" onclick="location.href = '/parawan/find-place?status=9';">Find
+            <button type="button" class="btn btn-primary" onclick="location.href = '/parawan/advanced-search?status=9';">Find
                 place with additional requirements
             </button>
             <button type="button" class="btn btn-primary"
