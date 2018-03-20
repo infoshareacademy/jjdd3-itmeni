@@ -12,16 +12,16 @@
     </div>
 
     <div class="col-md-10">
-            <#if ((isAlreadyReserved == true)??) >
+            <#if ((listOfPlaces == true)??) >
         <table class="table">
             <tbody>
-        <#list places as place>
+        <#list ListOfPlaces as place>
             <#if ((place.id % actualBeach.maxWidth) == 1)>
                 <tr>
             </#if>
             <td>
                 <button type="button" class="btn btn-block
-                    <#if place.meetSearchCriteria>btn-danger">
+                    <#if place.meetsSearchCriteria>btn-danger">
                     <#else>btn-success" onclick="location.href = '/parawan/make-reservation-next?chosenId=${place.id}&chosenHour=${hour}';">
                     </#if>
                     ${place.id}

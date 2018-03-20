@@ -1,9 +1,10 @@
 package com.parawan.servlets;
 
 
+import com.parawan.dao.BeachDao;
 import com.parawan.dao.ReservationDao;
 import com.parawan.freemarker.TemplateProvider;
-import com.parawan.logic.AdvancedSearcher;
+import com.parawan.logic.AdvancedSearch;
 import com.parawan.model.ActualBeach;
 import com.parawan.model.Reservation;
 import com.parawan.view.ReservationPrinter;
@@ -36,10 +37,10 @@ public class AdvancedSearchServlet extends HttpServlet {
     private ReservationDao reservationDao;
 
     @Inject
-    private ReservationPrinter reservationPrinter;
+    private BeachDao beachDao;
 
     @Inject
-    private AdvancedSearcher advancedSearcher;
+    private AdvancedSearch advancedSearch;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -49,7 +50,9 @@ public class AdvancedSearchServlet extends HttpServlet {
 
         dataModel.put("actualBeach", actualBeach);
         dataModel.put("bodytemplate", "advanced-search");
-
+        if (req.getAttribute("listOfPlaces") != null){
+            dataModel.put("listOfPlaces", req.getParameter("listOfPlaces"));
+        }
 
         PrintWriter printWriter = resp.getWriter();
         try {
@@ -63,15 +66,18 @@ public class AdvancedSearchServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         StringBuilder sb = new StringBuilder();
         Reservation reservation = new Reservation();
-        if (req.getParameter("hour") != null) {
-            reservation.setHourOfReservation(Integer.parseInt(req.getParameter("hour")));
+        if (req.getParameter("chosenHour") != null) {
+            reservation.setHourOfReservation(Integer.parseInt(req.getParameter("chosenHour")));
         }
-        if (req.getParameter("screen").equals("s")){
+        if (req.getParameter("screen") != null && req.getParameter("screen").equals("s")){
             sb.append("s");
         }
-        if(req.getParameter("umbrella").equals("u")){
+        if(req.getParameter("umbrella") != null && req.getParameter("umbrella").equals("u")){
             sb.append("u");
         }
+        reservation.setBeach(beachDao.findById(actualBeach.getId()));
         reservation.setRentedItems(sb.toString());
+        req.setAttribute("listOfPlaces", advancedSearch.doSearch(reservation));
+        this.doGet(req, resp);
     }
 }
