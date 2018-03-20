@@ -1,7 +1,10 @@
 <#list weather>
     <ul>
-        <#items as listOfWeatherComponent>
-            <li>${error}</li>
+        <#items as weatherComponentsInList>
+            <li>${weatherComponentsInList}</li>
         </#items>
     </ul>
 </#list>
+
+
+

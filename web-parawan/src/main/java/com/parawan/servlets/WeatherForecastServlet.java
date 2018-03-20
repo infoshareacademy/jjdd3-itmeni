@@ -35,16 +35,19 @@ public class WeatherForecastServlet extends HttpServlet {
 
         JsonParser jsonParser = new JsonParser();
         ListOfWeatherComponents[] listOfWeatherComponents = jsonParser.getWeatherForecast().getList();
-        List<String> listDtTxT = new ArrayList<>();
+        List<String> weatherComponentsInList = new ArrayList<>();
         for(int i = 0; i<9; i++){
-            listDtTxT.add(listOfWeatherComponents[i].getDtTxt());
-
+            weatherComponentsInList.add(listOfWeatherComponents[i].getDtTxt());
+            weatherComponentsInList.add(listOfWeatherComponents[i].getWeather()[0].toString());
+            weatherComponentsInList.add(listOfWeatherComponents[i].getMain().toString());
+            weatherComponentsInList.add(listOfWeatherComponents[i].getWind().toString());
+            weatherComponentsInList.add("");
         }
 
         Map<String, Object> dataModel = new HashMap<>();
         dataModel.put("actualBeach", actualBeach);
         dataModel.put("bodytemplate", "weather-forecast");
-        dataModel.put("weather", listOfWeatherComponents);
+        dataModel.put("weather", weatherComponentsInList);
 
         Template template = TemplateProvider.createTemplate(getServletContext(), "basepage.ftlh");
 
@@ -54,17 +57,5 @@ public class WeatherForecastServlet extends HttpServlet {
         } catch (TemplateException e) {
             LOG.error("Error while loading freemarker template", e);
         }
-
-  /*      JsonParser jsonParser = new JsonParser();
- PrintWriter writer = resp.getWriter();
-        ListOfWeatherComponents[] listOfWeatherComponents = jsonParser.getWeatherForecast().getList();
-
-        for (int i = 0; i < 9; i++) {
-            writer.println("\n");
-            writer.println(listOfWeatherComponents[i].getDtTxt());
-            writer.println(listOfWeatherComponents[i].getWeather()[0]);
-            writer.println(listOfWeatherComponents[i].getMain());
-            writer.println(listOfWeatherComponents[i].getWind());
-        }*/
     }
 }

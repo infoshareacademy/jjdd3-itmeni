@@ -15,6 +15,7 @@ public class JsonParser {
         Response response = target.request().accept(MediaType.APPLICATION_JSON_TYPE).get();
         WeatherForecastResponse value = response.readEntity(WeatherForecastResponse.class);
         response.close();
+
         return value;
     }
 }
