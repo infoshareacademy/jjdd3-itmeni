@@ -28,14 +28,20 @@ public class LogInServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-      String email = req.getParameter("email");
-      String password = req.getParameter("password");
-      attemptToLogIn(email, password);
+        String email = req.getParameter("email");
+        String password = req.getParameter("password");
+        if (attemptToLogIn(email, password)) {
+            userSession.setLogged(true);
+            resp.sendRedirect("/parawan/main-menu");
+        } else {
+            req.setAttribute("successfulLogin", false);
+            resp.sendRedirect("/hello-servlet");
+        }
     }
 
-    protected boolean attemptToLogIn(String email, String password){
+    protected boolean attemptToLogIn(String email, String password) {
         User user = userDao.getUserToLogIn(email, password);
-        if(user!=null){
+        if (user != null) {
             userSession.setName(user.getName());
             userSession.setEmail(user.getEmail());
             userSession.setAdmin(user.isAdmin());

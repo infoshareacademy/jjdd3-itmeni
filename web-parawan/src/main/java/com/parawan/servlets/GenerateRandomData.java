@@ -95,7 +95,9 @@ public class GenerateRandomData extends HttpServlet {
         itemDao.save(towel2);
         itemDao.save(sunbed2);
         User pr0admin = new User("Admin", "admin@admin.admin", "admin", true);
+        User pr0user = new User("Admin", "qwerty@qwerty.qwerty", "qwerty", false);
         userDao.save(pr0admin);
+        userDao.save(pr0user);
         resp.sendRedirect("/parawan/main-menu");
     }
 }

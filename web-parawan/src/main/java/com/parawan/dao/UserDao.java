@@ -1,12 +1,8 @@
 package com.parawan.dao;
 
-import com.parawan.model.ActualBeach;
-import com.parawan.model.Item;
-import com.parawan.model.Reservation;
 import com.parawan.model.User;
 
 import javax.ejb.Stateless;
-import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
@@ -32,19 +28,21 @@ public class UserDao {
         return query.getResultList();
     }
 
-    public User findByMail(String mail) {
-        Query query = entityManager.createQuery("SELECT u FROM User u WHERE u.mail =:param");
-        query.setParameter("param", mail);
-        User user =(User) query.getResultList().get(0);
+    public User findByMail(String email) {
+        Query query = entityManager.createQuery("SELECT u FROM User u WHERE u.email =:param");
+        query.setParameter("param", email);
+        User user = (User) query.getResultList().get(0);
         return user;
     }
 
-    public User getUserToLogIn(String mail, String password) {
-        Query query = entityManager.createQuery("SELECT u FROM User u WHERE u.mail =:param1 AND u.password=:param2");
-        query.setParameter("param1", mail);
+    public User getUserToLogIn(String email, String password) {
+        Query query = entityManager.createQuery("SELECT u FROM User u WHERE u.email =:param1 AND u.password=:param2");
+        query.setParameter("param1", email);
         query.setParameter("param2", password);
-        User user =(User) query.getResultList().get(0);
+        User user = null;
+        if (!query.getResultList().isEmpty()) {
+            user = (User) query.getResultList().get(0);
+        }
         return user;
     }
-
 }
