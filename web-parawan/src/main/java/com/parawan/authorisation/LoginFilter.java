@@ -7,7 +7,6 @@
 //import javax.servlet.http.HttpSession;
 //import java.io.IOException;
 //
-//import static com.parawan.servlets.loginservlets.FacebookLoginServlet.USER_NAME;
 //
 //@WebFilter("parawan/*")
 //public class LoginFilter implements Filter {
