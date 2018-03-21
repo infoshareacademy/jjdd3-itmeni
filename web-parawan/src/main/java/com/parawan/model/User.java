@@ -18,17 +18,17 @@ public class User {
     @Column(name = "email")
     private String email = "";
 
-    @Column(name = "admin")
-    private boolean admin;
+//    @Column(name = "admin")
+//    private boolean admin;
 
     public User() {
     }
 
 
-    public User(String name, String email, boolean admin) {
+    public User(String name, String email) {
         this.name = name;
         this.email = email;
-        this.admin = admin;
+
     }
 
     public Integer getId() {
@@ -53,13 +53,5 @@ public class User {
 
     public void setEmail(String mail) {
         this.email = email;
-    }
-
-    public boolean isAdmin() {
-        return admin;
-    }
-
-    public void setAdmin(boolean admin) {
-        this.admin = admin;
     }
 }

@@ -1,12 +1,9 @@
-package com.parawan.servlets.loginservlets;
-
+package com.parawan.servlets;
 
 import com.mashape.unirest.http.HttpResponse;
 import com.mashape.unirest.http.JsonNode;
 import com.mashape.unirest.http.Unirest;
 import com.mashape.unirest.http.exceptions.UnirestException;
-import com.parawan.authorisation.AdminService;
-
 import com.parawan.dao.UserDao;
 import com.parawan.model.User;
 import com.parawan.model.UserSession;
@@ -22,9 +19,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet("login")
-public class GoogleLoginServlet extends HttpServlet {
-    private static final Logger logger = LoggerFactory.getLogger(GoogleLoginServlet.class);
+@WebServlet("/login")
+public class LoginServlet extends HttpServlet {
+    private static final Logger logger = LoggerFactory.getLogger(LoginServlet.class);
+
 
     @Inject
     private UserSession userSession;
@@ -39,11 +37,10 @@ public class GoogleLoginServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+//        String email = req.getParameter("email");
+//        String name = req.getParameter("name");
+        String id = req.getParameter("id_token");
 
-
-        String ids = req.getParameter("id_token");
-
-        String id = ids;
         try {
             HttpResponse<JsonNode> id_token = Unirest.get("https://www.googleapis.com/oauth2/v3/tokeninfo")
                     .queryString("id_token", id)
@@ -59,10 +56,18 @@ public class GoogleLoginServlet extends HttpServlet {
                 logger.info("Username: " + name);
                 logger.info("User e-mail: " + email);
 
-                resp.sendRedirect("/hello-servlet");
+                User user = new User(name, email);
+                userDao.save(user);
+
+
+                if (attemptToLogIn(email, name)) {
+                    userSession.setLogged(true);
+                    resp.sendRedirect("/parawan/main-menu");
+                } else {
+                    req.setAttribute("successfulLogin", false);
+                    resp.sendRedirect("/hello-servlet");
+                }
             }
-
-
         } catch (UnirestException e) {
             logger.error("Cannot validate google token", e);
             e.printStackTrace(resp.getWriter());
@@ -70,12 +75,11 @@ public class GoogleLoginServlet extends HttpServlet {
         }
     }
 
-    protected boolean attemptToLogIn(String email, String name) {
+    private boolean attemptToLogIn(String email, String name) {
         User user = userDao.getUserToLogIn(email, name);
         if (user != null) {
             userSession.setName(user.getName());
             userSession.setEmail(user.getEmail());
-            userSession.setAdmin(user.isAdmin());
             return true;
         }
         return false;
