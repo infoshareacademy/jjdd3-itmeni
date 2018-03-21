@@ -11,9 +11,9 @@
   <data-source>
     <name>java:ds/itmeni_app</name>
     <class-name>com.mysql.cj.jdbc.MysqlDataSource</class-name>
-    <url>jdbc:mysql://0.0.0.0:6603/parawan?useUnicode=true;characterEncoding=UTF-8;</url>
+    <url>jdbc:mysql://db:3306/parawan?useUnicode=true;characterEncoding=UTF-8;</url>
     <user>root</user>
-    <password>pass123</password>
+    <password>root</password>
   </data-source>
   <welcome-file-list>
     <welcome-file>/home</welcome-file>
