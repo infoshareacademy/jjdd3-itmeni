@@ -1,28 +1,42 @@
 <div class="row">
     <div class="col-md-2">
         <form method="post" action="/parawan/advanced-search">
-            Choose hour: <input type="number" name="chosenHour" value="" min="9" max="19"
+            Choose hour: <input type="number" name="chosenHour" value="9" min="9" max="19"
                                 required/><br/><br/>
-            Show places witch screens:<br/><label><input type="radio" name="chosenScreen" value="s"/>&nbsp;yes</label>
-            <label><input type="radio" name="chosenScreen" value="z" checked/>&nbsp;no</label><br/><br/>
-            Show places with umbrellas:<br/>  <label><input type="radio" name="chosenUmbrella" value="u"/>&nbsp;yes</label>
-            <label><input type="radio" name="chosenUmbrella" value="z" checked/>&nbsp;no</label><br/><br/>
+            Mark places with rented screens:<br/><label><input type="radio" name="screen" value="s"/>&nbsp;yes</label>
+            <label><input type="radio" name="screen" value="z" checked/>&nbsp;no</label><br/><br/>
+            Mark places with rented umbrellas:<br/>  <label><input type="radio" name="umbrella" value="u"/>&nbsp;yes</label>
+            <label><input type="radio" name="umbrella" value="z" checked/>&nbsp;no</label><br/><br/>
             <input type="submit" class="btn btn-primary" name="save" value="Check"/><br/><br/>
         </form>
+        Legend:
+        <p>
+            <button class="btn btn-success btn-block">FREE</button>
+        </p>
+        <p>
+            <button class="btn btn-danger btn-block">RESERVED</button>
+        </p>
+        <p>
+            <button class="btn btn-primary btn-block">Has marked items</button>
+        </p>
+        <p>
+            Click a place to proceed.
+        </p>
     </div>
 
     <div class="col-md-10">
-            <#if ((isAlreadyReserved == true)??) >
+
         <table class="table">
             <tbody>
-        <#list places as place>
+        <#list listOfPlaces as place>
             <#if ((place.id % actualBeach.maxWidth) == 1)>
                 <tr>
             </#if>
             <td>
                 <button type="button" class="btn btn-block
-                    <#if place.meetSearchCriteria>btn-danger">
-                    <#else>btn-success" onclick="location.href = '/parawan/make-reservation-next?chosenId=${place.id}&chosenHour=${hour}';">
+                    <#if (place.meetsSearchCriteria)>btn-primary">
+                    <#elseif (place.occupied)>btn-danger">
+                    <#else>btn-success" onclick="location.href = '/parawan/make-reservation-next?chosenId=${place.id}&chosenHour=${chosenHour}';">
                     </#if>
                     ${place.id}
                 </button>
@@ -32,6 +46,6 @@
         </#list>
             </tbody>
         </table>
-            </#if>
+
     </div>
 </div>
