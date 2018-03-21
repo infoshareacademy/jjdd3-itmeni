@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.Random;
 
-@WebServlet("/parawan/generaterandomdata")
+@WebServlet("/generaterandomdata")
 public class GenerateRandomData extends HttpServlet {
 
     @Inject

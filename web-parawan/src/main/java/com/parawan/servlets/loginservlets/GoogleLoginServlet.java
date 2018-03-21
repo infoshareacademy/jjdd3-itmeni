@@ -7,6 +7,9 @@ import com.mashape.unirest.http.Unirest;
 import com.mashape.unirest.http.exceptions.UnirestException;
 import com.parawan.authorisation.AdminService;
 
+import com.parawan.dao.UserDao;
+import com.parawan.model.User;
+import com.parawan.model.UserSession;
 import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -23,13 +26,11 @@ import java.io.IOException;
 public class GoogleLoginServlet extends HttpServlet {
     private static final Logger logger = LoggerFactory.getLogger(GoogleLoginServlet.class);
 
-    private static final String USER_NAME = "UserName";
-    private static final String USER_EMAIL = "UserEmail";
-    private static final String USER_LOGIN_TYPE = "UserLoginType";
-    private static final String USER_TYPE = "userType";
+    @Inject
+    private UserSession userSession;
 
     @Inject
-    private AdminService adminService;
+    private UserDao userDao;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -38,6 +39,7 @@ public class GoogleLoginServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
 
         String ids = req.getParameter("id_token");
 
@@ -57,18 +59,25 @@ public class GoogleLoginServlet extends HttpServlet {
                 logger.info("Username: " + name);
                 logger.info("User e-mail: " + email);
 
-                req.getSession().setAttribute(USER_NAME, name);
-                req.getSession().setAttribute(USER_EMAIL, email);
-                req.getSession().setAttribute(USER_LOGIN_TYPE, "google");
-                req.getSession().setAttribute(USER_TYPE, adminService.isAdmin(email));
-
-                resp.sendRedirect("parawan/main-menu");
+                resp.sendRedirect("/hello-servlet");
             }
+
 
         } catch (UnirestException e) {
             logger.error("Cannot validate google token", e);
             e.printStackTrace(resp.getWriter());
             req.getRequestDispatcher("WEB-INF/jsp/login.jsp").forward(req, resp);
         }
+    }
+
+    protected boolean attemptToLogIn(String email, String name) {
+        User user = userDao.getUserToLogIn(email, name);
+        if (user != null) {
+            userSession.setName(user.getName());
+            userSession.setEmail(user.getEmail());
+            userSession.setAdmin(user.isAdmin());
+            return true;
+        }
+        return false;
     }
 }

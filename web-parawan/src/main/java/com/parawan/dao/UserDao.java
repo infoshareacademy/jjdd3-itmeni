@@ -35,10 +35,10 @@ public class UserDao {
         return user;
     }
 
-    public User getUserToLogIn(String email, String password) {
-        Query query = entityManager.createQuery("SELECT u FROM User u WHERE u.email =:param1 AND u.password=:param2");
+    public User getUserToLogIn(String email, String name) {
+        Query query = entityManager.createQuery("SELECT u FROM User u WHERE u.email =:param1 AND u.name=:param2");
         query.setParameter("param1", email);
-        query.setParameter("param2", password);
+        query.setParameter("param2", name);
         User user = null;
         if (!query.getResultList().isEmpty()) {
             user = (User) query.getResultList().get(0);

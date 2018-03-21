@@ -18,19 +18,16 @@ public class User {
     @Column(name = "email")
     private String email = "";
 
-    @Column(name = "password")
-    private String password ="";
-
     @Column(name = "admin")
     private boolean admin;
 
     public User() {
     }
 
-    public User(String name, String email, String password, boolean admin) {
+
+    public User(String name, String email, boolean admin) {
         this.name = name;
         this.email = email;
-        this.password = password;
         this.admin = admin;
     }
 

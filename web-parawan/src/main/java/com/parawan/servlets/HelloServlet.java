@@ -36,9 +36,6 @@ public class HelloServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        final String accessToken = (String) SessionUtils.get(req, "accessToken");
-        final String idToken = (String) SessionUtils.get(req, "idToken");
-
         setActualBeachIfNotSet(actualBeach);
         Map<String, Object> dataModel = new HashMap<>();
         List<Beach> beaches = beachDao.findAll();
@@ -54,13 +51,6 @@ public class HelloServlet extends HttpServlet {
             LOG.error("Error while loading freemarker template", e);
         }
 
-
-
-        if (accessToken != null) {
-            req.setAttribute("userId", accessToken);
-        } else if (idToken != null) {
-            req.setAttribute("userId", idToken);
-        }
         req.getRequestDispatcher("parawan/make-reservation").forward(req, resp);
     }
 
