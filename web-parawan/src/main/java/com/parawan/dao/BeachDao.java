@@ -1,11 +1,7 @@
 package com.parawan.dao;
 
-import com.parawan.model.ActualBeach;
 import com.parawan.model.Beach;
-
-import javax.ejb.Singleton;
 import javax.ejb.Stateless;
-import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
@@ -38,10 +34,9 @@ public class BeachDao {
         return entityManager.find(Beach.class, id);
     }
 
-
     public List<Beach> findAll() {
         final Query query = entityManager.createQuery("SELECT b FROM Beach b");
-
         return query.getResultList();
     }
+
 }

@@ -1,6 +1,6 @@
 package com.parawan.servlets;
 
-import com.parawan.com.menu.CancelReservation;
+
 import com.parawan.dao.BeachDao;
 import com.parawan.dao.ReservationDao;
 import com.parawan.freemarker.TemplateProvider;

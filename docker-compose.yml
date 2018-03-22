@@ -1,0 +1,21 @@
+version: "2"
+services:
+  db:
+    image: mysql:5.7
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=parawan
+      - MYSQL_USER=itmeni
+      - MYSQL_PASSWORD=itmeni123
+    ports:
+      - 4132:3306
+  itmeni_web:
+    build:
+     context: ./web-parawan
+    ports:
+      - 4130:8080
+      - 4131:9990
+    depends_on:
+      - db
+    links:
+      - db
