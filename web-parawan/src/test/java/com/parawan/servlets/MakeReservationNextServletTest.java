@@ -84,7 +84,7 @@ public class MakeReservationNextServletTest {
         Map<String, Object> result = makeReservationNextServlet.putParameterstoDataManager(dataModel, request);
 
         //Then
-        assertEquals(8,result.size());
+        assertEquals(9,result.size());
     }
 
     @Test

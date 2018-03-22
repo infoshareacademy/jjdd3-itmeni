@@ -16,7 +16,7 @@ import java.util.List;
 import static org.junit.Assert.assertEquals;
 
 @RunWith(MockitoJUnitRunner.class)
-public class HelloServletTest {
+public class LoginServletTest {
 
     @Mock
     public ActualBeach actualBeach;
@@ -25,7 +25,7 @@ public class HelloServletTest {
     public BeachDao beachDao;
 
     @InjectMocks
-    public HelloServlet helloServlet;
+    public LoginServlet loginServlet;
 
     @Test
     public void shouldReturnNameOfBeachThatIsAlreadySet() {
@@ -35,7 +35,7 @@ public class HelloServletTest {
         String expected = "Jelitkowo";
 
         //When
-        String result = helloServlet.setActualBeachIfNotSet(actualBeach).getName();
+        String result = loginServlet.setActualBeachIfNotSet(actualBeach).getName();
 
         //Then
         assertEquals(result, expected);
@@ -51,7 +51,7 @@ public class HelloServletTest {
         Mockito.when(beachDao.findAll()).thenReturn(listOfTestBeaches);
 
         //When
-        ActualBeach result = helloServlet.setActualBeachIfNotSet(actualBeach);
+        ActualBeach result = loginServlet.setActualBeachIfNotSet(actualBeach);
 
         //Then
         Mockito.verify(actualBeach).setId(1);

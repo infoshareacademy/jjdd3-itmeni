@@ -3,9 +3,11 @@ package com.parawan.servlets;
 import com.parawan.dao.BeachDao;
 import com.parawan.dao.ItemDao;
 import com.parawan.dao.ReservationDao;
+import com.parawan.dao.UserDao;
 import com.parawan.model.Beach;
 import com.parawan.model.Item;
 import com.parawan.model.Reservation;
+import com.parawan.model.User;
 
 import javax.inject.Inject;
 import javax.servlet.annotation.WebServlet;
@@ -27,6 +29,9 @@ public class GenerateRandomData extends HttpServlet {
     @Inject
     private ItemDao itemDao;
 
+    @Inject
+    private UserDao userDao;
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws IOException {
@@ -34,12 +39,13 @@ public class GenerateRandomData extends HttpServlet {
         fillDatabase(req, resp);
     }
 
-    public void fillDatabase(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+    private void fillDatabase(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 
         Beach beach = new Beach(null, "Brzezno", 20, 10);
         beachDao.save(beach);
         Beach beach2 = new Beach(null, "Stogi", 10, 10);
         beachDao.save(beach2);
+     
         for (int i = 0; i < 400; ) {
             String itemsString = "";
             String nameString = "Tester" + new Random().nextInt(10000);
@@ -89,7 +95,10 @@ public class GenerateRandomData extends HttpServlet {
         itemDao.save(umbrella2);
         itemDao.save(towel2);
         itemDao.save(sunbed2);
-
+        User pr0admin = new User("Admin", "admin@admin.admin");
+        User pr0user = new User("Qwerty", "qwerty@qwerty.qwerty");
+        userDao.save(pr0admin);
+        userDao.save(pr0user);
         resp.sendRedirect("/parawan/main-menu");
     }
 }

@@ -7,6 +7,7 @@ import com.parawan.logic.CheckItems;
 import com.parawan.model.ActualBeach;
 import com.parawan.model.Beach;
 import com.parawan.model.Reservation;
+import com.parawan.model.UserSession;
 import com.parawan.view.Place;
 import com.parawan.view.ReservationPrinter;
 import freemarker.template.Template;
@@ -45,6 +46,9 @@ public class MakeReservationNextServlet extends HttpServlet {
 
     @Inject
     private CheckItems checkItems;
+
+    @Inject
+    private UserSession userSession;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -98,6 +102,7 @@ public class MakeReservationNextServlet extends HttpServlet {
         dataModel.put("hourFromLastStep", hourFromLastStep);
         dataModel.put("idFromLastStep", idFromLastStep);
         dataModel.put("bodytemplate", "make-reservation-next");
+        dataModel.put("userSession", userSession);
 
         return dataModel;
     }

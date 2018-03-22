@@ -2,6 +2,7 @@ package com.parawan.filters;
 
 
 import com.parawan.model.ActualBeach;
+import com.parawan.model.UserSession;
 
 import javax.inject.Inject;
 import javax.servlet.*;
@@ -10,12 +11,12 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @WebFilter(
-        filterName = "NoBeachSelectedFilter",
+        filterName = "IsLoggedChecker",
         urlPatterns = {"/parawan/*"})
-public class NoBeachSelectedFilter implements Filter {
+public class IsLoggedChecker implements Filter {
 
     @Inject
-    private ActualBeach actualBeach;
+    private UserSession userSession;
 
     @Override
     public void init(FilterConfig filterConfig) {
@@ -30,10 +31,7 @@ public class NoBeachSelectedFilter implements Filter {
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
         HttpServletResponse httpServletResponse = (HttpServletResponse) servletResponse;
-        if (actualBeach.getId() == null
-                || actualBeach.getName() == null
-                || actualBeach.getMaxHeight() == null
-                || actualBeach.getMaxWidth() == null) {
+        if (userSession.isLogged() != true) {
             httpServletResponse.sendRedirect("/login");
         }
         filterChain.doFilter(servletRequest, servletResponse);
