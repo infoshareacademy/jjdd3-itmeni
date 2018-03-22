@@ -1,6 +1,5 @@
 package com.parawan.model;
 
-
 import javax.persistence.*;
 
 @Entity
@@ -18,17 +17,12 @@ public class User {
     @Column(name = "email")
     private String email = "";
 
-//    @Column(name = "admin")
-//    private boolean admin;
-
     public User() {
     }
-
 
     public User(String name, String email) {
         this.name = name;
         this.email = email;
-
     }
 
     public Integer getId() {
