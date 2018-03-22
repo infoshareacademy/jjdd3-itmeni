@@ -43,8 +43,7 @@ public class MainMenuServlet extends HttpServlet {
         Template template = TemplateProvider.createTemplate(getServletContext(), "basepage.ftlh");
         dataModel.put("actualBeach", actualBeach);
         dataModel.put("bodytemplate", "main-menu");
-        dataModel.put("bodytemplate", "main-menu");
-        dataModel.put("bodytemplate", "main-menu");
+
 
         PrintWriter printWriter = resp.getWriter();
         try {

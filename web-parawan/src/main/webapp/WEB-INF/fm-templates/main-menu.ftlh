@@ -20,7 +20,7 @@
         </div>
     </div>
     <div class="col-md-10">
-        <h1>Hello ${name}</h1>
+        <h1>Hello</h1>
         <p style="text-align: justify">Welcome to our wonderful beaches. You are currently on the ${actualBeach.name}.
             Please choose options on the left panel. If you have any opinion on our services
             please contact us at beaches4everyone@parawan.com . We hope that you will have a great time with us!

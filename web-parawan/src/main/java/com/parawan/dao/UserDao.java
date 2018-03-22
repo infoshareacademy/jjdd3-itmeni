@@ -31,7 +31,10 @@ public class UserDao {
     public User findByMail(String email) {
         Query query = entityManager.createQuery("SELECT u FROM User u WHERE u.email =:param");
         query.setParameter("param", email);
-        User user = (User) query.getResultList().get(0);
+        User user = null;
+        if (!query.getResultList().isEmpty()) {
+            user = (User) query.getResultList().get(0);
+        }
         return user;
     }
 

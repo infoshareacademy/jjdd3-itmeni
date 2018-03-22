@@ -36,7 +36,6 @@ public class HelloServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        setActualBeachIfNotSet(actualBeach);
         Map<String, Object> dataModel = new HashMap<>();
         List<Beach> beaches = beachDao.findAll();
         dataModel.put("beaches", beaches);
@@ -54,22 +53,4 @@ public class HelloServlet extends HttpServlet {
         req.getRequestDispatcher("parawan/make-reservation").forward(req, resp);
     }
 
-
-
-
-    public ActualBeach setActualBeachIfNotSet(ActualBeach actualBeach) {
-        if(actualBeach.getName() == null || actualBeach.getName().isEmpty()){
-            List<Beach> beaches = beachDao.findAll();
-            if(beaches.size() != 0) {
-                Beach firstBeachFromDatabase = beaches.get(0);
-                actualBeach.setId(firstBeachFromDatabase.getId());
-                actualBeach.setName(firstBeachFromDatabase.getName());
-                actualBeach.setMaxWidth(firstBeachFromDatabase.getMaxWidth());
-                actualBeach.setMaxHeight(firstBeachFromDatabase.getMaxHeight());
-            } else {
-                LOG.error("Error while loading data from database");
-            }
-        }
-        return actualBeach;
     }
-}

@@ -12,7 +12,6 @@
 <div id="my-signin2" data-onsuccess="onSignIn"></div>
 <div class="g-signin2" data-onsuccess="onSignIn"></div>
 <script>
-    //google callback. This function will redirect to our login servlet
     function onSignIn(googleUser) {
         var profile = googleUser.getBasicProfile();
         console.log('ID: ' + profile.getId());
@@ -21,12 +20,8 @@
         console.log('Email: ' + profile.getEmail());
         console.log('id_token: ' + googleUser.getAuthResponse().id_token);
 
-        //do not post all above info to the server because that is not secure.
-        //just send the id_token
-
         var redirectUrl = 'login';
 
-        //using jquery to post data dynamically
         var form = $('<form action="' + redirectUrl + '" method="post">' +
             '<input type="text" name="id_token" value="' +
             googleUser.getAuthResponse().id_token + '" />' +

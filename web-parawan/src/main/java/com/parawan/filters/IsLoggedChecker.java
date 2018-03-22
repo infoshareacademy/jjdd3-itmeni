@@ -32,7 +32,7 @@ public class IsLoggedChecker implements Filter {
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
         HttpServletResponse httpServletResponse = (HttpServletResponse) servletResponse;
         if (userSession.isLogged() != true) {
-            httpServletResponse.sendRedirect("/hello-servlet");
+            httpServletResponse.sendRedirect("/login");
         }
         filterChain.doFilter(servletRequest, servletResponse);
     }

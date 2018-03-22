@@ -4,7 +4,10 @@ import com.mashape.unirest.http.HttpResponse;
 import com.mashape.unirest.http.JsonNode;
 import com.mashape.unirest.http.Unirest;
 import com.mashape.unirest.http.exceptions.UnirestException;
+import com.parawan.dao.BeachDao;
 import com.parawan.dao.UserDao;
+import com.parawan.model.ActualBeach;
+import com.parawan.model.Beach;
 import com.parawan.model.User;
 import com.parawan.model.UserSession;
 import org.json.JSONObject;
@@ -18,6 +21,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.List;
 
 @WebServlet("/login")
 public class LoginServlet extends HttpServlet {
@@ -30,6 +34,12 @@ public class LoginServlet extends HttpServlet {
     @Inject
     private UserDao userDao;
 
+    @Inject
+    private BeachDao beachDao;
+
+    @Inject
+    private ActualBeach actualBeach;
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.getRequestDispatcher("WEB-INF/jsp/login.jsp").forward(req, resp);
@@ -37,8 +47,7 @@ public class LoginServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-//        String email = req.getParameter("email");
-//        String name = req.getParameter("name");
+
         String id = req.getParameter("id_token");
 
         try {
@@ -56,16 +65,25 @@ public class LoginServlet extends HttpServlet {
                 logger.info("Username: " + name);
                 logger.info("User e-mail: " + email);
 
-                User user = new User(name, email);
-                userDao.save(user);
+                userSession.setName(name);
+                userSession.setEmail(email);
 
+                if (userDao.findByMail(email) == null) {
+
+
+                    User user = new User(name, email);
+                    userDao.save(user);
+                }
 
                 if (attemptToLogIn(email, name)) {
                     userSession.setLogged(true);
+
+                    setActualBeachIfNotSet(actualBeach);
                     resp.sendRedirect("/parawan/main-menu");
+
                 } else {
                     req.setAttribute("successfulLogin", false);
-                    resp.sendRedirect("/hello-servlet");
+                    resp.sendRedirect("/login");
                 }
             }
         } catch (UnirestException e) {
@@ -84,4 +102,22 @@ public class LoginServlet extends HttpServlet {
         }
         return false;
     }
+
+    public ActualBeach setActualBeachIfNotSet(ActualBeach actualBeach) {
+        if (actualBeach.getName() == null || actualBeach.getName().isEmpty()) {
+            List<Beach> beaches = beachDao.findAll();
+            if (beaches.size() != 0) {
+                Beach firstBeachFromDatabase = beaches.get(0);
+                actualBeach.setId(firstBeachFromDatabase.getId());
+                actualBeach.setName(firstBeachFromDatabase.getName());
+                actualBeach.setMaxWidth(firstBeachFromDatabase.getMaxWidth());
+                actualBeach.setMaxHeight(firstBeachFromDatabase.getMaxHeight());
+            } else {
+                logger.error("Error while loading data from database");
+            }
+        }
+        return actualBeach;
+    }
+
+
 }

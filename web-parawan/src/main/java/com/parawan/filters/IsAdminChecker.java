@@ -31,7 +31,7 @@ public class IsAdminChecker implements Filter {
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
         HttpServletResponse httpServletResponse = (HttpServletResponse) servletResponse;
         if (userSession.isAdmin() != true) {
-            httpServletResponse.sendRedirect("/hello-servlet");
+            httpServletResponse.sendRedirect("/login");
         }
         filterChain.doFilter(servletRequest, servletResponse);
     }
