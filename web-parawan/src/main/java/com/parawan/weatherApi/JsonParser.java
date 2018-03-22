@@ -11,7 +11,7 @@ public class JsonParser {
     public WeatherForecastResponse getWeatherForecast() {
 
         Client client = ClientBuilder.newClient();
-        WebTarget target = client.target("https://178.62.207.82/data/2.5/forecast?APPID=911ddd6b9e551144f9e93318230dd105&id=7531890&lang=en&units=metric&mode=json");
+        WebTarget target = client.target("https://api.openweathermap.org/data/2.5/forecast?APPID=911ddd6b9e551144f9e93318230dd105&id=7531890&lang=en&units=metric&mode=json");
         Response response = target.request().accept(MediaType.APPLICATION_JSON_TYPE).get();
         WeatherForecastResponse value = response.readEntity(WeatherForecastResponse.class);
         response.close();

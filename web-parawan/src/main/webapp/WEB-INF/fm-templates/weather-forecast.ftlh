@@ -1,10 +1,75 @@
-<#list weather>
-    <ul>
+<div class="row">
+    <div class="col">
+                    <#list weather>
         <#items as weatherComponentsInList>
-            <li>${weatherComponentsInList}</li>
+            ${weatherComponentsInList}<#sep><br></#sep>
         </#items>
-    </ul>
-</#list>
+                    </#list>
 
+    </div>
+    <div class="col">
+                    <#list weather>
+        <#items as weatherComponentsInList>
+            ${weatherComponentsInList}<#sep><br></#sep>
+        </#items>
+                    </#list>
 
+    </div>
+    <div class="col">
+                    <#list weather>
+        <#items as weatherComponentsInList>
+            ${weatherComponentsInList}<#sep><br></#sep>
+        </#items>
+                    </#list>
+
+    </div>
+    <div class="col">
+                    <#list weather>
+        <#items as weatherComponentsInList>
+            ${weatherComponentsInList}<#sep><br></#sep>
+        </#items>
+                    </#list>
+
+    </div>
+    <div class="col">
+                    <#list weather>
+        <#items as weatherComponentsInList>
+            ${weatherComponentsInList}<#sep><br></#sep>
+        </#items>
+                    </#list>
+
+    </div>
+    <div class="col">
+                    <#list weather>
+        <#items as weatherComponentsInList>
+            ${weatherComponentsInList}<#sep><br></#sep>
+        </#items>
+                    </#list>
+
+    </div>
+    <div class="col">
+                    <#list weather>
+        <#items as weatherComponentsInList>
+            ${weatherComponentsInList}<#sep><br></#sep>
+        </#items>
+                    </#list>
+
+    </div>
+    <div class="col">
+                    <#list weather>
+        <#items as weatherComponentsInList>
+            ${weatherComponentsInList}<#sep><br></#sep>
+        </#items>
+                    </#list>
+
+    </div>
+    <div class="col">
+                    <#list weather>
+        <#items as weatherComponentsInList>
+            ${weatherComponentsInList}<#sep><br></#sep>
+        </#items>
+                    </#list>
+
+    </div>
+</div>
 

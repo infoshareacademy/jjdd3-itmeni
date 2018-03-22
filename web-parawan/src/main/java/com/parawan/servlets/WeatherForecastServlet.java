@@ -40,8 +40,9 @@ public class WeatherForecastServlet extends HttpServlet {
             weatherComponentsInList.add(listOfWeatherComponents[i].getDtTxt());
             weatherComponentsInList.add(listOfWeatherComponents[i].getWeather()[0].toString());
             weatherComponentsInList.add(listOfWeatherComponents[i].getMain().toString());
+            weatherComponentsInList.add("Pressure: "+listOfWeatherComponents[i].getMain().getPressure()+" hPa");
             weatherComponentsInList.add(listOfWeatherComponents[i].getWind().toString());
-            weatherComponentsInList.add("");
+            //weatherComponentsInList.add("");
         }
 
         Map<String, Object> dataModel = new HashMap<>();
