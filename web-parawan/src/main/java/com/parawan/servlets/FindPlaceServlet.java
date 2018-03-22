@@ -3,7 +3,6 @@ package com.parawan.servlets;
 import com.parawan.ItemType;
 import com.parawan.Place;
 import com.parawan.PlaceStatus;
-import com.parawan.com.menu.CancelReservation;
 import com.parawan.freemarker.TemplateProvider;
 import com.parawan.model.ActualBeach;
 import freemarker.template.Template;
@@ -20,6 +19,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.Map;
+
 import org.slf4j.Logger;
 
 @WebServlet("/parawan/find-place")
@@ -38,7 +38,6 @@ public class FindPlaceServlet extends HttpServlet {
         Template template = TemplateProvider.createTemplate(getServletContext(), "basepage.ftlh");
         dataModel.put("actualBeach", actualBeach);
         dataModel.put("bodytemplate", "find-place");
-
 
 
         PrintWriter printWriter = resp.getWriter();
