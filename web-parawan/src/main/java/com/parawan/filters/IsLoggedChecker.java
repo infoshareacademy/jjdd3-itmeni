@@ -33,7 +33,8 @@ public class IsLoggedChecker implements Filter {
         HttpServletResponse httpServletResponse = (HttpServletResponse) servletResponse;
         if (userSession.isLogged() != true) {
             httpServletResponse.sendRedirect("/login");
+        } else {
+            filterChain.doFilter(servletRequest, servletResponse);
         }
-        filterChain.doFilter(servletRequest, servletResponse);
     }
 }

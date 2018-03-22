@@ -8,7 +8,7 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 
-@WebFilter("parawan/*")
+@WebFilter("/parawan/*")
 public class LoginFilter implements Filter {
 
     @Override
@@ -23,8 +23,8 @@ public class LoginFilter implements Filter {
 
         HttpSession session = req.getSession();
 
-        if ((session.getAttribute("name") == null) ||(session.getAttribute("email") == null) || !uri.endsWith("login")) {
-            res.sendRedirect("login");
+        if ((session.getAttribute("name") == null) ||(session.getAttribute("email") == null)) {
+            res.sendRedirect("/login");
         } else {
             filterChain.doFilter(servletRequest, servletResponse);
         }
