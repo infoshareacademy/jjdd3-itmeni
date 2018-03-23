@@ -27,7 +27,7 @@
                                 required/><br/><br/>
             Choose ID: <input type="number" name="chosenId" value="${idFromLastStep}" min="${firstId}" max="${lastId}"
                               required/><br/><br/>
-            Choose name: <br/><input type="text" name="chosenName" required autofocus/><br/><br/>
+            Reserving as: <br/><b>${userSession.email}<b/><br/><br/>
             Rent a screen:<br/><label><input type="radio" name="chosenScreen" value="s"/>&nbsp;yes</label>
             <label><input type="radio" name="chosenScreen" value="z" checked/>&nbsp;no</label><br/><br/>
             Rent an umbrella:<br/>  <label><input type="radio" name="chosenUmbrella" value="u"/>&nbsp;yes</label>

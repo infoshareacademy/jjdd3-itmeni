@@ -78,7 +78,7 @@ public class MakeReservationNextServlet extends HttpServlet {
         } catch (NumberFormatException e) {
             LOG.error("Error while making reservation", e);
         }
-        reservation.setNameOfPerson(req.getParameter("chosenName"));
+        reservation.setNameOfPerson(userSession.getEmail());
 
         this.itemReservation(reservation, req);
 
