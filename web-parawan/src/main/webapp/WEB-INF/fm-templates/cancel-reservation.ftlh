@@ -1,11 +1,20 @@
-
-<h2>Please fill below to cancel your reservation:</h2>
-<p>Beach is open from 9:00 to 19:00</p>
-<form method="post" action="/parawan/cancel-reservation">
-    Choose ID: <input type="number" name="cancelId" min="${firstId}" max="${lastId}" required/><br/><br/>
-    Choose hour: <input type="number" name="cancelHour" min="9" max="19" required/><br/><br/>
-    <input type="submit"  value="save"/><br/><br/>
-</form>
+<div class="row">
+    <div class="col">
+    <h2>Please fill below to cancel your reservation:</h2>
+    </div>
+</div>
+<div class="row">
+    <div class="col">
+    <p>Beach is open from 9:00 to 19:00</p>
+    </div>
+</div>
+<div class="row">
+    <div class="col">
+    <form method="post" action="/parawan/cancel-reservation">
+        Choose ID: <input type="number" name="cancelId" min="${firstId}" max="${lastId}" required/><br/><br/>
+        Choose hour: <input type="number" name="cancelHour" min="9" max="19" required/><br/><br/>
+        <input type="submit" class="btn btn-primary" value="Cancel reservation"/><br/><br/>
+    </form>
 <#if errors??>
     <#list errors>
     <ul>
@@ -15,3 +24,25 @@
     </ul>
     </#list>
 </#if>
+    </div>
+</div>
+
+<div>Your reservations on this beach: <br/></div>
+<div class="row">
+    <div class="col-md-4">
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th scope="col">Hour of reservation</th>
+                <th scope="col">Id of reserved place</th>
+            </tr>
+            </thead>
+            <#list reservations as reservation>
+                <tr>
+                    <td>${reservation.hourOfReservation}</td>
+                    <td>${reservation.placeId}</td>
+                </tr>
+            </#list>
+        </table>
+    </div>
+</div>

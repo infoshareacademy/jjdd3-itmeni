@@ -69,15 +69,12 @@ public class LoginServlet extends HttpServlet {
                 userSession.setEmail(email);
 
                 if (userDao.findByMail(email) == null) {
-
-
                     User user = new User(name, email);
                     userDao.save(user);
                 }
 
                 if (attemptToLogIn(email, name)) {
                     userSession.setLogged(true);
-
                     setActualBeachIfNotSet(actualBeach);
                     resp.sendRedirect("/parawan/main-menu");
 

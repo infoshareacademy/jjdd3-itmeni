@@ -28,12 +28,14 @@ public class WeatherForecastServlet extends HttpServlet {
     @Inject
     private ActualBeach actualBeach;
 
+    @Inject
+    private JsonParser jsonParser;
+
     private static final Logger LOG = LoggerFactory.getLogger(WeatherForecastServlet.class);
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        JsonParser jsonParser = new JsonParser();
         ListOfWeatherComponents[] listOfWeatherComponents = jsonParser.getWeatherForecast().getList();
         List<String> weatherComponentsInList = new ArrayList<>();
         for(int i = 0; i<9; i++){

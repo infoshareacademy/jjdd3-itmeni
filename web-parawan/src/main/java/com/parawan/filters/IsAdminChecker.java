@@ -32,7 +32,8 @@ public class IsAdminChecker implements Filter {
         HttpServletResponse httpServletResponse = (HttpServletResponse) servletResponse;
         if (userSession.isAdmin() != true) {
             httpServletResponse.sendRedirect("/login");
+        } else {
+            filterChain.doFilter(servletRequest, servletResponse);
         }
-        filterChain.doFilter(servletRequest, servletResponse);
     }
 }

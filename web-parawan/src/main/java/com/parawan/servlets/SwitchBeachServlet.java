@@ -1,6 +1,5 @@
 package com.parawan.servlets;
 
-import com.auth0.SessionUtils;
 import com.parawan.dao.BeachDao;
 import com.parawan.freemarker.TemplateProvider;
 import com.parawan.model.ActualBeach;
@@ -21,10 +20,9 @@ import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import org.slf4j.Logger;
 
-@WebServlet("/hello-servlet")
-public class HelloServlet extends HttpServlet {
+@WebServlet("/parawan/switch-beach")
+public class SwitchBeachServlet extends HttpServlet {
 
     @Inject
     private ActualBeach actualBeach;
@@ -32,7 +30,7 @@ public class HelloServlet extends HttpServlet {
     @Inject
     private BeachDao beachDao;
 
-    private static final Logger LOG = LoggerFactory.getLogger(HelloServlet.class);
+    private static final Logger LOG = LoggerFactory.getLogger(SwitchBeachServlet.class);
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -41,7 +39,7 @@ public class HelloServlet extends HttpServlet {
         List<Beach> beaches = beachDao.findAll();
         dataModel.put("beaches", beaches);
         dataModel.put("actualBeach", actualBeach);
-        dataModel.put("bodytemplate", "hello");
+        dataModel.put("bodytemplate", "switch-beach");
         Template template = TemplateProvider.createTemplate(getServletContext(), "basepage.ftlh");
 
         PrintWriter printWriter = resp.getWriter();
@@ -51,6 +49,6 @@ public class HelloServlet extends HttpServlet {
             LOG.error("Error while loading freemarker template", e);
         }
 
-        req.getRequestDispatcher("parawan/make-reservation").forward(req, resp);
+        req.getRequestDispatcher("parawan/main-menu").forward(req, resp);
     }
 }
