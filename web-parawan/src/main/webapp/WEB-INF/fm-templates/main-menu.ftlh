@@ -17,6 +17,10 @@
             </button>
             <button type="button" class="btn btn-primary" onclick="location.href = '/parawan/switch-beach';">Switch beach
             </button>
+            <#if (userSession.admin == true)??>
+            <button type="button" class="btn btn-primary" onclick="location.href = '/parawan/admin';">Admin options
+            </button>
+            </#if>
         </div>
     </div>
     <div class="col-md-9">

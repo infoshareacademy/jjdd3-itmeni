@@ -95,10 +95,22 @@ public class GenerateRandomData extends HttpServlet {
         itemDao.save(umbrella2);
         itemDao.save(towel2);
         itemDao.save(sunbed2);
-        User pr0admin = new User("Admin", "admin@admin.admin");
-        User pr0user = new User("Qwerty", "qwerty@qwerty.qwerty");
-        userDao.save(pr0admin);
+        User pr0admin1 = new User("Krzysiek", "prezydium834@gmail.com");
+        User pr0admin2 = new User("Bartek", "bartlomiej.korespondencja@gmail.com");
+        User pr0admin3 = new User("Szymon", "itmeni.parawantest@gmail.com");
+        pr0admin1.setAdmin(true);
+        pr0admin2.setAdmin(true);
+        pr0admin3.setAdmin(true);
+        User pr0user = new User("Qwerty", "password@o2.pl");
+        userDao.save(pr0admin1);
+        userDao.save(pr0admin2);
+        userDao.save(pr0admin3);
         userDao.save(pr0user);
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         resp.sendRedirect("/parawan/main-menu");
     }
 }

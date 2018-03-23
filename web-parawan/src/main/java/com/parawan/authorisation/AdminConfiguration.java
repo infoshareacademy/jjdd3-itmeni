@@ -9,7 +9,6 @@ public class AdminConfiguration {
     public AdminConfiguration() {
     }
 
-
     public List<String> getAdmins() {
         return admins;
     }
