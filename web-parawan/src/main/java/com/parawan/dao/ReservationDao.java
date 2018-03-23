@@ -80,6 +80,10 @@ public class ReservationDao {
         Query query = entityManager.createQuery("SELECT r FROM Reservation r WHERE r.nameOfPerson = :param1 AND r.beach = :beach");
         query.setParameter("param1", name);
         query.setParameter("beach", beachDao.findById(actualBeach.getId()));
-        return (List<Reservation>) query.getResultList();
+        List<Reservation> reservations = null;
+        if (query.getResultList() != null){
+          reservations = (List<Reservation>) query.getResultList();
+        }
+        return reservations;
     }
 }

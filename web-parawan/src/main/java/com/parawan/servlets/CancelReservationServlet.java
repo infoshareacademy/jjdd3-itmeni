@@ -82,6 +82,6 @@ public class CancelReservationServlet extends HttpServlet {
 
         reservationDao.deleteByHourAndId(cancelationHour, cancelationId, beachDao.findById(actualBeach.getId()));
 
-        resp.sendRedirect("/parawan/main-menu");
+        resp.sendRedirect("/parawan/cancel-reservation");
     }
 }
