@@ -99,7 +99,7 @@ public class GenerateRandomData extends HttpServlet {
         User pr0user = new User("Qwerty", "qwerty@qwerty.qwerty");
         userDao.save(pr0admin);
         userDao.save(pr0user);
-        resp.sendRedirect("/parawan/main-menu");
+        resp.sendRedirect("/login");
     }
 }
 
