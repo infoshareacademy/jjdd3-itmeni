@@ -5,6 +5,8 @@ import com.parawan.dao.BeachDao;
 import com.parawan.dao.ReservationDao;
 import com.parawan.freemarker.TemplateProvider;
 import com.parawan.model.ActualBeach;
+import com.parawan.model.Reservation;
+import com.parawan.model.UserSession;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
 
@@ -38,19 +40,26 @@ public class CancelReservationServlet extends HttpServlet {
     @Inject
     private BeachDao beachDao;
 
+    @Inject
+    private UserSession userSession;
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         int firstId = 1;
         int lastId = (actualBeach.getMaxWidth()) * (actualBeach.getMaxHeight());
+        List<Reservation> reservations = reservationDao.findByName(userSession.getEmail());
         Template template = TemplateProvider.createTemplate(getServletContext(), "basepage.ftlh");
         PrintWriter printWriter = resp.getWriter();
 
         Map<String, Object> dataModel = new HashMap<>();
+
+        dataModel.put("reservations", reservations);
         dataModel.put("actualBeach", actualBeach);
         dataModel.put("bodytemplate", "cancel-reservation");
         dataModel.put("firstId", firstId);
         dataModel.put("lastId", lastId);
+
         List<String> errors = (List<String>) req.getSession().getAttribute("errors");
         if (errors != null && !errors.isEmpty()) {
             dataModel.put("errors", errors);

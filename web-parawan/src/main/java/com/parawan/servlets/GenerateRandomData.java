@@ -41,7 +41,7 @@ public class GenerateRandomData extends HttpServlet {
 
     private void fillDatabase(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 
-        Beach beach = new Beach(null, "Brzeźno", 20, 10);
+        Beach beach = new Beach(null, "Brzezno", 20, 10);
         beachDao.save(beach);
         Beach beach2 = new Beach(null, "Stogi", 10, 10);
         beachDao.save(beach2);
