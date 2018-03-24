@@ -35,13 +35,15 @@ public class GenerateRandomData extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws IOException {
-
-        fillDatabase(req, resp);
+        if (beachDao.findAll() == null || beachDao.findAll().isEmpty()){
+            fillDatabase(req, resp);
+        }
+        else resp.sendRedirect("/login");
     }
 
     private void fillDatabase(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 
-        Beach beach = new Beach(null, "Brzezno", 20, 10);
+        Beach beach = new Beach(null, "Jelitkowo", 20, 10);
         beachDao.save(beach);
         Beach beach2 = new Beach(null, "Stogi", 10, 10);
         beachDao.save(beach2);

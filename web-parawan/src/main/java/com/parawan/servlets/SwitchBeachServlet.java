@@ -48,7 +48,5 @@ public class SwitchBeachServlet extends HttpServlet {
         } catch (TemplateException e) {
             LOG.error("Error while loading freemarker template", e);
         }
-
-        req.getRequestDispatcher("parawan/main-menu").forward(req, resp);
     }
 }
