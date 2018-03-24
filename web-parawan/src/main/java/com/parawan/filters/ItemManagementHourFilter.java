@@ -37,7 +37,7 @@ public class ItemManagementHourFilter extends IntegerValidator implements Filter
         if (!isIntegerParameterValid("hourFromForm", httpRequest)) {
             messages.add(UserOperationsMessages.HOUR_NOT_INTEGER);
             isValidationOK = false;
-        } else if (!isIntegerParameterInScope("hourFromForm", httpRequest)) {
+        } else if (!isHourIntegerParameterInScope("hourFromForm", httpRequest)) {
             messages.add(UserOperationsMessages.CLOSED);
             isValidationOK = false;
         }

@@ -37,7 +37,7 @@ public class MakeReservationStatusFilter extends IntegerValidator implements Fil
         if (!isIntegerParameterValid("status", httpRequest)) {
             messages.add(UserOperationsMessages.HOUR_NOT_INTEGER);
             isValidationOK = false;
-        } else if (!isIntegerParameterInScope("status", httpRequest)) {
+        } else if (!isHourIntegerParameterInScope("status", httpRequest)) {
             messages.add(UserOperationsMessages.CLOSED);
             isValidationOK = false;
         }
