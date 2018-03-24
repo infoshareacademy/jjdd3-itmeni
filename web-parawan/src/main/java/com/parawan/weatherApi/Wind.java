@@ -20,7 +20,7 @@ public class Wind {
     @Override
     public String toString() {
         final StringBuffer sb = new StringBuffer("Wind");
-        sb.append(" speed: ").append(speed).append("m/s");
+        sb.append(" speed: ").append(speed).append(" m/s");
         return sb.toString();
     }
 }
