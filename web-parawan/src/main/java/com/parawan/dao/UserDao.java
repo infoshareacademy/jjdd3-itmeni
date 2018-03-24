@@ -14,7 +14,6 @@ public class UserDao {
     @PersistenceContext
     private EntityManager entityManager;
 
-
     public void save(User user) {
         entityManager.persist(user);
     }
@@ -31,16 +30,6 @@ public class UserDao {
     public User findByMail(String email) {
         Query query = entityManager.createQuery("SELECT u FROM User u WHERE u.email =:param");
         query.setParameter("param", email);
-        User user = null;
-        if (!query.getResultList().isEmpty()) {
-            user = (User) query.getResultList().get(0);
-        }
-        return user;
-    }
-
-    public User getUserToLogIn(String email) {
-        Query query = entityManager.createQuery("SELECT u FROM User u WHERE u.email =:param1");
-        query.setParameter("param1", email);
         User user = null;
         if (!query.getResultList().isEmpty()) {
             user = (User) query.getResultList().get(0);

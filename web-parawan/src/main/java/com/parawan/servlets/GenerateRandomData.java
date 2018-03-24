@@ -113,7 +113,6 @@ public class GenerateRandomData extends HttpServlet {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        resp.sendRedirect("/parawan/main-menu");
     }
 }
 

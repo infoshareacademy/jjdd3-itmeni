@@ -90,7 +90,7 @@ public class LoginServlet extends HttpServlet {
     }
 
     private boolean attemptToLogIn(String email) {
-        User user = userDao.getUserToLogIn(email);
+        User user = userDao.findByMail(email);
         if (user.isAdmin()){
             userSession.setAdmin(true);
         }
