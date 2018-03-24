@@ -26,6 +26,9 @@ public class IntegerValidator {
     }
 
     public boolean isIntegerParameterInScope(String parameterKey, HttpServletRequest servletRequest){
+        if (servletRequest.getParameter(parameterKey) == null){
+            return false;
+        }
         int parameter =Integer.parseInt(servletRequest.getParameter(parameterKey));
         if(parameter>8 && parameter <19){
             return true;

@@ -20,9 +20,15 @@
 </#if>
 <div class="row">
     <div class="col-md-3">
+        <form action="/parawan/make-reservation-next" method="get">
+        Switch hour: <input type="number" name="chosenHour" value="${hourFromLastStep}" min="9" max="19"
+                            required/><br/>
+            <input type="hidden" name = "chosenId" value="${idFromLastStep}">
+            <input type="submit" class="btn btn-primary" value="Switch hour"/><br/><br/>
+        </form>
         <form method="post" action="/parawan/make-reservation-next">
-            Choose hour: <input type="number" name="chosenHour" value="${hourFromLastStep}" min="9" max="19"
-                                required/><br/><br/>
+            <input type="hidden" name="chosenHour" value="${hourFromLastStep}">
+            <input type="hidden" name = "chosenId" value="${idFromLastStep}">
             Choosen ID: ${idFromLastStep}<br/><br/>
             Reserving as: <br/>${userSession.email}<br/><br/>
             Rent a screen:<br/><label><input type="radio" name="chosenScreen" value="s"/>&nbsp;yes</label>
