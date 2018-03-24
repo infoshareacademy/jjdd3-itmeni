@@ -6,31 +6,30 @@ import java.util.regex.Pattern;
 
 public class IntegerValidator {
 
-    public boolean isIntegerParameterValid (String parameterKey, HttpServletRequest servletRequest){
+    public boolean isIntegerParameterValid(String parameterKey, HttpServletRequest servletRequest) {
         String parameter = servletRequest.getParameter(parameterKey);
         HttpServletRequest httpRequest = (HttpServletRequest) servletRequest;
         boolean isGet = httpRequest.getMethod().equalsIgnoreCase("get");
 
-        if (parameter == null || parameter.isEmpty()){
+        if (parameter == null || parameter.isEmpty()) {
             return !isGet;
         }
 
         Pattern integerPattern = Pattern.compile("\\d+");
         Matcher matcher = integerPattern.matcher(parameter);
 
-        if(!matcher.matches()){
+        if (!matcher.matches()) {
             return false;
         }
-
         return true;
     }
 
-    public boolean isIntegerParameterInScope(String parameterKey, HttpServletRequest servletRequest){
-        if (servletRequest.getParameter(parameterKey) == null){
+    public boolean isIntegerParameterInScope(String parameterKey, HttpServletRequest servletRequest) {
+        if (servletRequest.getParameter(parameterKey) == null) {
             return false;
         }
-        int parameter =Integer.parseInt(servletRequest.getParameter(parameterKey));
-        if(parameter>8 && parameter <19){
+        int parameter = Integer.parseInt(servletRequest.getParameter(parameterKey));
+        if (parameter > 8 && parameter < 19) {
             return true;
         }
         return false;

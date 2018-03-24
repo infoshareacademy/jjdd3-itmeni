@@ -46,9 +46,8 @@ public class MainMenuServlet extends HttpServlet {
         Template template = TemplateProvider.createTemplate(getServletContext(), "basepage.ftlh");
         dataModel.put("actualBeach", actualBeach);
         dataModel.put("bodytemplate", "main-menu");
-        if(userSession.isAdmin()){
-            dataModel.put("userSession", userSession);
-        }
+        dataModel.put("userSession", userSession);
+
 
         PrintWriter printWriter = resp.getWriter();
         try {

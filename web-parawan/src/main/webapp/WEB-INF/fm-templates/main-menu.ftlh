@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="col-md-3">
+    <div class="col-md-4">
         <div class="btn-group-vertical">
             <button type="button" class="btn btn-primary"
                     onclick="location.href = '/parawan/make-reservation?status=9';">
@@ -23,11 +23,12 @@
             </#if>
         </div>
     </div>
-    <div class="col-md-9">
+    <div class="col-md-8">
         <div>
             <br/>
-            Welcome to our wonderful beaches. You are currently on the ${actualBeach.name}.</br>
-            Please choose options on the left panel.</br>
+            <h2>Hello ${(userSession.name)!""}</h2>
+            Welcome to our wonderful beaches. You are currently on the ${(actualBeach.name)! "definitly not any beach"}.</br>
+            Please choose option from the left panel.</br>
             If you have any opinion on our services please contact us at beaches4everyone@parawan.com.</br>
             We hope that you will have a great time with us!</br>
         </div>

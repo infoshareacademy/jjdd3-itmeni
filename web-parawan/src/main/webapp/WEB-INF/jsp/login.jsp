@@ -8,9 +8,11 @@
     <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
 </head>
 
-<body>
+<body style="background: antiquewhite">
+<div style="position: fixed; top: 45%; left: 45%">
 <div id="my-signin2" data-onsuccess="onSignIn"></div>
 <div class="g-signin2" data-onsuccess="onSignIn"></div>
+</div>
 <script>
     function onSignIn(googleUser) {
         var profile = googleUser.getBasicProfile();
@@ -22,7 +24,7 @@
 
         var redirectUrl = 'login';
 
-        var form = $('<form action="' + redirectUrl + '" method="post">' +
+        var form = $('<form style="size: A4" action="' + redirectUrl + '" method="post">' +
             '<input type="text" name="id_token" value="' +
             googleUser.getAuthResponse().id_token + '" />' +
             '</form>');
