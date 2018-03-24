@@ -14,20 +14,17 @@
 </#if>
 <#if ((isReserved == true)??) >
 <div class="alert alert-dismissible alert-success">
-    <button type="button" class="close" data-dismiss="alert">&times;</button>
-    <strong>Great!</strong> You successfully reserved a place! <a href="/parawan/main-menu" class="alert-link">Go
-    back to main menu.</a>
+    <button type="button" class="close" data-dismiss="alert">&times;</button><a href="/parawan/main-menu" class="alert-link">
+    <strong>Great!</strong> You successfully reserved a place! Click here to go back to main menu.</a>
 </div>
 </#if>
-    <h1>Please fill all fields to make a reservation</h1>
 <div class="row">
-    <div class="col-md-2">
+    <div class="col-md-3">
         <form method="post" action="/parawan/make-reservation-next">
             Choose hour: <input type="number" name="chosenHour" value="${hourFromLastStep}" min="9" max="19"
                                 required/><br/><br/>
-            Choose ID: <input type="number" name="chosenId" value="${idFromLastStep}" min="${firstId}" max="${lastId}"
-                              required/><br/><br/>
-            Reserving as: <br/><b>${userSession.email}<b/><br/><br/>
+            Choosen ID: ${idFromLastStep}<br/><br/>
+            Reserving as: <br/>${userSession.email}<br/><br/>
             Rent a screen:<br/><label><input type="radio" name="chosenScreen" value="s"/>&nbsp;yes</label>
             <label><input type="radio" name="chosenScreen" value="z" checked/>&nbsp;no</label><br/><br/>
             Rent an umbrella:<br/>  <label><input type="radio" name="chosenUmbrella" value="u"/>&nbsp;yes</label>
@@ -39,7 +36,7 @@
             <input type="submit" class="btn btn-primary" name="save" value="make reservation"/><br/><br/>
         </form>
     </div>
-    <div class="col-md-10">
+    <div class="col-md-9">
         <table class="table">
             <tbody>
         <#list places as place>
@@ -61,5 +58,6 @@
         </#list>
             </tbody>
         </table>
+        <div class="btn btn-block btn-info">SEA</div>
     </div>
 </div>

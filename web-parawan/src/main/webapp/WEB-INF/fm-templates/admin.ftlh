@@ -8,7 +8,7 @@
 <#if ((createdBeach == true)??) >
 <div class="alert alert-dismissible alert-success">
     <button type="button" class="close" data-dismiss="alert">&times;</button>
-    <strong>Great!</strong> You successfully created a new beach <a href="/hello-servlet" class="alert-link">Go
+    <strong>Great!</strong> You successfully created a new beach <a href="/parawan/change-beach" class="alert-link">Go
     back to welcome screen to change to new beach.</a>
 </div>
 </#if>
