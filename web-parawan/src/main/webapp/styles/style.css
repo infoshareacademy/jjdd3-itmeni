@@ -57,3 +57,11 @@ a {
     padding: 0.5rem;
 }
 
+.weather-margin {
+    margin-left: 25%;
+}
+
+.weather-margin-list {
+    margin: auto;
+    width: 17%;
+}

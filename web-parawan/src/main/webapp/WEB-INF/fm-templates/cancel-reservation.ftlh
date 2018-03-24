@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col">
-    <h2>Please fill below to cancel your reservation:</h2>
+    <h3>Please fill below to cancel your reservation:</h3>
     </div>
 </div>
 <div class="row">

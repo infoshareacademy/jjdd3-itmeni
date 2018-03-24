@@ -38,10 +38,12 @@ public class WeatherForecastServlet extends HttpServlet {
 
         ListOfWeatherComponents[] listOfWeatherComponents = jsonParser.getWeatherForecast().getList();
         List<String> weatherComponentsInList = new ArrayList<>();
-        for(int i = 0; i<9; i++){
+        for(int i = 0; i<9; i=i+2){
+
             weatherComponentsInList.add(listOfWeatherComponents[i].getDtTxt());
             weatherComponentsInList.add(listOfWeatherComponents[i].getWeather()[0].toString());
             weatherComponentsInList.add(listOfWeatherComponents[i].getMain().toString());
+            weatherComponentsInList.add("Pressure: "+listOfWeatherComponents[i].getMain().getPressure()+" hPa");
             weatherComponentsInList.add(listOfWeatherComponents[i].getWind().toString());
             weatherComponentsInList.add("");
         }

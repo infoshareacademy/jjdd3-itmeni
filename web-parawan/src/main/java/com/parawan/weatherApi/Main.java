@@ -32,9 +32,7 @@ public class Main {
     @Override
     public String toString() {
         final StringBuffer sb = new StringBuffer("");
-        sb.append("Temperature: ").append(temp).append("\u00b0").append("C");
-        sb.append("\n");
-        sb.append("Pressure: ").append(pressure).append("hPa");
+        sb.append("Temperature: ").append(temp).append(" C");
         return sb.toString();
     }
 }
