@@ -27,7 +27,6 @@ import java.util.List;
 public class LoginServlet extends HttpServlet {
     private static final Logger logger = LoggerFactory.getLogger(LoginServlet.class);
 
-
     @Inject
     private UserSession userSession;
 
@@ -73,7 +72,7 @@ public class LoginServlet extends HttpServlet {
                     userDao.save(user);
                 }
 
-                if (attemptToLogIn(email, name)) {
+                if (attemptToLogIn(email)) {
                     userSession.setLogged(true);
                     setActualBeachIfNotSet(actualBeach);
                     resp.sendRedirect("/parawan/main-menu");
@@ -90,8 +89,11 @@ public class LoginServlet extends HttpServlet {
         }
     }
 
-    private boolean attemptToLogIn(String email, String name) {
-        User user = userDao.getUserToLogIn(email, name);
+    private boolean attemptToLogIn(String email) {
+        User user = userDao.findByMail(email);
+        if (user.isAdmin()){
+            userSession.setAdmin(true);
+        }
         if (user != null) {
             userSession.setName(user.getName());
             userSession.setEmail(user.getEmail());
@@ -115,6 +117,4 @@ public class LoginServlet extends HttpServlet {
         }
         return actualBeach;
     }
-
-
 }

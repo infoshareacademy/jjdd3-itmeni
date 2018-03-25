@@ -11,16 +11,14 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 @WebFilter(
-        filterName = "MakeReservationHourReservationFilter",
+        filterName = "MakeReservationFilter",
         urlPatterns = {"/parawan/make-reservation-next"}
 )
 
-public class MakeReservationHourReservationFilter extends IntegerValidator implements Filter {
-    private static final Logger LOG = LoggerFactory.getLogger(MakeReservationHourReservationFilter.class);
+public class MakeReservationFilter extends IntegerValidator implements Filter {
+    private static final Logger LOG = LoggerFactory.getLogger(MakeReservationFilter.class);
 
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
@@ -40,11 +38,20 @@ public class MakeReservationHourReservationFilter extends IntegerValidator imple
             isValidationOK = false;
         }
 
-        else if(!isIntegerParameterInScope("chosenHour", httpRequest)){
+        else if(!isHourIntegerParameterInScope("chosenHour", httpRequest)){
             messages.add(UserOperationsMessages.CLOSED);
             isValidationOK = false;
         }
 
+        else if (!isIntegerParameterValid("chosenId", httpRequest)){
+            messages.add(UserOperationsMessages.ID_NOT_INTEGER);
+            isValidationOK = false;
+        }
+
+        else if (!isPlaceIdIntegerParameterInScope("chosenId", httpRequest)){
+            messages.add(UserOperationsMessages.ID_OUT_OF_RANGE);
+            isValidationOK = false;
+        }
         if(!isValidationOK){
             httpRequest.getSession().setAttribute("errors", messages);
             httpResponse.sendRedirect("/parawan/make-reservation?status=9");

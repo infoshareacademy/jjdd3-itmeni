@@ -5,7 +5,7 @@
 </div>
 <div class="row">
     <div class="col">
-    <p>Beach is open from 9:00 to 19:00</p>
+    <p>Remember that you can only cancel your reservations!</p>
     </div>
 </div>
 <div class="row">

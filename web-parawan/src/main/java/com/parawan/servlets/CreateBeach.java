@@ -2,6 +2,7 @@ package com.parawan.servlets;
 
 import com.parawan.dao.BeachDao;
 import com.parawan.dao.ItemDao;
+import com.parawan.filters.IntegerValidator;
 import com.parawan.model.Beach;
 import com.parawan.model.Item;
 import org.junit.jupiter.api.BeforeEach;
@@ -31,11 +32,14 @@ public class CreateBeach extends HttpServlet {
                || req.getParameter("beachX") == null
                || req.getParameter("beachY") == null){
             resp.sendRedirect("/parawan/admin");
+        } else  if ( !new IntegerValidator().isIntegerParameterValid("beachX", req)
+        || !new IntegerValidator().isIntegerParameterValid("beachY", req )){
+            resp.sendRedirect("/parawan/admin");
         } else {
             Beach newBeach = new Beach(null,
                     req.getParameter("beachName"),
-                    Integer.parseInt(req.getParameter("beachX")),
-                    Integer.parseInt(req.getParameter("beachY")));
+                    Math.abs(Integer.parseInt(req.getParameter("beachX"))),
+                    Math.abs(Integer.parseInt(req.getParameter("beachY"))));
 
             beachDao.save(newBeach);
             addDefaultItems(newBeach);

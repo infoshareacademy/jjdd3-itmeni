@@ -16,11 +16,11 @@
     <input type="submit" value="check items"/><br/><br/>
 </form>
 
-      <#if (hour > 8 && hour <19) >
+      <#if (hour > 8 && hour <=19) >
         <p>At ${hour}:00 we have:</p>
         <p>Screens: ${(items[0])! "Nothing found in database what could be "} available for rent</p>
         <p>Umbrellas: ${(items[1])! "Nothing found in database what could be "}  available for rent</p>
-        <p>Towels: ${(items[02])! "Nothing found in database what could be "}  available for rent</p>
+        <p>Towels: ${(items[2])! "Nothing found in database what could be "}  available for rent</p>
         <p>sunbeds: ${(items[3])! "Nothing found in database what could be"}  available for rent</p>
 
       </#if>
