@@ -19,6 +19,5 @@ services:
       - db
     links:
       - db
-    extra_hosts:
-      - "api.openweathermap.org:146.185.181.89"
+    dns: 8.8.8.8
 
