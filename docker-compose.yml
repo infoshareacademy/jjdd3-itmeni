@@ -21,3 +21,4 @@ services:
       - db
     extra_hosts:
       - "api.openweathermap.org:146.185.181.89"
+
