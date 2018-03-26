@@ -26,7 +26,7 @@
     <div class="col-md-8">
         <div>
             <br/>
-            <h2>Hello ${(userSession.name)!""}</h2>
+            <h2>Hello ${(userSession.email)!""}</h2>
             Welcome to our wonderful beaches. You are currently on the ${(actualBeach.name)! "definitly not any beach"}.</br>
             Please choose option from the left panel.</br>
             If you have any opinion on our services please contact us at beaches4everyone@parawan.com.</br>

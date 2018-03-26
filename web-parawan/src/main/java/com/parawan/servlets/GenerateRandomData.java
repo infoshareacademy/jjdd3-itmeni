@@ -99,15 +99,19 @@ public class GenerateRandomData extends HttpServlet {
         itemDao.save(sunbed2);
         User pr0admin1 = new User("Krzysiek", "prezydium834@gmail.com");
         User pr0admin2 = new User("Bartek", "bartlomiej.korespondencja@gmail.com");
-        User pr0admin3 = new User("Szymon", "itmeni.parawantest@gmail.com");
+        User pr0user2 = new User("Szymon", "itmeni.parawantest@gmail.com");
+        User pr0admin4 = new User("iSA", "isaloginjava@gmail.com");
+
         pr0admin1.setAdmin(true);
         pr0admin2.setAdmin(true);
-        pr0admin3.setAdmin(true);
+
+        pr0admin4.setAdmin(true);
         User pr0user = new User("Qwerty", "password@o2.pl");
         userDao.save(pr0admin1);
         userDao.save(pr0admin2);
-        userDao.save(pr0admin3);
+        userDao.save(pr0user2);
         userDao.save(pr0user);
+        userDao.save(pr0admin4);
         try {
             Thread.sleep(5000);
         } catch (InterruptedException e) {
